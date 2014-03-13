@@ -4,9 +4,19 @@ class Solutions
 {
 	function __construct()
 	{
-		add_action('init', array($this, 'Add_custom_Post'));
+		add_action('init', array($this, 'init'));
+		add_action('init', array($this, 'rewrite_rules'));
+		add_action('template_redirect', array($this, 'form'));
+		add_action('wp_ajax_resetpass', array($this, 'form'));
+		add_action('wp_ajax_nopriv_resetpass', array($this, 'form'));
+		add_filter('query_vars', array($this, 'print_variables'));
 	}
 
+	function init()
+	{
+		$this->Add_custom_Post();
+	}
+	
 	function Add_custom_Post()
 	{
 		$labels = array
@@ -41,9 +51,9 @@ class Solutions
 				'capability_type' => array('solution','solutions'),
 				'map_meta_cap' => true,
 				'hierarchical' => false,
-				'supports' => array('title', 'editor', 'author', 'excerpt', 'trackbacks', 'revisions', 'comments'),
+				'supports' => array('title', 'editor', 'author', 'excerpt', 'trackbacks','thumbnail', 'revisions', 'comments'),
 				'register_meta_box_cb' => array($this, 'minka_solution_custom_meta'), // função para chamar na edição
-				//'taxonomies' => array('post_tag'), // Taxionomias já existentes relaciondas, vamos criar e registrar na sequência
+				'taxonomies' => array('post_tag','category'), // Taxionomias já existentes relaciondas, vamos criar e registrar na sequência
 				'permalink_epmask' => 'EP_PERMALINK ',
 				'has_archive' => true, // Opção de arquivamento por slug
 				'rewrite' => true,
@@ -63,60 +73,84 @@ class Solutions
 		add_meta_box("solution_meta", "Solution Details", array($this, 'solution_meta'), 'solution', 'side', 'default');
 	}
 	
+	protected $_customs = array
+	(
+		'url' => array
+		(
+			'slug' => 'url',
+			'title' => 'URL',
+			'tip' => 'web address',
+			'required' => true
+		),
+		'created-date' => array
+		(
+			'slug' => 'created-date',
+			'title' => 'Created date',
+			'tip' => 'since when is available',
+			'required' => false,
+			'type' => 'date',
+		),
+		'coverage' => array
+		(
+			'slug' => 'coverage',
+			'title' => 'Coverage',
+			'tip' => 'Country/ies where available'
+		),
+		'country' => array
+		(
+			'slug' => 'country',
+			'title' => 'Country where it was created',
+			'tip' => 'Where arises'
+		),
+		'facebook' => array
+		(
+			'slug' => 'facebook',
+			'title' => 'Facebook',
+			'tip' => ''
+		),
+		'twitter' => array
+		(
+			'slug' => 'twitter',
+			'title' => 'Twitter',
+			'tip' => ''
+		),
+		'contact' => array
+		(
+			'slug' => 'contact',
+			'title' => 'Contact',
+			'tip' => 'e-mail',
+			'required' => true
+		),
+	);
+	
+	function getFields()
+	{
+		$post = array(
+			'post_title' => array(
+				'slug' => 'post_title',
+				'title' => 'Solution name',
+				'tip' => '',
+				'required' => true
+			),
+			'post_content' => array(
+				'slug' => 'post_content',
+				'title' => 'Description',
+				'tip' => 'Maximum 300 characters',
+				'required' => true
+			),
+		);
+		
+		return array_merge($post, $this->_customs);
+	}
+	
 	function solution_meta()
 	{
-		/*
 		global $post;
+		
 		$custom = get_post_custom($post->ID);
-		$options_plugin_delibera = delibera_get_config();
-	
 		if(!is_array($custom)) $custom = array();
-		$validacoes = array_key_exists("numero_validacoes", $custom) ?  $custom["numero_validacoes"][0] : 0;
-	
-		$min_validacoes = array_key_exists("min_validacoes", $custom) ?  $custom["min_validacoes"][0] : htmlentities($options_plugin_delibera['minimo_validacao']);
-	
-		$situacao = delibera_get_situacao($post->ID);
-	
-		$dias_validacao = intval(htmlentities($options_plugin_delibera['dias_validacao']));
-		$dias_discussao = intval(htmlentities($options_plugin_delibera['dias_discussao']));
-		$dias_relatoria = intval(htmlentities($options_plugin_delibera['dias_relatoria']));
-		$dias_votacao_relator = intval(htmlentities($options_plugin_delibera['dias_votacao_relator']));
-	
-		if($options_plugin_delibera['validacao'] == "S") // Adiciona prazo de validação se for necessário
-		{
-			$dias_discussao += $dias_validacao;
-		}
-	
-		$dias_votacao = $dias_discussao + intval(htmlentities($options_plugin_delibera['dias_votacao']));
-	
-		if($options_plugin_delibera['relatoria'] == "S") // Adiciona prazo de relatoria se for necessário
-		{
-			$dias_votacao += $dias_relatoria;
-			$dias_relatoria += $dias_discussao;
-			if($options_plugin_delibera['eleicao_relator'] == "S") // Adiciona prazo de vatacao relator se for necessário
-			{
-				$dias_votacao += $dias_votacao_relator;
-				$dias_relatoria += $dias_votacao_relator;
-				$dias_votacao_relator += $dias_discussao;
-			}
-		}
-	
-		$now = strtotime(date('Y/m/d')." 11:59:59");
-	
-		$prazo_validacao_sugerido = strtotime("+$dias_validacao days", $now);
-		$prazo_discussao_sugerido = strtotime("+$dias_discussao days", $now);
-		$prazo_eleicao_relator_sugerido = strtotime("+$dias_votacao_relator days", $now);
-		$prazo_relatoria_sugerido = strtotime("+$dias_relatoria days", $now);
-		$prazo_votacao_sugerido = strtotime("+$dias_votacao days", $now);
-	
-		$prazo_validacao = date('d/m/Y', $prazo_validacao_sugerido);
-		$prazo_discussao = date('d/m/Y', $prazo_discussao_sugerido);
-		$prazo_eleicao_relator = date('d/m/Y', $prazo_eleicao_relator_sugerido);
-		$prazo_relatoria = date('d/m/Y', $prazo_relatoria_sugerido);
-		$prazo_votacao = date('d/m/Y', $prazo_votacao_sugerido);
-	
+		
 		if (
-				$options_plugin_delibera['representante_define_prazos'] == "N" &&
 				!($post->post_status == 'draft' ||
 						$post->post_status == 'auto-draft' ||
 						$post->post_status == 'pending')
@@ -126,61 +160,214 @@ class Solutions
 		} else {
 			$disable_edicao = '';
 		}
-	
-		if(!($post->post_status == 'draft' ||
-				$post->post_status == 'auto-draft' ||
-				$post->post_status == 'pending'))
+		
+		foreach ($this->_customs as $slug => $campo )
 		{
-			$prazo_validacao = array_key_exists("prazo_validacao", $custom) ?  $custom["prazo_validacao"][0] : $prazo_validacao;
-			$prazo_discussao = array_key_exists("prazo_discussao", $custom) ?  $custom["prazo_discussao"][0] : $prazo_discussao;
-			$prazo_eleicao_relator = array_key_exists("prazo_eleicao_relator", $custom) ?  $custom["prazo_eleicao_relator"][0] : $prazo_eleicao_relator;
-			$prazo_relatoria = array_key_exists("prazo_relatoria", $custom) ?  $custom["prazo_relatoria"][0] : $prazo_relatoria;
-			$prazo_votacao = array_key_exists("prazo_votacao", $custom) ?  $custom["prazo_votacao"][0] : $prazo_votacao;
-		}
-	
-		if($options_plugin_delibera['validacao'] == "S")
-		{
+			$dado = array_key_exists($slug, $custom) ? $custom[$slug] : '';
+			
 			?>
-			<p>	
-				<label for="min_validacoes" class="label_min_validacoes"><?php _e('Mínimo de Validações','delibera'); ?>:</label>
-				<input <?php echo $disable_edicao ?> id="min_validacoes" name="min_validacoes" class="min_validacoes widefat" value="<?php echo $min_validacoes; ?>"/>
-			</p>
 			<p>
-				<label for="prazo_validacao" class="label_prazo_validacao"><?php _e('Prazo para Validação','delibera') ?>:</label>
-				<input <?php echo $disable_edicao ?> id="prazo_validacao" name="prazo_validacao" class="prazo_validacao widefat hasdatepicker" value="<?php echo $prazo_validacao; ?>"/>
+				<label for="<?php echo $slug; ?>" class="<?php echo 'label_'.$slug; ?>"><?php echo $campo['title'] ?>:</label>
+				<input <?php echo $disable_edicao ?> id="<?php echo $slug; ?>" name="<?php echo $slug; ?>" class="<?php echo $slug.(array_key_exists('type', $campo) && $campo['type'] == 'date' ? 'hasdatepicker' : '') ; ?> " value="<?php echo $dado; ?>"/>
 			</p>
-		<?php
-		} 
-		?>
-		<p>
-			<label for="prazo_discussao" class="label_prazo_discussao"><?php _e('Prazo para Discussões','delibera') ?>:</label>
-			<input <?php echo $disable_edicao ?> id="prazo_discussao" name="prazo_discussao" class="prazo_discussao widefat hasdatepicker" value="<?php echo $prazo_discussao; ?>"/>
-		</p>
-		<?php 
-		if($options_plugin_delibera['relatoria'] == "S")
-		{
-			if($options_plugin_delibera['eleicao_relator'] == "S")
-			{
-			?>
-				<p>
-					<label for="prazo_eleicao_relator" class="label_prazo_eleicao_relator"><?php _e('Prazo para Eleição de Relator','delibera') ?>:</label>
-					<input <?php echo $disable_edicao ?> id="prazo_eleicao_relator" name="prazo_eleicao_relator" class="prazo_eleicao_relator widefat hasdatepicker" value="<?php echo $prazo_eleicao_relator; ?>"/>
-				</p>
 			<?php
-			}
-		?>
-			<p>
-				<label for="prazo_relatoria" class="label_prazo_relatoria"><?php _e('Prazo para Relatoria','delibera') ?>:</label>
-				<input <?php echo $disable_edicao ?> id="prazo_relatoria" name="prazo_relatoria" class="prazo_relatoria widefat hasdatepicker" value="<?php echo $prazo_relatoria; ?>"/>
-			</p>
-		<?php
+			
 		}
-		?>
-		<p>
-			<label for="prazo_votacao" class="label_prazo_votacao"><?php _e('Prazo para Votações','delibera') ?>:</label>
-			<input <?php echo $disable_edicao ?> id="prazo_votacao" name="prazo_votacao" class="prazo_votacao widefat hasdatepicker" value="<?php echo $prazo_votacao; ?>"/>
-		</p>
-		<?php */
+	}
+	
+	function taxonomy_checklist($taxonomy = 'category', $parent = 0)
+	{
+		/*global $posts, $wpdb;
+	
+		$terms = array();
+		$terms_ids = array();
+	
+	
+		$posts_ids = $wpdb->get_col("SELECT post_id FROM $wpdb->postmeta WHERE meta_key ='_mpv_inmap' ");
+	
+		foreach($posts_ids as $post_id)
+		{
+			$_terms = get_the_terms($post_id, $taxonomy);
+	
+			if(is_array($_terms))
+			{
+				foreach($_terms as $_t)
+				{
+					if(!in_array($_t->term_id,$terms_ids) && $_t->parent == $parent)
+					{
+						$terms_ids[] = $_t->term_id;
+						$key = $_t->name;
+						$ikey = filter_var($_t->name, FILTER_SANITIZE_NUMBER_INT);
+						if(intval($ikey) > 0)
+						{
+							$key = substr($ikey, 2).substr($ikey, 0, 2);// TODO arrumar um jeito de definir para datas
+						}
+						$terms[$key] = $_t;
+					}
+				}
+			}
+		}*/
+		
+		$args = array(
+				'orderby' => 'id',
+				'hide_empty'=> 0,
+				'parent' => $parent,
+				'hierarchical' => 0,
+				'taxonomy'=>$taxonomy
+				
+		);
+		global $sitepress;
+		$sitepress->switch_lang('es');
+		$terms = get_terms($taxonomy, $args);
+		//print_r($terms);
+	
+		if (!is_array($terms) || ( is_array($terms) && sizeof($terms) < 1 ) )
+		{
+			return;
+		}
+		/*$terms_keys = array_keys($terms);
+		natcasesort($terms_keys);
+		$terms_a = $terms;
+		$terms = array();
+		foreach ($terms_keys as $key)
+		{
+			$terms[] = $terms_a[$key];
+		}*/
+	
+	
+		if($parent == 0): ?>
+			<?php $tax = get_taxonomy($taxonomy); ?>
+			<li class="category-group-col"><h3><?php echo $tax->label; ?></h3>
+		<?php endif; ?>
+			<?php if ($parent > 0): ?>
+				<ul class='children'>
+			<?php endif; ?>
+	
+			<?php foreach ($terms as $term):
+				$name = $term->name;
+				$input = '';
+				if(strpos($name, '#input#') !== false)
+				{
+					$name = str_replace('#input#', '', $name);
+					$input = '<input type="text" class="taxonomy-category-checkbox-text" name="category_'.$taxonomy.'_input[]" id="category_'.$taxonomy.'_'.$term->slug.'_input" />';
+				}				
+			?>
+				<li class="category-group-col">
+					<input type="checkbox" class="taxonomy-category-checkbox" value="<?php echo $term->slug; ?>" name="category_<?php echo $taxonomy; ?>[]" id="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>" />
+					<label for="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>">
+						<?php
+							echo $name;
+						?>
+					</label>
+						<?php
+							echo $input; 
+						?>
+						<?php $this->taxonomy_checklist($taxonomy, $term->term_id); ?>
+				</li>
+	
+			<?php endforeach; ?>
+	
+			<?php if ($parent > 0): ?>
+				</ul>
+			<?php endif;
+		if($parent == 0): ?>
+			</li>
+		<?php endif; ?>
+		<?php
+	}
+	
+	const NEW_SOLUTION_PAGE = 'new-solution';
+	
+	function print_variables($public_query_vars) {
+		$public_query_vars[] = self::NEW_SOLUTION_PAGE;
+		return $public_query_vars;
+	}
+	
+	function rewrite_rules()
+	{
+		add_rewrite_rule(self::NEW_SOLUTION_PAGE.'(.*)', 'index.php?'.self::NEW_SOLUTION_PAGE.'=true$matches[1]', 'top');
+		flush_rewrite_rules();
+	}
+	
+	function form()
+	{
+		if(get_query_var(self::NEW_SOLUTION_PAGE) == true)
+		{
+			wp_enqueue_script('jquery-ui-datepicker-ptbr', WP_CONTENT_URL.'/themes/minka/solutions/js/jquery.ui.datepicker-pt-BR.js', array('jquery-ui-datepicker'));
+			wp_enqueue_script('date-scripts',WP_CONTENT_URL.'/themes/minka/solutions/js/date_scripts.js', array( 'jquery-ui-datepicker-ptbr'));
+			get_header();
+			$file_path = get_stylesheet_directory() . '/new-solution.php';
+			if(file_exists($file_path))
+			{
+				include $file_path;
+			}
+			else
+			{
+				include dirname(__FILE__) . '/new-solution.php';;
+			}
+			get_footer();
+			exit();
+		}
+	}
+	
+	/**
+	 * Default post information to use when populating the "Write Post" form customized for sulution.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param string $post_type A post type string, defaults to 'post'.
+	 * @return WP_Post Post object containing all the default post data as attributes
+	 */
+	function get_default_post_to_edit( $post_type = 'solution', $create_in_db = false ) {
+		global $wpdb;
+	
+		echo '<pre>';
+		var_dump($_REQUEST);
+		echo '</pre>';
+		$post_title = '';
+		if ( !empty( $_REQUEST['post_title'] ) )
+			$post_title = esc_html( stripslashes( $_REQUEST['post_title'] ));
+	
+		$post_content = '';
+		if ( !empty( $_REQUEST['content'] ) )
+			$post_content = esc_html( stripslashes( $_REQUEST['content'] ));
+	
+		$post_excerpt = '';
+		if ( !empty( $_REQUEST['excerpt'] ) )
+			$post_excerpt = esc_html( stripslashes( $_REQUEST['excerpt'] ));
+	
+		if ( $create_in_db ) {
+			$post_id = wp_insert_post( array( 'post_title' => __( 'Auto Draft' ), 'post_type' => $post_type, 'post_status' => 'auto-draft' ) );
+			$post = get_post( $post_id );
+			if ( current_theme_supports( 'post-formats' ) && post_type_supports( $post->post_type, 'post-formats' ) && get_option( 'default_post_format' ) )
+				set_post_format( $post, get_option( 'default_post_format' ) );
+		} else {
+			$post = new stdClass;
+			$post->ID = 0;
+			$post->post_author = '';
+			$post->post_date = '';
+			$post->post_date_gmt = '';
+			$post->post_password = '';
+			$post->post_type = $post_type;
+			$post->post_status = 'draft';
+			$post->to_ping = '';
+			$post->pinged = '';
+			$post->comment_status = get_option( 'default_comment_status' );
+			$post->ping_status = get_option( 'default_ping_status' );
+			$post->post_pingback = get_option( 'default_pingback_flag' );
+			$post->post_category = get_option( 'default_category' );
+			$post->page_template = 'default';
+			$post->post_parent = 0;
+			$post->menu_order = 0;
+			$post = new WP_Post( $post );
+		}
+	
+		$post->post_content = apply_filters( 'default_content', $post_content, $post );
+		$post->post_title   = apply_filters( 'default_title',   $post_title, $post   );
+		$post->post_excerpt = apply_filters( 'default_excerpt', $post_excerpt, $post );
+		$post->post_name = '';
+	
+		return $post;
 	}
 	
 }
