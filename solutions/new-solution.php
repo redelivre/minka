@@ -51,7 +51,7 @@ if ( isset( $post_new_file ) && current_user_can( $post_type_object->cap->create
 <?php if ( $message ) : ?>
 <div id="message" class="updated"><p><?php echo $message; ?></p></div>
 <?php endif; ?>
-<form name="post" action="post.php" method="post" id="post"<?php do_action('post_edit_form_tag', $post); ?>>
+<form name="post" action="" method="post" id="post"<?php do_action('post_edit_form_tag', $post); ?>>
 <?php wp_nonce_field($nonce_action); ?>
 <input type="hidden" id="user-id" name="user_ID" value="<?php echo (int) $user_ID ?>" />
 <input type="hidden" id="hiddenaction" name="action" value="<?php echo esc_attr( $form_action ) ?>" />
@@ -86,13 +86,13 @@ foreach ($solution->getFields() as $field)
 			<div class="solution-item-tip-text"><?php echo $tip; ?>
 			</div>
 		</label>
-		<input type="text" id="<?php echo $id ?>" class="solution-item-input-text <?php echo $type == 'date' ? 'hasdatepicker' : ''; ?> <?php echo $input_class ?>" value="" name="<?php echo $id ?>">
+		<input type="text" id="<?php echo $id ?>" class="solution-item-input-text <?php echo $type == 'date' ? 'hasdatepicker' : ''; ?> <?php echo $input_class ?>" value="<?php echo array_key_exists($id, $_REQUEST) ? wp_strip_all_tags($_REQUEST[$id]) : ''; ?>" name="<?php echo $id ?>">
 		<div class="solution-item-error-message"></div>
 		<div class="solution-item-required-message"><?php echo $required_message; ?></div>
 	</div>
 	<?php 
 }
-$this->taxonomy_checklist();
+$solution->taxonomy_checklist();
 ?>
 <input id="original_publish" type="hidden" value="Publish" name="original_publish">
 <input id="publish" class="button button-primary button-large" type="submit" accesskey="p" value="Publish" name="publish">

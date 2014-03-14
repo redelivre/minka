@@ -235,10 +235,10 @@ class Solutions
 		}*/
 	
 	
-		if($parent == 0): ?>
+		/*if($parent == 0): ?>
 			<?php $tax = get_taxonomy($taxonomy); ?>
 			<li class="category-group-col"><h3><?php echo $tax->label; ?></h3>
-		<?php endif; ?>
+		<?php endif;*/ ?>
 			<?php if ($parent > 0): ?>
 				<ul class='children'>
 			<?php endif; ?>
@@ -249,11 +249,15 @@ class Solutions
 				if(strpos($name, '#input#') !== false)
 				{
 					$name = str_replace('#input#', '', $name);
-					$input = '<input type="text" class="taxonomy-category-checkbox-text" name="category_'.$taxonomy.'_input[]" id="category_'.$taxonomy.'_'.$term->slug.'_input" />';
-				}				
+					$value = array_key_exists($taxonomy.'_'.$term->term_id.'_input', $_REQUEST) ? $_REQUEST[$taxonomy.'_'.$term->term_id.'_input'] : ''; 
+					$input = '<input type="text" class="taxonomy-category-checkbox-text" name="'.$taxonomy.'_'.$term->term_id.'_input" id="category_'.$taxonomy.'_'.$term->slug.'_input" value="'.$value.'" />';
+				}
+				$checked = isset($_REQUEST) && array_key_exists("category_$taxonomy", $_REQUEST) && array_search($term->slug, $_REQUEST["category_$taxonomy"]) ? 'checked="checked"' : '';				
 			?>
 				<li class="category-group-col">
-					<input type="checkbox" class="taxonomy-category-checkbox" value="<?php echo $term->slug; ?>" name="category_<?php echo $taxonomy; ?>[]" id="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>" />
+					<?php if($parent > 0 && $input == ''): ?>
+						<input type="checkbox" class="taxonomy-category-checkbox" value="<?php echo $term->term_id; ?>" name="category_<?php echo $taxonomy; ?>[]" id="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>" <?php echo $checked; ?> />
+					<?php endif; ?>
 					<label for="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>">
 						<?php
 							echo $name;
@@ -270,9 +274,9 @@ class Solutions
 			<?php if ($parent > 0): ?>
 				</ul>
 			<?php endif;
-		if($parent == 0): ?>
+		/*if($parent == 0): ?>
 			</li>
-		<?php endif; ?>
+		<?php endif; */?>
 		<?php
 	}
 	
