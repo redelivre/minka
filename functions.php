@@ -12,6 +12,7 @@ class Minka{
 		
 		add_action('wp_enqueue_scripts', array($this, 'css'));		
 		add_action('wp_enqueue_scripts', array($this, 'javascript'));
+		add_filter('nav_menu_css_class', array($this, 'nav_menu_css_class'));
 	}
 	
 	/**
@@ -49,7 +50,7 @@ class Minka{
 	    	$languages = icl_get_languages('skip_missing=0&orderby=code');
 		    if(!empty($languages))
 		    {
-		    	echo '<div id="minka_language_selector" onclick="minka_language_selector_swapper()">';
+		    	echo '<div id="minka_language_selector" onclick="minka_language_selector_swapper();">';
 		    	$l = array();
 		        foreach($languages as $language)
 		        {
@@ -71,6 +72,14 @@ class Minka{
 		}
 	}
 	
+	public function nav_menu_css_class($classes)
+	{
+		$classes[] = 'span';
+		return $classes;
+	}
+	
 }
 
 $minka = new Minka();
+
+?>
