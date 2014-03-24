@@ -13,6 +13,7 @@ class Minka{
 		add_action('wp_enqueue_scripts', array($this, 'css'));		
 		add_action('wp_enqueue_scripts', array($this, 'javascript'));
 		add_filter('nav_menu_css_class', array($this, 'nav_menu_css_class'));
+		add_action('widgets_init', array($this, 'register_sidebars'));
 	}
 	
 	/**
@@ -76,6 +77,22 @@ class Minka{
 	{
 		$classes[] = 'span';
 		return $classes;
+	}
+	
+	public function register_sidebars()
+	{
+		$args = array(
+				'name'          => 'Solution Sidebar',
+				'id'            => "solution-sidebar",
+				'description'   => '',
+				'class'         => '',
+				'before_widget' => '<li id="%1$s" class="widget %2$s">',
+				'after_widget'  => "</li>\n",
+				'before_title'  => '<h2 class="widgettitle">',
+				'after_title'   => "</h2>\n",
+		);
+		
+		register_sidebar( $args );
 	}
 	
 }

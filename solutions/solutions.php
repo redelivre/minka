@@ -10,6 +10,9 @@ class Solutions
 		add_action('wp_ajax_resetpass', array($this, 'form'));
 		add_action('wp_ajax_nopriv_resetpass', array($this, 'form'));
 		add_filter('query_vars', array($this, 'print_variables'));
+		//add_filter('archive_template', array($this, 'archiveTemplate'));
+		//add_filter('single_template', array($this, 'singleTemplate'));
+		add_action( 'save_post', array( $this, 'save' ) );
 	}
 
 	function init()
@@ -77,14 +80,14 @@ class Solutions
 	(
 		'url' => array
 		(
-			'slug' => 'url',
+			'slug' => 'solution-url',
 			'title' => 'URL',
 			'tip' => 'web address',
 			'required' => true
 		),
 		'created-date' => array
 		(
-			'slug' => 'created-date',
+			'slug' => 'solution-created-date',
 			'title' => 'Created date',
 			'tip' => 'since when is available',
 			'required' => false,
@@ -92,31 +95,31 @@ class Solutions
 		),
 		'coverage' => array
 		(
-			'slug' => 'coverage',
+			'slug' => 'solution-coverage',
 			'title' => 'Coverage',
 			'tip' => 'Country/ies where available'
 		),
 		'country' => array
 		(
-			'slug' => 'country',
+			'slug' => 'solution-country',
 			'title' => 'Country where it was created',
 			'tip' => 'Where arises'
 		),
 		'facebook' => array
 		(
-			'slug' => 'facebook',
+			'slug' => 'solution-facebook',
 			'title' => 'Facebook',
 			'tip' => ''
 		),
 		'twitter' => array
 		(
-			'slug' => 'twitter',
+			'slug' => 'solution-twitter',
 			'title' => 'Twitter',
 			'tip' => ''
 		),
 		'contact' => array
 		(
-			'slug' => 'contact',
+			'slug' => 'solution-contact',
 			'title' => 'Contact',
 			'tip' => 'e-mail',
 			'required' => true
@@ -150,16 +153,18 @@ class Solutions
 		$custom = get_post_custom($post->ID);
 		if(!is_array($custom)) $custom = array();
 		
-		if (
+		$disable_edicao = '';
+		
+		/*if (
 				!($post->post_status == 'draft' ||
-						$post->post_status == 'auto-draft' ||
-						$post->post_status == 'pending')
+				$post->post_status == 'auto-draft' ||
+				$post->post_status == 'pending')
 		)
 		{
 			$disable_edicao = 'readonly="readonly"';
-		} else {
-			$disable_edicao = '';
-		}
+		}*/
+		
+		wp_nonce_field( 'solution_meta_inner_custom_box', 'solution_meta_inner_custom_box_nonce' );
 		
 		foreach ($this->_customs as $slug => $campo )
 		{
@@ -372,6 +377,119 @@ class Solutions
 		$post->post_name = '';
 	
 		return $post;
+	}
+	
+	/**
+	 * Inclui os arquivos do tema relacionados com
+	 * a listagem de pautas e retorna o template
+	 * a ser usado.
+	 *
+	 * @param string $archiveTemplate
+	 * @return string
+	 */
+	public function archiveTemplate($archiveTemplate)
+	{
+		global $post;
+	
+		if (get_post_type($post) == "solution" || is_post_type_archive('solution'))
+		{
+			if(file_exists(get_stylesheet_directory()."/archive-pauta.php"))
+			{
+				$archive_template = get_stylesheet_directory()."/archive-pauta.php";
+			}
+			else
+			{
+				$archiveTemplate = $this->themeFilePath('archive-pauta.php');
+			}
+		}
+	
+		return $archiveTemplate;
+	}
+	
+	/**
+	 * Inclui os arquivos do tema relacionados com
+	 * a página de uma pauta e retorna o template
+	 * a ser usado.
+	 *
+	 * @param string $singleTemplate
+	 * @return string
+	 */
+	public function singleTemplate($singleTemplate)
+	{
+		global $post;
+	
+		if (get_post_type($post) == "pauta" || is_post_type_archive('pauta'))
+		{
+			if(file_exists(get_stylesheet_directory()."/single-pauta.php"))
+			{
+				$singleTemplate = get_stylesheet_directory()."/single-pauta.php";
+			}
+			else
+			{
+				$singleTemplate = $this->themeFilePath('single-pauta.php');
+			}
+		}
+	
+		return $singleTemplate;
+	}
+	
+	/**
+	 * Save the meta when the post is saved.
+	 *
+	 * @param int $post_id The ID of the post being saved.
+	 */
+	public function save( $post_id )
+	{
+		
+		/*
+		 * We need to verify this came from the our screen and with proper authorization,
+		* because save_post can be triggered at other times.
+		*/
+		
+		// Check if our nonce is set.
+		if ( ! isset( $_POST['solution_meta_inner_custom_box_nonce'] ) )
+		{
+			return $post_id;
+		}
+		
+		$nonce = $_POST['solution_meta_inner_custom_box_nonce'];
+		
+		// Verify that the nonce is valid.
+		if ( ! wp_verify_nonce( $nonce, 'solution_meta_inner_custom_box' ) )
+		{
+			return $post_id;
+		}
+		
+		// If this is an autosave, our form has not been submitted,
+		//     so we don't want to do anything.
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+		{
+			return $post_id;
+		}
+	
+		// Check the user's permissions.
+		if ( 'solution' == $_POST['post_type'] )
+		{
+			if ( ! current_user_can( 'edit_solution', $post_id ) )
+			{
+				return $post_id;
+			}
+		}
+		else
+		{
+			return $post_id;
+		}
+	
+		/* OK, its safe for us to save the data now. */
+		
+		foreach ($this->_customs as $field)
+		{
+			// Sanitize the user input.
+			$mydata = sanitize_text_field( $_POST[$field->slug] );
+		
+			// Update the meta field.
+			update_post_meta( $post_id, $field->slug, $mydata );
+		}
 	}
 	
 }

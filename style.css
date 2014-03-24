@@ -81,3 +81,15 @@ Genericas
 .stick-video {
 	text-align: center;
 }
+
+.solution-category-post-thumbnail img {
+	text-align: center;
+}
+
+/*
+Footer
+------------------------------------------------ */
+
+.minka-credits a {
+	width: auto;
+}

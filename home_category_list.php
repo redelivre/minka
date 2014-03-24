@@ -8,6 +8,7 @@
 				'orderby'          => 'post_date',
 				'order'            => 'DESC',
 				'category'		   => $term->slug,
+				'post_type'		   => 'solution',
 				/*'tax_query' => array(
 						array(
 								'taxonomy' => 'category',

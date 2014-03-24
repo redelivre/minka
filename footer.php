@@ -26,7 +26,7 @@
 		</nav><!-- .site-navigation .main-navigation -->
 	</div>
 	
-	<div class="minka-credits cf span11" >
+	<div class="row minka-credits cf span11" >
 		<a href="http://wordpress.org/" title="<?php esc_attr_e( 'Proudly powered by WordPress', 'minka' ); ?>" class="icon-wordpress span11" rel="generator"><img src="<?php echo get_template_directory_uri() . '/images/icon-wordpress.png'; ?>" alt="<?php _e( 'WordPress logo', 'minka' ); ?>" /><span class="assistive-text span"><?php _e( 'Proudly powered by WordPress', 'minka' ); ?></span></a>
 	</div> <!-- .minka-credits -->
 	
