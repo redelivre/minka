@@ -1,0 +1,339 @@
+ @import url(http://fonts.googleapis.com/css?family=Roboto:500,300);
+ 
+ body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.title{
+	color: gray;
+}
+
+/* -------------------------------------------------------------------------
+ Colors
+---------------------------------------------------------------------------- */
+.sg-color--a .sg-color-swatch {background: #ff8300;}
+
+.sg-color--b .sg-color-swatch {background: #414684;}
+
+.sg-color--c .sg-color-swatch {background: #6e448f;}
+
+.sg-color--d .sg-color-swatch {background: #b62c7a;}
+
+.sg-color--e .sg-color-swatch {background: #57c1b6;}
+
+.sg-color--f .sg-color-swatch {background: #e9c42b;}
+
+.sg-color--g .sg-color-swatch {background: #d799a9;}
+
+.sg-color--h .sg-color-swatch {background: #d7d7d7;}
+
+.sg-color--i .sg-color-swatch {background: #959595;}
+
+.sg-color--j .sg-color-swatch {background: #636363;}
+
+
+/* -------------------------------------------------------------------------
+ Fonts
+---------------------------------------------------------------------------- */
+.sg-font-primary {font-family:'Roboto', sans-serif; font-weight: 500;}
+
+.sg-font-secondary {font-family:'Roboto', sans-serif; font-weight: 300;}
+
+/* -------------------------------------------------------------------------
+ Icon fonts
+---------------------------------------------------------------------------- */
+@font-face {
+	  font-family: 'kaingang';
+	  src: url('../fonts/kaingang.eot?615903');
+	  src: url('../fonts/kaingang.eot?615903#iefix') format('embedded-opentype'),
+	       url('../fonts/kaingang.woff?615903') format('woff'),
+	       url('../fonts/kaingang.ttf?615903') format('truetype'),
+	       url('../fonts/kaingang.svg?615903#kaingang') format('svg');
+	  font-weight: normal;
+	  font-style: normal;
+}
+
+/* -------------------------------------------------------------------------
+ Button
+---------------------------------------------------------------------------- */
+
+button{
+	background: #de8e28;
+	border-radius: 20px;
+	color:#fff;
+	padding: 3px 20px 3px 10px;
+	cursor:pointer;
+	transition: all 0.2s linear 0s;
+	border: 0;	
+}
+
+button:hover{
+	background: #e9c32c;
+}
+
+/* -------------------------------------------------------------------------
+ Input
+---------------------------------------------------------------------------- */
+
+input{
+	background:#e9c32c;
+	border-radius: 5px;
+	border: none;
+	padding: 5px;
+	color: #6e448e;
+}
+
+/* -------------------------------------------------------------------------
+ Headings
+---------------------------------------------------------------------------- */
+
+h1{
+	font-weight: 500;
+	font-size: 1.375em;
+	/*font-size: 22px;*/
+}
+
+h2{
+	font-weight: 500;
+	font-size: 1.125em;
+}
+
+h3{
+	font-weight: 300;
+	font-size: 1.125em;
+}
+
+h4{
+	font-weight: 500;
+	font-size: 1.000em;
+}
+
+/* -------------------------------------------------------------------------
+ links
+---------------------------------------------------------------------------- */
+
+a{
+	color: #de8e28;
+	border: none;
+	text-decoration:none;
+}
+
+a:hover{
+	color: #e9c32c;
+}
+
+/* -------------------------------------------------------------------------
+ text-elements
+---------------------------------------------------------------------------- */
+
+p{
+	font-family:'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 1.000em;
+	/*font-size: 16px;*/
+}
+
+small{
+	font-size:0.750em;	
+}
+
+hr{
+	border: none;
+	background: #ececec;
+}
+
+blockquote {
+	font-family:'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	font-style: italic;
+}
+
+blockquote p{
+	font-family:'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	font-style: italic;
+}
+
+figcaption{
+	font-family:'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	font-size: 0.875em;
+}
+
+/* -------------------------------------------------------------------------
+ agenda
+---------------------------------------------------------------------------- */
+
+.agenda-location,
+.agenda-date{
+	font-size: 1.250em;	
+}
+
+/* -------------------------------------------------------------------------
+ Comments
+---------------------------------------------------------------------------- */
+
+.comments-title span{
+	font-weight: 400;
+}
+
+.comment-author{
+	font-weight: 300;
+}
+
+/* -------------------------------------------------------------------------
+ General
+---------------------------------------------------------------------------- */
+
+.wp-caption-text{
+	font-weight: 300;
+	font-size: 0.875em;
+}
+
+.archive-title{
+	font-size: 2.000em;
+}
+
+.entry-meta{
+	font-weight: 700;
+}
+
+.site-navigation,
+.post-navigation{
+	font-size: 1.250em;
+	font-style: italic;
+}
+
+/* -------------------------------------------------------------------------
+ redes-sociais
+---------------------------------------------------------------------------- */
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "kaingang";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.social-bookmarks{
+	font-weight: 300;
+}
+#social-bookmarks a{
+	color: #6e448e;
+}
+
+#social-bookmarks a:hover{
+	color: #fff;
+}
+
+#facebook{
+	float: left;
+	border: 0;
+	border-radius:55px;
+	background: #fff;
+	padding: 10px;
+	
+}
+
+#facebook:hover{
+	background: #3b5998;
+	color:#fff;
+}
+
+.icon-facebook:before{
+	content: '\e800';
+}
+
+#twitter{
+	float: left;
+	border-radius:55px;
+	background: #fff;
+	padding: 10px;
+}
+
+#twitter:hover{
+	background: #019ad2;
+	color:#fff;
+}
+
+.icon-twitter:before {
+	content: '\e805'; 
+}
+
+#google-plus{
+	float: left;
+	border-radius:55px;
+	background: #fff;
+	padding: 10px;
+}
+
+#google-plus:hover{
+	background: #cf3e2d;
+	color: #fff;
+}
+
+.icon-gplus:before { 
+	content: '\e801'; 
+}
+
+#youtube{
+	float: left;
+	border: none;
+	border-radius:55px;
+	background: #fff;
+	padding: 10px;
+}
+
+#youtube:hover{
+	background: #d02525;
+	color: #fff;
+}
+
+.icon-youtube:before{
+	content: '\e804';
+}
+
+#rss{
+	float: left;
+	border: none;
+	border-radius:55px;
+	background: #fff;
+	padding: 10px;
+}
+
+.icon-rss:before,
+#rss:before {
+	content: '\e803';
+}
+
+.icon-rss:hover,
+#rss:hover {
+	background: #ff6600;
+	color: #fff;
+}
