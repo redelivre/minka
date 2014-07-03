@@ -127,15 +127,19 @@ a img {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:500,300);
+
 body,
 button,
 input,
 select,
 textarea {
 	color: #404040;
-	font-family: sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	font-size: 1.6rem;
+	font-weight: 500;
 	line-height: 1.5;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -677,31 +681,346 @@ object {
 .gallery-caption {}
 
 /*--------------------------------------------------------------
-13 Home
+13 Header Top
 --------------------------------------------------------------*/
 
-.header-login-form .login-username label, .header-login-form .login-password label {
+.header-top {
+	height: 90px;
+	vertical-align: middle;
+	padding-top: 0.70em;
+}
+
+.header-top-entry {
+	vertical-align: middle;
+	margin: 0 auto;
+	width: 80%;
+}
+
+/*--------------------------------------------------------------
+13.1 Header Top Language
+--------------------------------------------------------------*/
+
+.language-switch {
+	float:left;
+	background-color: #ff8300;
+	vertical-align: middle;
+	margin-top: 0.7em;
+	border-radius: 20px;
+	color:#fff;
+	padding: 3px 20px 3px 10px;
+	cursor:pointer;
+	transition: all 0.2s linear 0s;
+	border: 0;
+	line-height: 30px;
+	width: 140px;
+	position: relative;
+}
+
+.language-switch a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bolder;
+}
+
+.minka_language_selector_swapper_bol {
+    background-color: red;
+    height: 36px;
+    width: 36px;
+    z-index: 1000;
+    vertical-align: middle;
+	border-radius: 20px;
+	padding: 3px 20px 3px 10px;
+	cursor:pointer;
+	transition: all 0.2s linear 0s;
+	border: 0;
+	position: absolute;
+	top: 0;
+	opacity: 0.5;
+}
+
+
+/*--------------------------------------------------------------
+13.2 Header Top Social Shares
+--------------------------------------------------------------*/
+/* -------------------------------------------------------------------------
+13.2.1 Icon fonts
+---------------------------------------------------------------------------- */
+
+@font-face {
+	  font-family: 'kaingang';
+	  src: url('css/fonts/kaingang.eot?615903');
+	  src: url('css/fonts/kaingang.eot?615903#iefix') format('embedded-opentype'),
+	       url('css/fonts/kaingang.woff?615903') format('woff'),
+	       url('css/fonts/kaingang.ttf?615903') format('truetype'),
+	       url('css/fonts/kaingang.svg?615903#kaingang') format('svg');
+	  font-weight: normal;
+	  font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "kaingang";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  min-width: 0.9em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  font-size: 200%;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  
+  color: #6e448f;
+  
+}
+
+/* -------------------------------------------------------------------------
+13.2.2 Style
+---------------------------------------------------------------------------- */
+.header-social-list a {
+    margin: 0.25em;
+}
+
+.social-bookmarks{
+	font-weight: 300;
+}
+.social-bookmarks a{
+	color: #6e448e;
+}
+
+.social-bookmarks a:hover{
+	color: #fff;
+}
+
+.share-facebook{
+	float: left;
+	border: 0;
+	border-radius:55px;
+	background: #fff;
+	padding: 10px;
+	
+}
+
+.share-facebook:hover{
+	background: #019ad2;
+	color:#6e448f;
+}
+
+.icon-facebook:before{
+	content: '\e800';
+}
+
+.share-twitter{
+	float: left;
+	border-radius:55px;
+	background: #fff;
+	padding: 10px;
+}
+
+.share-twitter:hover{
+	background: #019ad2;
+	color:#6e448f;
+}
+
+.icon-twitter:before {
+	content: '\e805'; 
+}
+
+.share-googleplus{
+	float: left;
+	border-radius:55px;
+	background: #fff;
+	padding: 10px;
+}
+
+.share-googleplus:hover{
+	background: #019ad2;
+	color: #6e448f;
+}
+
+.icon-googleplus:before { 
+	content: '\e801'; 
+}
+
+.share-youtube{
+	float: left;
+	border: none;
+	border-radius:55px;
+	background: #fff;
+	padding: 10px;
+}
+
+.share-youtube:hover{
+	background: #019ad2;
+	color: #6e448f;
+}
+
+.icon-youtube:before{
+	content: '\e804';
+}
+
+.share-rss{
+	float: left;
+	border: none;
+	border-radius:55px;
+	background: #fff;
+	padding: 10px;
+}
+
+.icon-rss:before,
+.share-rss:before {
+	content: '\e803';
+}
+
+.icon-rss:hover,
+.share-rss:hover {
+	background: #019ad2;
+	color: #6e448f;
+}
+
+.minka_social_bol {
+	
+	background-color: white;
+    height: 8px;
+    width: 8px;
+    vertical-align: middle;
+	border-radius: 20px;
+	padding: 6px;
+	transition: all 0.2s linear 0s;
+	border: 0;
+	float: left;
+	margin: 1.5em 1.5em 0 1.5em;
+}
+.minka_social_bol-right {
+	margin-right: 4em;
+}
+.minka_social_bol-left {
+	margin-left: 4em;
+}
+
+/*--------------------------------------------------------------
+13.3 Header Top Login
+--------------------------------------------------------------*/
+.header-login-form {
+	float: right;
+}
+
+.header-login-form .login-form,
+.header-login-form .login-username,
+.header-login-form .login-password,
+.header-login-form .login-remember,
+.header-login-form .login-submit,
+.header-login-form .header-register-link,
+.login-text
+{
+	float: left;
+	margin: 1em 1em 0 0;
+	vertical-align: middle;
+}
+
+.header-login-form input
+{
+	padding-right: 9px;
+	text-align: right;
+	border-radius: 10px;
+	background-color: #e9c42b;
+	border: none;
+	color: #6e448f;
+}
+
+.header-login-form .login-submit input {
+	background-color: #ff8300;
+	color: #fff;
+	width: 100px;
+	height: 28px;
+	text-align: center;
+}
+
+.header-login-form .login-username input,
+.header-login-form .login-password input
+{
+	width: 170px;
+}
+
+.header-login-form .login-username label,
+.header-login-form .login-password label {
 	display: none;
 }
 
-.header-login-form .login-remember {
-	width: 40%;
-	float: left;
+.header-login-form .header-register-link,
+.header-login-form .header-register-link a {
+	width: auto;
 }
 
-.header-login-form .login-submit {
-	width: 20%;
-	float: left;
+.header-login-form .header-register-link {
+	
 }
-.header-register-link-nologged {
-	float: right;
-	list-style: none outside none;
-    margin-top: -10px;
+
+.header-login-welcome {
+	color: #fff;
+	display: block;
+    font-size: 20px;
+    margin-top: 0.75em;
 }
-.header-register-link-logged {
-	float: right;
-	list-style: none outside none;
+
+/*--------------------------------------------------------------
+14 Header Bottom
+--------------------------------------------------------------*/
+
+.header-bottom {
+	height: 180px;
+	vertical-align: middle;
+	padding-top: 0.70em;
 }
+
+.header-bottom-entry {
+	vertical-align: middle;
+	margin: 0 auto;
+	width: 80%;
+	height: 170px;
+	white-space: nowrap;
+    text-align: center;
+}
+
+.header-logo, .header-navigation-menu {
+	height: inherit;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.header-logo-helper {
+	vertical-align: middle;
+	display: inline-block;
+	height: 100%;
+}
+
+.header-logo img {
+	vertical-align: middle;
+	display: inline-block;
+	
+}
+
+
+/*--------------------------------------------------------------
+15 Home
+--------------------------------------------------------------*/
 
 .stick-video {
 	text-align: center;
@@ -710,3 +1029,6 @@ object {
 .solution-category-post-thumbnail img {
 	text-align: center;
 }
+
+
+

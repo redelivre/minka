@@ -23,15 +23,65 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'minka' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+		<div class="header-top">
+			<div class="header-top-entry">
+				<span id='language-switch' class="language-switch">
+					<?php
+					Minka::languageSelector();
+					?>
+				</span>
+				<div class="header-social-list">
+					<?php
+					Minka::socialList();
+					?>
+				</div>
+				<div id='login-form' class="header-login-form">
+					<span class="login-text"><?php _e('Login', 'minka'); ?></span>
+					<?php
+					if(!is_user_logged_in())
+					{
+						$form = wp_login_form(array('label_log_in' => __('Iniciar', 'minka'), 'echo' => false ));
+						
+						$link = '<p class="header-register-link">'.wp_register('','', false).'</p></form>';
+						
+						$form = str_replace('</form>', $link, $form);
+						
+						echo $form;
+						
+					}
+					else 
+					{
+					?>
+						<span class="header-login-welcome"><?php echo __('Bem Vindo', 'minka').' <strong>'.wp_get_current_user()->display_name.'</strong>';?></span>
+					<?php
+					} 
+					?>
+				</div>
+			</div>
 		</div>
-
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle"><?php _e( 'Primary Menu', 'minka' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-		</nav><!-- #site-navigation -->
+		<div class="header-bottom">
+			<div class="header-bottom-entry">
+				
+				<div class="header-logo">
+					
+					<?php
+					$logo = get_theme_mod( 'minka_logo' );
+					$logo_uri = get_template_directory_uri() . '/images/logo.png';
+					if( $logo )
+					{
+						$logo_uri =  $logo;
+					}
+					?>
+					<img alt="" src="<?php echo $logo_uri; ?>"/>
+				</div>
+				<div class="header-navigation-menu">
+					<nav role="navigation" class="site-navigation main-navigation co">
+						<div class="clearfix"></div>
+						<?php wp_nav_menu( array( 'menu' => 'main', 'theme_location' => 'primary', 'container_class' => 'span9' ) ); ?>
+					</nav><!-- .site-navigation .main-navigation -->
+				</div>
+			</div>
+		</div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

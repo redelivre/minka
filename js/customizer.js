@@ -33,4 +33,54 @@
 			}
 		} );
 	} );
+	
+	//Update site colors in real time...
+	wp.customize( 'minka_bg_color_header', function( value ) {
+		value.bind( function( newval ) {
+			$('.site-header').css('background-color', newval );
+		} );
+	} );
+	
+	wp.customize( 'minka_bg_color_footer', function( value ) {
+		value.bind( function( newval ) {
+			$('.site-footer').css('background-color', newval );
+		} );
+	} );
+	
+	wp.customize( 'minka_bg_color_col2', function( value ) {
+		value.bind( function( newval ) {
+			$('.column-2').css('background-color', newval );
+		} );
+	} );
+	
+	wp.customize( 'minka_font_color', function( value ) {
+		value.bind( function( newval ) {
+			$('.page-content').css('color', newval );
+		} );
+	} );
+	
+	wp.customize( 'minka_font_color_header', function( value ) {
+		value.bind( function( newval ) {
+			$('.site-header span').css('color', newval );
+		} );
+	} );
+	
+	wp.customize( 'minka_font_color_titles', function( value ) {
+		value.bind( function( newval ) {
+			$('.page-title').css('color', newval );
+		} );
+	} );
+	
+	wp.customize( 'minka_font_color_col2', function( value ) {
+		value.bind( function( newval ) {
+			$('.join-meta').css('color', newval );
+		} );
+	} );
+	
+	wp.customize( 'minka_header_text', function( value ) {
+		value.bind( function( newval ) {
+			$('.minka span').text(newval);
+		} );
+	} );
+	
 } )( jQuery );
