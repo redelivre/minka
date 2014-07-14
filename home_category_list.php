@@ -13,7 +13,7 @@
 				'posts_per_page'   => 3,
 				'orderby'          => 'post_date',
 				'order'            => 'DESC',
-				'category'		   => $term->slug,
+				'cat'		   => $term->term_id,
 				'post_type'		   => 'solution',
 				/*'tax_query' => array(
 						array(
@@ -35,7 +35,9 @@
 		wp_reset_postdata();
 		?>
 	</div>
+	<div class="clear"></div>
 	<div class="category-home-list-archive-link">
 		<a class="category-home-list-archive-link" href="<?php echo get_category_link($term->term_id); ?>"><span class="category-home-list-archive-link-label">ver más</span></a> 
 	</div>
 </div>
+<div class="clear"></div>

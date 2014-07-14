@@ -1257,12 +1257,14 @@ object {
 	height: 100%;
 }
 
-.home-category-header-text h2 {
+.home-category-header-text h2,
+.home-cat-post-title h2 {
     font-size: 18px;
     font-weight: bold;
 }
 
-.home-category-num-1 .home-category-image {
+.home-category-num-1 .home-category-image,
+.home-category-num-1 .home-cat-post-thumbnail {
 	background-color: #57c1b6;
 }
 
@@ -1306,3 +1308,9 @@ object {
     float: left;
     width: 33%;
 }
+
+.home-cat-post-thumbnail {
+    display: block;
+    text-align: center;
+}
+
