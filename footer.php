@@ -11,11 +11,20 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'minka' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'minka' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'minka' ), 'minka', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
+		<div class="footer-area">
+			<div class="footer-entry">
+				<div class="footer-area">
+					<?php dynamic_sidebar('footer-1'); ?>
+				</div>
+			</div>
+		</div>
+		<div class="footer-area footer-area-bottom">
+			<div class="footer-entry">
+				<div class="footer-bootom">
+					<?php dynamic_sidebar('footer-2'); ?>
+				</div>
+			</div>
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

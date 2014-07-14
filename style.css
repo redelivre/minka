@@ -351,10 +351,10 @@ textarea {
 5.1 Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: #019ad2;
 }
 a:visited {
-	color: purple;
+	color: #e9c42b;
 }
 a:hover,
 a:focus,
@@ -693,7 +693,7 @@ object {
 .header-top-entry {
 	vertical-align: middle;
 	margin: 0 auto;
-	width: 80%;
+	width: 86%;
 }
 
 /*--------------------------------------------------------------
@@ -918,8 +918,15 @@ object {
 /*--------------------------------------------------------------
 13.3 Header Top Login
 --------------------------------------------------------------*/
+.header-top-entry .login-text {
+	color: #fff;
+    font-size: 24px;
+    font-weight: bolder;
+    margin-top: 0.5em;
+    margin-left: 3em
+}
 .header-login-form {
-	float: right;
+	
 }
 
 .header-login-form .login-form,
@@ -943,6 +950,21 @@ object {
 	background-color: #e9c42b;
 	border: none;
 	color: #6e448f;
+	font-weight: bolder;
+}
+
+.header-login-form #user_login {
+	background-image: url(images/usuario.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: auto 100%;
+}
+
+.header-login-form #user_pass {
+	background-image: url(images/senha.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: auto 100%;
 }
 
 .header-login-form .login-submit input {
@@ -970,14 +992,34 @@ object {
 }
 
 .header-login-form .header-register-link {
-	
+	float: left;
+	width: auto;
+	margin-right: 0.5em;
+}
+
+.header-login-form .login-remember {
+	color: #ff8300;
+	font-weight: bolder;
+}
+
+.header-login-form .header-register-link a {
+	color: #ff8300;
+	text-decoration: none;
+	font-weight: bolder;
+	border-right: 2px solid #ff8300;
+	padding-right: 0.5em;
+} 
+
+.header-login-form .login-remember input{
+	display:none;
 }
 
 .header-login-welcome {
 	color: #fff;
 	display: block;
     font-size: 20px;
-    margin-top: 0.75em;
+    padding-top: 0.75em;
+    float: right;
 }
 
 /*--------------------------------------------------------------
@@ -999,6 +1041,10 @@ object {
     text-align: center;
 }
 
+/*--------------------------------------------------------------
+14.1 Header Bottom Logo
+--------------------------------------------------------------*/
+
 .header-logo, .header-navigation-menu {
 	height: inherit;
 	display: table-cell;
@@ -1017,12 +1063,153 @@ object {
 	
 }
 
+/*--------------------------------------------------------------
+14.1 Header Bottom Menu
+--------------------------------------------------------------*/
+.header-navigation-menu {
+	padding-left: 8em;	
+}
+
+.header-navigation-menu .main-navigation li {
+    border-right: 2px dotted #019ad2;
+    padding: 0 1em;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #019ad2;
+}
+
+.header-navigation-menu .main-navigation li:last-child {
+    border-right: none;
+}
+
+.header-navigation-menu .current_page_item li a {
+	color: #ff8300;
+}
+
+.home .header-search-form {
+	display: none;
+}
 
 /*--------------------------------------------------------------
-15 Home
+16 Footer
 --------------------------------------------------------------*/
 
+.footer-area {
+	height: 140px;
+	vertical-align: middle;
+	padding-top: 0.70em;
+}
+
+.footer-area li {
+	list-style: none;
+}
+
+.footer-area ul {
+	margin: 0;
+	
+}
+
+.footer-entry {
+	vertical-align: middle;
+	margin: 0 auto;
+	width: 86%;
+	text-align: center;
+	color: #FFF;
+}
+
+.footer-entry a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.footer-top-item {
+	display: inline;
+	padding: 1.5em 1em;
+}
+
+.footer-bootom {
+    display: table;
+    margin: 0 auto;
+}
+
+.footer-bottom-item {
+ 	border-right: 4px dotted #6e448f;
+    float: left;
+    height: 220px;
+    padding: 0.5em;
+    
+}
+
+.footer-bottom-item:last-child {
+	border: none;
+}
+
+.footer-area-bottom {
+	background-color: #636363;
+	height: 260px;
+}
+
+/*--------------------------------------------------------------
+16 Home
+--------------------------------------------------------------*/
+.home-entry {
+	
+}
+
+.home-stick {
+	height: 470px;
+	background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.home-stick-entry {
+	padding-top: 40px;
+	vertical-align: middle;
+	margin: 0 auto;
+	width: 86%;
+	text-align: center;
+}
+
 .stick-video {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+16.1 Home Search Form
+--------------------------------------------------------------*/
+
+.home-search-form {
+	border-bottom: 2px dotted #ff8300;
+}
+
+.search-form .search-field {
+	border-radius: 10px;
+	border-width: 2px;
+	color: #6e448f;
+	width: 30%;
+	
+}
+
+.search-form .search-submit {
+	background-image: url(images/busca-topo-internas.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    margin-left: 5px;
+    width: 34px;
+    height: 34px;
+    vertical-align: top;
+
+    /* Hide the text. */
+    display: inline-block;
+    overflow: hidden;
+    font-size: 0px;
+    border-radius: 10px;
+}
+
+.home-search-form-entry {
+	margin: 40px auto;
+	width: 86%;
 	text-align: center;
 }
 
@@ -1030,5 +1217,92 @@ object {
 	text-align: center;
 }
 
+/*--------------------------------------------------------------
+16.2 Home Category List
+--------------------------------------------------------------*/
+
+.home-content-entry {
+	margin: 40px auto;
+	width: 86%;
+}
+
+.home-category-list {
+	width: 65%;
+	float: left;
+}
+
+.home-sidebar {
+	width: 34%;
+	float: left;
+}
+
+.home-category-header {
+	width: 100%;
+}
 
 
+.home-category-list-view .home-category-image,
+.home-category-list-view .home-category-header-text {
+	float: left;
+}
+.home-category-image {
+	border-radius: 30px;
+    padding: 12px;
+    width: 54px;
+    height: 54px;
+}
+
+.home-category-image img {
+	width: 100%;
+	height: 100%;
+}
+
+.home-category-header-text h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.home-category-num-1 .home-category-image {
+	background-color: #57c1b6;
+}
+
+.home-category-num-1 {
+	color: #57c1b6;
+}
+
+.home-category-num-2 .home-category-image {
+	background-color: #6e448f;
+}
+
+.home-category-num-2 {
+	color: #6e448f;
+}
+
+.home-category-num-3 .home-category-image {
+	background-color: #ff8300;
+}
+
+.home-category-num-3 {
+	color: #ff8300;
+}
+
+.home-category-num-4 .home-category-image {
+	background-color: #b62c7a;
+}
+
+.home-category-num-4 {
+	color: #b62c7a;
+}
+
+.home-category-list-view .home-category-header-text {
+	margin-left: 20px;
+}
+
+.category-home-list-itens {
+	margin-top: 8px;
+}
+
+.home-cat-post-box {
+    float: left;
+    width: 33%;
+}

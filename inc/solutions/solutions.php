@@ -381,7 +381,7 @@ class Solutions
 	
 	/**
 	 * Inclui os arquivos do tema relacionados com
-	 * a listagem de pautas e retorna o template
+	 * a listagem de solutions e retorna o template
 	 * a ser usado.
 	 *
 	 * @param string $archiveTemplate
@@ -393,13 +393,13 @@ class Solutions
 	
 		if (get_post_type($post) == "solution" || is_post_type_archive('solution'))
 		{
-			if(file_exists(get_stylesheet_directory()."/archive-pauta.php"))
+			if(file_exists(get_stylesheet_directory()."/archive-solution.php"))
 			{
-				$archive_template = get_stylesheet_directory()."/archive-pauta.php";
+				$archive_template = get_stylesheet_directory()."/archive-solution.php";
 			}
 			else
 			{
-				$archiveTemplate = $this->themeFilePath('archive-pauta.php');
+				$archiveTemplate = $this->themeFilePath('archive-solution.php');
 			}
 		}
 	
@@ -408,7 +408,7 @@ class Solutions
 	
 	/**
 	 * Inclui os arquivos do tema relacionados com
-	 * a página de uma pauta e retorna o template
+	 * a página de uma solution e retorna o template
 	 * a ser usado.
 	 *
 	 * @param string $singleTemplate
@@ -418,15 +418,15 @@ class Solutions
 	{
 		global $post;
 	
-		if (get_post_type($post) == "pauta" || is_post_type_archive('pauta'))
+		if (get_post_type($post) == "solution" || is_post_type_archive('solution'))
 		{
-			if(file_exists(get_stylesheet_directory()."/single-pauta.php"))
+			if(file_exists(get_stylesheet_directory()."/single-solution.php"))
 			{
-				$singleTemplate = get_stylesheet_directory()."/single-pauta.php";
+				$singleTemplate = get_stylesheet_directory()."/single-solution.php";
 			}
 			else
 			{
-				$singleTemplate = $this->themeFilePath('single-pauta.php');
+				$singleTemplate = $this->themeFilePath('single-solution.php');
 			}
 		}
 	

@@ -171,6 +171,22 @@ function minka_customize_register( $wp_customize )
 			wp_update_post($page);
 
 			});*/
+	
+	//header background image
+	$wp_customize->add_section( 'minka_header', array(
+			'title'    => __( 'Cabeçalho', 'minka' ),
+			'priority' => 30,
+	) );
+	
+	$wp_customize->add_setting('minka_header_image', array(
+			'default' => ''
+	));
+	
+	$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'minka_header_image_control', array(
+			'label' => __('Imagem de fundo do destaque', 'minka'),
+			'section' => 'minka_header',
+			'settings' => 'minka_header_image'
+	)));
 
 }
 add_action( 'customize_register', 'minka_customize_register' );
@@ -208,7 +224,7 @@ function minka_customize_css()
 		.join-meta {
 			color: <?php echo get_theme_mod('minka_font_color_col2'); ?>;
 		}
-		.site-footer {
+		.footer-area-bottom {
 			background-color: <?php echo get_theme_mod('minka_bg_color_footer'); ?>;
 		}
 		.page-content {
@@ -219,6 +235,9 @@ function minka_customize_css()
 		}
 		.site-header span {
 			color: <?php echo get_theme_mod('minka_font_color_header'); ?>;
+		}
+		.home-stick {
+			background-image: url(<?php echo get_theme_mod('minka_header_image'); ?>);
 		}
 	</style> 
 	<!-- /Customize CSS -->

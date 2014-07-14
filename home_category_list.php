@@ -1,7 +1,13 @@
-<div id="category-<?php echo $term->slug; ?>" class="category-toggle-list-view">
-	<h1><?php echo $term->name;?></h1>
-	<p><?php echo $term->description;?></p>
-	<div id="category-<?php echo $term->slug; ?>-list" style="display: block;" class="category-home-list">
+<div id="category-<?php echo $term->slug; ?>" class="home-category-list-view home-category-num-<?php echo $count; ?>">
+	<div class="home-category-header">
+		<div class="home-category-image"><img alt="" src="<?php echo z_taxonomy_image_url($term->term_id,null,true); ?>"/></div>
+		<div class="home-category-header-text">
+			<h2 class="home-category-name"><?php echo $term->name;?></h2>
+			<span class="home-category-description"><?php echo $term->description;?></span>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div id="category-<?php echo $term->slug; ?>-list" style="display: block;" class="category-home-list-itens">
 		<?php
 		$args = array(
 				'posts_per_page'   => 3,

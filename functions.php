@@ -180,20 +180,122 @@ class Minka{
 
 	public function register_sidebars()
 	{
+		register_sidebar( array(
+		'name' => __('Home Sidebar', 'minka'),
+		'id' => 'sidebar-home-1',
+		'before_widget' => '<div class="sidebar-home-item">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="rounded">',
+		'after_title' => '</h2>',
+		) );
+		
+		register_sidebar( array(
+			'name' => __('Footer Widget Area Top', 'minka'),
+			'id' => 'footer-1',
+			'before_widget' => '<div class="footer-top-item">',
+			'after_widget' => '</div>',
+			'before_title' => '<h2 class="rounded">',
+			'after_title' => '</h2>',
+		) );
+		
+		register_sidebar( array(
+		'name' => __('Footer Widget Area Bottom', 'minka'),
+		'id' => 'footer-2',
+		'before_widget' => '<div class="footer-bottom-item">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="rounded">',
+		'after_title' => '</h2>',
+		) );
+		
 		$args = array(
-				'name'          => 'Solution Sidebar',
-				'id'            => "solution-sidebar",
-				'description'   => '',
-				'class'         => '',
-				'before_widget' => '<li id="%1$s" class="widget %2$s">',
-				'after_widget'  => "</li>\n",
-				'before_title'  => '<h2 class="widgettitle">',
-				'after_title'   => "</h2>\n",
+			'name'          => 'Solution Sidebar',
+			'id'            => "solution-sidebar",
+			'description'   => '',
+			'class'         => '',
+			'before_widget' => '<li id="%1$s" class="widget %2$s">',
+			'after_widget'  => "</li>\n",
+			'before_title'  => '<h2 class="widgettitle">',
+			'after_title'   => "</h2>\n",
 		);
 
 		register_sidebar( $args );
+		
 	}
-
+	
+	public function getLoginForm()
+	{
+		$form = wp_login_form(array('label_log_in' => __('Iniciar', 'minka'), 'echo' => false ));
+		
+		$rem_ini = strpos($form, '<p class="login-remember">');
+		$rem_fim = strpos($form, '</p>', $rem_ini);
+		
+		$rem = substr($form, $rem_ini, ($rem_fim+4) - $rem_ini);
+		
+		$form = substr($form, 0, $rem_ini).substr($form, $rem_fim + 4);
+		
+		$link = '<p class="header-register-link">'.wp_register('','', false).'</p>'.$rem.'</form>';
+		
+		$form = str_replace('</form>', $link, $form);
+		
+		return $form;
+	}
+	
+	public function footerThumbnailList()
+	{
+		global $post;
+		
+		$tmp_post = $post;
+		//$myposts = get_posts('numberposts=-1&&category='.$listCatId[1].'&&orderby='.$categoryThumbnailList_OrderType.'&&order='.$categoryThumbnailList_Order);
+		$myposts = get_posts('numberposts=-1&&category='.$listCatId[1]);
+		
+		$output = '<div class="footer-thumbnail-list">';
+		foreach($myposts as $post) :
+		setup_postdata($post);
+		if ( has_post_thumbnail() ) {
+			$link = get_permalink($post->ID);
+			$thmb = get_the_post_thumbnail($post->ID,'thumbnail');
+			$title = get_the_title();
+			$output .= '<div class="categoryThumbnailList_item">';
+			$output .= '<a href="' .$link . '" title="' .$title . '">' .$thmb . '</a><br/>';
+			$output .= '<a href="' .$link . '" title="' .$title . '">' .$title . '</a>';
+			$output .= '</div>';
+		}
+		endforeach;
+		$output .= '</div>';
+		$output .= '<div class="categoryThumbnailList_clearer"></div>';
+		$post = $tmp_post;
+		wp_reset_postdata();
+		return ($output);
+		$output = '';
+	}
+	
+	public static function get_search_form_filter($form)
+	{
+		//TODO replace default form text
+		return $form;
+	}
+	
+	public static function HomeCategoryList() 
+	{
+		$taxonomy = 'category';
+		$args = array(
+				'orderby' => 'id',
+				'hide_empty'=> 0,
+				'hierarchical' => 0,
+				'parent' => 0,
+				'taxonomy'=>$taxonomy,
+				'exclude'=>4
+		
+		);
+		$terms = get_terms($taxonomy, $args);
+		$count = 1;
+		foreach ($terms as $term)
+		{
+			include(locate_template('home_category_list.php'));
+			$count++;
+		}
+	}
+	
 }
 
 $minka = new Minka();
@@ -222,3 +324,16 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Solution Post type
+ */
+require_once get_template_directory() . '/inc/solutions/solutions.php';
+
+/**
+ * categories-images plugin
+ */
+if (!function_exists('z_taxonomy_image_url'))
+{
+	require_once get_template_directory() . '/inc/categories-images/categories-images.php';
+}

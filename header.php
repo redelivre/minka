@@ -36,18 +36,13 @@
 					?>
 				</div>
 				<div id='login-form' class="header-login-form">
-					<span class="login-text"><?php _e('Login', 'minka'); ?></span>
 					<?php
 					if(!is_user_logged_in())
 					{
-						$form = wp_login_form(array('label_log_in' => __('Iniciar', 'minka'), 'echo' => false ));
-						
-						$link = '<p class="header-register-link">'.wp_register('','', false).'</p></form>';
-						
-						$form = str_replace('</form>', $link, $form);
-						
-						echo $form;
-						
+						?>
+						<span class="login-text"><?php _e('Login', 'minka'); ?></span>
+						<?php
+						echo Minka::getLoginForm();
 					}
 					else 
 					{
@@ -77,8 +72,12 @@
 				<div class="header-navigation-menu">
 					<nav role="navigation" class="site-navigation main-navigation co">
 						<div class="clearfix"></div>
-						<?php wp_nav_menu( array( 'menu' => 'main', 'theme_location' => 'primary', 'container_class' => 'span9' ) ); ?>
+						<?php wp_nav_menu( array( 'menu' => 'main', 'theme_location' => 'primary', 'container_class' => 'minka-header-menu' ) ); ?>
 					</nav><!-- .site-navigation .main-navigation -->
+					<br/>
+					<div class="header-search-form">
+						<?php get_search_form() ?>
+					</div>
 				</div>
 			</div>
 		</div>
