@@ -1407,3 +1407,17 @@ object {
 .home-cat-post-thumbnail img {
 	max-height: 240px;
 }
+
+.category-home-list-archive-link {
+    background-color: red;
+    color: #fff;
+    display: block;
+    float: right;
+    font-size: 24px;
+    height: 40px;
+    margin-top: 22px;
+    padding-right: 40px;
+    text-align: right;
+    text-decoration: none;
+    width: 60%;
+}
