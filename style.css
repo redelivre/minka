@@ -1256,9 +1256,21 @@ object {
     font-weight: bold;
 }
 
-.home-category-num-1 .home-category-image,
-.home-category-num-1 .home-cat-post-thumbnail {
+.home-category-num-1 .home-category-image {
 	background-color: #57c1b6;
+}
+
+.home-category-num-1 .home-cat-post-thumbnail {
+	border-bottom: 10px solid #57c1b6;
+	border-top: 2px solid #57c1b6;
+	
+}
+
+.home-category-num-1 .home-cat-post-box {
+	border-bottom: 2px solid #57c1b6;
+	border-top: 1px dotted #57c1b6;
+	border-left: 1px dotted #57c1b6;
+	border-right: 1px dotted #57c1b6;
 }
 
 .home-category-num-1 {
@@ -1269,6 +1281,19 @@ object {
 	background-color: #6e448f;
 }
 
+.home-category-num-2 .home-cat-post-thumbnail {
+	border-bottom: 10px solid #6e448f;
+	border-top: 2px solid #6e448f;
+	
+}
+
+.home-category-num-2 .home-cat-post-box {
+	border-bottom: 2px solid #6e448f;
+	border-top: 1px dotted #6e448f;
+	border-left: 1px dotted #6e448f;
+	border-right: 1px dotted #6e448f;
+}
+
 .home-category-num-2 {
 	color: #6e448f;
 }
@@ -1277,12 +1302,38 @@ object {
 	background-color: #ff8300;
 }
 
+.home-category-num-3 .home-cat-post-thumbnail {
+	border-bottom: 10px solid #ff8300;
+	border-top: 2px solid #ff8300;
+	
+}
+
+.home-category-num-3 .home-cat-post-box {
+	border-bottom: 2px solid #ff8300;
+	border-top: 1px dotted #ff8300;
+	border-left: 1px dotted #ff8300;
+	border-right: 1px dotted #ff8300;
+}
+
 .home-category-num-3 {
 	color: #ff8300;
 }
 
 .home-category-num-4 .home-category-image {
 	background-color: #b62c7a;
+}
+
+.home-category-num-4 .home-cat-post-thumbnail {
+	border-bottom: 10px solid #b62c7a;
+	border-top: 2px solid #b62c7a;
+	
+}
+
+.home-category-num-4 .home-cat-post-box {
+	border-bottom: 2px solid #b62c7a;
+	border-top: 1px dotted #b62c7a;
+	border-left: 1px dotted #b62c7a;
+	border-right: 1px dotted #b62c7a;
 }
 
 .home-category-num-4 {
@@ -1299,11 +1350,20 @@ object {
 
 .home-cat-post-box {
     float: left;
-    width: 33%;
+    margin-right: 20px;
+    width: 32%;
+    min-width: 300px;
+}
+
+.home-cat-post-box:last-child {
+    margin-right: 0px;
 }
 
 .home-cat-post-thumbnail {
     display: block;
     text-align: center;
+    height: 250px;
 }
-
+.home-cat-post-thumbnail img {
+	max-height: 240px;
+}
