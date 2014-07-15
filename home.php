@@ -5,7 +5,7 @@
 		<div class="home-stick-entry">
 		<?php 
 			//<iframe width="560" height="315" src="//www.youtube.com/embed/TDwB0Z9s5nE" frameborder="0" allowfullscreen></iframe>
-			$video = wp_oembed_get('http://youtu.be/TDwB0Z9s5nE', array('height' => '400', 'width' => '800'));
+			$video = wp_oembed_get('http://youtu.be/TDwB0Z9s5nE', array('height' => '400', 'width' => '1000'));
 			if($video !== false)
 			{
 				echo $video;
