@@ -782,12 +782,10 @@ object {
   margin-left: .2em;
  
   /* you can be more comfortable with increased icons size */
-  font-size: 200%;
+  font-size: 125%;
  
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-  
-  color: #6e448f;
   
 }
 
@@ -796,30 +794,25 @@ object {
 ---------------------------------------------------------------------------- */
 .header-social-list a {
     margin: 0.25em;
+    color: #6e448f;
+    text-decoration: none;
+    background: #fff;
 }
 
-.social-bookmarks{
-	font-weight: 300;
-}
-.social-bookmarks a{
-	color: #6e448e;
-}
-
-.social-bookmarks a:hover{
-	color: #fff;
+.header-social-list a:hover {
+    color: #fff;
 }
 
 .share-facebook{
 	float: left;
 	border: 0;
 	border-radius:55px;
-	background: #fff;
 	padding: 10px;
 	
 }
 
 .share-facebook:hover{
-	background: #019ad2;
+	background: #3b5998;
 	color:#6e448f;
 }
 
@@ -851,8 +844,8 @@ object {
 }
 
 .share-googleplus:hover{
-	background: #019ad2;
-	color: #6e448f;
+	background: #cf3e2d;
+	
 }
 
 .icon-googleplus:before { 
@@ -868,7 +861,7 @@ object {
 }
 
 .share-youtube:hover{
-	background: #019ad2;
+	background: #d02525;
 	color: #6e448f;
 }
 
