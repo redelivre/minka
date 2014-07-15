@@ -36,8 +36,8 @@
 		?>
 	</div>
 	<div class="clear"></div>
-	<div class="category-home-list-archive-link">
-		<a class="category-home-list-archive-link" href="<?php echo get_category_link($term->term_id); ?>"><span class="category-home-list-archive-link-label">ver más</span></a> 
+	<div class="category-home-list-archive-link" onclick="window.location='<?php echo get_category_link($term->term_id); ?>';return false;">
+		<span class="category-home-list-archive-link-text" ><?php echo __('View All', 'minka').': '.$term->name; ?></span> 
 	</div>
 </div>
 <div class="clear"></div>
