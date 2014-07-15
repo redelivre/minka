@@ -1280,6 +1280,7 @@ object {
 	border-right: 1px dotted #57c1b6;
 }
 
+.home-category-num-1 .home-cat-post-cat a,
 .home-category-num-1 {
 	color: #57c1b6;
 }
@@ -1301,6 +1302,7 @@ object {
 	border-right: 1px dotted #6e448f;
 }
 
+.home-category-num-2 .home-cat-post-cat a,
 .home-category-num-2 {
 	color: #6e448f;
 }
@@ -1322,6 +1324,7 @@ object {
 	border-right: 1px dotted #ff8300;
 }
 
+.home-category-num-3 .home-cat-post-cat a,
 .home-category-num-3 {
 	color: #ff8300;
 }
@@ -1343,6 +1346,7 @@ object {
 	border-right: 1px dotted #b62c7a;
 }
 
+.home-category-num-4 .home-cat-post-cat a,
 .home-category-num-4 {
 	color: #b62c7a;
 }
@@ -1365,6 +1369,35 @@ object {
 .home-cat-post-box:last-child {
     margin-right: 0px;
 }
+
+.home-cat-post-title h2,
+.home-cat-post-content,
+.home-cat-post-cat a {
+	margin: 4px 26px 0 26px;
+	display: block;
+}
+
+.home-cat-post-cat a {
+	text-decoration: none;
+}
+
+.home-cat-post-cat br {
+	display: none;
+}
+
+.home-cat-post-content {
+	height: 76px;
+	margin-bottom: 6px;
+}
+
+.home-cat-post-content p {
+	margin-bottom: 0;
+}
+
+.home-cat-post-title h2 {
+	margin-top: 0;
+}
+
 
 .home-cat-post-thumbnail {
     display: block;
