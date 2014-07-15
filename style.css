@@ -383,6 +383,8 @@ a:active {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+	color: red;
+	font-weight: 300;
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -1268,9 +1270,6 @@ object {
 
 .home-category-num-1 .home-cat-post-box {
 	border-bottom: 2px solid #57c1b6;
-	border-top: 1px dotted #57c1b6;
-	border-left: 1px dotted #57c1b6;
-	border-right: 1px dotted #57c1b6;
 }
 
 .home-category-num-1 {
@@ -1285,6 +1284,10 @@ object {
 	border-bottom: 10px solid #6e448f;
 	border-top: 2px solid #6e448f;
 	
+}
+
+.home-cat-post-box{
+	box-shadow: 0 0 6px #ccc;
 }
 
 .home-category-num-2 .home-cat-post-box {
