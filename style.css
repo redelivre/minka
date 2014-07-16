@@ -725,7 +725,7 @@ object {
 }
 
 .minka_language_selector_swapper_bol {
-    background-color: red;
+    background-color: #cc3366;
     height: 36px;
     width: 36px;
     z-index: 1000;
@@ -737,7 +737,7 @@ object {
 	border: 0;
 	position: absolute;
 	top: 0;
-	opacity: 0.5;
+	/*opacity: 0.5;*/
 }
 
 
@@ -949,14 +949,14 @@ object {
 }
 
 .header-login-form #user_login {
-	background-image: url(images/usuario.png);
+	background-image: url(images/user.png);
 	background-repeat: no-repeat;
 	background-position: left center;
 	background-size: auto 100%;
 }
 
 .header-login-form #user_pass {
-	background-image: url(images/senha.png);
+	background-image: url(images/password.png);
 	background-repeat: no-repeat;
 	background-position: left center;
 	background-size: auto 100%;
@@ -968,6 +968,11 @@ object {
 	width: 100px;
 	height: 28px;
 	text-align: center;
+	box-shadow: none;
+}
+
+.header-login-form .login-submit input:hover {
+	background-color: #e9c32c;
 }
 
 .header-login-form .login-username input,
@@ -1003,7 +1008,11 @@ object {
 	font-weight: bolder;
 	border-right: 2px solid #ff8300;
 	padding-right: 0.5em;
-} 
+}
+
+.header-login-form .header-register-link a:hover{
+	color: #e9c32c;
+}
 
 .header-login-form .login-remember input{
 	display:none;
