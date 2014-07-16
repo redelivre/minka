@@ -1152,13 +1152,13 @@ object {
 }
 
 .home-stick {
-	height: 470px;
+	height: 773px;
 	background-position: center center;
     background-repeat: no-repeat;
 }
 
 .home-stick-entry {
-	padding-top: 40px;
+	padding-top: 100px;
 	vertical-align: middle;
 	margin: 0 auto;
 	width: 86%;
