@@ -1133,7 +1133,7 @@ object {
     margin: 0 auto;
     position: relative;
     text-align: center;
-    top: -53px
+    top: -33px
 }
 
 .footer-area-top-title-text {
@@ -1146,7 +1146,7 @@ object {
     border-bottom: 2px dotted #ff8300;
     border-top: 2px dotted #ff8300;
     margin-top: 90px;
-    padding-top: 2.5em;
+    padding-top: 1.2em;
 }
 
 .footer-top-item {
