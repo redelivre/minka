@@ -337,3 +337,9 @@ if (!function_exists('z_taxonomy_image_url'))
 {
 	require_once get_template_directory() . '/inc/categories-images/categories-images.php';
 }
+
+/**
+ * widgets
+ *  
+*/
+require_once get_template_directory() . '/inc/widgets.php';
