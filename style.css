@@ -1107,6 +1107,7 @@ object {
 
 .footer-area li {
 	list-style: none;
+	padding: 0.2em;
 }
 
 .footer-area ul {
@@ -1157,6 +1158,7 @@ object {
 .footer-bootom {
     display: table;
     margin: 0 auto;
+    width: 100%;
 }
 
 .footer-bottom-item {
@@ -1164,7 +1166,7 @@ object {
     float: left;
     height: 220px;
     padding: 0.5em;
-    
+    width: 25%;   
 }
 
 .footer-bottom-item:last-child {
@@ -1173,7 +1175,18 @@ object {
 
 .footer-area-bottom {
 	background-color: #636363;
-	height: 260px;
+	height: 280px;
+}
+
+.footer-bottom-item:first-child img {
+    margin: -20px 0 0;
+    padding: 0;
+}
+
+.footer-bottom-text {
+    color: #57c1b6;
+    display: block;
+    margin-top: 20px;
 }
 
 /*--------------------------------------------------------------

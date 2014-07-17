@@ -77,9 +77,15 @@
 		} );
 	} );
 	
-	wp.customize( 'minka_header_text', function( value ) {
+	wp.customize( 'minka_footer_text_top', function( value ) {
 		value.bind( function( newval ) {
-			$('.minka span').text(newval);
+			$('.footer-area-top-title-text').text(newval);
+		} );
+	} );
+	
+	wp.customize( 'minka_footer_text', function( value ) {
+		value.bind( function( newval ) {
+			$('.footer-bottom-text').text(newval);
 		} );
 	} );
 	

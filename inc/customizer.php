@@ -83,47 +83,7 @@ function minka_customize_register( $wp_customize )
 			'priority' => 30,
 	) );
 
-	/*$wp_customize->add_setting( 'minka_content_image', array(
-	 'default'     => is_array($image_thumb) ? $image_thumb[0] : '',
-			'capability'    => 'edit_theme_options',
-	) );
-
-	$wp_customize->add_control( new WP_Customize_Image_Reloaded_Control( $wp_customize, 'minka_content_image', array(
-			'label'   	=> __( 'Imagem', 'minka' ),
-			'section'	=> 'minka_content',
-			'settings' 	=> 'minka_content_image',
-			'context'	=> 'minka_content_image'
-	) ) );
-
-	add_action('customize_save_minka_content_image', function()
-	{
-			$post_values = json_decode( wp_unslash( $_POST['customized'] ), true );
-			//$post_values['minka_content_image'];
-
-			$imgs = get_posts( array(
-					'post_type'  => 'attachment',
-					'meta_key'   => '_wp_attachment_context',
-					'meta_value' => 'minka_content_image',
-					'orderby'    => 'post_date',
-					'nopaging'   => true,
-			) );
-
-			$img_id = 0;
-			foreach ($imgs as $img)
-			{
-			if($img->guid == $post_values['minka_content_image'])
-			{
-			$img_id = $img->ID;
-			}
-			}
-
-			set_post_thumbnail(get_option('page_on_front'), $img_id);
-
-
-
-			});*/
-
-	$wp_customize->add_setting( 'minka_header_text', array(
+	/*$wp_customize->add_setting( 'minka_header_text', array(
 			'default'     => __("ASSINE JÁ", 'minka'),
 			'capability'    => 'edit_theme_options',
 			'transport'=>'postMessage'
@@ -132,18 +92,29 @@ function minka_customize_register( $wp_customize )
 	$wp_customize->add_control( 'minka_header_text', array(
 			'label'      => __( 'Texto do Cabeçalho' ),
 			'section'    => 'minka_content',
+	) );*/
+	
+	$wp_customize->add_setting( 'minka_footer_text_top', array(
+			'default'     => __("Redes Amigas de MINKA", 'minka'),
+			'capability'    => 'edit_theme_options',
+			'transport'=>'postMessage'
 	) );
-
-	$wp_customize->add_control(
-			new Customize_Misc_Control($wp_customize, 'minka_page_edit_link',
-					array(
-							'section'  => 'minka_content',
-							'label'    => __( 'Editar Página', 'minka' ),
-							'type'     => 'link',
-							'link'	   => get_edit_post_link(get_option('page_on_front'))
-					)
-			)
-	);
+	
+	$wp_customize->add_control( 'minka_footer_text_top', array(
+			'label'      => __( 'Footer Title' ),
+			'section'    => 'minka_content',
+	) );
+	
+	$wp_customize->add_setting( 'minka_footer_text', array(
+			'default'     => __("Minka - Banco de las redes. Todos los derechos reservados, copyright 2014", 'minka'),
+			'capability'    => 'edit_theme_options',
+			'transport'=>'postMessage'
+	) );
+	
+	$wp_customize->add_control( 'minka_footer_text', array(
+			'label'      => __( 'Footer Text' ),
+			'section'    => 'minka_content',
+	) );
 
 	// TODO fix save bug
 	/*$wp_customize->add_setting( 'minka_content_text', array(
