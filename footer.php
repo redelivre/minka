@@ -11,9 +11,14 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="footer-area">
+		<div class="footer-area footer-area-top">
+			<div class="footer-area-top-title">
+				<div class="footer-area-top-title-text">
+					<?php _e('Redes Amigas de MINKA', 'minka'); ?>
+				</div>
+			</div>
 			<div class="footer-entry">
-				<div class="footer-area">
+				<div class="footer-top">
 					<?php dynamic_sidebar('footer-1'); ?>
 				</div>
 			</div>
