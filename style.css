@@ -1274,6 +1274,31 @@ object {
 .home-sidebar {
 	width: 34%;
 	float: left;
+	background-color: #d7d7d7;
+}
+
+.sidebar-home-item{
+	margin: 17px 20px;
+	color:#636363;
+}
+
+.sidebar-home-item .rounded{
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.sidebar-home-item a{
+	text-decoration: none;
+	list-style-type: none;
+	color:#636363;
+}
+
+.sidebar-home-item a:hover{
+	color: #414684;
+}
+
+.sidebar-home-item .cat-item{
+	list-style-type: none;
 }
 
 .home-category-list-view {
@@ -1404,6 +1429,7 @@ object {
     margin-right: 20px;
     width: 32%;
     min-width: 300px;
+    opacity: 0.8;
 }
 
 .home-cat-post-box:last-child {
