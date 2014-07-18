@@ -1556,3 +1556,26 @@ object {
     margin-top: 12px;
     text-transform: uppercase;
 }
+
+/*--------------------------------------------------------------
+16.3 Home SideBar
+--------------------------------------------------------------*/
+
+.sidebar-home-item {
+    border-bottom: 2px dotted #3c3c3c;
+    margin-top: 25px;
+}
+
+.sidebar-home-item li {
+    list-style: none outside none;
+    text-decoration: none;
+}
+
+.sidebar-home-item h2 {
+    font-weight: bold;
+}
+
+.sidebar-home-item li a {
+    color: #3c3c3c;
+    text-decoration: none;
+}

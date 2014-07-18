@@ -116,33 +116,6 @@ function minka_customize_register( $wp_customize )
 			'section'    => 'minka_content',
 	) );
 
-	// TODO fix save bug
-	/*$wp_customize->add_setting( 'minka_content_text', array(
-			'default'     => apply_filters('the_editor_content', $page->post_content),
-			'capability'    => 'edit_theme_options',
-	) );
-
-	$wp_customize->add_control( new Text_Editor_Custom_Control( $wp_customize, 'minka_content_text', array(
-			'label'   	=> __( 'Conteudo', 'minka' ),
-			'section'	=> 'minka_content',
-			'settings' 	=> 'minka_content_text',
-			'liveupdate' => '.page-content'
-	) ) );
-
-	add_editor_style('css/editor.css');
-
-	add_action('customize_save_minka_content_text', function()
-	{
-			$post_values = json_decode( wp_unslash( $_POST['customized'] ), true );
-			//$post_values['minka_content_image'];
-
-			$id = get_option('page_on_front');
-			$page = get_post($id);
-			$page->post_content = $post_values['minka_content_text'];
-			wp_update_post($page);
-
-			});*/
-	
 	//header background image
 	$wp_customize->add_section( 'minka_header', array(
 			'title'    => __( 'Cabeçalho', 'minka' ),

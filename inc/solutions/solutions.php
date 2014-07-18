@@ -484,11 +484,14 @@ class Solutions
 		
 		foreach ($this->_customs as $field)
 		{
-			// Sanitize the user input.
-			$mydata = sanitize_text_field( $_POST[$field->slug] );
-		
-			// Update the meta field.
-			update_post_meta( $post_id, $field->slug, $mydata );
+			if(array_key_exists($field['slug'], $_POST))
+			{
+				// Sanitize the user input.
+				$mydata = sanitize_text_field( $_POST[$field['slug']] );
+			
+				// Update the meta field.
+				update_post_meta( $post_id, $field['slug'], $mydata );
+			}
 		}
 	}
 	
