@@ -549,6 +549,19 @@ a:active {
 	display: none;
 }
 
+/* Search widget */
+.textwidget{
+	text-align: left;
+}
+
+.textwidget a{
+}
+
+.textwidget a:hover{
+	color: red;
+}
+
+
 /*--------------------------------------------------------------
 10.0 Content
 --------------------------------------------------------------*/
