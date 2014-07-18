@@ -1039,7 +1039,7 @@ object {
 .header-bottom-entry {
 	vertical-align: middle;
 	margin: 0 auto;
-	width: 80%;
+	width: 86%;
 	height: 170px;
 	white-space: nowrap;
     text-align: center;
@@ -1051,8 +1051,9 @@ object {
 
 .header-logo, .header-navigation-menu {
 	height: inherit;
-	display: table-cell;
+	display: block;
 	vertical-align: middle;
+	float: left;
 }
 
 .header-logo-helper {
@@ -1071,7 +1072,12 @@ object {
 14.1 Header Bottom Menu
 --------------------------------------------------------------*/
 .header-navigation-menu {
-	padding-left: 8em;	
+	width: 85%;
+}
+
+.header-navigation-menu .main-navigation ul {
+	display: block;
+	float: right;
 }
 
 .header-navigation-menu .main-navigation li {
@@ -1084,6 +1090,7 @@ object {
 
 .header-navigation-menu .main-navigation li:last-child {
     border-right: none;
+    padding-right: 0;
 }
 
 .header-navigation-menu .current_page_item li a {
@@ -1272,9 +1279,10 @@ object {
 }
 
 .home-sidebar {
-	width: 34%;
+	width: 32%;
 	float: left;
 	background-color: #d7d7d7;
+	margin-left: 40px;
 }
 
 .sidebar-home-item{
