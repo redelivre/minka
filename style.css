@@ -383,9 +383,14 @@ a:active {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
-	color: red;
+	color: #414684;
 	font-weight: 300;
 }
+
+.main-navigation a:hover {
+	color: #b62c7a;
+}
+
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: left;
@@ -417,6 +422,7 @@ a:active {
 }
 .main-navigation .current_page_item a,
 .main-navigation .current-menu-item a {
+	color:#ff8300;
 }
 /* Small menu */
 .menu-toggle {
@@ -1084,7 +1090,7 @@ object {
 14.1 Header Bottom Menu
 --------------------------------------------------------------*/
 .header-navigation-menu {
-	padding-left: 8em;	
+	padding-left: 14.3em;	
 }
 
 .header-navigation-menu .main-navigation li {
