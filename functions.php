@@ -95,7 +95,7 @@ class Minka{
 	 */
 	public function javascript()
 	{
-		wp_enqueue_style( 'minka-style', get_stylesheet_uri() );
+		wp_enqueue_style( 'minka-style', get_stylesheet_uri(), array(), false, 'all');
 		wp_enqueue_script( 'minka-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 		wp_enqueue_script( 'minka-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 		

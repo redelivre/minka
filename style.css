@@ -383,9 +383,14 @@ a:active {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
-	color: red;
+	color: #414684;
 	font-weight: 300;
 }
+
+.main-navigation a:hover {
+	color: #b62c7a;
+}
+
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: left;
@@ -417,6 +422,7 @@ a:active {
 }
 .main-navigation .current_page_item a,
 .main-navigation .current-menu-item a {
+	color:#ff8300;
 }
 /* Small menu */
 .menu-toggle {
@@ -548,6 +554,19 @@ a:active {
 .widget_search .search-submit {
 	display: none;
 }
+
+/* Search widget */
+.textwidget{
+	text-align: left;
+}
+
+.textwidget a{
+}
+
+.textwidget a:hover{
+	color: red;
+}
+
 
 /*--------------------------------------------------------------
 10.0 Content
