@@ -284,7 +284,8 @@ class Minka{
 				'hierarchical' => 0,
 				'parent' => 0,
 				'taxonomy'=>$taxonomy,
-				'exclude'=>4
+				'exclude'=> 4,
+				'number' => 4
 		
 		);
 		$terms = get_terms($taxonomy, $args);
