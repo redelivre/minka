@@ -156,6 +156,15 @@ add_action( 'customize_preview_init', 'minka_customize_preview_js' );
 */
 function minka_customize_css()
 {
+	$langs = 3;
+	if(function_exists('icl_get_languages'))
+	{
+		$langs_count = count(icl_get_languages('skip_missing=0'));
+		if($langs_count > 0)
+		{
+			$langs = $langs_count;
+		}
+	}
 	?>
 	<!-- Customize CSS -->
 	<style type="text/css">
@@ -182,6 +191,9 @@ function minka_customize_css()
 		}
 		.home-stick {
 			background-image: url(<?php echo get_theme_mod('minka_header_image'); ?>);
+		}
+		.minka_language_selector_item {
+			width: <?php echo 100 / $langs; ?>%;
 		}
 	</style> 
 	<!-- /Customize CSS -->

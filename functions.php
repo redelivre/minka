@@ -102,6 +102,16 @@ class Minka{
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+		
+		wp_enqueue_script('jquery-ui-draggable');
+		wp_enqueue_script('jquery-ui-droppable');
+		wp_enqueue_script('minka-language-swapper', get_template_directory_uri() . '/js/minka-language-swapper.js', array('jquery-ui-draggable'));
+		
+		
+		$data = array(
+			'default' => icl_get_default_language()
+		);
+		wp_localize_script('minka-language-swapper', 'minka_language_swapper', $data);
 	}
 
 	public static function languageSelector()
@@ -115,27 +125,19 @@ class Minka{
 				$l = array();
 				$activeindex = 0;
 				$i = 0;
+				$activelang;
 				foreach($languages as $language)
 				{
 					if($language['active'])
 					{
 						$activeindex = $i;
+						$activelang = $language['language_code'];
 					}
 					$i++;
 					
-					if(count($l) == 0)
-					{
-						$l = $language;
-						$f = $l['url'];
-						continue;
-					}
-					/*if(!$l['active']) echo '<a href="'.$l['url'].'">';
-					 echo '<img src="'.$l['country_flag_url'].'" height="12" alt="'.$l['language_code'].'" width="18" />';
-					if(!$l['active']) echo '</a>';*/
-					echo '<a href="'.$language['url'].'"><span '.($l['active'] ? '' : 'style="display:none"').'>'.$l['translated_name'].'</span></a>';
+					echo '<span class="minka_language_selector_item"><label style="" >'.$language['language_code'].'</label></span>';
 					$l = $language;
 				}
-				if(count($l) > 0) echo '<a href="'.$f.'"><span '.($l['active'] ? '' : 'style="display:none"').'>'.$l['translated_name'].'</span></a>';
 				echo '</div>';
 				$right = 0;
 				if(count($languages) > 0)
@@ -143,18 +145,17 @@ class Minka{
 					switch ($activeindex)
 					{
 						case 0:
-							$right = 108;
+							$right = 76;
 						break;
 						case count($languages)-1:
 							$right = 0;
 						break;
 						default: 
-							$right = (108 * (($activeindex + 1) / count($languages))) - 16;
+							$right = (76 * (($activeindex + 1) / count($languages))) - 16;
 						break;
 					}
 				}
-					
-				echo '<div class="minka_language_selector_swapper_bol" style="right:'.$right.'px"></div>';
+				echo '<div class="minka_language_selector_swapper_bol" style="right:'.$right.'px">'.$activelang.'</div>';
 			}
 		}
 	}
