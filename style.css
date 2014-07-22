@@ -1640,6 +1640,10 @@ object {
 	background-color: #ebebeb;
 }
 
+.solution-single-sidebar li {
+		list-style: none;
+}
+
 .solution-single-post-list {
 	width: 76%;
 	float: left;
@@ -1689,4 +1693,23 @@ object {
     border-bottom-right-radius: 6px;
     border-left: 2px solid #eaeaea;
     border-right: 2px solid #eaeaea;
+    padding: 1.5em;
+}
+
+.solution-single-content h2 {
+    color: #636363;
+    font-weight: bold;
+}
+
+.solution-single-content p {
+    color: #636363;
+}
+
+.solution-single-post-tags a {
+    color: #6e448f;
+    text-decoration: none;
+}
+
+.solution-single-post-tags a:hover {
+    color: #414684;
 }
