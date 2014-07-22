@@ -35,17 +35,42 @@
 				<div class="solution-single-content">
 					<div class="solution-single-post-region">
 						<h2><?php echo __('Region', 'minka'); ?></h2>
-						<p><?php echo get_post_meta($post->post_ID, 'solution-coverage', true); ?></p>
+						<p><?php echo get_post_meta(get_the_ID(), 'solution-country', true); ?></p>
 					</div>
-					<div class="solution-single-post-excerpt">
+					<div class="solution-single-post-content">
 						<h2><?php echo __('description', 'minka'); ?></h2>
 						<p><?php echo get_the_content();?></p>
 					</div>
 					<div class="span solution-single-post-can-use">
 						<h2><?php echo __('Who can use', 'minka');?></h2>
-						<p><?php echo get_post_meta($post->post_ID, 'solution-coverage', true); ?></p>
+						<p><?php echo get_post_meta(get_the_ID(), 'solution-for', true); ?></p>
 					</div>
-				</div><?php
+					<div class="span solution-single-post-contact">
+						<h2><?php echo __('Useful tips and facts', 'minka');?></h2>
+						<p><?php echo get_post_meta(get_the_ID(), 'solution-contact', true); ?></p>
+					</div>
+					<div class="span solution-single-post-sharing">
+						<h2><?php echo __('Appreciation', 'minka');?></h2>
+						<p><?php echo get_post_meta(get_the_ID(), 'solution-sharing', true); ?></p>
+					</div>
+					<div class="solution-single-post-tags">
+						<h2><?php echo __('Tags');?></h2>
+						<?php the_tags('', ', '); ?>
+					</div>
+					<div class="solution-single-post-url">
+						<a href="<?php echo get_post_meta(get_the_ID(), 'solution-url', true); ?>" target="_blank" ><?php _e('view web site', 'minka')?></a>
+					</div>
+				</div>
+				<div class="solution-single-post-exp">
+					
+				</div>
+				<div class="solution-single-post-comments">
+					<?php get_comments(); ?>
+				</div>
+				<div class="solution-single-post-comment-form">
+					<?php comment_form(); ?>
+				</div>
+			<?php
 			}
 		}
 	?>

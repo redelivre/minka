@@ -12,7 +12,7 @@ class Solutions
 					'tip' => __('web site address', 'minka'),
 					'required' => true
 			),
-			'url' => array
+			'for' => array
 			(
 					'slug' => 'solution-for',
 					'title' => __('for serving?', 'minka'),
