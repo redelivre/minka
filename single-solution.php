@@ -38,7 +38,7 @@
 						<p><?php echo get_post_meta(get_the_ID(), 'solution-country', true); ?></p>
 					</div>
 					<div class="solution-single-post-content">
-						<h2><?php echo __('description', 'minka'); ?></h2>
+						<h2><?php echo __('Description', 'minka'); ?></h2>
 						<p><?php echo get_the_content();?></p>
 					</div>
 					<div class="span solution-single-post-can-use">
@@ -62,7 +62,8 @@
 					</div>
 				</div>
 				<div class="solution-single-post-exp needs-rating">
-					<?php rate_form_filter(); ?>
+					<h3><?php _e('Share your experience', 'minka');?></h3>
+					<?php the_rate_form(); ?>
 				</div>
 				<div class="solution-single-post-comments">
 					<?php get_comments(); ?>

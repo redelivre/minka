@@ -90,10 +90,19 @@ function rate_save_karma($id) {
 }
 add_action('comment_post', 'rate_save_karma');
 
-function rate_form_filter($content = '') {
+function rate_form()
+{
 	$star = '<li class="empty"><span class="l"></span><span class="r"></span></li>';
-	$parts = array('<ul class="rating form-rating">', $star, $star, $star, $star, $star, '</ul>');
-	echo implode('', $parts);
+	return '<ul class="rating form-rating">'.$star.$star.$star.$star.$star.'</ul>';
+}
+
+function the_rate_form()
+{
+	echo rate_form();
+} 
+
+function rate_form_filter($content) {
+	the_rate_form();
 }
 // /add_action('comment_form_top', 'rate_form_filter');
 
