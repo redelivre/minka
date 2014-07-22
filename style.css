@@ -706,9 +706,11 @@ object {
 --------------------------------------------------------------*/
 
 .header-top {
-	height: 90px;
+	min-height: 90px;
 	vertical-align: middle;
 	padding-top: 0.70em;
+	float: left;
+	width: 100%;
 }
 
 .header-top-entry {
@@ -946,7 +948,8 @@ object {
     margin-left: 3em
 }
 .header-login-form {
-	
+	float: right;
+	width: 55%;
 }
 
 .header-login-form .login-form,
@@ -960,6 +963,10 @@ object {
 	float: left;
 	margin: 1em 1em 0 0;
 	vertical-align: middle;
+}
+
+.header-login-form .login-remember {
+    margin-right: 0;
 }
 
 .header-login-form input
