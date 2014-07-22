@@ -1,9 +1,9 @@
 <?php get_header(); ?>
-<div class="row single-main">
-	<div class="span3 solution-single-sidebar">
+<div class="solution-entry-content">
+	<div class="solution-single-sidebar">
 		<?php dynamic_sidebar('solution-sidebar'); ?>
 	</div>
-	<div class="span9 solution-single-post-list">
+	<div class="solution-single-post-list">
 	<?php 
 		/** @var $wp_query WP_Query **/
 		global $wp_query, $post;
@@ -12,24 +12,44 @@
 			while(have_posts())
 			{
 				the_post();?>
-				<div class="row span9 single solution-thumbnail-region">
-					<div class="row solution-single-post-title">
-						<?php the_title(); ?>
-					</div>
-					<div class="span3 solution-single-post-thumbnail"><?php the_post_thumbnail(); ?></div>
-					<div class="span5 solution-single-post-region"><?php echo __('Region', 'minka').': '.get_post_meta($post->post_ID, 'solution-coverage', true); ?></div>
-					<div class="span solution-single-post-excerpt"><?php echo __('description', 'minka').': '.get_the_content();?></div>
+				<div class="single solution-thumbnail-region">
+					<div class="solution-single-header">
+						<div class="solution-single-post-title">
+						<?php
+							$cats_name = '';
+							foreach (Minka::getCategoryLastChild(get_post()) as $cat)
+							{
+								$cats_name .= $cat->name.", ";
+								break;
+							}
+							$cats_name = substr($cats_name, 0, -2);
+							echo get_the_title()." / ".$cats_name;
+						?>
+						</div>
+						<div class="solution-single-link-catalog" onclick="window.location='<?php echo get_post_type_archive_link( 'solution' ); ?>';return false;">
+							<?php _e('View the Catalog', 'minka') ?>
+						</div>
+					</div><br/>
+					<div class="solution-single-post-thumbnail"><?php the_post_thumbnail(); ?></div>
 				</div>
-				<div class="row span9 single solution-middle-region">
-					<div class="span solution-single-post-can-use"><?php echo __('Who can use', 'minka').': '.get_post_meta($post->post_ID, 'solution-coverage', true); ?></div>
+				<div class="solution-single-content">
+					<div class="solution-single-post-region">
+						<h2><?php echo __('Region', 'minka'); ?></h2>
+						<p><?php echo get_post_meta($post->post_ID, 'solution-coverage', true); ?></p>
+					</div>
+					<div class="solution-single-post-excerpt">
+						<h2><?php echo __('description', 'minka'); ?></h2>
+						<p><?php echo get_the_content();?></p>
+					</div>
+					<div class="span solution-single-post-can-use">
+						<h2><?php echo __('Who can use', 'minka');?></h2>
+						<p><?php echo get_post_meta($post->post_ID, 'solution-coverage', true); ?></p>
+					</div>
 				</div><?php
 			}
 		}
 	?>
 	</div>
-</div>
-<div class="row solution-single-links-list">
-	<?php include(locate_template('solution-footer-links.php')); ?>
 </div>
 
 

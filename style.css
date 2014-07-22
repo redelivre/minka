@@ -1599,3 +1599,87 @@ object {
     color: #3c3c3c;
     text-decoration: none;
 }
+
+/*--------------------------------------------------------------
+17 Post Archive
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+18 Single Post
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+19 Category Archive
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+20 Solution Archive
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+21 Single Solution
+--------------------------------------------------------------*/
+
+.solution-entry-content {
+	margin: 0 auto;
+	width: 86%;
+}
+
+.solution-single-sidebar {
+	width: 20%;
+	min-height: 400px;
+	float: left;
+	display: block;
+	background-color: #ebebeb;
+}
+
+.solution-single-post-list {
+	width: 76%;
+	float: left;
+	display: block;
+	margin-left: 4%;
+}
+
+.solution-single-post-title {
+	background-color: #e9c42b;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #959595;
+    float: left;
+    font-weight: bold;
+    width: 70%;
+    text-align: center;
+    height: 3.5em;
+    padding-top: 0.75em;
+}
+
+.solution-single-link-catalog {
+	background-color: #414684;
+    border-top-right-radius: 6px;
+    color: #e9c42b;
+    float: left;
+    font-weight: bold;	
+    width: 30%;
+    text-align: center;
+    height: 2.5em;
+    padding-top: 0.5em;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+.solution-single-post-thumbnail {
+    display: block;
+    height: 20em;
+    text-align: center;
+    width: 100%;
+    background-color: #f3f3f3;
+}
+
+.solution-single-content {
+	background-color: #f3f3f3;
+    border-bottom: 2px solid #eaeaea;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-left: 2px solid #eaeaea;
+    border-right: 2px solid #eaeaea;
+}

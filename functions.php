@@ -298,6 +298,39 @@ class Minka{
 		}
 	}
 	
+	public static function getCategoryLastChild($post)
+	{
+		if(is_numeric($post))
+		{
+			$post = get_post($post);
+		}
+		
+		$args = array(
+			'type'                     => 'solution',
+			'child_of'                 => 0,
+			'parent'                   => '',
+			'orderby'                  => 'name',
+			'order'                    => 'ASC',
+			'hide_empty'               => 1,
+			'hierarchical'             => 1,
+			'exclude'                  => '',
+			'include'                  => '',
+			'number'                   => '',
+			'taxonomy'                 => 'category',
+			'pad_counts'               => false 
+		
+		);
+		$cats = get_categories($args);
+		foreach ($cats as $key=>$cat)
+		{
+			if($cat->parent == 0)
+			{
+				unset($cats[$key]);
+			}
+		}
+		return $cats;
+	}
+	
 }
 
 $minka = new Minka();

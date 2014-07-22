@@ -4,6 +4,44 @@ class Solutions
 {
 	function __construct()
 	{
+		$this->_customs = array(
+			'url' => array
+			(
+					'slug' => 'solution-url',
+					'title' => __('URL', 'minka'),
+					'tip' => __('web site address', 'minka'),
+					'required' => true
+			),
+			'url' => array
+			(
+					'slug' => 'solution-for',
+					'title' => __('for serving?', 'minka'),
+					'tip' => __('web site address', 'minka'),
+					'required' => true
+			),
+			'coverage' => array(
+					'slug' => 'solution-coverage',
+					'title' => __ ( 'to whom it is addressed', 'minka' ),
+					'tip' => __ ( '', 'minka' ) 
+			),
+			'sharing' => array (
+					'slug' => 'solution-sharing',
+					'title' => __ ( 'for sharing', 'minka' ),
+					'tip' => __ ( '', 'minka' ) 
+			),
+			'country' => array (
+					'slug' => 'solution-country',
+					'title' => __ ( 'available to countries', 'minka' ),
+					'tip' => __ ( '', 'minka' )
+			),
+			'contact' => array (
+					'slug' => 'solution-contact',
+					'title' => __ ( 'Contact', 'minka' ),
+					'tip' => __ ( 'e-mail', 'minka' ),
+					'required' => true 
+			) 
+		);
+		
 		add_action('init', array($this, 'init'));
 		add_action('init', array($this, 'rewrite_rules'));
 		add_action('template_redirect', array($this, 'form'));
@@ -76,55 +114,7 @@ class Solutions
 		add_meta_box("solution_meta", "Solution Details", array($this, 'solution_meta'), 'solution', 'side', 'default');
 	}
 	
-	protected $_customs = array
-	(
-		'url' => array
-		(
-			'slug' => 'solution-url',
-			'title' => 'URL',
-			'tip' => 'web address',
-			'required' => true
-		),
-		'created-date' => array
-		(
-			'slug' => 'solution-created-date',
-			'title' => 'Created date',
-			'tip' => 'since when is available',
-			'required' => false,
-			'type' => 'date',
-		),
-		'coverage' => array
-		(
-			'slug' => 'solution-coverage',
-			'title' => 'Coverage',
-			'tip' => 'Country/ies where available'
-		),
-		'country' => array
-		(
-			'slug' => 'solution-country',
-			'title' => 'Country where it was created',
-			'tip' => 'Where arises'
-		),
-		'facebook' => array
-		(
-			'slug' => 'solution-facebook',
-			'title' => 'Facebook',
-			'tip' => ''
-		),
-		'twitter' => array
-		(
-			'slug' => 'solution-twitter',
-			'title' => 'Twitter',
-			'tip' => ''
-		),
-		'contact' => array
-		(
-			'slug' => 'solution-contact',
-			'title' => 'Contact',
-			'tip' => 'e-mail',
-			'required' => true
-		),
-	);
+	protected $_customs = array();
 	
 	function getFields()
 	{
@@ -166,16 +156,21 @@ class Solutions
 		
 		wp_nonce_field( 'solution_meta_inner_custom_box', 'solution_meta_inner_custom_box_nonce' );
 		
-		foreach ($this->_customs as $slug => $campo )
+		foreach ($this->_customs as $key => $campo )
 		{
-			$dado = array_key_exists($slug, $custom) ? $custom[$slug] : '';
+			$slug = $campo['slug'];
+			$dado = array_key_exists($slug, $custom) ? array_pop($custom[$slug]) : '';
+			
 			
 			?>
-			<p>
-				<label for="<?php echo $slug; ?>" class="<?php echo 'label_'.$slug; ?>"><?php echo $campo['title'] ?>:</label>
-				<input <?php echo $disable_edicao ?> id="<?php echo $slug; ?>" name="<?php echo $slug; ?>" class="<?php echo $slug.(array_key_exists('type', $campo) && $campo['type'] == 'date' ? 'hasdatepicker' : '') ; ?> " value="<?php echo $dado; ?>"/>
-			</p>
-			<?php
+<p>
+	<label for="<?php echo $slug; ?>" class="<?php echo 'label_'.$slug; ?>"><?php echo $campo['title'] ?>:</label>
+	<input <?php echo $disable_edicao ?> id="<?php echo $slug; ?>"
+		name="<?php echo $slug; ?>"
+		class="<?php echo $slug.(array_key_exists('type', $campo) && $campo['type'] == 'date' ? 'hasdatepicker' : '') ; ?> "
+		value="<?php echo $dado; ?>" />
+</p>
+<?php
 			
 		}
 	}
@@ -245,7 +240,7 @@ class Solutions
 			<li class="category-group-col"><h3><?php echo $tax->label; ?></h3>
 		<?php endif;*/ ?>
 			<?php if ($parent > 0): ?>
-				<ul class='children'>
+<ul class='children'>
 			<?php endif; ?>
 	
 			<?php foreach ($terms as $term):
@@ -261,9 +256,14 @@ class Solutions
 			?>
 				<li class="category-group-col">
 					<?php if($parent > 0 && $input == ''): ?>
-						<input type="checkbox" class="taxonomy-category-checkbox" value="<?php echo $term->term_id; ?>" name="category_<?php echo $taxonomy; ?>[]" id="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>" <?php echo $checked; ?> />
+						<input type="checkbox" class="taxonomy-category-checkbox"
+		value="<?php echo $term->term_id; ?>"
+		name="category_<?php echo $taxonomy; ?>[]"
+		id="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>"
+		<?php echo $checked; ?> />
 					<?php endif; ?>
-					<label for="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>">
+					<label
+		for="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>">
 						<?php
 							echo $name;
 						?>
@@ -278,7 +278,7 @@ class Solutions
 	
 			<?php if ($parent > 0): ?>
 				</ul>
-			<?php endif;
+<?php endif;
 		/*if($parent == 0): ?>
 			</li>
 		<?php endif; */?>
@@ -440,7 +440,6 @@ class Solutions
 	 */
 	public function save( $post_id )
 	{
-		
 		/*
 		 * We need to verify this came from the our screen and with proper authorization,
 		* because save_post can be triggered at other times.
@@ -481,7 +480,6 @@ class Solutions
 		}
 	
 		/* OK, its safe for us to save the data now. */
-		
 		foreach ($this->_customs as $field)
 		{
 			if(array_key_exists($field['slug'], $_POST))
@@ -497,6 +495,6 @@ class Solutions
 	
 }
 
-new Solutions();
+$Solution_global = new Solutions();
 
 ?>
