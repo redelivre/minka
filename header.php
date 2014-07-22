@@ -74,7 +74,7 @@
 						<div class="clearfix"></div>
 						<?php wp_nav_menu( array( 'menu' => 'main', 'theme_location' => 'primary', 'container_class' => 'minka-header-menu' ) ); ?>
 					</nav><!-- .site-navigation .main-navigation -->
-					<br/>
+					<div class="clear"></div>
 					<div class="header-search-form">
 						<?php get_search_form() ?>
 					</div>

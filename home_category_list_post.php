@@ -31,7 +31,7 @@
 	
 ?>
 
-<div class="home-cat-post-box">
+<div class="home-cat-post-box" onclick="window.location='<?php the_permalink() ?>';return false;">
 	<span class="home-cat-post-cat" ><?php wp_list_categories($args); ?></span>
 	<span class="home-cat-post-title" ><h2><?php echo the_title();?></h2></span>
 	<span class="home-cat-post-thumbnail" ><?php echo the_post_thumbnail('post-thumbnail', array('onerror' => $imgError));?></span>
