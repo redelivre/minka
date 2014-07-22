@@ -374,6 +374,14 @@ if (!function_exists('z_taxonomy_image_url'))
 }
 
 /**
+ * Rate Plugin
+ */
+if(!function_exists('the_rating'))
+{
+	require_once get_template_directory() . '/inc/rate/rate.php' ;
+}
+
+/**
  * widgets
  *  
 */

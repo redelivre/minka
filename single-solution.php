@@ -61,8 +61,8 @@
 						<a href="<?php echo get_post_meta(get_the_ID(), 'solution-url', true); ?>" target="_blank" ><?php _e('view web site', 'minka')?></a>
 					</div>
 				</div>
-				<div class="solution-single-post-exp">
-					
+				<div class="solution-single-post-exp needs-rating">
+					<?php rate_form_filter(); ?>
 				</div>
 				<div class="solution-single-post-comments">
 					<?php get_comments(); ?>
