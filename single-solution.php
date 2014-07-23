@@ -63,13 +63,15 @@
 				</div>
 				<div class="solution-single-post-exp needs-rating">
 					<h3><?php _e('Share your experience', 'minka');?></h3>
-					<?php the_rate_form(); ?>
+					<h2 class="solution-single-post-rate-title"><?php _e("Usability", "minka"); ?></h2><?php the_rate_form(); ?>
+					<h2 class="solution-single-post-rate-title"><?php _e("Experience", "minka"); ?></h2><?php the_rate_formExperience(); ?>
 				</div>
 				<div class="solution-single-post-comments">
-					<?php get_comments(); ?>
-				</div>
-				<div class="solution-single-post-comment-form">
-					<?php comment_form(); ?>
+				<?php
+					if ( comments_open() || '0' != get_comments_number() ) :
+						comments_template();
+					endif;
+				?>
 				</div>
 			<?php
 			}
