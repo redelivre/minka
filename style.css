@@ -934,10 +934,9 @@ object {
 	margin: 1.5em 1.5em 0 1.5em;
 }
 .minka_social_bol-right {
-	margin-right: 4em;
 }
+
 .minka_social_bol-left {
-	margin-left: 4em;
 }
 
 /*--------------------------------------------------------------
@@ -1716,3 +1715,24 @@ object {
 .solution-single-post-tags a:hover {
     color: #414684;
 }
+
+/*--------------------------------------------------------------
+22 Media queries
+--------------------------------------------------------------*/
+
+@media screen and (max-width: 1824px) {
+	
+.header-login-form { float: right; width: 60%;}
+.header-register-link  {clear: both;}	
+.header-register-link > a { display: block; margin: 0 0 3% 78%; }
+
+}
+
+@media screen and (max-width: 1392px) {
+	
+.header-register-link > a { display: block; margin: 0 0 16% 23%; }
+.header-login-form { float: right; width: 53%;}
+.header-register-link { clear: none; }
+
+}
+
