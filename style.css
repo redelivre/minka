@@ -262,27 +262,22 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb; 
-	border-radius: 3px;
-	background: #e6e6e6;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-	color: rgba(0, 0, 0, .8);
-	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
-	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
-	font-size: 12px;
-	font-size: 1.2rem;
-	line-height: 1;
-	padding: .6em 1em .4em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	-webkit-border-radius: 28;
+  	-moz-border-radius: 28;
+  	border-radius: 28px;
+  	color: #ffffff;
+  	background: #ff8300;
+  	padding: 3px 20px 3px 20px;
+  	text-decoration: none;
+  	border: none;
 }
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
-}
+	background: #e9c42b;
+  	text-decoration: none;
+  }
 button:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,
@@ -318,9 +313,11 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea {
+	background: #f3f3f3;
 	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
+	border: 3px solid #ccc;
+	border-radius: 5px;
+	width: 100%;
 }
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -614,6 +611,12 @@ a:active {
 .bypostauthor {
 }
 
+.comment-reply-title{
+	background: none repeat scroll 0 0 #d799a9;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+}
 /*--------------------------------------------------------------
 11.0 Infinite scroll
 --------------------------------------------------------------*/
