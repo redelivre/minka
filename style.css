@@ -1099,6 +1099,7 @@ object {
 .header-logo img {
 	vertical-align: middle;
 	display: inline-block;
+	margin-top: 50px;
 	
 }
 
@@ -1106,7 +1107,9 @@ object {
 14.1 Header Bottom Menu
 --------------------------------------------------------------*/
 .header-navigation-menu {
-	width: 85%;
+	width: 60%;
+	float: right;
+	margin-top: 75px;
 }
 
 .header-navigation-menu .main-navigation ul {
