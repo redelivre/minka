@@ -145,6 +145,12 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 }
+h2{
+	font-size: 1.375em;
+	color: #b62c7a;
+	margin-bottom: 40px;
+	font-weight: bold;
+}
 p {
 	margin-bottom: 1.5em;
 }
@@ -245,6 +251,14 @@ table {
 }
 th {
 	font-weight: bold;
+}
+
+/* =Basic Structure
+----------------------------------------------- */
+
+.wrap{
+	width: 86%;
+	margin: 0 auto;
 }
 
 /*--------------------------------------------------------------
@@ -947,7 +961,6 @@ object {
     font-size: 24px;
     font-weight: bolder;
     margin-top: 0.5em;
-    margin-left: 3em
 }
 .header-login-form {
 	float: right;
@@ -1720,7 +1733,37 @@ object {
 }
 
 /*--------------------------------------------------------------
-22 Media queries
+22 New solution
+--------------------------------------------------------------*/
+
+.solution-item {
+    margin-bottom: 20px;
+}
+
+.category-group-col {
+	background: none repeat scroll 0 0 #ccc;
+    float: left;
+    list-style: none outside none;
+    margin-right: 30px;
+    width: 23%;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.category-group-col .children li {
+    clear: both;
+    position: relative;
+    width: 100%;
+    font-weight: normal;
+}
+
+.button.button-primary.button-large {
+    clear: both;
+    display: block;
+}
+
+/*--------------------------------------------------------------
+ Media queries
 --------------------------------------------------------------*/
 
 @media screen and (max-width: 1824px) {
@@ -1734,7 +1777,7 @@ object {
 @media screen and (max-width: 1392px) {
 	
 .header-register-link > a { display: block; margin: 0 0 16% 23%; }
-.header-login-form { float: right; width: 53%;}
+.header-login-form { float: right; width: 49%;}
 .header-register-link { clear: none; }
 
 }
