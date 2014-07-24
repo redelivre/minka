@@ -16,23 +16,23 @@ class Solutions
 			(
 					'slug' => 'solution-for',
 					'title' => __('for serving?', 'minka'),
-					'tip' => __('web site address', 'minka'),
+					'tip' => __('for serving', 'minka'),
 					'required' => true
 			),
 			'coverage' => array(
 					'slug' => 'solution-coverage',
 					'title' => __ ( 'to whom it is addressed', 'minka' ),
-					'tip' => __ ( '', 'minka' ) 
+					'tip' => __ ( 'coverage', 'minka' ) 
 			),
 			'sharing' => array (
 					'slug' => 'solution-sharing',
 					'title' => __ ( 'for sharing', 'minka' ),
-					'tip' => __ ( '', 'minka' ) 
+					'tip' => __ ( 'sharing', 'minka' ) 
 			),
 			'country' => array (
 					'slug' => 'solution-country',
 					'title' => __ ( 'available to countries', 'minka' ),
-					'tip' => __ ( '', 'minka' )
+					'tip' => __ ( 'country', 'minka' )
 			),
 			'contact' => array (
 					'slug' => 'solution-contact',

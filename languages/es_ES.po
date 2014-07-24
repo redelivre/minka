@@ -1,0 +1,621 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Minka Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-23 21:08-0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jacson Passold <jacson@ethymos.com.br>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: ../home_category_list.php:41
+msgid "View All"
+msgstr "Ver Todo"
+
+#: ../footer.php:17 ../inc/customizer.php:98
+msgid "Redes Amigas de MINKA"
+msgstr "Redes Amigas de MINKA"
+
+#: ../footer.php:32 ../inc/customizer.php:109
+msgid ""
+"Minka - Banco de las redes. Todos los derechos reservados, copyright 2014"
+msgstr ""
+"Minka - Banco de Las Redes. Derechos reservados Todos los, copyright 2014"
+
+#: ../archive.php:27
+#, php-format
+msgid "Author: %s"
+msgstr "Autor: %s"
+
+#: ../archive.php:30
+#, php-format
+msgid "Day: %s"
+msgstr "Día: %s"
+
+#: ../archive.php:33
+#, php-format
+msgid "Month: %s"
+msgstr "Mes: %s"
+
+#: ../archive.php:33
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y (ej: Abril 2014)"
+
+#: ../archive.php:36
+#, php-format
+msgid "Year: %s"
+msgstr "Año: %s"
+
+#: ../archive.php:36
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y (ej: 2014)"
+
+#: ../archive.php:39
+msgid "Asides"
+msgstr "Apartados"
+
+#: ../archive.php:42
+msgid "Galleries"
+msgstr "Galerías"
+
+#: ../archive.php:45
+msgid "Images"
+msgstr "Im&aacute;genes"
+
+#: ../archive.php:48
+msgid "Videos"
+msgstr "Vídeos"
+
+#: ../archive.php:51
+msgid "Quotes"
+msgstr "Citas"
+
+#: ../archive.php:54
+msgid "Links"
+msgstr "Enlaces"
+
+#: ../archive.php:57
+msgid "Statuses"
+msgstr "Estados"
+
+#: ../archive.php:60
+msgid "Audios"
+msgstr "Audios"
+
+#: ../archive.php:63
+msgid "Chats"
+msgstr "Chats"
+
+#: ../archive.php:66
+msgid "Archives"
+msgstr "Archivos"
+
+#: ../header.php:23
+msgid "Skip to content"
+msgstr "Ir a la página"
+
+#: ../header.php:43
+msgid "Login"
+msgstr "Acceder"
+
+#: ../header.php:50
+msgid "Bem Vindo"
+msgstr "Bem vindeano"
+
+#: ../single-solution.php:30
+msgid "View the Catalog"
+msgstr "Ver el Catálogo"
+
+#: ../single-solution.php:37
+msgid "Region"
+msgstr "Región"
+
+#: ../single-solution.php:41
+msgid "Description"
+msgstr "Descripción"
+
+#: ../single-solution.php:45
+msgid "Who can use"
+msgstr "¿Quién puede utilizar"
+
+#: ../single-solution.php:49
+msgid "Useful tips and facts"
+msgstr "Consejos útiles y hechos"
+
+#: ../single-solution.php:53
+msgid "Appreciation"
+msgstr "Apreciación"
+
+#: ../single-solution.php:57
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: ../single-solution.php:61
+msgid "view web site"
+msgstr "ver sitio web"
+
+#: ../single-solution.php:65
+msgid "Share your experience"
+msgstr "Contanos tu experiencia"
+
+#: ../single-solution.php:66
+msgid "Usability"
+msgstr "Facilidad de uso"
+
+#: ../single-solution.php:67
+msgid "Experience"
+msgstr " Experiencia"
+
+#: ../functions.php:57
+msgid "Primary Menu"
+msgstr "Menú Principal"
+
+#: ../functions.php:167
+msgid "Share on Google+"
+msgstr "Compartir en Google+"
+
+#: ../functions.php:168
+msgid "Share on Youtube"
+msgstr "Compartir en Youtube"
+
+#: ../functions.php:169
+msgid "Share on Twitter"
+msgstr "Compartir en Twitter"
+
+#: ../functions.php:170
+msgid "Share on Facebook"
+msgstr "Compartir en Facebook"
+
+#: ../functions.php:185
+msgid "Home Sidebar"
+msgstr "Inicio de barra lateral"
+
+#: ../functions.php:194
+msgid "Footer Widget Area Top"
+msgstr "Pie de página Widget zona Top"
+
+#: ../functions.php:203
+msgid "Footer Widget Area Bottom"
+msgstr "Pie de página Widget Area Bottom"
+
+#: ../functions.php:228
+msgid "Iniciar"
+msgstr "Iniciar"
+
+#: ../home.php:15
+msgid "Invalid Media URL"
+msgstr "Medio no válido URL"
+
+#: ../404.php:15
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "¡Oops! No se puede encontrar esa página."
+
+#: ../404.php:19
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+"Parece que aquí no hay nada. ¿Tal vez probando uno de los enlaces de abajo o "
+"una búsqueda?"
+
+#: ../404.php:27
+msgid "Most Used Categories"
+msgstr "Categorías más utilizadas"
+
+#: ../404.php:44
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Intenta buscar en los archivos mensuales. %1$s"
+
+#: ../content.php:19
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Seguir leyendo <span class=\"meta-nav\">&rarr;</span>"
+
+#: ../content.php:22 ../content-page.php:18 ../content-single.php:20
+msgid "Pages:"
+msgstr "Páginas:"
+
+#: ../content.php:32 ../content.php:42 ../content-search.php:30
+#: ../content-search.php:40 ../content-single.php:29 ../content-single.php:32
+msgid ", "
+msgstr ", "
+
+#: ../content.php:36 ../content-search.php:34
+#, php-format
+msgid "Posted in %1$s"
+msgstr "Publicado en %1$s"
+
+#: ../content.php:46 ../content-search.php:44
+#, php-format
+msgid "Tagged %1$s"
+msgstr "Etiquetas %1$s"
+
+#: ../content.php:52 ../content-search.php:50
+msgid "Leave a comment"
+msgstr "Deje un comentario"
+
+#: ../content.php:52 ../content-search.php:50
+msgid "1 Comment"
+msgstr "1 Comentario"
+
+#: ../content.php:52 ../content-search.php:50
+msgid "% Comments"
+msgstr "% comentarios"
+
+#: ../content.php:55 ../content-page.php:24 ../content-search.php:53
+#: ../content-single.php:60
+msgid "Edit"
+msgstr "Editar"
+
+#: ../search.php:16
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Resultados de la búsqueda para: %s"
+
+#: ../comments.php:28
+#, php-format
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Un comentario en &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s comentarios en &ldquo;%2$s&rdquo;"
+
+#: ../comments.php:35 ../comments.php:52
+msgid "Comment navigation"
+msgstr "Navegación de comentarios"
+
+#: ../comments.php:36 ../comments.php:53
+msgid "&larr; Older Comments"
+msgstr "&larr; Comentarios más antiguos"
+
+#: ../comments.php:37 ../comments.php:54
+msgid "Newer Comments &rarr;"
+msgstr "Comentarios recientes &rarr;"
+
+#: ../comments.php:64
+msgid "Comments are closed."
+msgstr "Los comentarios están cerrados."
+
+#: ../content-none.php:13
+msgid "Nothing Found"
+msgstr "Nada encontrado"
+
+#: ../content-none.php:19
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"¿Listo para publicar tu primera entrada? <a href=\"%1$s\">Empieza aquí</a>."
+
+#: ../content-none.php:23
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Lo sentimos, pero no hay correspondencias con tus criterios de búsqueda. Por "
+"favor, inténtalo de nuevo con palabras diferentes."
+
+#: ../content-none.php:28
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Parece que no podemos encontrar lo que estás buscando. Puede que el buscador "
+"pueda ayudar."
+
+#: ../content-single.php:37
+#, php-format
+msgid ""
+"This entry was tagged %2$s. Bookmark the <a href=\"%3$s\" rel=\"bookmark"
+"\">permalink</a>."
+msgstr ""
+"Esta entrada fue etiquetada como %2$s . Guarda el <a href = \" %3$s \"rel = "
+"\" bookmark \"> enlace </ a>."
+
+#: ../content-single.php:39
+#, php-format
+msgid "Bookmark the <a href=\"%3$s\" rel=\"bookmark\">permalink</a>."
+msgstr "Guarda el <a href = \" %3$s \"rel = \" bookmark \"> enlace </ a>."
+
+#: ../content-single.php:45
+#, php-format
+msgid ""
+"This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" "
+"rel=\"bookmark\">permalink</a>."
+msgstr ""
+"Esta entrada fue publicada en %1$s y etiquetada %2$s . Guarda el <a href = "
+"\" %3$s \"rel = \" bookmark \"> enlace </ a>."
+
+#: ../content-single.php:47
+#, php-format
+msgid ""
+"This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" rel=\"bookmark"
+"\">permalink</a>."
+msgstr ""
+"Esta entrada fue publicada en %1$s . Guarda el <a href = \" %3$s \"rel = \" "
+"enlace \"> enlace </ a>."
+
+#: ../inc/customizer.php:22
+msgid "Cor de fundo do cabeçalho"
+msgstr "Cor de fundo do cabeçalho"
+
+#: ../inc/customizer.php:26
+msgid "Cor de fundo do rodapé"
+msgstr "Cor de fundo do Rodapé"
+
+#: ../inc/customizer.php:30
+msgid "Cor de fundo da coluna 2"
+msgstr "Cor de fundo da coluna 2"
+
+#: ../inc/customizer.php:34
+msgid "Cor da fonte do conteúdo"
+msgstr "Cor da Fonte do conteúdo"
+
+#: ../inc/customizer.php:38
+msgid "Cor da fonte do cabeçalho"
+msgstr "Cor da Fonte do cabeçalho"
+
+#: ../inc/customizer.php:42
+msgid "Cor da fonte dos títulos"
+msgstr "Cor da fonte dos Títulos"
+
+#: ../inc/customizer.php:46
+msgid "Cor da fonte do conteúdo da coluna 2 (sobre o formulário)"
+msgstr "Cor da Fonte do conteúdo da coluna 2 (sobre o Formulário)"
+
+#: ../inc/customizer.php:55
+msgid "Logo"
+msgstr "Logotipo"
+
+#: ../inc/customizer.php:66 ../inc/customizer.php:121
+msgid "Cabeçalho"
+msgstr "Cabeçalho"
+
+#: ../inc/customizer.php:82
+msgid "Conteúdo"
+msgstr "Conteúdo"
+
+#: ../inc/customizer.php:104
+msgid "Footer Title"
+msgstr "Pie de página Título"
+
+#: ../inc/customizer.php:115
+msgid "Footer Text"
+msgstr "Texto del Pie de página"
+
+#: ../inc/customizer.php:130
+msgid "Imagem de fundo do destaque"
+msgstr "Imagem de fundo do destaque"
+
+#: ../inc/template-tags.php:21
+msgid "Posts navigation"
+msgstr "Mensajes de navegación"
+
+#: ../inc/template-tags.php:25
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span> Entradas antiguas"
+
+#: ../inc/template-tags.php:29
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Entradas nuevas <span class=\"meta-nav\">&rarr;</span>"
+
+#: ../inc/template-tags.php:52
+msgid "Post navigation"
+msgstr "Navegación de las entradas"
+
+#: ../inc/template-tags.php:55
+msgctxt "Previous post link"
+msgid "<span class=\"meta-nav\">&larr;</span> %title"
+msgstr "<span class=\"meta-nav\"> ← </ span> %t í tulo"
+
+#: ../inc/template-tags.php:56
+msgctxt "Next post link"
+msgid "%title <span class=\"meta-nav\">&rarr;</span>"
+msgstr "%t í tulo <span class=\"meta-nav\"> → </ span>"
+
+#: ../inc/template-tags.php:82
+#, php-format
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr "Publicado el %s"
+
+#: ../inc/template-tags.php:87
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "por%s"
+
+#: ../inc/extras.php:63
+#, php-format
+msgid "Page %s"
+msgstr "Página %s"
+
+#: ../inc/widgets.php:7
+msgid "Most recent Posts of a category."
+msgstr "Publicaciones más recientes de una categoría."
+
+#: ../inc/widgets.php:8
+msgid "Recent Posts of Category"
+msgstr "Mensajes recientes de la categoría"
+
+#: ../inc/widgets.php:21
+msgid "Select Category"
+msgstr "Seleccione una categoría"
+
+#: ../inc/rate/rate.php:118
+msgid "positive"
+msgstr "Positivo"
+
+#: ../inc/rate/rate.php:119
+msgid "negative"
+msgstr "negativo"
+
+#: ../inc/rate/rate.php:120
+msgid "do not use"
+msgstr "no utilice"
+
+#: ../inc/rate/rate.php:162
+msgid "anonymous"
+msgstr "anónimo"
+
+#: ../inc/solutions/new-solution.php:10
+msgid "Invalid post type"
+msgstr "Tipo de mensaje no válido"
+
+#: ../inc/solutions/new-solution.php:15
+msgid "Cheatin&#8217; uh?"
+msgstr "Haciendo trampas ¿eh?"
+
+#: ../inc/solutions/solutions.php:11
+msgid "URL"
+msgstr "URL áéíóú"
+
+#: ../inc/solutions/solutions.php:12
+msgid "web site address"
+msgstr "Dirección del sitio web"
+
+#: ../inc/solutions/solutions.php:18
+msgid "for serving?"
+msgstr "para que sirve?"
+
+#: ../inc/solutions/solutions.php:19
+msgid "for serving"
+msgstr "para servir"
+
+#: ../inc/solutions/solutions.php:24
+msgid "to whom it is addressed"
+msgstr "a las que se dirige"
+
+#: ../inc/solutions/solutions.php:25
+msgid "coverage"
+msgstr "Cobertura"
+
+#: ../inc/solutions/solutions.php:29
+msgid "for sharing"
+msgstr "para compartir"
+
+#: ../inc/solutions/solutions.php:30
+msgid "sharing"
+msgstr "compartición"
+
+#: ../inc/solutions/solutions.php:34
+msgid "available to countries"
+msgstr "disposición de los países"
+
+#: ../inc/solutions/solutions.php:35
+msgid "country"
+msgstr "país"
+
+#: ../inc/solutions/solutions.php:39
+msgid "Contact"
+msgstr "Contacto "
+
+#: ../inc/solutions/solutions.php:40
+msgid "e-mail"
+msgstr "e-mail"
+
+#: ../inc/solutions/solutions.php:65 ../inc/solutions/solutions.php:76
+#: ../inc/solutions/solutions.php:82 ../inc/solutions/solutions.php:84
+msgid "Solutions"
+msgstr "Soluciones"
+
+#: ../inc/solutions/solutions.php:66
+msgid "Solution"
+msgstr "Solución"
+
+#: ../inc/solutions/solutions.php:67
+msgid "Add new"
+msgstr "Añadir nuevo"
+
+#: ../inc/solutions/solutions.php:68
+msgid "Add new solution"
+msgstr "Añadir nueva solución"
+
+#: ../inc/solutions/solutions.php:69
+msgid "Edit solution"
+msgstr "Editar solución"
+
+#: ../inc/solutions/solutions.php:70
+msgid "New Solution"
+msgstr "Nueva solución"
+
+#: ../inc/solutions/solutions.php:71
+msgid "View Solution"
+msgstr "Ver Solución"
+
+#: ../inc/solutions/solutions.php:72
+msgid "Search Solution"
+msgstr "Búsqueda de soluciones"
+
+#: ../inc/solutions/solutions.php:73
+msgid "Solution not found"
+msgstr "Solución no encontrado"
+
+#: ../inc/solutions/solutions.php:74
+msgid "Solution not found in the trash"
+msgstr "Solución No se encontró en la basura"
+
+#: ../inc/solutions/solutions.php:349
+msgid "Auto Draft"
+msgstr "Proyecto de Auto"
+
+#: ../inc/categories-images/categories-images.php:59
+#: ../inc/categories-images/categories-images.php:80
+#: ../inc/categories-images/categories-images.php:226
+msgid "Image"
+msgstr "Imagen"
+
+#: ../inc/categories-images/categories-images.php:62
+#: ../inc/categories-images/categories-images.php:82
+#: ../inc/categories-images/categories-images.php:208
+msgid "Upload/Add image"
+msgstr "Subir / Añadir imagen"
+
+#: ../inc/categories-images/categories-images.php:83
+#: ../inc/categories-images/categories-images.php:209
+msgid "Remove image"
+msgstr "Retire la imagen"
+
+#: ../inc/categories-images/categories-images.php:244
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: ../inc/categories-images/categories-images.php:264
+#: ../inc/categories-images/categories-images.php:271
+msgid "Categories Images settings"
+msgstr "Competiciones Imágenes ajustes"
+
+#: ../inc/categories-images/categories-images.php:264
+#: ../inc/categories-images/categories-images.php:302
+msgid "Categories Images"
+msgstr "Competiciones Imágenes"
+
+#: ../inc/categories-images/categories-images.php:272
+msgid "Excluded Taxonomies"
+msgstr "Las taxonomías Excluidos"
+
+#: ../inc/categories-images/categories-images.php:277
+msgid ""
+"Please select the taxonomies you want to exclude it from Categories Images "
+"plugin"
+msgstr ""
+"Por favor, seleccione las taxonomías que desea excluirlo de Competiciones "
+"Imágenes Plugin"
+
+#: ../inc/categories-images/categories-images.php:297
+msgid "You do not have sufficient permissions to access this page."
+msgstr "No tienes permisos suficientes para acceder a esta página."
