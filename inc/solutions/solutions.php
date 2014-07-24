@@ -243,7 +243,9 @@ class Solutions
 <ul class='children'>
 			<?php endif; ?>
 	
-			<?php foreach ($terms as $term):
+			<?php
+			$index = 1;
+			foreach ($terms as $term):
 				$name = $term->name;
 				$input = '';
 				if(strpos($name, '#input#') !== false)
@@ -254,27 +256,26 @@ class Solutions
 				}
 				$checked = isset($_REQUEST) && array_key_exists("category_$taxonomy", $_REQUEST) && array_search($term->slug, $_REQUEST["category_$taxonomy"]) ? 'checked="checked"' : '';				
 			?>
-				<li class="category-group-col">
+				<li class="category-group-col category-group-col-<?php echo $index?>">
 					<?php if($parent > 0 && $input == ''): ?>
-						<input type="checkbox" class="taxonomy-category-checkbox"
-		value="<?php echo $term->term_id; ?>"
-		name="category_<?php echo $taxonomy; ?>[]"
-		id="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>"
-		<?php echo $checked; ?> />
+						<input type="checkbox" class="taxonomy-category-checkbox" value="<?php echo $term->term_id; ?>" name="category_<?php echo $taxonomy; ?>[]" id="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>"
+						<?php echo $checked; ?> />
 					<?php endif; ?>
-					<label
-		for="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>">
+					<label for="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>">
 						<?php
 							echo $name;
 						?>
 					</label>
-						<?php
-							echo $input; 
-						?>
-						<?php $this->taxonomy_checklist($taxonomy, $term->term_id); ?>
+					<?php
+						echo $input; 
+					?>
+					<?php $this->taxonomy_checklist($taxonomy, $term->term_id); ?>
 				</li>
-	
-			<?php endforeach; ?>
+			
+			<?php
+				$index++;
+			endforeach;
+			 ?>
 	
 			<?php if ($parent > 0): ?>
 				</ul>
