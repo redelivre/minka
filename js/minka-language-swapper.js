@@ -12,7 +12,7 @@ jQuery(document).ready(function () {
 			{
 				jQuery(location).attr('href', '/'+a.text());
 			}
-			else if( a.text() == minka_language_swapper.default )
+			else if( icl_lang != a.text() && a.text() == minka_language_swapper.default )
 			{
 				var url = icl_home.substr(0, (icl_home.length - (icl_lang.length + 1 )));
 				jQuery(location).attr('href', url);
