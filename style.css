@@ -145,12 +145,6 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 }
-h2{
-	font-size: 1.375em;
-	color: #b62c7a;
-	margin-bottom: 40px;
-	font-weight: bold;
-}
 p {
 	margin-bottom: 1.5em;
 }
@@ -1736,18 +1730,47 @@ object {
 22 New solution
 --------------------------------------------------------------*/
 
+.new-solution{
+	font-size: 1.375em;
+	color: #b62c7a;
+	margin-bottom: 40px;
+	font-weight: bold;
+}
+
 .solution-item {
     margin-bottom: 20px;
 }
 
+.category-group {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
 .category-group-col {
-	background: none repeat scroll 0 0 #ccc;
     float: left;
     list-style: none outside none;
     margin-right: 30px;
-    width: 23%;
     padding: 5px;
     font-weight: bold;
+    min-width: 23%;
+    padding: 5px;
+}
+
+.category-group-col.category-group-col-1{
+    color: #57c1b6;
+}
+
+.category-group-col.category-group-col-2 {
+    color: #6e448f;
+}
+
+.category-group-col.category-group-col-3 {
+    color: #ff8300;
+}
+
+.category-group-col.category-group-col-4 {
+    color: #b62c7a;
 }
 
 .category-group-col .children li {
@@ -1761,6 +1784,9 @@ object {
     clear: both;
     display: block;
 }
+
+
+
 
 /*--------------------------------------------------------------
  Media queries
