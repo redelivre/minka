@@ -11,6 +11,7 @@
 	
 	function doSuccess(data) {
 		//console.log(data);
+		jQuery('#rate_comment_ID').val(data);
 	}
 	
 	function doError(e) {
@@ -57,8 +58,27 @@
 			data   : {
 				action: 'rate_item',
 				rating: indx,
-				'comment_post_ID' : ctx.attr('data-id'),
-				'comment_ID' : ctx.attr('data-comment-id')
+				'comment_post_ID' : jQuery('#comment_post_ID').val(),
+				'comment_ID' : jQuery('#rate_comment_ID').val(),
+				'rate_comment_nonce' : jQuery('#rate_comment_nonce').val()
+			},
+			success: doSuccess,
+			error  : doError
+		});	
+	
+		return false;
+	}
+	
+	function doRatingExp() {
+		$.ajax({
+			type   : 'post',
+			url    : 'http://' + window.location.host + '/wp-admin/admin-ajax.php',
+			data   : {
+				'action': 'rate_item',
+				'exp': jQuery('input[name="rate-experience"]').val(),
+				'comment_post_ID' : jQuery('#comment_post_ID').val(),
+				'comment_ID' : jQuery('#rate_comment_ID').val(),
+				'rate_comment_nonce' : jQuery('#rate_comment_nonce').val()
 			},
 			success: doSuccess,
 			error  : doError
@@ -70,6 +90,7 @@
 	$(document).ready(function () {
 		nratings = $('.needs-rating li');
 		fratings = $('.form-rating li');
+		jQuery('input[name="rate-experience"]').change(doRatingExp);
 		fratings.bind('mouseenter mouseleave', doHover).click(doFormRating);
 		nratings.bind('mouseenter mouseleave', doHover).click(doRating);
 	});
