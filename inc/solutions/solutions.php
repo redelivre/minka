@@ -256,7 +256,7 @@ class Solutions
 				}
 				$checked = isset($_REQUEST) && array_key_exists("category_$taxonomy", $_REQUEST) && array_search($term->slug, $_REQUEST["category_$taxonomy"]) ? 'checked="checked"' : '';				
 			?>
-				<li class="category-group-col category-group-col-<?php echo $index?>">
+				<li class="category-group-col <?php echo $parent == 0 ? 'category-group-col-'.$index : ''; ?>">
 					<?php if($parent > 0 && $input == ''): ?>
 						<input type="checkbox" class="taxonomy-category-checkbox" value="<?php echo $term->term_id; ?>" name="category_<?php echo $taxonomy; ?>[]" id="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>"
 						<?php echo $checked; ?> />
