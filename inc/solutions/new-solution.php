@@ -40,7 +40,7 @@ $form_extra .= "<input type='hidden' id='post_ID' name='post_ID' value='" . esc_
 
 <div class="wrap">
 <?php //screen_icon(); ?>
-<h2><?php
+<h2 class= "new-solution"><?php
 echo esc_html( $title );
 if ( isset( $post_new_file ) && current_user_can( $post_type_object->cap->create_posts ) )
 	echo ' <a href="' . esc_url( $post_new_file ) . '" class="add-new-h2">' . esc_html( $post_type_object->labels->add_new ) . '</a>';
@@ -92,8 +92,14 @@ foreach ($solution->getFields() as $field)
 	</div>
 	<?php 
 }
+?>
+
+<div class="category-group">
+<?php 
 $solution->taxonomy_checklist();
 ?>
+</div>
+
 <input id="original_publish" type="hidden" value="Publish" name="original_publish">
 <input id="publish" class="button button-primary button-large" type="submit" accesskey="p" value="Publish" name="publish">
 </form>
