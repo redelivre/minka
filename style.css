@@ -1821,3 +1821,12 @@ object {
 
 }
 
+@media screen and (max-width: 1000px) {
+	.minka_social_bol {display: none;}
+	.header-social-list { clear: both; display: block; margin-top: 10px; padding: 20px 0 0 25px; border-top: 2px dotted #e9c42b; height: 100px; border-bottom: 2px dotted #e9c42b;}
+	.header-login-form { float: none; width: 100%;}
+	.header-login-form .login-username input, .header-login-form .login-password input { width: 100%;}
+	.header-login-form .header-register-link { clear: both; margin-right: 0.5em; width: auto;}
+	#language-switch { margin-bottom: 25px;}
+}
+
