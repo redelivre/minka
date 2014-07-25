@@ -163,51 +163,20 @@ class Solutions
 			
 			
 			?>
-<p>
-	<label for="<?php echo $slug; ?>" class="<?php echo 'label_'.$slug; ?>"><?php echo $campo['title'] ?>:</label>
-	<input <?php echo $disable_edicao ?> id="<?php echo $slug; ?>"
-		name="<?php echo $slug; ?>"
-		class="<?php echo $slug.(array_key_exists('type', $campo) && $campo['type'] == 'date' ? 'hasdatepicker' : '') ; ?> "
-		value="<?php echo $dado; ?>" />
-</p>
-<?php
+			<p>
+				<label for="<?php echo $slug; ?>" class="<?php echo 'label_'.$slug; ?>"><?php echo $campo['title'] ?>:</label>
+				<input <?php echo $disable_edicao ?> id="<?php echo $slug; ?>"
+					name="<?php echo $slug; ?>"
+					class="<?php echo $slug.(array_key_exists('type', $campo) && $campo['type'] == 'date' ? 'hasdatepicker' : '') ; ?> "
+					value="<?php echo $dado; ?>" />
+			</p>
+			<?php
 			
 		}
 	}
 	
 	function taxonomy_checklist($taxonomy = 'category', $parent = 0)
 	{
-		/*global $posts, $wpdb;
-	
-		$terms = array();
-		$terms_ids = array();
-	
-	
-		$posts_ids = $wpdb->get_col("SELECT post_id FROM $wpdb->postmeta WHERE meta_key ='_mpv_inmap' ");
-	
-		foreach($posts_ids as $post_id)
-		{
-			$_terms = get_the_terms($post_id, $taxonomy);
-	
-			if(is_array($_terms))
-			{
-				foreach($_terms as $_t)
-				{
-					if(!in_array($_t->term_id,$terms_ids) && $_t->parent == $parent)
-					{
-						$terms_ids[] = $_t->term_id;
-						$key = $_t->name;
-						$ikey = filter_var($_t->name, FILTER_SANITIZE_NUMBER_INT);
-						if(intval($ikey) > 0)
-						{
-							$key = substr($ikey, 2).substr($ikey, 0, 2);// TODO arrumar um jeito de definir para datas
-						}
-						$terms[$key] = $_t;
-					}
-				}
-			}
-		}*/
-		
 		$args = array(
 				'orderby' => 'id',
 				'hide_empty'=> 0,
@@ -216,8 +185,6 @@ class Solutions
 				'taxonomy'=>$taxonomy
 				
 		);
-		global $sitepress;
-		$sitepress->switch_lang('es');
 		$terms = get_terms($taxonomy, $args);
 		//print_r($terms);
 	
@@ -225,65 +192,42 @@ class Solutions
 		{
 			return;
 		}
-		/*$terms_keys = array_keys($terms);
-		natcasesort($terms_keys);
-		$terms_a = $terms;
-		$terms = array();
-		foreach ($terms_keys as $key)
+		if ($parent > 0)
+		{?>
+			<ul class='children'><?php
+		}
+		$index = 1;
+		foreach ($terms as $term)
 		{
-			$terms[] = $terms_a[$key];
-		}*/
-	
-	
-		/*if($parent == 0): ?>
-			<?php $tax = get_taxonomy($taxonomy); ?>
-			<li class="category-group-col"><h3><?php echo $tax->label; ?></h3>
-		<?php endif;*/ ?>
-			<?php if ($parent > 0): ?>
-<ul class='children'>
-			<?php endif; ?>
-	
-			<?php
-			$index = 1;
-			foreach ($terms as $term):
-				$name = $term->name;
-				$input = '';
-				if(strpos($name, '#input#') !== false)
-				{
-					$name = str_replace('#input#', '', $name);
-					$value = array_key_exists($taxonomy.'_'.$term->term_id.'_input', $_REQUEST) ? $_REQUEST[$taxonomy.'_'.$term->term_id.'_input'] : ''; 
-					$input = '<input type="text" class="taxonomy-category-checkbox-text" name="'.$taxonomy.'_'.$term->term_id.'_input" id="category_'.$taxonomy.'_'.$term->slug.'_input" value="'.$value.'" />';
-				}
-				$checked = isset($_REQUEST) && array_key_exists("category_$taxonomy", $_REQUEST) && array_search($term->slug, $_REQUEST["category_$taxonomy"]) ? 'checked="checked"' : '';				
+			$name = $term->name;
+			$input = '';
+			if(strpos($name, '#input#') !== false)
+			{
+				$name = str_replace('#input#', '', $name);
+				$value = array_key_exists($taxonomy.'_'.$term->term_id.'_input', $_REQUEST) ? $_REQUEST[$taxonomy.'_'.$term->term_id.'_input'] : ''; 
+				$input = '<input type="text" class="taxonomy-category-checkbox-text" name="'.$taxonomy.'_'.$term->term_id.'_input" id="category_'.$taxonomy.'_'.$term->slug.'_input" value="'.$value.'" />';
+			}
+			$checked = isset($_REQUEST) && array_key_exists("category_$taxonomy", $_REQUEST) && array_search($term->term_id, $_REQUEST["category_$taxonomy"]) !== false ? 'checked="checked"' : '';				
 			?>
-				<li class="category-group-col <?php echo $parent == 0 ? 'category-group-col-'.$index : ''; ?>">
-					<?php if($parent > 0 && $input == ''): ?>
-						<input type="checkbox" class="taxonomy-category-checkbox" value="<?php echo $term->term_id; ?>" name="category_<?php echo $taxonomy; ?>[]" id="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>"
-						<?php echo $checked; ?> />
-					<?php endif; ?>
-					<label for="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>">
-						<?php
-							echo $name;
-						?>
-					</label>
-					<?php
-						echo $input; 
-					?>
-					<?php $this->taxonomy_checklist($taxonomy, $term->term_id); ?>
-				</li>
-			
-			<?php
-				$index++;
-			endforeach;
-			 ?>
-	
-			<?php if ($parent > 0): ?>
-				</ul>
-<?php endif;
-		/*if($parent == 0): ?>
+			<li class="category-group-col <?php echo $parent == 0 ? 'category-group-col-'.$index : ''; ?>"><?php
+				if($parent > 0 && $input == '')
+				{?>
+					<input type="checkbox" class="taxonomy-category-checkbox" value="<?php echo $term->term_id; ?>" name="category_<?php echo $taxonomy; ?>[]" id="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>"
+					<?php echo $checked; ?> /><?php
+				}?>
+				<label for="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>"><?php
+					echo $name;?>
+				</label><?php
+				echo $input; 
+				$this->taxonomy_checklist($taxonomy, $term->term_id); ?>
 			</li>
-		<?php endif; */?>
-		<?php
+			<?php
+			$index++;
+		}
+		if ($parent > 0)
+		{?>
+			</ul><?php
+		}
 	}
 	
 	const NEW_SOLUTION_PAGE = 'new-solution';
@@ -303,8 +247,8 @@ class Solutions
 	{
 		if(get_query_var(self::NEW_SOLUTION_PAGE) == true)
 		{
-			wp_enqueue_script('jquery-ui-datepicker-ptbr', WP_CONTENT_URL.'/themes/minka/solutions/js/jquery.ui.datepicker-pt-BR.js', array('jquery-ui-datepicker'));
-			wp_enqueue_script('date-scripts',WP_CONTENT_URL.'/themes/minka/solutions/js/date_scripts.js', array( 'jquery-ui-datepicker-ptbr'));
+			//wp_enqueue_script('jquery-ui-datepicker-ptbr', WP_CONTENT_URL.'/themes/minka/solutions/js/jquery.ui.datepicker-pt-BR.js', array('jquery-ui-datepicker'));
+			//wp_enqueue_script('date-scripts',WP_CONTENT_URL.'/themes/minka/solutions/js/date_scripts.js', array( 'jquery-ui-datepicker-ptbr'));
 			get_header();
 			$file_path = get_stylesheet_directory() . '/new-solution.php';
 			if(file_exists($file_path))
