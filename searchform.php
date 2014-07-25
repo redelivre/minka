@@ -1,3 +1,5 @@
+<?php
+?>
 <form role="search" method="get" class="search-form" action="">
 	<label>
 		<span class="screen-reader-text">Search for:</span>

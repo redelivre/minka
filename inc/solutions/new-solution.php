@@ -100,7 +100,7 @@ else
 	
 	<div class="category-group">
 	<?php 
-	$solution->taxonomy_checklist();
+	Minka::taxonomy_checklist();
 	?>
 	</div>
 	

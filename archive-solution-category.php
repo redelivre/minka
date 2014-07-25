@@ -31,7 +31,6 @@
 								'posts_per_page'   => -1,
 								'orderby'          => 'post_date',
 								'order'            => 'DESC',
-								'cat'		   => $term->term_id,
 								'post_type'		   => 'solution',
 								/*'tax_query' => array(
 										array(
@@ -41,6 +40,11 @@
 										)
 								)*/
 						);
+
+						if(is_object($term) AND property_exists($term, 'term_id'))
+						{
+							$args['cat'] = $term->term_id;
+						}
 
 						if(array_key_exists( 'search', $_REQUEST))
 						{
