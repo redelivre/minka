@@ -1785,8 +1785,21 @@ object {
     display: block;
 }
 
+/*--------------------------------------------------------------
+23 Solution List
+--------------------------------------------------------------*/
 
+.solution-category-archive-entry {
+	margin: 0 auto;
+	width: 86%;
+}
 
+.solution-category-archive-category-list {
+	width: 76%;
+	float: left;
+	display: block;
+	margin-left: 4%;
+}
 
 /*--------------------------------------------------------------
  Media queries
