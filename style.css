@@ -1177,6 +1177,12 @@ object {
 .footer-entry a {
     color: #FFF;
     text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-entry a:hover {
+    color: #e9c42b;
+    text-decoration: none;
 }
 
 .footer-area-top-title {
@@ -1225,7 +1231,7 @@ object {
 }
 
 .footer-area-bottom {
-	background-color: #636363;
+	background-color: #333;
 	height: 280px;
 }
 
