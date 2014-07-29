@@ -42,8 +42,46 @@ class WP_Widget_Categories_Posts extends WP_Widget_Recent_Posts
 	
 }
 
-// Load the widget on widgets_init
-function WP_Widget_Categories_Posts_init() {
-	register_widget('WP_Widget_Categories_Posts');
+class Minka_WP_Widget_Categories extends WP_Widget_Categories
+{
+	function form( $instance )
+	{
+		$checkbox = isset( $instance['checkbox'] ) ? (bool) $instance['checkbox'] : false;
+		
+		parent::form($instance);
+		?>
+		<p><input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('checkbox'); ?>" name="<?php echo $this->get_field_name('checkbox'); ?>"<?php checked( $checkbox ); ?> />
+		<label for="<?php echo $this->get_field_id('checkbox'); ?>"><?php _e( 'Display as checkbox', 'minka' ); ?></label><br /></p>
+		<?php
+	}
+	
+	function update($new_instance, $old_instance)
+	{
+		$instance = parent::update($new_instance, $old_instance);
+		$instance['checkbox'] = !empty($new_instance['checkbox']) ? 1 : 0;
+		return $instance;
+	}
+	
+	function widget( $args, $instance )
+	{
+		extract( $args );
+		$ch = ! empty( $instance['checkbox'] ) ? '1' : '0';
+		if($ch)
+		{
+			Minka::taxonomy_checklist();
+		}
+		else
+		{
+			parent::widget($args, $instance);
+		}
+	}
 }
-add_action('widgets_init', 'WP_Widget_Categories_Posts_init');
+
+// Load the widget on widgets_init
+function Minka_WP_Widget_init() {
+	register_widget('WP_Widget_Categories_Posts');
+	
+	unregister_widget('WP_Widget_Categories');
+	register_widget('Minka_WP_Widget_Categories');
+}
+add_action('widgets_init', 'Minka_WP_Widget_init');
