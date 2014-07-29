@@ -1150,10 +1150,12 @@ object {
 --------------------------------------------------------------*/
 
 .footer-area {
-	height: 150px;
+	min-height: 150px;
 	vertical-align: middle;
 	padding-top: 0.70em;
 	margin-top: 8px;
+	float: left;
+	width: 100%;
 }
 
 .footer-area li {
@@ -1172,6 +1174,7 @@ object {
 	width: 86%;
 	text-align: center;
 	color: #FFF;
+	clear: both;
 }
 
 .footer-entry a {
@@ -1207,9 +1210,15 @@ object {
     padding-top: 1.2em;
 }
 
+.footer-entry-top {
+    width: 56%;
+}
+
 .footer-top-item {
 	display: inline;
-	padding: 1.5em 1em;
+	padding: 0.700em;
+	float: left;
+    height: 100%;
 }
 
 .footer-bootom {
@@ -1221,7 +1230,6 @@ object {
 .footer-bottom-item {
  	border-right: 4px dotted #6e448f;
     float: left;
-    height: 220px;
     padding: 0.5em;
     width: 25%;   
 }
@@ -1231,8 +1239,8 @@ object {
 }
 
 .footer-area-bottom {
-	background-color: #333;
-	height: 280px;
+	background-color: #333; 
+	height: 100%;
 }
 
 .footer-bottom-item:first-child img {
@@ -1836,3 +1844,8 @@ object {
 	#language-switch { margin-bottom: 25px;}
 }
 
+@media screen and (max-width: 1000px) {
+	.footer-bottom-item{ width: 100%;  border-right: medium none; display: table; border-bottom: 3px dotted #6e448f; padding-bottom: 10px;}
+	.footer-area-bottom { height: 100%;}
+	.textwidget { text-align: center;}
+}
