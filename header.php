@@ -71,6 +71,7 @@
 				</div>
 				<div class="header-navigation-menu">
 					<nav role="navigation" class="site-navigation main-navigation co">
+						<h1 class="assistive-text">Menu</h1> 
 						<div class="clearfix"></div>
 						<?php wp_nav_menu( array( 'menu' => 'main', 'theme_location' => 'primary', 'container_class' => 'minka-header-menu' ) ); ?>
 					</nav><!-- .site-navigation .main-navigation -->

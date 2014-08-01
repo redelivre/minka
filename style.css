@@ -385,7 +385,7 @@ a:active {
 	float: left;
 	position: relative;
 }
-.main-navigation a {
+.main-navigation a  {
 	display: block;
 	text-decoration: none;
 	color: #414684;
@@ -429,20 +429,21 @@ a:active {
 .main-navigation .current-menu-item a {
 	color:#ff8300;
 }
+
+
+/*--------------------------------------------------------------
+5.2 SMALL
+--------------------------------------------------------------*/
 /* Small menu */
 .menu-toggle {
 	display: none;
 }
-@media screen and (max-width: 600px) {
-	.menu-toggle,
-	.main-navigation.toggled .nav-menu {
-		display: block;
-	}
 
-	.main-navigation ul {
-		display: none;
-	}
-}
+
+
+/*--------------------------------------------------------------
+	fim SMALL
+--------------------------------------------------------------*/
 .site-main .comment-navigation,
 .site-main .paging-navigation,
 .site-main .post-navigation {
@@ -1848,6 +1849,88 @@ object {
 	.footer-bottom-item{ width: 100%;  border-right: medium none; display: table; border-bottom: 3px dotted #6e448f; padding-bottom: 10px;}
 	.footer-area-bottom { height: 100%;}
 	.textwidget { text-align: center;}
+}
+
+@media screen and (max-width: 600px) {
+	
+	.menu{
+	display: none;
+	}
+	.menu-toggle {
+		background: #FFF;
+		color: #c04a4a;
+		float: none;
+		display: table;
+		padding: 10px;
+		margin-bottom: 0 !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	.menu, .menu-tmp {
+		background: #FFF;
+		float: left;
+		width: 100%;
+		margin-left: 0;
+		z-index: 999;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+		margin-bottom: 15px;
+		border-radius-right-bottom: 3px;
+		text-decoration: none;
+		position: relative;
+	}
+
+	.menu li a, .menu-tmp li a {
+		display: block;
+		padding: 3px 10px;
+		margin: 0;
+		text-align: center;
+	}
+
+	.menu li a:active, .menu-tmp li a:active {
+		background: red;
+		color: #FFF;
+	}
+
+	.toggled-on {
+		background: #c04a4a;
+		color: #FFF;
+	}
+	/*
+	.menu li > ul {
+		border-left: 2px solid #DDD;
+	}	*/
+	
+	.menu li > ul, .menu-tmp li > ul {
+		display: none;
+	}
+	
+	/*agora*/
+	
+	.main-small-navigation a  {
+	display: block;
+	text-decoration: none;
+	color: #414684;
+	font-weight: 300;
+}
+
+	.main-small-navigation a:hover {
+	color: #fff;
+	background: #b62c7a;
+	height: 100%;
+	margin: 0;
+	}
+	
+	.main-small-navigation ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+	.header-navigation-menu {
+	float: none;
+	width: 100%;}
+	}
 }
 
 @media screen and (max-width: 480px) {
