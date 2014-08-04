@@ -1436,10 +1436,6 @@ object {
 	
 }
 
-.home-cat-post-box{
-	box-shadow: 0 0 6px #ccc;
-}
-
 .home-category-num-2 .home-cat-post-box {
 	border-bottom: 2px solid #6e448f;
 }
@@ -1501,7 +1497,13 @@ object {
     width: 32%;
     min-width: 280px;
     opacity: 0.8;
+    cursor: pointer;
+    box-shadow: 0 0 6px #ccc;
 }
+
+.home-cat-post-box:hover {
+	opacity: initial;	
+}	
 
 .home-cat-post-box:last-child {
     margin-right: 0px;
