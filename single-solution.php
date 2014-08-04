@@ -61,10 +61,10 @@
 						<a href="<?php echo get_post_meta(get_the_ID(), 'solution-url', true); ?>" target="_blank" ><?php _e('view web site', 'minka')?></a>
 					</div>
 				</div>
-				<div class="solution-single-post-exp needs-rating">
 					<h3><?php _e('Share your experience', 'minka');?></h3>
+				<div class="solution-single-post-exp needs-rating">
 					<h2 class="solution-single-post-rate-title"><?php _e("Usability", "minka"); ?></h2><?php the_rate_form(); ?>
-					<h2 class="solution-single-post-rate-title"><?php _e("Experience", "minka"); ?></h2><?php the_rate_formExperience(); ?>
+					<h2 class="solution-single-post-experience-title"><?php _e("Experience", "minka"); ?></h2><?php the_rate_formExperience(); ?>
 				</div>
 				<div class="solution-single-post-comments">
 				<?php
