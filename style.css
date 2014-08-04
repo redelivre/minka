@@ -283,8 +283,8 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	background: #e9c42b;
-  	text-decoration: none;
+	/*background: #e9c42b;
+  	text-decoration: none;*/
   }
 button:focus,
 input[type="button"]:focus,
@@ -1309,6 +1309,25 @@ object {
     width: 34px;
     height: 34px;
     vertical-align: top;
+    box-shadow: 0 0 6px #959595;
+
+    /* Hide the text. */
+    display: inline-block;
+    overflow: hidden;
+    font-size: 0px;
+    border-radius: 10px;
+}
+
+.search-submit:hover {
+	background-image: url(images/busca-topo-internas.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ff8300;
+    margin-left: 5px;
+    width: 34px;
+    height: 34px;
+    vertical-align: top;
+    box-shadow: 0 0 6px #959595;
 
     /* Hide the text. */
     display: inline-block;
