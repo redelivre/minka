@@ -81,20 +81,46 @@ else
 		$required_message = '';
 		$input_class = '';
 		$type = array_key_exists('type', $field) ? $field['type'] : '';
-	?>
-		<div class="solution-item">
-			<label for="<?php echo $id ?>" class="solution-item-label">
-				<div class="solution-item-title"><?php echo $label; ?>
-					<span class="solution-item-required-asterisk">*</span>
+		switch ($type)
+		{
+			case 'date':
+			default:	
+				?>
+				<div class="solution-item">
+					<label for="<?php echo $id ?>" class="solution-item-label">
+						<div class="solution-item-title"><?php echo $label; ?>
+							<span class="solution-item-required-asterisk">*</span>
+						</div>
+						<div class="solution-item-tip-text"><?php echo $tip; ?>
+						</div>
+					</label>
+					<input type="text" id="<?php echo $id ?>" class="solution-item-input-text <?php echo $type == 'date' ? 'hasdatepicker' : ''; ?> <?php echo $input_class ?>" value="<?php echo array_key_exists($id, $_REQUEST) ? wp_strip_all_tags($_REQUEST[$id]) : ''; ?>" name="<?php echo $id ?>">
+					<div class="solution-item-error-message"></div>
+					<div class="solution-item-required-message"><?php echo $required_message; ?></div>
 				</div>
-				<div class="solution-item-tip-text"><?php echo $tip; ?>
+				<?php
+			break;
+			case 'wp_editor':
+				?>
+				<div class="solution-item">
+					<label for="<?php echo $id ?>" class="solution-item-label">
+						<div class="solution-item-title"><?php echo $label; ?>
+							<span class="solution-item-required-asterisk">*</span>
+						</div>
+						<div class="solution-item-tip-text">
+							<?php echo $tip; ?>
+						</div>
+					</label>
+					<?php wp_editor('', $id); ?>
+					<div class="solution-item-error-message"></div>
+					<div class="solution-item-required-message">
+						<?php echo $required_message; ?>
+					</div>
 				</div>
-			</label>
-			<input type="text" id="<?php echo $id ?>" class="solution-item-input-text <?php echo $type == 'date' ? 'hasdatepicker' : ''; ?> <?php echo $input_class ?>" value="<?php echo array_key_exists($id, $_REQUEST) ? wp_strip_all_tags($_REQUEST[$id]) : ''; ?>" name="<?php echo $id ?>">
-			<div class="solution-item-error-message"></div>
-			<div class="solution-item-required-message"><?php echo $required_message; ?></div>
-		</div>
-		<?php 
+				<?php
+			break;
+			
+		}
 	}
 	?>
 	

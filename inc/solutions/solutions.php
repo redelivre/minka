@@ -129,7 +129,8 @@ class Solutions
 				'slug' => 'post_content',
 				'title' => 'Description',
 				'tip' => 'Maximum 300 characters',
-				'required' => true
+				'required' => true,
+				'type' => 'wp_editor'
 			),
 		);
 		
