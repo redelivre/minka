@@ -8,7 +8,7 @@
 		'show_count'         => 0,
 		'hide_empty'         => 1,
 		'use_desc_for_title' => 1,
-		'child_of'           => (property_exists($term, 'term_id') ? $term->term_id : 0),
+		'child_of'           => ($term != false && property_exists($term, 'term_id') ? $term->term_id : 0),
 		'feed'               => '',
 		'feed_type'          => '',
 		'feed_image'         => '',
