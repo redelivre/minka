@@ -67,7 +67,7 @@
 						$logo_uri =  $logo;
 					}
 					?>
-					<img alt="" src="<?php echo $logo_uri; ?>"/>
+					<a href="/"><img alt="" src="<?php echo $logo_uri; ?>"/></a>
 				</div>
 				<div class="header-navigation-menu">
 					<nav role="navigation" class="site-navigation main-navigation co">
