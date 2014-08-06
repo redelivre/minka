@@ -18,11 +18,7 @@ class Minka{
 		add_action('wp_enqueue_scripts', array($this, 'javascript'));
 		add_filter('nav_menu_css_class', array($this, 'nav_menu_css_class'));
 		add_action('widgets_init', array($this, 'register_sidebars'));
-		
-		/**
-		 * Set the content width based on the theme's design and stylesheet.
-		 */
-		
+		add_action('init', array($this, 'init'));
 	}
 
 	/**
@@ -388,6 +384,45 @@ class Minka{
 		}
 	}
 	
+	public static function init()
+	{
+		$labels = array
+		(
+				'name' => __('Page Categories', 'minka'),
+				'singular_name' => __('Page Category', 'minka'),
+				'search_items' => __('Search for Page Category','minka'),
+				'all_items' => __('All Page Categories','minka'),
+				'parent_item' => __( 'Page Category parent','minka'),
+				'parent_item_colon' => __( 'Page Category parent:','minka'),
+				'edit_item' => __('Edit Page Caterory','minka'),
+				'update_item' => __('Update Page Caterory','minka'),
+				'add_new_item' => __('Add new Page Caterory','minka'),
+				'add_new' => __('Add new','minka'),
+				'new_item_name' => __('New Page Caterory','minka'),
+				'view_item' => __('View Page Caterory','minka'),
+				'not_found' =>  __('no Page Caterory founded','minka'),
+				'not_found_in_trash' => __('no Page Caterory founded in trash','minka'),
+				'menu_name' => __('Page Caterories','minka')
+		);
+		
+		$args = array
+		(
+				'label' => __('Page Caterories','minka'),
+				'labels' => $labels,
+				'public' => true,
+				'capabilities' => array('assign_terms' => 'edit_pages',
+						'edit_terms' => 'edit_pages'),
+				//'show_in_nav_menus' => true, // Public
+				// 'show_ui' => '', // Public
+				'hierarchical' => false,
+				//'update_count_callback' => '', //Contar objetos associados
+				'rewrite' => true,
+				//'query_var' => '',
+				//'_builtin' => '' // Core
+		);
+		
+		register_taxonomy('page_category', array('page'), $args);
+	}
 }
 
 $minka = new Minka();
