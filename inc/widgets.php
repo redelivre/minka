@@ -68,6 +68,8 @@ class Minka_WP_Widget_Categories extends WP_Widget_Categories
 		$ch = ! empty( $instance['checkbox'] ) ? '1' : '0';
 		if($ch)
 		{
+			$title = apply_filters('widget_title', empty( $instance['title'] ) ? __( 'Categories' ) : $instance['title'], $instance, $this->id_base);
+			echo $title;
 			Minka::taxonomy_checklist();
 		}
 		else
