@@ -115,6 +115,17 @@ function minka_customize_register( $wp_customize )
 			'label'      => __( 'Footer Text' ),
 			'section'    => 'minka_content',
 	) );
+	
+	$wp_customize->add_setting( 'minka_home_video_url', array(
+			'default'     => __("http://youtu.be/TDwB0Z9s5nE", 'minka'),
+			'capability'    => 'edit_theme_options',
+			'transport'=>'postMessage'
+	) );
+	
+	$wp_customize->add_control( 'minka_home_video_url', array(
+			'label'      => __( 'Home Video URL (copy only the video url)', 'minka' ),
+			'section'    => 'minka_content',
+	) );
 
 	//header background image
 	$wp_customize->add_section( 'minka_header', array(
