@@ -5,7 +5,7 @@
 .rating .r {float: right; height: 22px; width: 11px; background: url("images/star2.png") -12px 0}
 .rating .half .l {background-color: #333}
 .rating .half .r {background-color: #ccc}
-.rating .whole .l {background-color: #333}
-.rating .whole .r {background-color: #333}
-.rating .rover .l {background-color: #e9c42b}
-.rating .rover .r {background-color: #e9c42b}
+.rating .whole .l {float: left; height: 22px; width: 12px; background: url("images/rover.png") 0 0}
+.rating .whole .r {float: right; height: 22px; width: 11px; background: url("images/rover2.png") -12px 0}
+.rating .rover .l {float: left; height: 22px; width: 12px; background: url("images/rover.png") 0 0}
+.rating .rover .r {float: right; height: 22px; width: 11px; background: url("images/rover2.png") -12px 0}

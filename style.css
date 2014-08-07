@@ -1358,7 +1358,9 @@ object {
 	border-radius: 10px;
 	border-width: 2px;
 	color: #6e448f;
-	width: 30%;
+	width: 77%;
+	float: right;
+	margin-top: 20px;
 	
 }
 
