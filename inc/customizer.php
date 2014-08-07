@@ -63,7 +63,7 @@ function minka_customize_register( $wp_customize )
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Image_Reloaded_Control( $wp_customize, 'minka_logo', array(
-			'label'   	=> __( 'Cabeçalho', 'minka' ),
+			'label'   	=> __( 'Header Logo', 'minka' ),
 			'section'	=> 'minka_logo',
 			'settings' 	=> 'minka_logo',
 			'context'	=> 'minka-custom-logo'
@@ -128,18 +128,13 @@ function minka_customize_register( $wp_customize )
 	) );
 
 	//header background image
-	$wp_customize->add_section( 'minka_header', array(
-			'title'    => __( 'Cabeçalho', 'minka' ),
-			'priority' => 30,
-	) );
-	
 	$wp_customize->add_setting('minka_header_image', array(
 			'default' => get_template_directory_uri() . '/images/rede-home.png'
 	));
 	
 	$wp_customize->add_control(new WP_Customize_Image_Reloaded_Control($wp_customize, 'minka_header_image_control', array(
 			'label' => __('Imagem de fundo do destaque', 'minka'),
-			'section' => 'minka_header',
+			'section' => 'minka_content',
 			'settings' => 'minka_header_image'
 	)));
 
