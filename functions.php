@@ -285,7 +285,7 @@ class Minka{
 				'hierarchical' => 0,
 				'parent' => 0,
 				'taxonomy'=>$taxonomy,
-				'exclude'=> 4,
+				'exclude'=> array(1,8,9),
 				'number' => 4
 		
 		);
