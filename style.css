@@ -1591,6 +1591,9 @@ object {
 .home-cat-post-content {
 	height: 76px;
 	margin-bottom: 6px;
+	-o-text-overflow: ellipsis;   /* Opera */
+    text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
+    overflow:hidden;
 }
 
 .home-cat-post-content p {
