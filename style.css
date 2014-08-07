@@ -1361,7 +1361,15 @@ object {
 	width: 77%;
 	float: right;
 	margin-top: 20px;
-	
+}
+
+.home .search-form .search-field {
+	border-radius: 10px;
+	border-width: 2px;
+	color: #6e448f;
+	width: 30%;
+	float: none;
+	margin: 0;
 }
 
 .search-form .search-submit {
