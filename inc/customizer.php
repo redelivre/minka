@@ -134,7 +134,7 @@ function minka_customize_register( $wp_customize )
 	) );
 	
 	$wp_customize->add_setting('minka_header_image', array(
-			'default' => ''
+			'default' => get_template_directory_uri() . '/images/rede-home.png'
 	));
 	
 	$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'minka_header_image_control', array(
