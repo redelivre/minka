@@ -652,6 +652,23 @@ a:active {
     padding: 10px;
 }
 
+.comments-title {
+    color: #ff8300;
+    font-size: 1.125em;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.comment-metadata time {
+    display: none;
+    margin-left: 1%;
+}
+
+.comment-content > p {
+    margin-top: 30px;
+}
+
 /* Rate - Experience*/
 
 .solution-single-post-exp.needs-rating {
