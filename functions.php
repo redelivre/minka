@@ -105,10 +105,12 @@ class Minka{
 		wp_enqueue_script('jquery-ui-droppable');
 		wp_enqueue_script('minka-language-swapper', get_template_directory_uri() . '/js/minka-language-swapper.js', array('jquery-ui-draggable'));
 		
-		
-		$data = array(
-			'default' => icl_get_default_language()
-		);
+		$data = array();
+
+		if(function_exists('icl_get_default_language'))
+		{
+			$data['default'] = icl_get_default_language();
+		}
 		wp_localize_script('minka-language-swapper', 'minka_language_swapper', $data);
 	}
 
