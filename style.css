@@ -1619,6 +1619,7 @@ object {
 
 .home-cat-post-title h2 {
 	margin-top: 0;
+	white-space: nowrap;
 }
 
 
@@ -1801,6 +1802,7 @@ object {
     text-align: center;
     width: 100%;
     background-color: #f3f3f3;
+    margin-bottom: 30px;
 }
 
 .solution-single-content {
