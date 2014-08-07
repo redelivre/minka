@@ -1181,7 +1181,7 @@ object {
 14.1 Header Bottom Menu
 --------------------------------------------------------------*/
 .header-navigation-menu {
-	width: 60%;
+	width: 80%;
 	float: right;
 	margin-top: 75px;
 }
@@ -1608,6 +1608,9 @@ object {
 .home-cat-post-content {
 	height: 76px;
 	margin-bottom: 6px;
+	-o-text-overflow: ellipsis;   /* Opera */
+    text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
+    overflow:hidden;
 }
 
 .home-cat-post-content p {

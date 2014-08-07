@@ -4,7 +4,7 @@
 	<div class="home-stick stick-video marketing">
 		<div class="home-stick-entry">
 		<?php 
-			$video = wp_oembed_get('http://youtu.be/TDwB0Z9s5nE', array('height' => '563', 'width' => '1000'));
+			$video = wp_oembed_get(get_theme_mod('minka_home_video_url', 'http://youtu.be/TDwB0Z9s5nE'), array('height' => '563', 'width' => '1000'));
 
 			if($video !== false)
 			{

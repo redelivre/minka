@@ -58,12 +58,12 @@ function minka_customize_register( $wp_customize )
 
 	// Branding: logo
 	$wp_customize->add_setting( 'minka_logo', array(
-			'default'     => get_template_directory_uri() . '/images/assine-ja.png',
+			'default'     => get_template_directory_uri() . '/images/logo.png',
 			'capability'    => 'edit_theme_options',
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Image_Reloaded_Control( $wp_customize, 'minka_logo', array(
-			'label'   	=> __( 'Cabeçalho', 'minka' ),
+			'label'   	=> __( 'Header Logo', 'minka' ),
 			'section'	=> 'minka_logo',
 			'settings' 	=> 'minka_logo',
 			'context'	=> 'minka-custom-logo'
@@ -115,20 +115,26 @@ function minka_customize_register( $wp_customize )
 			'label'      => __( 'Footer Text' ),
 			'section'    => 'minka_content',
 	) );
-
-	//header background image
-	$wp_customize->add_section( 'minka_header', array(
-			'title'    => __( 'Cabeçalho', 'minka' ),
-			'priority' => 30,
+	
+	$wp_customize->add_setting( 'minka_home_video_url', array(
+			'default'     => __("http://youtu.be/TDwB0Z9s5nE", 'minka'),
+			'capability'    => 'edit_theme_options',
+			//'transport'=>'postMessage'
 	) );
 	
+	$wp_customize->add_control( 'minka_home_video_url', array(
+			'label'      => __( 'Home Video URL (copy only the video url)', 'minka' ),
+			'section'    => 'minka_content',
+	) );
+
+	//header background image
 	$wp_customize->add_setting('minka_header_image', array(
-			'default' => ''
+			'default' => get_template_directory_uri() . '/images/rede-home.png'
 	));
 	
-	$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'minka_header_image_control', array(
+	$wp_customize->add_control(new WP_Customize_Image_Reloaded_Control($wp_customize, 'minka_header_image_control', array(
 			'label' => __('Imagem de fundo do destaque', 'minka'),
-			'section' => 'minka_header',
+			'section' => 'minka_content',
 			'settings' => 'minka_header_image'
 	)));
 
@@ -190,7 +196,7 @@ function minka_customize_css()
 			color: <?php echo get_theme_mod('minka_font_color_header'); ?>;
 		}
 		.home-stick {
-			background-image: url(<?php echo get_theme_mod('minka_header_image'); ?>);
+			background-image: url(<?php echo get_theme_mod('minka_header_image', get_template_directory_uri() . '/images/rede-home.png'); ?>);
 		}
 		.minka_language_selector_item {
 			width: <?php echo 100 / $langs; ?>%;

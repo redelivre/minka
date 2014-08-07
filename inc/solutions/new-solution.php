@@ -1,5 +1,10 @@
 <?php
+
+require_once dirname(__FILE__).'/HTMLPurifier.standalone.php';
+
 $solution = new Solutions();
+
+$publish = array_key_exists('publish', $_POST) && $_POST['publish'] == 'Publish';
 
 $post_type = '';
 if ( !isset($_GET['post_type']) )
@@ -21,8 +26,16 @@ else
 	$title = $post_type_object->labels->add_new_item;
 	
 	$editing = true;
+	$post = null;
+	if($publish && array_key_exists('post_ID', $_POST) && $_POST['post_ID'] > 0)
+	{
+		$post = get_post($_POST['post_ID']);
+	}
+	else 
+	{
+		$post = $solution->get_default_post_to_edit( $post_type, true );
+	}
 	
-	$post = $solution->get_default_post_to_edit( $post_type, true );
 	$post_ID = $post->ID;
 	global $user_ID;
 	
@@ -34,6 +47,45 @@ else
 	$message = array();
 	
 	$notice = false;
+	
+	$purifier = new HTMLPurifier();
+	
+	if($publish)
+	{
+		
+		foreach ($solution->getFields() as $key => $field)
+		{
+			if( (array_key_exists('required', $field) && $field['required']) && (! array_key_exists($field['slug'], $_POST) || empty($_POST[$field['slug']]) ))
+			{
+				$message[] = __('required field: ').$field['title'].__('is empty');
+				$notice = true;
+			}
+			else 
+			{
+				
+				if(array_key_exists('buildin', $field) && $field['buildin'] == true)
+				{
+					if(array_key_exists('type', $field) && $field['type'] == 'wp_editor')
+					{
+						$post->{$field['slug']} = $purifier->purify($_POST[$field['slug']]);
+					}
+					else 
+					{
+						$post->{$field['slug']} = wp_strip_all_tags($_POST[$field['slug']]);
+					}
+				}
+				else 
+				{
+					update_post_meta($post_ID, $field['slug'], $_POST[$field['slug']]);
+				}
+			}
+		}
+		echo '<pre>';
+		var_dump($_POST);
+		echo '<br/>\n<br/>\n';
+		var_dump($post);
+		echo '</pre>';
+	}
 	
 	$form_action = 'editpost';
 	$nonce_action = 'update-post_' . $post_ID;
@@ -111,7 +163,7 @@ else
 							<?php echo $tip; ?>
 						</div>
 					</label>
-					<?php wp_editor('', $id); ?>
+					<?php wp_editor((array_key_exists($id, $_POST) ? $purifier->purify($_POST[$id]) : ''), $id); ?>
 					<div class="solution-item-error-message"></div>
 					<div class="solution-item-required-message">
 						<?php echo $required_message; ?>

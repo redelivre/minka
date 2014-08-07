@@ -121,16 +121,18 @@ class Solutions
 		$post = array(
 			'post_title' => array(
 				'slug' => 'post_title',
-				'title' => 'Solution name',
+				'title' => __('Solution name', 'minka'),
 				'tip' => '',
-				'required' => true
+				'required' => true,
+				'buildin' => true
 			),
 			'post_content' => array(
 				'slug' => 'post_content',
-				'title' => 'Description',
-				'tip' => 'Maximum 300 characters',
+				'title' => __('Description', 'minka'),
+				'tip' => __('Maximum 300 characters', 'minka'),
 				'required' => true,
-				'type' => 'wp_editor'
+				'type' => 'wp_editor',
+				'buildin' => true
 			),
 		);
 		
@@ -221,9 +223,6 @@ class Solutions
 	function get_default_post_to_edit( $post_type = 'solution', $create_in_db = false ) {
 		global $wpdb;
 	
-		echo '<pre>';
-		var_dump($_REQUEST);
-		echo '</pre>';
 		$post_title = '';
 		if ( !empty( $_REQUEST['post_title'] ) )
 			$post_title = esc_html( stripslashes( $_REQUEST['post_title'] ));
