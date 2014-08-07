@@ -1,5 +1,9 @@
 <?php
 
+	$post_terms = wp_get_object_terms( get_the_ID(), 'category', array( 'fields' => 'ids' ) );
+	
+	$term_ids = implode(',', $post_terms);
+	
 	$args = array(
 		'show_option_all'    => '',
 		'orderby'            => 'name',
@@ -14,7 +18,7 @@
 		'feed_image'         => '',
 		'exclude'            => '',
 		'exclude_tree'       => '',
-		'include'            => '',
+		'include'            => $term_ids,
 		'hierarchical'       => 1,
 		'title_li'           => '',
 		'show_option_none'   => false,
