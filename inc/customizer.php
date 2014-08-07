@@ -137,6 +137,66 @@ function minka_customize_register( $wp_customize )
 			'section' => 'minka_content',
 			'settings' => 'minka_header_image'
 	)));
+	
+	// =====================
+	//  = Category Dropdown =
+	//  =====================
+	$args = array(
+			'type'                     => 'solution',
+			'child_of'                 => 0,
+			'parent'                   => 0,
+			'orderby'                  => 'name',
+			'order'                    => 'ASC',
+			'hide_empty'               => 0,
+			'hierarchical'             => 0,
+			'exclude'                  => '',
+			'include'                  => '',
+			'number'                   => '',
+			'taxonomy'                 => 'category',
+			'pad_counts'               => false
+	
+	);
+	$categories = get_categories($args);
+	$cats = array();
+	$i = 0;
+	foreach($categories as $category){
+		if($i==0){
+			$default = $category->slug;
+			$i++;
+		}
+		$cats[$category->term_id] = $category->name;
+	}
+	
+	$colors = array(
+		'#57c1b6',
+		'#6e448f',
+		'#ff8300',
+		'#b62c7a',
+	);
+	
+	for($i = 1; $i < 5; $i++)
+	{
+		$wp_customize->add_section( 'minka_cat'.$i, array(
+				'title'    => __( 'Category '.$i, 'minka' ),
+				'priority' => 10+$i,
+		) );
+		
+		$wp_customize->add_setting('minka_cat'.$i, array(
+				'default'        => ( count($cats) > $i-1 ? array_keys($cats)[$i-1] : 0 )
+		));
+		$wp_customize->add_control( 'minka_cat'.$i, array(
+				'settings' => 'minka_cat'.$i,
+				'label'   => __('Select Category '.$i, 'minka').':',
+				'section'  => 'minka_cat'.$i,
+				'type'    => 'select',
+				'choices' => $cats,
+		));
+		
+		$color = array( 'slug'=>'minka_cat'.$i.'_color', 'default' => $colors[$i-1], 'label' => __( 'Background Color of Category '.$i, 'minka' ), 'section' => 'minka_cat'.$i );
+		$wp_customize->add_setting( $color['slug'], array( 'default' => $color['default'], 'capability' => 'edit_theme_options', 'transport'=>'postMessage' ));
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $color['slug'], array( 'label' => $color['label'], 'section' => $color['section'], 'settings' => $color['slug'] )));
+	}
+	
 
 }
 add_action( 'customize_register', 'minka_customize_register' );

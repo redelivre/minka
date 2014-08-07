@@ -82,7 +82,7 @@ else
 		}
 		echo '<pre>';
 		var_dump($_POST);
-		echo '<br/>\n<br/>\n';
+		echo '<br/>';
 		var_dump($post);
 		echo '</pre>';
 	}
