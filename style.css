@@ -1808,6 +1808,10 @@ object {
     margin-bottom: 30px;
 }
 
+.attachment-post-thumbnail.wp-post-image {
+  	height: 100%;
+}
+
 .solution-single-content {
 	background-color: #f3f3f3;
     border-bottom: 2px solid #eaeaea;
