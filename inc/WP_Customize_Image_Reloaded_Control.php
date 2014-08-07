@@ -50,4 +50,22 @@ class WP_Customize_Image_Reloaded_Control extends WP_Customize_Image_Control
         }
 	}
 	
+	public function render_content()
+	{
+		parent::render_content();
+		?>
+		<div class="customize-control-default-image" style="display:none;" >
+			<div class="library" >
+				<div class="library-content" data-customize-tab="uploaded">
+					<a id="customize-control-<?php echo $this->id; ?>-default-image" class="thumbnail" data-customize-image-value="<?php echo $this->setting->default; ?>" href="#">
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="actions">
+			<a class="default" href="#" onclick="jQuery('#customize-control-<?php echo $this->id; ?>-default-image').click()" ?><?php _e('Default image'); ?></a>
+		</div>
+		<?php
+	}
+	
 }
