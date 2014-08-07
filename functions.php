@@ -480,3 +480,8 @@ if(!function_exists('the_rating'))
  *  
 */
 require_once get_template_directory() . '/inc/widgets.php';
+
+if(function_exists('icl_get_languages'))
+{
+	require_once get_template_directory() . '/inc/LinkTranslationWidget.php';
+}

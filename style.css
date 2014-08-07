@@ -1301,6 +1301,10 @@ object {
     width: 25%;   
 }
 
+.footer-bottom-item .rounded {
+    display: none;
+}
+
 .footer-bottom-item:last-child {
 	border: none;
 }
