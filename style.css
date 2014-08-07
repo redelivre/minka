@@ -1682,6 +1682,9 @@ object {
     margin-right: 10px;
     margin-top: 12px;
     text-transform: uppercase;
+    -o-text-overflow: ellipsis;   /* Opera */
+    text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
+    overflow:hidden;
 }
 
 /*--------------------------------------------------------------
