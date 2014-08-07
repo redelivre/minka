@@ -60,14 +60,9 @@
 				<div class="header-logo">
 					
 					<?php
-					$logo = get_theme_mod( 'minka_logo' );
-					$logo_uri = get_template_directory_uri() . '/images/logo.png';
-					if( $logo )
-					{
-						$logo_uri =  $logo;
-					}
+					$logo = get_theme_mod( 'minka_logo', get_template_directory_uri() . '/images/logo.png' );
 					?>
-					<a href="/"><img alt="" src="<?php echo $logo_uri; ?>"/></a>
+					<a href="/"><img alt="<?php _e('logo', 'minka'); ?>" src="<?php echo $logo_uri; ?>"/></a>
 				</div>
 				<div class="header-navigation-menu">
 					<nav role="navigation" class="site-navigation main-navigation co">

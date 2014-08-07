@@ -58,7 +58,7 @@ function minka_customize_register( $wp_customize )
 
 	// Branding: logo
 	$wp_customize->add_setting( 'minka_logo', array(
-			'default'     => get_template_directory_uri() . '/images/assine-ja.png',
+			'default'     => get_template_directory_uri() . '/images/logo.png',
 			'capability'    => 'edit_theme_options',
 	) );
 
@@ -201,7 +201,7 @@ function minka_customize_css()
 			color: <?php echo get_theme_mod('minka_font_color_header'); ?>;
 		}
 		.home-stick {
-			background-image: url(<?php echo get_theme_mod('minka_header_image'); ?>);
+			background-image: url(<?php echo get_theme_mod('minka_header_image', get_template_directory_uri() . '/images/rede-home.png'); ?>);
 		}
 		.minka_language_selector_item {
 			width: <?php echo 100 / $langs; ?>%;
