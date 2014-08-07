@@ -119,7 +119,7 @@ function minka_customize_register( $wp_customize )
 	$wp_customize->add_setting( 'minka_home_video_url', array(
 			'default'     => __("http://youtu.be/TDwB0Z9s5nE", 'minka'),
 			'capability'    => 'edit_theme_options',
-			'transport'=>'postMessage'
+			//'transport'=>'postMessage'
 	) );
 	
 	$wp_customize->add_control( 'minka_home_video_url', array(
