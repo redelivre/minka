@@ -141,31 +141,17 @@ function minka_customize_register( $wp_customize )
 	// =====================
 	//  = Category Dropdown =
 	//  =====================
-	$args = array(
-			'type'                     => 'solution',
-			'child_of'                 => 0,
-			'parent'                   => 0,
-			'orderby'                  => 'name',
-			'order'                    => 'ASC',
-			'hide_empty'               => 0,
-			'hierarchical'             => 0,
-			'exclude'                  => '',
-			'include'                  => '',
-			'number'                   => '',
-			'taxonomy'                 => 'category',
-			'pad_counts'               => false
-	
-	);
-	$categories = get_categories($args);
+	$categories = Solutions::getSolutionTopLevelCats();
 	$cats = array();
-	$i = 0;
-	foreach($categories as $category){
-		if($i==0){
-			$default = $category->slug;
-			$i++;
-		}
+	$cats_ksort = array();
+	
+	foreach($categories as $category)
+	{
 		$cats[$category->term_id] = $category->name;
+		$cats_ksort[$category->term_id] = $category->name;
 	}
+	
+	ksort($cats_ksort);
 	
 	$colors = array(
 		'#57c1b6',
@@ -174,7 +160,7 @@ function minka_customize_register( $wp_customize )
 		'#b62c7a',
 	);
 	
-	$cats_keys = array_keys($cats);
+	$cats_keys = array_keys($cats_ksort); // Order by key the default value
 	
 	for($i = 1; $i < 5; $i++)
 	{

@@ -236,7 +236,7 @@ class Solutions
 			$post_excerpt = esc_html( stripslashes( $_REQUEST['excerpt'] ));
 	
 		if ( $create_in_db ) {
-			$post_id = wp_insert_post( array( 'post_title' => __( 'Auto Draft' ), 'post_type' => $post_type, 'post_status' => 'auto-draft' ) );
+			$post_id = wp_insert_post( array( 'post_title' => __( 'Auto Draft' ), 'post_type' => $post_type, 'post_status' => 'draft' ) );
 			$post = get_post( $post_id );
 			if ( current_theme_supports( 'post-formats' ) && post_type_supports( $post->post_type, 'post-formats' ) && get_option( 'default_post_format' ) )
 				set_post_format( $post, get_option( 'default_post_format' ) );
@@ -381,6 +381,133 @@ class Solutions
 				update_post_meta( $post_id, $field['slug'], $mydata );
 			}
 		}
+	}
+	
+	public static function getSolutionTopLevelCats($field = 'all')
+	{
+		$args = array(
+				'type'                     => 'solution',
+				'child_of'                 => 0,
+				'parent'                   => 0,
+				'orderby'                  => ($field == 'ids' ? 'id' : 'name'),
+				'order'                    => 'ASC',
+				'hide_empty'               => 0,
+				'hierarchical'             => 0,
+				'exclude'                  => '',
+				'include'                  => '',
+				'number'                   => '',
+				'taxonomy'                 => 'category',
+				'pad_counts'               => false
+		
+		);
+		$categories = get_categories($args);
+		switch ($field)
+		{
+			case 'all':
+			default:
+				if(is_array($categories))
+				{
+					return $categories;
+				}
+				else 
+				{
+					return array();
+				}
+			break;
+			case 'ids':
+				$cats = array();
+				foreach($categories as $category)
+				{
+					$cats[] = $category->term_id;
+				}
+				return $cats;
+			break;
+			case 'name':
+				$cats = array();
+				foreach($categories as $category)
+				{
+					$cats[$category->term_id] = $category->name;
+				}
+				return $cats;
+			break;
+		}
+		return array();
+	}
+	
+	protected $_catsArray = null;
+	
+	public function getCatsArray()
+	{
+		if(is_null($this->_catsArray))
+		{
+			$this->_catsArray = array();
+			$cats = null;
+			for($i = 1; $i < 5;$i++)
+			{
+				$cat = get_theme_mod('minka_cat'.$i, null);
+				if(is_null($cat))
+				{
+					if(is_null($cats))
+					{
+						$cats = self::getSolutionTopLevelCats('ids');
+					}
+					$cat = array_key_exists($i-1, $cats) ? $cats[$i - 1] : 0;
+				}
+				$this->_catsArray[$i] = $cat;
+			}
+		}
+		
+		return $this->_catsArray;
+	}
+	
+	/**
+	 * Tests if any of a post's assigned categories are descendants of target categories
+	 *
+	 * @param int|array $cats The target categories. Integer ID or array of integer IDs
+	 * @param int|object $_post The post. Omit to test the current post in the Loop or main query
+	 * @return bool True if at least 1 of the post's categories is a descendant of any of the target categories
+	 * @see get_term_by() You can get a category by name or slug, then pass ID to this function
+	 * @uses get_term_children() Passes $cats
+	 * @uses in_category() Passes $_post (can be empty)
+	 * @version 2.7
+	 * @link http://codex.wordpress.org/Function_Reference/in_category#Testing_if_a_post_is_in_a_descendant_category
+	 */
+	public static function post_is_in_descendant_category( $cats, $_post = null, $return = 'bool' )
+	{
+		$index = 0;
+		$ret = false;
+		switch ($return)
+		{
+			case 'bool':
+			default:
+				$ret = false;
+			break;
+			case 'index':
+				$ret = -1;
+			break;
+		}
+		foreach ( (array) $cats as $cat )
+		{
+			// get_term_children() accepts integer ID only
+			$descendants = get_term_children( (int) $cat, 'category' );
+			if ( $descendants && in_category( $descendants, $_post ) )
+			{
+				switch ($return)
+				{
+					case 'bool':
+					default:
+						$ret = true;
+					break;
+					case 'index':
+						$ret = $index;
+					break;
+				}
+				break;
+			}
+			$index++;
+		}
+		
+		return $ret;
 	}
 	
 }
