@@ -1615,6 +1615,13 @@ object {
 	display: block;
 }
 
+.home-cat-post-cat span {
+	-o-text-overflow: ellipsis;   /* Opera */
+    text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
+    overflow:hidden;
+    white-space: nowrap;
+}
+
 .home-cat-post-content {
 	height: 76px;
 	margin-bottom: 6px;
@@ -1923,6 +1930,10 @@ object {
 	float: left;
 	display: block;
 	margin-left: 4%;
+}
+
+.solution-category-archive-content .home-cat-post-box {
+	margin-bottom: 2em;
 }
 
 /*--------------------------------------------------------------
