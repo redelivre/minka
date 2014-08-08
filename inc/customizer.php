@@ -174,6 +174,8 @@ function minka_customize_register( $wp_customize )
 		'#b62c7a',
 	);
 	
+	$cats_keys = array_keys($cats);
+	
 	for($i = 1; $i < 5; $i++)
 	{
 		$wp_customize->add_section( 'minka_cat'.$i, array(
@@ -182,7 +184,7 @@ function minka_customize_register( $wp_customize )
 		) );
 		
 		$wp_customize->add_setting('minka_cat'.$i, array(
-				'default'        => ( count($cats) > $i-1 ? array_keys($cats)[$i-1] : 0 )
+				'default'        => ( count($cats) > $i-1 ? $cats_keys[$i-1] : 0 )
 		));
 		$wp_customize->add_control( 'minka_cat'.$i, array(
 				'settings' => 'minka_cat'.$i,
