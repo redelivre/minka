@@ -1863,6 +1863,23 @@ object {
     color: #414684;
 }
 
+.minka-widget-categories-button {
+    background: none repeat scroll 0 0 #ff8300;
+    border-radius: 30px;
+    clear: both;
+    color: #fff;
+    margin: 0 auto 20px;
+    text-align: center;
+    width: 70px;
+    padding: 3px;
+    font-weight: bold;
+}
+
+.minka-widget-categories-button:hover {
+	background: none repeat scroll 0 0 #e9c42b;
+}
+
+
 /*--------------------------------------------------------------
 22 New solution
 --------------------------------------------------------------*/
