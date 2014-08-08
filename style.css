@@ -1596,6 +1596,10 @@ object {
     box-shadow: 0 0 6px #ccc;
 }
 
+.home-cat-post-box-no-margin {
+	margin-right: 0;
+}
+
 .home-cat-post-box:hover {
 	opacity: initial;	
 }	
@@ -1606,17 +1610,9 @@ object {
 
 .home-cat-post-title h2,
 .home-cat-post-content,
-.home-cat-post-cat a {
+.home-cat-post-cat {
 	margin: 4px 26px 0 26px;
 	display: block;
-}
-
-.home-cat-post-cat a {
-	text-decoration: none;
-}
-
-.home-cat-post-cat br {
-	display: none;
 }
 
 .home-cat-post-content {

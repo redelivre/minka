@@ -57,8 +57,10 @@
 						$the_query = new WP_Query($args);
 						if($the_query->have_posts())
 						{
+							$post_index = 0;
 							while ($the_query->have_posts())
 							{
+								$post_index++;
 								$the_query->the_post();
 								include(locate_template('home_category_list_post.php'));
 							}

@@ -236,7 +236,7 @@ class Solutions
 			$post_excerpt = esc_html( stripslashes( $_REQUEST['excerpt'] ));
 	
 		if ( $create_in_db ) {
-			$post_id = wp_insert_post( array( 'post_title' => __( 'Auto Draft' ), 'post_type' => $post_type, 'post_status' => 'auto-draft' ) );
+			$post_id = wp_insert_post( array( 'post_title' => __( 'Auto Draft' ), 'post_type' => $post_type, 'post_status' => 'draft' ) );
 			$post = get_post( $post_id );
 			if ( current_theme_supports( 'post-formats' ) && post_type_supports( $post->post_type, 'post-formats' ) && get_option( 'default_post_format' ) )
 				set_post_format( $post, get_option( 'default_post_format' ) );
