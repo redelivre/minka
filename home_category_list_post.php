@@ -33,9 +33,15 @@
 
 	$imgError = "this.onerror=null;this.src='".get_template_directory_uri()."/images/home-noimage.png';";
 	
+	$cat_num = '';
+	if(isset($Solution_global))
+	{
+		$cats = $Solution_global->getCatsArray();
+		$cat_num = 'home-category-num-'.(Solutions::post_is_in_descendant_category($cats, get_post(), 'index') +1);
+	}
 ?>
 
-<div class="home-cat-post-box" onclick="window.location='<?php the_permalink() ?>';return false;">
+<div class="home-cat-post-box <?php echo $cat_num; ?>" onclick="window.location='<?php the_permalink() ?>';return false;">
 	<span class="home-cat-post-cat" ><?php wp_list_categories($args); ?></span>
 	<span class="home-cat-post-title" ><h2><?php echo the_title();?></h2></span>
 	<span class="home-cat-post-thumbnail" ><?php echo the_post_thumbnail('post-thumbnail', array('onerror' => $imgError));?></span>
