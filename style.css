@@ -1765,6 +1765,12 @@ object {
 21 Single Solution
 --------------------------------------------------------------*/
 
+.widgettitle {
+    color: #656565;
+    font-weight: bold;
+    margin: 15px 5px;
+}
+
 .solution-entry-content {
 	margin: 0 auto;
 	width: 86%;
