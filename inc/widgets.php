@@ -69,7 +69,8 @@ class Minka_WP_Widget_Categories extends WP_Widget_Categories
 		if($ch)
 		{
 			$title = apply_filters('widget_title', empty( $instance['title'] ) ? __( 'Categories' ) : $instance['title'], $instance, $this->id_base);
-			echo $title;
+			if ( $title )
+				echo $before_title . $title . $after_title;
 			Minka::taxonomy_checklist();
 		}
 		else
