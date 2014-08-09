@@ -20,10 +20,10 @@
 	$imgError = "this.onerror=null;this.src='".get_template_directory_uri()."/images/home-noimage.png';";
 	
 	$cat_num = '';
-	if(isset($Solution_global))
+	if(isset($minka))
 	{
-		$cats = $Solution_global->getCatsArray();
-		$cat_num = 'home-category-num-'.(Solutions::post_is_in_descendant_category($cats, get_post(), 'index') +1);
+		$cats = $minka->getCatsArray();
+		$cat_num = 'home-category-num-'.(Minka::post_is_in_descendant_category($cats, get_post(), 'index') +1);
 	}
 	
 	if(isset($post_index) && $post_index > 0 && $post_index%3 == 0)
