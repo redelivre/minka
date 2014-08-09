@@ -1873,6 +1873,7 @@ object {
     width: 70px;
     padding: 3px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .minka-widget-categories-button:hover {
