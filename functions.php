@@ -21,6 +21,7 @@ class Minka{
 		add_action('init', array($this, 'init'));
 		add_action('wp_ajax_nopriv_minka_search_solutions', array($this, 'getSolutionsList_callback'));
 		add_action('wp_ajax_minka_search_solutions', array($this, 'getSolutionsList_callback'));
+		
 	}
 
 	/**
@@ -225,6 +226,18 @@ class Minka{
 
 		register_sidebar( $args );
 		
+		$args = array(
+				'name'          => 'Blog Sidebar',
+				'id'            => "blog-sidebar",
+				'description'   => '',
+				'class'         => '',
+				'before_widget' => '<li id="%1$s" class="widget %2$s">',
+				'after_widget'  => "</li>\n",
+				'before_title'  => '<h2 class="widgettitle">',
+				'after_title'   => "</h2>\n",
+		);
+		
+		register_sidebar( $args );
 	}
 	
 	public function getLoginForm()
@@ -428,6 +441,22 @@ class Minka{
 		);
 		
 		register_taxonomy('page_category', array('page'), $args);
+		
+		//TODO move this to theme setup
+		$the_slug = 'blog';
+		$args=array(
+			'name' => $the_slug,
+			'post_type' => 'any',
+			'post_status' => 'publish',
+			'numberposts' => 1
+		);
+		$pages = get_posts($args);
+		if( $pages ) // there is a /blog
+		{
+			$page = $pages[0];
+			$page->post_type = 'page'; // have to be a page
+			update_post_meta($page->ID, '_wp_page_template', 'archives.php');
+		}
 	}
 	
 	public static function getSolutionsList($term = null)
