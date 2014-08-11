@@ -1637,6 +1637,9 @@ object {
 .home-cat-post-title h2 {
 	margin-top: 0;
 	white-space: nowrap;
+	-o-text-overflow: ellipsis;   /* Opera */
+    text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
+    overflow:hidden;
 }
 
 
