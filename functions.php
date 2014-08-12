@@ -33,6 +33,7 @@ class Minka{
 	 */
 	function setup()
 	{
+		require( get_template_directory() . '/inc/hacklab_post2home/hacklab_post2home.php' );
 		/*
 		 * Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.
@@ -85,7 +86,9 @@ class Minka{
 	 */
 	public function css()
 	{
-		$path = get_template_directory_uri() . '/css';
+		// slideshow.css
+		wp_register_style( 'minka-slideshow', get_template_directory_uri() . '/css/slideshow.css', array(), '1' );
+		wp_enqueue_style( 'minka-slideshow' );
 	}
 
 	/**
