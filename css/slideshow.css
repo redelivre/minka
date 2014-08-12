@@ -1,3 +1,5 @@
+/* geral */
+.cycle-slideshow{ margin: 0 auto; max-width: 1600px;}
 
 /* pager */
 .cycle-pager { 
@@ -11,7 +13,7 @@
 .cycle-pager > * { cursor: pointer;}
 
 /* prev / next links */
-.cycle-prev, .cycle-next { position: absolute; top: 0; width: 30%; opacity: 0; filter: alpha(opacity=0); z-index: 800; height: 100%; cursor: pointer; }
+.cycle-prev, .cycle-next { position: absolute; top: 370px; width: 30%; opacity: 0; filter: alpha(opacity=0); z-index: 800; height: 50%; cursor: pointer; }
 .cycle-prev { left: 0;  background: url(../images/seta-esquerda.png)  3% 50% no-repeat;}
 .cycle-next { right: 0; background: url(../images/seta-direita.png) 97% 50% no-repeat;}
 .cycle-prev:hover, .cycle-next:hover { opacity: .7; filter: alpha(opacity=70) }
@@ -19,6 +21,10 @@
 .disabled { opacity: .5; filter:alpha(opacity=50); }
 
 /* Slides */
+
+.cycles-slide {
+    list-style: none outside none;
+}
 
 .highlights .slide {
 	background: #f9f7f2;
@@ -87,3 +93,4 @@
 	-webkit-animation-timing-function: linear;
 	-webkit-animation-iteration-count: infinite;
 }
+
