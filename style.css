@@ -1964,6 +1964,23 @@ object {
 }
 
 /*--------------------------------------------------------------
+24 Blog List (template archives)
+--------------------------------------------------------------*/
+
+.page-template-archives-php .blog-archive-entry {
+	margin: 0 auto;
+	width: 86%;
+}
+
+.page-template-archives-php .blog-archive-post-list {
+	float:left;
+}
+
+.page-template-archives-php .archives-sidebar {
+	float:left;
+}
+
+/*--------------------------------------------------------------
  Media queries
 --------------------------------------------------------------*/
 
