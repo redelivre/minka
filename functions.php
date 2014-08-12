@@ -19,6 +19,9 @@ class Minka{
 		add_filter('nav_menu_css_class', array($this, 'nav_menu_css_class'));
 		add_action('widgets_init', array($this, 'register_sidebars'));
 		add_action('init', array($this, 'init'));
+		add_action('wp_ajax_nopriv_minka_search_solutions', array($this, 'getSolutionsList_callback'));
+		add_action('wp_ajax_minka_search_solutions', array($this, 'getSolutionsList_callback'));
+		
 	}
 
 	/**
@@ -112,6 +115,8 @@ class Minka{
 			$data['default'] = icl_get_default_language();
 		}
 		wp_localize_script('minka-language-swapper', 'minka_language_swapper', $data);
+		
+		wp_enqueue_script('minka-cat-filter', get_template_directory_uri() . '/js/minka-cat-filter.js', array('jquery'));
 	}
 
 	public static function languageSelector()
@@ -221,6 +226,18 @@ class Minka{
 
 		register_sidebar( $args );
 		
+		$args = array(
+				'name'          => 'Blog Sidebar',
+				'id'            => "blog-sidebar",
+				'description'   => '',
+				'class'         => '',
+				'before_widget' => '<li id="%1$s" class="widget %2$s">',
+				'after_widget'  => "</li>\n",
+				'before_title'  => '<h2 class="widgettitle">',
+				'after_title'   => "</h2>\n",
+		);
+		
+		register_sidebar( $args );
 	}
 	
 	public function getLoginForm()
@@ -424,9 +441,228 @@ class Minka{
 		);
 		
 		register_taxonomy('page_category', array('page'), $args);
+		
+		//TODO move this to theme setup
+		$the_slug = 'blog';
+		$args=array(
+			'name' => $the_slug,
+			'post_type' => 'any',
+			'post_status' => 'publish',
+			'numberposts' => 1
+		);
+		$pages = get_posts($args);
+		if( $pages ) // there is a /blog
+		{
+			$page = $pages[0];
+			$page->post_type = 'page'; // have to be a page
+			update_post_meta($page->ID, '_wp_page_template', 'archives.php');
+		}
 	}
+	
+	public static function getSolutionsList($term = null)
+	{
+		$args = array(
+				'posts_per_page'   => -1,
+				'orderby'          => 'post_date',
+				'order'            => 'DESC',
+				'post_type'		   => 'solution',
+				/*'tax_query' => array(
+				 array(
+				 		'taxonomy' => 'category',
+				 		'field' => 'slug',
+				 		'terms' => $term->slug
+				 )
+				)*/
+		);
+		
+		if(is_object($term) AND property_exists($term, 'term_id'))
+		{
+			$args['cat'] = $term->term_id;
+		}
+		elseif(is_array($term))
+		{
+			$args['category__in'] = $term;
+			$term = null;
+		}
+		
+		if(array_key_exists( 'search', $_REQUEST))
+		{
+			$args['s'] = wp_strip_all_tags($_REQUEST['search']);
+		}
+		
+		if(!isset($minka))
+		{
+			global $minka; 
+		}
+		$the_query = new WP_Query($args);
+		if($the_query->have_posts())
+		{
+			$post_index = 0;
+			while ($the_query->have_posts())
+			{
+				$post_index++;
+				$the_query->the_post();
+				include(locate_template('home_category_list_post.php'));
+			}
+		}
+		else
+		{
+			$obj = get_post_type_object('solution');
+			?>
+			<div class="solution-category-archive-nofounded">
+				<h2>
+				<?php
+					echo $obj->labels->not_found;
+				?>
+				</h2>
+				<a href="/new-solution"><?php echo $obj->labels->add_new_item; ?></a>
+			</div>
+			<?php
+		}
+		wp_reset_postdata();
+	}
+	
+	public static function getSolutionTopLevelCats($field = 'all')
+	{
+		$args = array(
+				'type'                     => 'solution',
+				'child_of'                 => 0,
+				'parent'                   => 0,
+				'orderby'                  => ($field == 'ids' ? 'id' : 'name'),
+				'order'                    => 'ASC',
+				'hide_empty'               => 0,
+				'hierarchical'             => 0,
+				'exclude'                  => '',
+				'include'                  => '',
+				'number'                   => '',
+				'taxonomy'                 => 'category',
+				'pad_counts'               => false
+	
+		);
+		$categories = get_categories($args);
+		switch ($field)
+		{
+			case 'all':
+			default:
+				if(is_array($categories))
+				{
+					return $categories;
+				}
+				else
+				{
+					return array();
+				}
+				break;
+			case 'ids':
+				$cats = array();
+				foreach($categories as $category)
+				{
+					$cats[] = $category->term_id;
+				}
+				return $cats;
+				break;
+			case 'name':
+				$cats = array();
+				foreach($categories as $category)
+				{
+					$cats[$category->term_id] = $category->name;
+				}
+				return $cats;
+				break;
+		}
+		return array();
+	}
+	
+	protected $_catsArray = null;
+	
+	public function getCatsArray()
+	{
+		if(is_null($this->_catsArray))
+		{
+			$this->_catsArray = array();
+			$cats = null;
+			for($i = 1; $i < 5;$i++)
+			{
+				$cat = get_theme_mod('minka_cat'.$i, null);
+				if(is_null($cat))
+				{
+					if(is_null($cats))
+					{
+						$cats = self::getSolutionTopLevelCats('ids');
+					}
+					$cat = array_key_exists($i-1, $cats) ? $cats[$i - 1] : 0;
+				}
+				$this->_catsArray[$i] = $cat;
+			}
+		}
+	
+		return $this->_catsArray;
+	}
+	
+	/**
+	* Tests if any of a post's assigned categories are descendants of target categories
+	*
+	* @param int|array $cats The target categories. Integer ID or array of integer IDs
+	* @param int|object $_post The post. Omit to test the current post in the Loop or main query
+	* @return bool True if at least 1 of the post's categories is a descendant of any of the target categories
+	* @see get_term_by() You can get a category by name or slug, then pass ID to this function
+	* @uses get_term_children() Passes $cats
+	* @uses in_category() Passes $_post (can be empty)
+	* @version 2.7
+	* @link http://codex.wordpress.org/Function_Reference/in_category#Testing_if_a_post_is_in_a_descendant_category
+	*/
+	public static function post_is_in_descendant_category( $cats, $_post = null, $return = 'bool' )
+	{
+		$index = 0;
+		$ret = false;
+		switch ($return)
+		{
+			case 'bool':
+			default:
+				$ret = false;
+			break;
+			case 'index':
+				$ret = -1;
+			break;
+		}
+		foreach ( (array) $cats as $cat )
+		{
+			// get_term_children() accepts integer ID only
+			$descendants = get_term_children( (int) $cat, 'category' );
+				if ( $descendants && in_category( $descendants, $_post ) )
+			{
+				switch ($return)
+				{
+					case 'bool':
+					default:
+						$ret = true;
+					break;
+					case 'index':
+						$ret = $index;
+					break;
+				}
+				break;
+			}
+			$index++;
+		}
+	
+		return $ret;
+	}
+	
+	function getSolutionsList_callback()
+	{
+		$data = array_key_exists('data', $_POST) && is_array($_POST['data']) ? $_POST['data'] : array();
+		?>
+		<div id="category-all-list" style="display: block;" class="category-solution-category-archive-list-itens">
+		<?php
+		self::getSolutionsList($data);
+		echo '</div>';
+		die;
+	}
+	
 }
 
+global $minka;
 $minka = new Minka();
 
 /**

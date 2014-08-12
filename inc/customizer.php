@@ -141,7 +141,7 @@ function minka_customize_register( $wp_customize )
 	// =====================
 	//  = Category Dropdown =
 	//  =====================
-	$categories = Solutions::getSolutionTopLevelCats();
+	$categories = Minka::getSolutionTopLevelCats();
 	$cats = array();
 	$cats_ksort = array();
 	
