@@ -13,7 +13,7 @@
 .cycle-pager > * { cursor: pointer;}
 
 /* prev / next links */
-.cycle-prev, .cycle-next { position: absolute; top: 370px; width: 30%; opacity: 0; filter: alpha(opacity=0); z-index: 800; height: 50%; cursor: pointer; }
+.cycle-prev, .cycle-next { position: absolute; top: 0; width: 2%; opacity: 0; filter: alpha(opacity=0); z-index: 800; height: 100%; cursor: pointer; }
 .cycle-prev { left: 0;  background: url(../images/seta-esquerda.png)  3% 50% no-repeat;}
 .cycle-next { right: 0; background: url(../images/seta-direita.png) 97% 50% no-repeat;}
 .cycle-prev:hover, .cycle-next:hover { opacity: .7; filter: alpha(opacity=70) }
@@ -27,11 +27,12 @@
 }
 
 .highlights .slide {
-	background: #f9f7f2;
+	background: #e9c42b;
 	/* background: #000000;*/
 	border: 1px solid #f4f0e6;
 	border-radius: 0 3px 3px 0;
     height: 300px;
+    color: #636363;
 }
 
 .highlights .entry-image {
@@ -59,6 +60,16 @@
 	height: inherit;
 	width: 50%;
 	padding: 0px 16px 0px 16px;
+}
+
+.bd a{
+	color:#636363 !important;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.bd a:hover{
+	color:#959595 !important;
 }
 
 .highlights .entry-title {
