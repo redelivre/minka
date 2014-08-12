@@ -2006,11 +2006,11 @@ object {
 
 @media screen and (max-width: 600px) {
 	.menu{ display: none;}
-	.menu-toggle { background: #FFF; color: #c04a4a; float: none; display: table; padding: 10px; margin-bottom: 0 !important;margin-left: auto !important; margin-right: auto !important;}
+	.menu-toggle { background: #FFF; color: #b62c7a; float: left; display: block; text-align: center; width:100%; font-size: 25px; font-weight: bold; cursor: pointer;}
 	.menu, .menu-tmp { background: #FFF; float: left; width: 100%; margin-left: 0; z-index: 999; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); margin-bottom: 15px; border-radius-right-bottom: 3px; text-decoration: none; position: relative;}
 	.menu li a, .menu-tmp li a { display: block; padding: 3px 10px; margin: 0; text-align: center;}
 	.menu li a:active, .menu-tmp li a:active { background: red; color: #FFF;}
-	.toggled-on { background: #c04a4a; color: #FFF;}
+	.toggled-on { background: #b62c7a; color: #FFF;}
 	.menu li > ul, .menu-tmp li > ul { display: none;}
 	.main-small-navigation a  { display: block; text-decoration: none; color: #414684; font-weight: 300;}
 	.main-small-navigation a:hover { color: #fff; background: #b62c7a; height: 100%; margin: 0; }
