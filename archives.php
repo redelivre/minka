@@ -56,7 +56,7 @@ get_header(); ?>
 				endif;
 			endif; // have_posts()
 		}?>
-	 	<div class="clearfix"> </div><?php
+	 	<div class="clear"> </div><?php
 	}?>
 	<div class="blog-archive-post-list-entry">
 		<div class="blog-archive-post-list"><?php

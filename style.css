@@ -1985,7 +1985,8 @@ object {
 .page-template-archives-php .blog-archive-post-box {
 	float:left;
 	position: relative;
-	width: 50%;
+	width: 46%;
+	margin: 2em 2em 2em 0;
 }
 
 .page-template-archives-php .blog-archive-post-box:before {
@@ -2001,6 +2002,17 @@ object {
 	bottom: 0;
 	right: 0;
 }
+
+.page-template-archives-php .blog-archive-post-title {
+    background-color: #fff;
+    border: 2px solid red;
+    display: block;
+    height: 6em;
+    margin: 0 1.5em;
+    width: 91%;
+    position: absolute;
+    bottom: 2em;
+} 
 
 /*320/256*/
 
