@@ -1974,11 +1974,35 @@ object {
 
 .page-template-archives-php .blog-archive-post-list {
 	float:left;
+	width: 65%;
 }
 
 .page-template-archives-php .archives-sidebar {
 	float:left;
+	width: 35%;
 }
+
+.page-template-archives-php .blog-archive-post-box {
+	float:left;
+	position: relative;
+	width: 50%;
+}
+
+.page-template-archives-php .blog-archive-post-box:before {
+	content: "";
+	display: block;
+	padding-top: 75%; 	/* ratio of 4:3*/
+}
+
+.page-template-archives-php .blog-archive-post-thumbnail {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+/*320/256*/
 
 /*--------------------------------------------------------------
  Media queries
