@@ -2,10 +2,11 @@
 /*
 Template Name: Archives
 */
-get_header(); ?>
+get_header(); 
+$highlight = array();?>
 
 <div  class="blog-archive-entry"><?php
-	if ( !$current_page = get_query_var('paged') )
+	//if ( !$current_page = get_query_var('paged') )
 	{
 		//if( get_theme_mod('minka_display_slider') == 1 )
 		{
@@ -18,7 +19,9 @@ get_header(); ?>
 			        	<div class="cycle-pager"></div>
 			        	<div class="cycle-prev"></div>
    					 	<div class="cycle-next"></div>
-				        <?php while ( $feature->have_posts() ) : $feature->the_post(); ?>
+				        <?php while ( $feature->have_posts() ) : $feature->the_post();
+				        	$highlight[] = get_the_ID();
+				        ?>
 					        <li class="cycles-slide">
 						        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 						        	<div class="media slide cf">
@@ -61,14 +64,16 @@ get_header(); ?>
 	<div class="blog-archive-post-list-entry">
 		<div class="blog-archive-post-list"><?php
 			wp_reset_query();
+			$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 			global $wp_query;
 			
 			$wp_query = new WP_Query(array(
 				'post_type' => array( 'post' ),
 				'posts_per_page' => 4,
-				'paged' => get_query_var( 'paged' ),
+				'paged' => $paged,
 				'order' => 'DESC',
-				'orderby' => 'modified'
+				'orderby' => 'modified',
+				'post__not_in' => $highlight
 			));
 			
 			if(have_posts())
@@ -81,19 +86,34 @@ get_header(); ?>
 							<span class="blog-archive-post-title" ><h2><?php echo the_title();?></h2></span>
 						</div>
 					</div><?php
-				}
+				}?>
+				<div class="clear"> </div>
+				<div class="blog-archive-post-paginate">
+				<?php 
+					$big = 999999999; // need an unlikely integer
+					
+					echo paginate_links( array(
+							'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+							'format' => '?paged=%#%',
+							'current' => max( 1, get_query_var('paged') ),
+							'total' => $wp_query->max_num_pages
+					) );
+				?>
+				</div>
+				<?php
 			} 
 		?></div>
 		<div class="archives-sidebar">
 			<?php dynamic_sidebar('blog-sidebar'); ?>
 		</div>
 	</div>
-	<div class="blog-archive-tags><?php
+	<div class="clear"> </div>
+	<div class="blog-archive-tags"><?php
 		if ( function_exists('wp_tag_cloud') )
 		{?>
-			<ul>
-				<li><?php wp_tag_cloud('smallest=8&largest=22'); ?></li>
-			</ul><?php
+			<div>
+				<?php wp_tag_cloud('smallest=8&largest=22'); ?>
+			</div><?php
 		}?>
 	</div>
 </div><!-- entry -->

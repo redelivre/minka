@@ -2005,16 +2005,20 @@ object {
 
 .page-template-archives-php .blog-archive-post-title {
     background-color: #fff;
-    border: 2px solid red;
-    display: block;
-    height: 6em;
-    margin: 0 1.5em;
-    width: 91%;
-    position: absolute;
     bottom: 2em;
+    color: #ff8300;
+    display: block;
+    font-size: 20px;
+    height: 5em;
+    margin: 0 1.5em;
+    padding: 1em;
+    position: absolute;
+    width: 89%;
 } 
 
-/*320/256*/
+.page-template-archives-php .blog-archive-tags {
+	width: 100%;
+}
 
 /*--------------------------------------------------------------
  Media queries
