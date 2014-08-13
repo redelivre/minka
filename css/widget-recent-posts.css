@@ -1,0 +1,61 @@
+.recent-posts-with-image .recent-posts-entry-image-box {
+	position: relative;
+	width: 45%;
+	margin-right: 1em;
+	float:left;
+}
+
+.recent-posts-with-image .recent-posts-entry-image-box:before {
+	content: "";
+	display: block;
+	padding-top: 75%; 	/* ratio of 4:3*/
+}
+
+.recent-posts-with-image .recent-posts-entry-image {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.recent-posts-with-image .widget_recent_entries li {
+	width: 100%;
+	float:left;
+	padding-bottom: 1em;
+	margin-top: 1em;
+	border-bottom: #ff8300 2px dotted;
+}
+
+.recent-posts-with-image .recent-posts-entry-title-box {
+    margin-top: 1.5em;
+}
+
+.recent-posts-with-image, .recent-posts-with-image ul{
+	 list-style: none;
+}
+
+.recent-posts-with-image h2 {
+	background-color: #d7d7d7;
+	height: 4em;
+	color: #ff8300;
+	margin-left: 2em;
+    padding: 1.25em 1em 1.25em 3em;
+}
+
+.recent-posts-title-bol {
+    background: url("../images/sumar-una-solucion.png") no-repeat scroll center center #ff8300;
+    border-radius: 4em;
+    display: block;
+    float: left;
+    height: 4em;
+    position: absolute;
+    width: 4em;
+}
+
+.recent-posts-entry-title-box a {
+	text-decoration: none;
+	color: #6e448f;
+}

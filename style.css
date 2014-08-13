@@ -2001,6 +2001,9 @@ object {
 	left: 0;
 	bottom: 0;
 	right: 0;
+	background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center bottom;
 }
 
 .page-template-archives-php .blog-archive-post-title {
@@ -2017,7 +2020,23 @@ object {
 } 
 
 .page-template-archives-php .blog-archive-tags {
-	width: 100%;
+    border-top-color: #414684;
+    border-top-style: dotted;
+    border-image: none;
+    border-width: 2px;
+    height: 8em;
+    margin-top: 16px;
+    width: 100%;
+}
+
+.page-template-archives-php .blog-archive-tags a {
+	text-decoration: none;
+	color: #414684;
+	
+}
+
+.blog-archive-tags-entry {
+    padding: 1em 1.5em;
 }
 
 /*--------------------------------------------------------------

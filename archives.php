@@ -111,8 +111,8 @@ $highlight = array();?>
 	<div class="blog-archive-tags"><?php
 		if ( function_exists('wp_tag_cloud') )
 		{?>
-			<div>
-				<?php wp_tag_cloud('smallest=8&largest=22'); ?>
+			<div class="blog-archive-tags-entry">
+				<?php wp_tag_cloud('smallest=16&largest=28'); ?>
 			</div><?php
 		}?>
 	</div>
