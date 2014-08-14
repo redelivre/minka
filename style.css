@@ -2039,6 +2039,25 @@ object {
     padding: 1em 1.5em;
 }
 
+.blog-archive-post-paginate{
+	text-align: center;
+}
+
+.blog-archive-post-paginate .page-numbers.current {
+    background: none repeat scroll 0 0 #ccc;
+    border-radius: 20px;
+    color: #565656;
+    padding: 5px 10px;
+}
+
+.page-numbers {
+    background: none repeat scroll 0 0 #e9c42b;
+    border-radius: 20px;
+    color: #565656;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
 /*--------------------------------------------------------------
  Media queries
 --------------------------------------------------------------*/
