@@ -16,7 +16,6 @@ $highlight = array();?>
 
 			<div class="cycle-slideshow highlights" >
 						<ul class="slides">
-			        	<div class="cycle-pager"></div>
 			        	<div class="cycle-prev"></div>
    					 	<div class="cycle-next"></div>
 				        <?php while ( $feature->have_posts() ) : $feature->the_post();
@@ -26,8 +25,9 @@ $highlight = array();?>
 						        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 						        	<div class="media slide cf">
 						    			<?php if ( has_post_thumbnail() ) : ?>
-							    			<div class="entry-image">
-							    			<?php the_post_thumbnail( 'slider' ); ?>
+							    			<div class="entry-image-box">
+							    				<div class="entry-image" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id()); ?>)">
+							    				</div>
 							    			</div>
 						    			<?php endif; ?>
 						        		<div class="bd">
@@ -44,7 +44,7 @@ $highlight = array();?>
 						        </article><!-- /article -->
 					        </li>
 			        	<?php endwhile; ?>
-						
+							<div class="cycle-pager"></div>
 			        	</ul><!-- .swiper-wrapper -->
 			</div><!-- .swiper-container -->
 			<?php
