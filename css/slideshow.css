@@ -92,6 +92,9 @@
 	left: 0;
 	bottom: 0;
 	right: 0;
+	background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
 }
 
 /*.highlights .entry-image {
