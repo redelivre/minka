@@ -5,7 +5,7 @@
     z-index: 500;
     position: absolute;
     overflow: hidden;
-    padding-top: 28.5%;
+    margin-top: 28.5%;
 }
 .cycle-pager span { 
     font-family: arial;
