@@ -1991,7 +1991,7 @@ object {
 	width: 65%;
 }
 
-.page-template-archives-php .archives-sidebar {
+.archives-sidebar {
 	float:left;
 	width: 35%;
 }
@@ -2083,6 +2083,20 @@ object {
     color: #565656;
     padding: 5px 10px;
     text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+24 Blog Sigle
+--------------------------------------------------------------*/
+
+.blog-single-entry {
+	margin: 0 auto;
+	width: 86%;
+}
+
+.blog-single-post {
+	width: 63%;
+	float: left;
 }
 
 /*--------------------------------------------------------------
