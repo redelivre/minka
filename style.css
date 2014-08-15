@@ -2027,6 +2027,12 @@ object {
 	opacity: initial;
 }
 
+.blog-archive-post-title > h2 {
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 134%;
+}
+
 .page-template-archives-php .blog-archive-post-title {
     background-color: #fff;
     bottom: 2em;
