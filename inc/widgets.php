@@ -165,7 +165,7 @@ class WP_Widget_Recent_Posts_Image extends WP_Widget_Recent_Posts
 		$r = new WP_Query( apply_filters( 'widget_posts_args', array( 'posts_per_page' => $number, 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true ) ) );
 		if ($r->have_posts()) :
 		?>
-		<div class="<?php echo $show_image ? 'recent-posts-with-image' : ''; ?>">
+		<div class="<?php echo $show_image ? 'recent-posts-with-image' : ''; ?>" onclick="window.location = '<?php the_permalink(); ?>'">
 			<?php echo $before_widget; ?>
 			<?php if ( $title ) echo $before_title . $title . $after_title; ?>
 			<ul>

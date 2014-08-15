@@ -81,7 +81,7 @@ $highlight = array();?>
 				while (have_posts())
 				{
 					the_post();?>
-					<div class="blog-archive-post-box">
+					<div class="blog-archive-post-box" onclick="window.location = '<?php the_permalink(); ?>'">
 						<div class="blog-archive-post-thumbnail" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)">
 							<span class="blog-archive-post-title" ><h2><?php echo the_title();?></h2></span>
 						</div>
