@@ -1947,6 +1947,20 @@ object {
 23 Solution List
 --------------------------------------------------------------*/
 
+.solution-category-archive-category-header {
+    background: url(images/busca.png) no-repeat scroll 10px center #e9c42b;
+    border-radius: 5px;
+    color: #414684;
+    font-size: 1.225em;
+    margin-bottom: 15px;
+    padding: 15px 42px;
+    text-align: center;
+}
+
+.solution-category-archive-category-header span{
+	font-weight: bold;
+}
+
 .solution-category-archive-entry {
 	margin: 0 auto;
 	width: 86%;
