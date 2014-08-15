@@ -2114,8 +2114,8 @@ object {
 	.home-cat-post-box:last-child { display: none; margin-right: 0;}
 }
 
-@media screen and (max-width: 1424px) {
-
+@media screen and (max-width: 1334px) {
+	.cycle-pager { margin-top: -50px; text-align:left;}
 }
 
 @media screen and (max-width: 1392px) {	
@@ -2123,10 +2123,16 @@ object {
 	.header-login-form { float: right; width: 49%;}
 	.header-register-link { clear: none; }
 	.home-category-list { width: 100%;}
+	.home-cat-post-box:last-child {display: none;}
 }
 
-@media screen and (max-width: 1392px) {	
-	.home-cat-post-box:last-child {display: none;}
+@media screen and (max-width: 1281px) {	
+	.highlights .bd { margin-top: 0;}
+}
+
+@media screen and (max-width: 1136px) {
+	.highlights .entry-image-box{ display: none; }
+	.highlights .bd { width: 100%; }
 }
 
 @media screen and (max-width: 600px) {
