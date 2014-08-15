@@ -2020,6 +2020,11 @@ object {
     background-position: center bottom;
     box-shadow: 0 0 6px #ccc;
     cursor: pointer;
+    opacity: 0.8;
+}
+
+.page-template-archives-php .blog-archive-post-thumbnail:hover {
+	opacity: initial;
 }
 
 .page-template-archives-php .blog-archive-post-title {
