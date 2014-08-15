@@ -60,3 +60,7 @@
 	color: #414684;
 	font-weight: bold;
 }
+
+.recent-posts-entry-title-box a:hover {
+	color: #ff8300;
+}

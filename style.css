@@ -2101,18 +2101,7 @@ object {
 }
 
 @media screen and (max-width: 1424px) {
-	.minka_social_bol {display: none;}
-	.header-social-list { clear: both; display: block; margin-top: 10px; padding: 20px 0 0 25px; border-top: 2px dotted #e9c42b; height: 100px; border-bottom: 2px dotted #e9c42b;}
-	.header-login-form { float: none; width: 100%;}
-	.header-login-form .login-username input, .header-login-form .login-password input { width: 100%;}
-	.header-login-form .header-register-link { clear: both; margin-right: 0.5em; width: auto;}
-	#language-switch { margin-bottom: 25px;}
-	.footer-bottom-item{ width: 100%;  border-right: medium none; display: table; border-bottom: 3px dotted #6e448f; padding-bottom: 10px;}
-	.footer-area-bottom { height: 100%;}
-	.textwidget { text-align: center;}
-	.home-category-list { width: 100%;}
-	.home-sidebar { display: none;}
-	.home-cat-post-box:last-child {display: block;}
+
 }
 
 @media screen and (max-width: 1392px) {	
@@ -2148,7 +2137,7 @@ object {
     .category-home-list-archive-link {width: 100%; margin:0;}
     .category-home-list-archive-link-button { float: none; margin: 0 auto;}
     .home-sidebar {clear: both; margin: 0 auto; float: none;    }  
-    	.home-category-list { width: 100%;}
+    .home-category-list { width: 100%;}
 	.home-category-image { margin: 0 auto; float: none;}
 	.home-category-header-text { clear: both;}
 	.home-category-list-view .home-category-image, .home-category-list-view .home-category-header-text {float: none;}
@@ -2157,7 +2146,20 @@ object {
 	.category-home-list-archive-link-text {display: none;}
 	.category-home-list-archive-link-text { display: block; font-size: 12px; font-weight: bold; width: 85%;}
 	.category-home-list-archive-link { width: 90%;}
-	.category-home-list-archive-link { white-space: normal; }  
+	.category-home-list-archive-link { white-space: normal; } 
+	/*menu-superior*/
+	.minka_social_bol {display: none;}
+	.header-social-list { clear: both; display: block; margin-top: 10px; padding: 20px 0 0 25px; border-top: 2px dotted #e9c42b; height: 100px; border-bottom: 2px dotted #e9c42b;}
+	.header-login-form { float: none; width: 100%;}
+	.header-login-form .login-username input, .header-login-form .login-password input { width: 100%;}
+	.header-login-form .header-register-link { clear: both; margin-right: 0.5em; width: auto;}
+	#language-switch { margin-bottom: 25px;}
+	.footer-bottom-item{ width: 100%;  border-right: medium none; display: table; border-bottom: 3px dotted #6e448f; padding-bottom: 10px;}
+	.footer-area-bottom { height: 100%;}
+	.textwidget { text-align: center;}
+	.home-category-list { width: 100%;}
+	.home-sidebar { display: none;}
+	.home-cat-post-box:last-child {display: block;} 
 }
 
 @media screen and (max-width: 480px) {
