@@ -2004,6 +2004,8 @@ object {
 	background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: center bottom;
+    box-shadow: 0 0 6px #ccc;
+    cursor: pointer;
 }
 
 .page-template-archives-php .blog-archive-post-title {
