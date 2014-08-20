@@ -11,6 +11,10 @@
 		<div class="entry-meta">
 			<?php minka_posted_on(); ?>
 		</div><!-- .entry-meta -->
+		<div class="post-thumbnail-box">
+			<div class="post-thumbnail" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>);">
+			</div>
+		</div>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

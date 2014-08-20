@@ -2099,6 +2099,66 @@ object {
 	float: left;
 }
 
+.single .archives-sidebar {
+    margin-right: 5em;
+    width: 31%;
+    background-color: #d7d7d7;
+}
+
+.blog-single-post .post {
+    background-color: #d7d7d7;
+}
+
+.blog-single-post .entry-title {
+    color: #636363;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 1em;
+}
+
+.blog-single-post .entry-meta {
+    padding: 0 1em 1em 1.5em;
+    color: #636363;
+}
+
+.blog-single-post .post-thumbnail-box {
+	float:left;
+	position: relative;
+	width: 100%;
+}
+
+.blog-single-post .post-thumbnail-box:before {
+	content: "";
+	display: block;
+	padding-top: 75%; 	/* ratio of 4:3*/
+}
+
+.blog-single-post .post-thumbnail {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center center;
+}
+
+.blog-single-post .entry-content {
+    color: grey;
+    float: left;
+    padding: 1em;
+    width: 100%;
+}
+
+.blog-single-post .comments-area .comments-title {
+	display: none;
+}
+
+.blog-single-post .comments-area ul, ol {
+    margin: 0 0 1.5em 0;
+}
+
 /*--------------------------------------------------------------
  Media queries
 --------------------------------------------------------------*/
