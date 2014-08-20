@@ -692,6 +692,19 @@ a:active {
     padding-top: 6px;
 }
 
+.comment-form-bol {
+    background: #ff8300 url(images/comentario.png) center center no-repeat scroll;
+    border-radius: 40px;
+    display: block;
+    float: left;
+    height: 5em;
+    margin-left: -25px;
+    margin-right: 1em;
+    margin-top: -26px;
+    top: 0;
+    width: 5em;
+}
+
 /*--------------------------------------------------------------
 11.0 Infinite scroll
 --------------------------------------------------------------*/

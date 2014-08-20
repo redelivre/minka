@@ -21,6 +21,7 @@ class Minka{
 		add_action('init', array($this, 'init'));
 		add_action('wp_ajax_nopriv_minka_search_solutions', array($this, 'getSolutionsList_callback'));
 		add_action('wp_ajax_minka_search_solutions', array($this, 'getSolutionsList_callback'));
+		add_filter('comment_form_defaults', array($this, 'comment_form_defaults'));
 		
 	}
 
@@ -668,6 +669,13 @@ class Minka{
 		self::getSolutionsList($data);
 		echo '</div>';
 		die;
+	}
+	
+	function comment_form_defaults($defaults)
+	{
+		$defaults['title_reply'] = '<div class="comment-form-bol"></div>'.$defaults['title_reply'];
+		$defaults['title_reply_to'] = '<div class="comment-form-bol"></div>'.$defaults['title_reply_to'];
+		return $defaults;
 	}
 	
 }
