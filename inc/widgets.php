@@ -200,6 +200,70 @@ class WP_Widget_Recent_Posts_Image extends WP_Widget_Recent_Posts
 	
 }
 
+class Widget_Profile extends WP_Widget
+{
+	function __construct()
+	{
+		$widget_ops = array('classname' => 'widget_profile', 'description' => __( "User logged in Profile.", 'mika') );
+		WP_Widget::__construct('my-profile', __('My Profile', 'minka'), $widget_ops);
+		add_action('wp_enqueue_scripts', array($this, 'css'));
+	}
+	
+	function form($instance)
+	{
+		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
+		?>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p><?php
+	}
+	
+	function update($new_instance, $old_instance)
+	{
+		$instance = $old_instance;
+		$instance['title'] = strip_tags($new_instance['title']);
+		
+		return $instance;
+	}
+	
+	function widget($args, $instance)
+	{
+		extract($args);
+	
+		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Profile' );
+		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+		
+		if(is_user_logged_in())
+		{
+			global $current_user;
+			get_currentuserinfo();
+			echo $before_widget;
+			if ( $title ) echo $before_title . $title . $after_title;?>
+			<ul>
+				<li>
+					<?php echo get_avatar($current_user->ID, 80); ?>
+					<div class="profile-widget-user-data">
+						<div class="profile-widget-user-name"><?php echo $current_user->display_name; ?></div><?php
+						$city = get_the_author_meta('city');
+						$country = get_the_author_meta('country');
+						if($city !== false)
+						{?>
+							<div class="profile-widget-user-location"><?php echo $city.($country !== false ? '/'.$country : ''); ?></div><?php
+						}?>
+					</div>
+				</li>
+			</ul>
+			<?php
+		}
+	}
+	
+	public function css()
+	{
+		wp_register_style( 'widget-profile', get_template_directory_uri() . '/css/widget-profile.css', array(), '1' );
+		wp_enqueue_style( 'widget-profile' );
+	}
+	
+}
+
 // Load the widget on widgets_init
 function Minka_WP_Widget_init() {
 	register_widget('WP_Widget_Categories_Posts');
@@ -210,5 +274,6 @@ function Minka_WP_Widget_init() {
 	unregister_widget('WP_Widget_Recent_Posts');
 	register_widget('WP_Widget_Recent_Posts_Image');
 	
+	register_widget('Widget_Profile');
 }
 add_action('widgets_init', 'Minka_WP_Widget_init');

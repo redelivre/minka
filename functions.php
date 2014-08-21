@@ -22,7 +22,10 @@ class Minka{
 		add_action('wp_ajax_nopriv_minka_search_solutions', array($this, 'getSolutionsList_callback'));
 		add_action('wp_ajax_minka_search_solutions', array($this, 'getSolutionsList_callback'));
 		add_filter('comment_form_defaults', array($this, 'comment_form_defaults'));
-		
+		add_action( 'show_user_profile', array($this, 'show_user_profile') );
+		add_action( 'edit_user_profile', array($this, 'show_user_profile') );
+		add_action( 'personal_options_update', array($this, 'edit_user_profile_update') );
+		add_action( 'edit_user_profile_update', array($this, 'edit_user_profile_update') );
 	}
 
 	/**
@@ -696,11 +699,50 @@ class Minka{
 	 *
 	 * @since pontosdecultura 1.0
 	 */
-	public static function the_map() {
-	
+	public static function the_map()
+	{
 		if(function_exists('mapasdevista_view'))
 		{
 			mapasdevista_view();
+		}
+	}
+	
+	function show_user_profile( $user )
+	{?>
+	
+		<h3><?php _e('Extra profile information', 'minka') ?></h3>
+	
+		<table class="form-table">
+			<tr>
+				<th><label for="city"><?php _e('City', 'minka'); ?></label></th>
+				<td>
+					<input type="text" name="city" id="city" value="<?php echo esc_attr( get_the_author_meta( 'city', $user->ID ) ); ?>" class="regular-text" /><br />
+					<span class="description"><?php _e('Please enter your City.', 'minka');?></span>
+				</td>
+			</tr>
+			<tr>
+				<th><label for="country"><?php _e('Country', 'minka'); ?></label></th>
+				<td>
+					<input type="text" name="country" id="country" value="<?php echo esc_attr( get_the_author_meta( 'country', $user->ID ) ); ?>" class="regular-text" /><br />
+					<span class="description"><?php _e('Please enter your Country.', 'minka');?></span>
+				</td>
+			</tr>
+		</table><?php
+	}
+	
+	function edit_user_profile_update( $user_id )
+	{
+		if ( !current_user_can( 'edit_user', $user_id ) )
+		{
+			return false;
+		}
+		if(array_key_exists('city', $_POST))
+		{
+			update_user_meta( $user_id, 'city', wp_strip_all_tags($_POST['city']) );
+		}
+		if(array_key_exists('country', $_POST))
+		{
+			update_user_meta( $user_id, 'country', wp_strip_all_tags($_POST['country']) );
 		}
 	}
 	

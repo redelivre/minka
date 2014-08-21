@@ -2253,7 +2253,14 @@ object {
 
 .page-template-network-php .network-sidebar {
 	float: left;
-	width: 25%;
+	width: 24%;
+	margin-right: 2em;
+}
+
+.page-template-network-php .network-sidebar .widget {
+    border-bottom: 2px dotted #ff8300;
+    margin-bottom: 1em;
+    padding-bottom: 2em;
 }
 
 .page-template-network-php .page-network-post-box {
