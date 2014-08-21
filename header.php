@@ -25,7 +25,7 @@
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-top">
 			<div class="header-top-entry">
-				<span id='language-switch' class="language-switch">
+				<span data-title='<?php _e("click and drag the buttom to change language", "minka"); ?>' id='language-switch' class="language-switch tolltip">
 					<?php
 					Minka::languageSelector();
 					?>
