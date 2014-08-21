@@ -25,10 +25,12 @@
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-top">
 			<div class="header-top-entry">
-				<span data-title='<?php _e("click and drag the buttom to change language", "minka"); ?>' id='language-switch' class="language-switch tolltip">
-					<?php
-					Minka::languageSelector();
-					?>
+				<span data-title="<?php _e("click and drag the buttom to change language", "minka"); ?>" class="tolltip" >
+					<span id='language-switch' class="language-switch">
+						<?php
+						Minka::languageSelector();
+						?>
+					</span>
 				</span>
 				<div class="header-social-list">
 					<?php
