@@ -2173,6 +2173,48 @@ object {
 }
 
 /*--------------------------------------------------------------
+25 Page
+--------------------------------------------------------------*/
+.page-entry {
+	margin: 0 auto;
+	width: 86%;
+}
+
+.page-post {
+	width: 63%;
+	float: left;
+}
+
+.page .entry-title {
+	color: #ff8300;
+	font-size: 22px;
+    font-weight: bold;
+}
+
+.page-post .post-thumbnail-box {
+	float:left;
+	position: relative;
+	width: 100%;
+}
+
+.page-post .post-thumbnail-box:before {
+	content: "";
+	display: block;
+	padding-top: 75%; 	/* ratio of 4:3*/
+}
+
+.page-post .post-thumbnail {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center center;
+}
+
+/*--------------------------------------------------------------
  Media queries
 --------------------------------------------------------------*/
 
