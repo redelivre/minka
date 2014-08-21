@@ -2254,6 +2254,79 @@ object {
 }
 
 /*--------------------------------------------------------------
+26 Page template network
+--------------------------------------------------------------*/
+.page-template-network-php .page-network-entry {
+	margin: 0 auto;
+	width: 86%;
+}
+
+.page-template-network-php .network-sidebar {
+	float: left;
+	width: 25%;
+}
+
+.page-template-network-php .page-network-post-box {
+	float: left;
+	width: 73%;
+}
+
+.page-template-network-php .map {
+	height: 340px;
+	overflow: hidden;
+	width: 50%
+}
+
+.page-template-network-php .network-map {
+	
+	
+}
+
+.page-template-network-php .network-entry {
+	position: relative;
+	background-color: #d799a9;
+	padding: 1em;
+}
+
+.page-template-network-php .entry-header {
+	position: relative;
+}
+
+.page-template-network-php .network-template-bol {
+	background: #ff8300 url(images/participa.png) center center no-repeat scroll;
+    border-radius: 40px;
+    display: block;
+    height: 5em;
+    top: 0;
+    width: 5em;
+    position: absolute;
+}
+
+.page-template-network-php .network-template-page-title {
+	background-color: #d799a9;
+    height: 5em;
+    margin-left: 3em;
+    padding: 1.25em 1em 1em 3em;
+}
+
+.page-template-network-php .page .entry-title {
+	color: #fff;
+}
+
+.page-template-network-php .network-content {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 49%;
+    color: #FFF;
+    padding: 1em;
+}
+
+.network-content {
+	float: left;
+}
+
+/*--------------------------------------------------------------
  Media queries
 --------------------------------------------------------------*/
 

@@ -225,7 +225,7 @@ class Minka{
 		) );
 		
 		$args = array(
-			'name'          => 'Solution Sidebar',
+			'name'          => __('Solution Sidebar', 'minka'),
 			'id'            => "solution-sidebar",
 			'description'   => '',
 			'class'         => '',
@@ -238,8 +238,21 @@ class Minka{
 		register_sidebar( $args );
 		
 		$args = array(
-				'name'          => 'Blog Sidebar',
+				'name'          => __('Blog Sidebar', 'minka'),
 				'id'            => "blog-sidebar",
+				'description'   => '',
+				'class'         => '',
+				'before_widget' => '<li id="%1$s" class="widget %2$s">',
+				'after_widget'  => "</li>\n",
+				'before_title'  => '<h2 class="widgettitle">',
+				'after_title'   => "</h2>\n",
+		);
+		
+		register_sidebar( $args );
+		
+		$args = array(
+				'name'          => __('Network Template Sidebar', 'minka'),
+				'id'            => "network-sidebar",
 				'description'   => '',
 				'class'         => '',
 				'before_widget' => '<li id="%1$s" class="widget %2$s">',
@@ -676,6 +689,19 @@ class Minka{
 		$defaults['title_reply'] = '<div class="comment-form-bol"></div>'.$defaults['title_reply'];
 		$defaults['title_reply_to'] = '<div class="comment-form-bol"></div>'.$defaults['title_reply_to'];
 		return $defaults;
+	}
+	
+	/**
+	 * Display the map
+	 *
+	 * @since pontosdecultura 1.0
+	 */
+	public static function the_map() {
+	
+		if(function_exists('mapasdevista_view'))
+		{
+			mapasdevista_view();
+		}
 	}
 	
 }
