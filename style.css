@@ -2128,7 +2128,7 @@ object {
 }
 
 /*--------------------------------------------------------------
-24 Blog Sigle
+24 Blog Single
 --------------------------------------------------------------*/
 
 .blog-single-entry {
@@ -2144,7 +2144,6 @@ object {
 .single .archives-sidebar {
     margin-right: 5em;
     width: 31%;
-    background-color: #d7d7d7;
 }
 
 .blog-single-post .post {
