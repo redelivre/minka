@@ -18,7 +18,7 @@ $post_type_object = get_post_type_object( $post_type );
 
 if ( ! current_user_can( $post_type_object->cap->edit_posts ) || ! current_user_can( $post_type_object->cap->create_posts ) )
 {
-	echo '<h1>'.__('You do not have access to this page, please make login or change your login account', 'minka').'</h1>';
+	echo '<h1 class="access">'.__('You do not have access to this page, please make login or change your login account', 'minka').'</h1>';
 }
 else 
 {

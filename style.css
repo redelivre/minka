@@ -1985,6 +1985,17 @@ object {
     display: block;
 }
 
+.access {
+    background: none repeat scroll 0 0 #e9c42b;
+    border-radius: 5px;
+    color: #6e448f;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    width: 50%;
+}
+
 /*--------------------------------------------------------------
 23 Solution List
 --------------------------------------------------------------*/
