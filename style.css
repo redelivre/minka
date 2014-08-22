@@ -2350,6 +2350,8 @@ object {
 
 .network-page-box {
     margin-top: 2em;
+    float: left;
+    margin-bottom: 2em;
 }
 
 .network-page-box-content {
