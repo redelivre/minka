@@ -26,8 +26,51 @@ $highlight = array();?>
 					<div class="map clear"><?php Minka::the_map(); ?></div>
 				</div>
 				<div class="network-content" >
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a accumsan augue. Suspendisse sit amet pharetra mi. Donec sit amet auctor nulla. Nam eleifend odio quis turpis elementum, eu scelerisque nisl iaculis. Mauris mollis nunc nec varius pretium. Duis vel venenatis lorem. Morbi vel porttitor massa. Nam iaculis velit ac pharetra convallis. Praesent sagittis ante elementum dolor semper scelerisque. Curabitur volutpat tortor urna, sit amet laoreet sapien bibendum id. Nunc fringilla, turpis eu rhoncus consectetur, enim urna consequat lectus, vitae iaculis felis felis eget risus. Duis cursus, arcu eget sagittis luctus, lacus dui pretium nibh, quis tincidunt sem eros non dui. Pellentesque imperdiet sit amet leo ac feugiat. Integer ultricies facilisis erat, non laoreet justo egestas eget. Aliquam vulputate ante in lacus congue sodales. 
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a accumsan augue.
+					<div class="new-solution-link" onclick="window.location='/new-solution';return false;">
+						<div class="new-solution-link-bol"></div>
+						<div class="new-solution-link-text"><?php _e("Enjoin to the map", "minka") ?></div>
+					</div> 
 				</div>
+			</div>
+			<div class="network-page-list-entry">
+				<div class="network-page-list"><?php
+					wp_reset_query();
+					global $wp_query;
+					
+					$wp_query = new WP_Query(array(
+						'post_type' => array( 'page' ),
+						'posts_per_page' => -1,
+						'order' => 'DESC',
+						'orderby' => 'modified',
+						'tax_query' => array(
+							array(
+									'taxonomy' => 'page_category',
+									'field'    => 'slug',
+									'terms'    => 'network',
+							),
+						),
+					));
+					
+					if(have_posts())
+					{
+						while (have_posts())
+						{
+							the_post();?>
+							<div class="network-page-box" >
+								<span class="network-page-title" ><h2><?php echo the_title();?></h2></span>
+								<div class="network-page-box-content" >
+									<div class="network-page-image">
+										<div class="network-page-thumbnail" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)"></div>
+									</div>
+									<div class="network-page-box-text" ><?php the_content(); ?></div>
+								</div>
+							</div><?php
+						}?>
+						<div class="clear"> </div>
+						<?php
+					} 
+				?></div>
 			</div>
 		</article><!-- #post-## -->
 	</div>

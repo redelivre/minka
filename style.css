@@ -2277,7 +2277,14 @@ object {
 
 .page-template-network-php .network-sidebar {
 	float: left;
-	width: 25%;
+	width: 24%;
+	margin-right: 2em;
+}
+
+.page-template-network-php .network-sidebar .widget {
+    border-bottom: 2px dotted #ff8300;
+    margin-bottom: 1em;
+    padding-bottom: 2em;
 }
 
 .page-template-network-php .page-network-post-box {
@@ -2296,6 +2303,16 @@ object {
 	
 }
 
+.page-template-network-php .new-solution-link-bol {
+	background: #ff8300 url(images/sumar-una-solucion.png) center center no-repeat scroll;
+    border-radius: 40px;
+    display: block;
+    height: 3em;
+    top: 0;
+    width: 3em;
+    position: absolute;
+}
+
 .page-template-network-php .network-entry {
 	position: relative;
 	background-color: #d799a9;
@@ -2304,6 +2321,20 @@ object {
 
 .page-template-network-php .entry-header {
 	position: relative;
+}
+
+.page-template-network-php .new-solution-link {
+	background-color: #d7d7d7;
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+    color: #ff8300;
+    font-size: 20px;
+    height: 3em;
+    padding-top: 0.75em;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 1em 0;
 }
 
 .page-template-network-php .network-template-bol {
@@ -2334,10 +2365,63 @@ object {
     width: 49%;
     color: #FFF;
     padding: 1em;
+    margin-top: 2em;
 }
 
 .network-content {
 	float: left;
+}
+
+.network-page-box {
+    margin-top: 2em;
+}
+
+.network-page-box-content {
+    border: 2px solid #d7d7d7;
+    float: left;
+    padding: 1em;
+}
+
+.network-page-title {
+    color: #ff8300;
+}
+
+.network-page-image {
+	float:left;
+	position: relative;
+	width: 25%;
+	background-color: #d7d7d7;
+}
+
+.network-page-image:before {
+	content: "";
+	display: block;
+	padding-top: 75%; 	/* ratio of 4:3*/
+}
+
+.network-page-thumbnail {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.network-page-box-text {
+    float: left;
+    margin-left: 1em;
+    padding: 2em 1em 0 0;
+    width: 73%;
+}
+
+.network-page-box-text a {
+    background-color: #ff8300;
+    border-radius: 1em;
+    color: #fff;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
 }
 
 /*--------------------------------------------------------------
