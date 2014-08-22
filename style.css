@@ -2377,7 +2377,7 @@ object {
 }
 
 .network-page-box-content {
-    border: 2px solid #d7d7d7;
+    box-shadow: 0 1px 5px #888888;
     float: left;
     padding: 1em;
 }
@@ -2422,6 +2422,10 @@ object {
     color: #fff;
     padding: 0.25em 0.5em;
     text-decoration: none;
+}
+
+.network-page-box-text a:hover {
+    background-color: #414684;
 }
 
 /*--------------------------------------------------------------
