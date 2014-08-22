@@ -32,3 +32,16 @@
 	font-weight: bolder;
 	color: #000;
 }
+
+.profile-widget-edit-link {
+    margin-top: 1em;
+    text-align: right;
+}
+
+.profile-widget-edit-link a {
+    background-color: orange;
+    border-radius: 1em;
+    color: #fff;
+    padding: 0.25em 1em;
+    text-decoration: none;
+}
