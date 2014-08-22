@@ -252,7 +252,11 @@ class Widget_Profile extends WP_Widget
 					</div>
 				</li>
 			</ul>
+			<div class="profile-widget-edit-link">
+				<a href="<?php echo get_edit_user_link(); ?>"><?php _e('Edit my Profile', 'minka'); ?></a>
+			</div>
 			<?php
+			echo $after_widget;
 		}
 	}
 	
@@ -260,6 +264,63 @@ class Widget_Profile extends WP_Widget
 	{
 		wp_register_style( 'widget-profile', get_template_directory_uri() . '/css/widget-profile.css', array(), '1' );
 		wp_enqueue_style( 'widget-profile' );
+	}
+	
+}
+
+class Widget_Register_Statistics extends WP_Widget
+{
+	function __construct()
+	{
+		$widget_ops = array('classname' => 'widget-register-statistics', 'description' => __( "List some register statistics.", 'mika') );
+		WP_Widget::__construct('register-statistics', __('Register Statistics', 'minka'), $widget_ops);
+		add_action('wp_enqueue_scripts', array($this, 'css'));
+	}
+
+	function form($instance)
+	{
+		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
+		?>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p><?php
+	}
+	
+	function update($new_instance, $old_instance)
+	{
+		$instance = $old_instance;
+		$instance['title'] = strip_tags($new_instance['title']);
+		
+		return $instance;
+	}
+	
+	function widget($args, $instance)
+	{
+		extract($args);
+	
+		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : '';
+		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+
+		global $wpdb;
+		$members = intval($wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->users" ));
+		$countries = intval($wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->usermeta where meta_key = 'country' AND meta_value IS NOT NULL AND meta_value <> ''" ));
+		
+		echo $before_widget;
+		if ( $title ) echo $before_title . $title . $after_title;?>
+		<ul>
+			<li>
+				<span class="widget-register-statistics-item widget-register-statistics-image"><img alt="<?php _e("network", 'minka'); ?>" src="<?php echo get_template_directory_uri().'/images/red.png'; ?>" ></span>
+				<span class="widget-register-statistics-item widget-register-statistics-countries"><?php echo $countries." "._n( 'country', 'countries', $countries, 'minka' ); ?></span>
+				<span class="widget-register-statistics-item widget-register-statistics-members"><?php echo $members." "._n( 'member', 'members', $members, 'minka' ); ?></span>
+			</li>
+		</ul>
+		<?php
+		echo $after_widget;
+	}
+	
+	public function css()
+	{
+		wp_register_style( 'widget-register-statistics', get_template_directory_uri() . '/css/widget-register-statistics.css', array(), '1' );
+		wp_enqueue_style( 'widget-register-statistics' );
 	}
 	
 }
@@ -275,5 +336,7 @@ function Minka_WP_Widget_init() {
 	register_widget('WP_Widget_Recent_Posts_Image');
 	
 	register_widget('Widget_Profile');
+	
+	register_widget('Widget_Register_Statistics');
 }
 add_action('widgets_init', 'Minka_WP_Widget_init');

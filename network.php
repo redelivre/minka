@@ -29,7 +29,7 @@ $highlight = array();?>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a accumsan augue.
 					<div class="new-solution-link" onclick="window.location='/new-solution';return false;">
 						<div class="new-solution-link-bol"></div>
-						<div class="new-solution-link-text"><?php _e("Enjoin to the map", "minka") ?></div>
+						<div class="new-solution-link-text"><?php _e("To join the map", "minka") ?></div>
 					</div> 
 				</div>
 			</div>

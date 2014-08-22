@@ -1,0 +1,39 @@
+.widget-register-statistics,
+.widget-register-statistics ul {
+	list-style: none;
+}
+
+.widget-register-statistics ul {
+	background-color: #d7d7d7;
+	margin-left: 0;
+}
+
+.widget-register-statistics .photo {
+    border-radius: 50px;
+    float: left;
+    margin-left: -3em;
+}
+
+.widget-register-statistics .widgettitle {
+	color: #ff8300;
+}
+
+.widget-register-statistics-item {
+	width: 100%;
+	text-align: center;
+	display:block;
+	padding: 0.5em;
+}
+
+.widget-register-statistics-image {
+	padding-top: 2em;
+}
+
+.widget-register-statistics-countries {
+	color: #6e448f;
+}
+
+.widget-register-statistics-members {
+	color: #b62c7a;
+    padding-bottom: 3em;
+}
