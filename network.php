@@ -38,15 +38,6 @@ $highlight = array();?>
 					wp_reset_query();
 					global $wp_query;
 					
-					$cat_ori = get_term_by('slug', 'network', 'page_category');
-					
-					$cat_id = $cat_ori->term_id;
-					
-					if(function_exists('icl_object_id'))
-					{
-						$cat_id = icl_object_id($cat_id, "page_category", true, ICL_LANGUAGE_CODE);
-					}
-					
 					$wp_query = new WP_Query(array(
 						'post_type' => array( 'page' ),
 						'posts_per_page' => -1,
@@ -55,8 +46,8 @@ $highlight = array();?>
 						'tax_query' => array(
 							array(
 									'taxonomy' => 'page_category',
-									'field'    => 'id',
-									'terms'    => $cat_id,
+									'field'    => 'slug',
+									'terms'    => 'network',
 							),
 						),
 					));
