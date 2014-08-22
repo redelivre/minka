@@ -2366,7 +2366,6 @@ object {
 	float:left;
 	position: relative;
 	width: 25%;
-	background-color: #d7d7d7;
 }
 
 .network-page-image:before {
@@ -2403,6 +2402,10 @@ object {
 .network-page-box-text a:hover {
     background-color: #414684;
 }
+
+.network-page-box-text p:last-child {
+	margin-bottom: 0;
+} 
 
 /*--------------------------------------------------------------
  Media queries
