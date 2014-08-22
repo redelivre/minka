@@ -607,6 +607,20 @@ a:active {
 	margin: 0 0 1.5em;
 }
 
+.post .entry-footer {
+    padding: 15px;
+}
+
+.post a {
+    color: #6e448f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.entry-footer > a:hover {
+    color: #ff8300;
+}
+
 /*--------------------------------------------------------------
 10.2 Asides
 --------------------------------------------------------------*/
