@@ -80,10 +80,44 @@ else
 				}
 			}
 		}
+		
+		wp_update_post($post);
+		
+		if (!function_exists('wp_generate_attachment_metadata')){
+			require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+			require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+			require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+		}
+		
+		$attach_id = array();
+		
+		if ($_FILES) {
+			foreach ($_FILES as $file => $array) {
+				if ($_FILES[$file]['error'] !== UPLOAD_ERR_OK) {
+					return "upload error : " . $_FILES[$file]['error'];
+				}
+				$attach_id[$file] = media_handle_upload( $file, $post_ID );
+			}
+		}
+		foreach ($attach_id as $key => $value)
+		{
+			//and if you want to set that image as Post  then use:
+			if($key == 'thumbnail')
+			{
+				update_post_meta($post_ID,'_thumbnail_id',$attach_id['thumbnail']);
+			}
+			elseif($key == 'thumbnail2')
+			{
+				update_post_meta($post_ID,'thumbnail2',$attach_id['thumbnail2']);
+			}
+		}
+		
 		echo '<pre>';
 		var_dump($_POST);
 		echo '<br/>';
 		var_dump($post);
+		echo '<br/>';
+		var_dump($attach_id);
 		echo '</pre>';
 	}
 	
@@ -107,7 +141,7 @@ else
 	<?php if ( $message ) : ?>
 	<div id="message" class="updated"><p><?php echo $message; ?></p></div>
 	<?php endif; ?>
-	<form name="post" action="" method="post" id="post"<?php do_action('post_edit_form_tag', $post); ?>>
+	<form name="post" action="" method="post" id="post"<?php do_action('post_edit_form_tag', $post); ?> enctype="multipart/form-data" >
 	<?php wp_nonce_field($nonce_action); ?>
 	<input type="hidden" id="user-id" name="user_ID" value="<?php echo (int) $user_ID ?>" />
 	<input type="hidden" id="hiddenaction" name="action" value="<?php echo esc_attr( $form_action ) ?>" />
@@ -175,7 +209,10 @@ else
 		}
 	}
 	?>
-	
+	<div class="images">
+		<input type="file" name="thumbnail" id="thumbnail">
+		<input type="file" name="thumbnail2" id="thumbnail2">
+	</div>
 	<div class="category-group">
 	<?php 
 	Minka::taxonomy_checklist();

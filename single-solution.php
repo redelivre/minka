@@ -11,7 +11,10 @@
 		{
 			while(have_posts())
 			{
-				the_post();?>
+				the_post();
+				$thumbnail_id = get_post_thumbnail_id();
+				$second_image = get_post_meta(get_the_ID(), 'thumbnail2', true);
+				?>
 				<div class="single solution-thumbnail-region">
 					<div class="solution-single-header">
 						<div class="solution-single-post-title">
@@ -29,8 +32,14 @@
 						<div class="solution-single-link-catalog" onclick="window.location='<?php echo get_post_type_archive_link( 'solution' ); ?>';return false;">
 							<?php _e('View the Catalog', 'minka') ?>
 						</div>
-					</div><br/>
-					<div class="solution-single-post-thumbnail"><?php the_post_thumbnail(); ?></div>
+					</div><br/><?php
+					if(intval($thumbnail_id) > 0)
+					{?>
+						<div class="solution-thumbnail-box">
+							<div class="solution-thumbnail" style="background-image: url(<?php echo $second_image != "" ? $second_image : wp_get_attachment_url( $thumbnail_id ); ?>);">
+							</div>
+						</div><?php
+					}?>
 				</div>
 				<div class="solution-single-content">
 					<div class="solution-single-post-region">
