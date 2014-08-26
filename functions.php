@@ -375,61 +375,6 @@ class Minka{
 		return $cats;
 	}
 	
-	static function taxonomy_checklist($taxonomy = 'category', $parent = 0)
-	{
-		$args = array(
-				'orderby' => 'id',
-				'hide_empty'=> 0,
-				'parent' => $parent,
-				'hierarchical' => 0,
-				'taxonomy'=>$taxonomy
-	
-		);
-		$terms = get_terms($taxonomy, $args);
-		//print_r($terms);
-	
-		if (!is_array($terms) || ( is_array($terms) && sizeof($terms) < 1 ) )
-		{
-			return;
-		}
-		if ($parent > 0)
-			{?>
-				<ul class='children'><?php
-		}
-		$index = 1;
-		foreach ($terms as $term)
-		{
-			$name = $term->name;
-			$input = '';
-			if(strpos($name, '#input#') !== false)
-			{
-				$name = str_replace('#input#', '', $name);
-				$value = array_key_exists($taxonomy.'_'.$term->term_id.'_input', $_REQUEST) ? $_REQUEST[$taxonomy.'_'.$term->term_id.'_input'] : ''; 
-				$input = '<input type="text" class="taxonomy-category-checkbox-text" name="'.$taxonomy.'_'.$term->term_id.'_input" id="category_'.$taxonomy.'_'.$term->slug.'_input" value="'.$value.'" />';
-			}
-			$checked = isset($_REQUEST) && array_key_exists("category_$taxonomy", $_REQUEST) && array_search($term->term_id, $_REQUEST["category_$taxonomy"]) !== false ? 'checked="checked"' : '';				
-			?>
-			<li class="category-group-col <?php echo $parent == 0 ? 'category-group-col-'.$index : ''; ?>"><?php
-				if($parent > 0 && $input == '')
-				{?>
-					<input type="checkbox" class="taxonomy-category-checkbox" value="<?php echo $term->term_id; ?>" name="category_<?php echo $taxonomy; ?>[]" id="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>"
-					<?php echo $checked; ?> /><?php
-				}?>
-				<label for="category_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>"><?php
-					echo $name;?>
-				</label><?php
-				echo $input; 
-				self::taxonomy_checklist($taxonomy, $term->term_id); ?>
-			</li>
-			<?php
-			$index++;
-		}
-		if ($parent > 0)
-		{?>
-			</ul><?php
-		}
-	}
-	
 	public static function init()
 	{
 		$labels = array
@@ -493,6 +438,7 @@ class Minka{
 				'orderby'          => 'post_date',
 				'order'            => 'DESC',
 				'post_type'		   => 'solution',
+				'status'		   => 'published',
 				/*'tax_query' => array(
 				 array(
 				 		'taxonomy' => 'category',
