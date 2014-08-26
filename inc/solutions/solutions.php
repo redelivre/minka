@@ -51,6 +51,7 @@ class Solutions
 		//add_filter('archive_template', array($this, 'archiveTemplate'));
 		//add_filter('single_template', array($this, 'singleTemplate'));
 		add_action( 'save_post', array( $this, 'save' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts') );
 	}
 
 	function init()
@@ -111,7 +112,8 @@ class Solutions
 	
 	function minka_solution_custom_meta()
 	{
-		add_meta_box("solution_meta", "Solution Details", array($this, 'solution_meta'), 'solution', 'side', 'default');
+		add_meta_box("solution_meta", __("Solution Details", 'minka'), array($this, 'solution_meta'), 'solution', 'side', 'default');
+		add_meta_box("second_image_meta", __("Solution Header Image", 'minka'), array($this, 'second_image_meta'), 'solution', 'side', 'default');
 	}
 	
 	protected $_customs = array();
@@ -176,6 +178,18 @@ class Solutions
 			<?php
 			
 		}
+	}
+	
+	function second_image_meta($post)
+	{
+		$stored_meta = get_post_meta( $post->ID, 'thumbnail2', true)
+		?>
+		<p>
+		    <label for="meta-image" class="minka-second-image-meta"><?php _e( 'File Upload', 'minka' )?></label>
+		    <input type="text" name="thumbnail2" id="meta-image" value="<?php if ( isset ( $stored_meta ) ) echo $stored_meta; ?>" />
+		    <input type="button" id="meta-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'minka' )?>" />
+		</p>
+		<?php
 	}
 	
 	const NEW_SOLUTION_PAGE = 'new-solution';
@@ -381,8 +395,35 @@ class Solutions
 				update_post_meta( $post_id, $field['slug'], $mydata );
 			}
 		}
+		
+		if(array_key_exists('thumbnail2', $_POST))
+		{
+			update_post_meta($post_id, 'thumbnail2', $_POST['thumbnail2']); //TODO more sec
+		}
+		
 	}
 	
+	/**
+	 * Loads the image management javascript
+	 */
+	function admin_enqueue_scripts()
+	{
+		global $typenow;
+		if( $typenow == 'solution' )
+		{
+			wp_enqueue_media();
+	
+			// Registers and enqueues the required javascript.
+			wp_register_script( 'meta-box-image', get_template_directory_uri() . '/inc/solutions/js/meta-box-image.js', array( 'jquery' ) );
+			wp_localize_script( 'meta-box-image', 'meta_image',
+			array(
+			'title' => __( 'Choose or Upload an Image', 'minka' ),
+			'button' => __( 'Use this image', 'minka' ),
+			)
+			);
+			wp_enqueue_script( 'meta-box-image' );
+		}
+	}
 }
 
 $Solution_global = new Solutions();
