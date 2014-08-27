@@ -2467,11 +2467,14 @@ object {
 	.header-register-link > a { display: block; margin: 0 0 16% 23%; }
 	.header-login-form { float: right; width: 49%;}
 	.header-register-link { clear: none; }
-	.home-category-list { width: 100%;}
+	.home-category-list { width: 64%;}
+	.home-cat-post-box  { width: 47%;}
 	.home-cat-post-box:last-child {display: none;}
 	.header-navigation-menu .main-navigation li { font-size: 1.063em;padding: 0 0.75em;}
 	.header-navigation-menu {width: 76%;}
 	.search-form .search-field {width: 94%;}
+	.category-home-list-archive-link {width: 75%;font-size: 1.2em;}
+	.category-home-list-archive-link-text {margin-top: 15px;}
 }
 
 @media screen and (max-width: 1281px) {	
