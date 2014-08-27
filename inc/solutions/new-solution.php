@@ -253,7 +253,12 @@ else
 							<?php echo $tip; ?>
 						</div>
 					</label>
-					<?php wp_editor((array_key_exists($id, $_POST) ? stripslashes($purifier->purify($_POST[$id])) : ''), $id); ?>
+					<?php wp_editor((array_key_exists($id, $_POST) ? stripslashes($purifier->purify($_POST[$id])) : ''), $id,  array( 
+				       'tinymce' => array( 
+				            'content_css' => get_stylesheet_directory_uri() . '/inc/solutions/css/editor-styles.css' 
+				    		)
+						)
+					); ?>
 					<div class="solution-item-error-message"></div>
 					<div class="solution-item-required-message">
 						<?php echo $required_message; ?>
