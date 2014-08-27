@@ -16,7 +16,9 @@ else
 
 $post_type_object = get_post_type_object( $post_type );
 
-if ( ! current_user_can( $post_type_object->cap->edit_posts ) || ! current_user_can( $post_type_object->cap->create_posts ) )
+$language_code = array_key_exists('icl_post_language', $_POST) ? $_POST['icl_post_language'] : 'es';
+
+if ( ! is_user_logged_in() )
 {
 	echo '<h1 class="access">'.__('You do not have access to this page, please make login or change your login account', 'minka').'</h1>';
 }
@@ -33,14 +35,14 @@ else
 	}
 	else 
 	{
-		$post = $solution->get_default_post_to_edit( $post_type, true );
+		$post = $solution->get_default_post_to_edit( $post_type, $publish );
 	}
 	
 	$post_ID = $post->ID;
-	global $user_ID;
 	
-	$post_ID = isset($post_ID) ? (int) $post_ID : 0;
-	$user_ID = isset($user_ID) ? (int) $user_ID : 0;
+	if($publish && $post_ID == 0) wp_die('Something is wrong!!!');
+	
+	$user_ID = get_current_user_id();
 	
 	$form_extra = '';
 	
@@ -52,7 +54,7 @@ else
 	
 	if($publish)
 	{
-		
+		/* Save Fields and Custom Fields */
 		foreach ($solution->getFields() as $key => $field)
 		{
 			if( (array_key_exists('required', $field) && $field['required']) && (! array_key_exists($field['slug'], $_POST) || empty($_POST[$field['slug']]) ))
@@ -67,7 +69,7 @@ else
 				{
 					if(array_key_exists('type', $field) && $field['type'] == 'wp_editor')
 					{
-						$post->{$field['slug']} = $purifier->purify($_POST[$field['slug']]);
+						$post->{$field['slug']} = $purifier->purify(stripslashes($_POST[$field['slug']]));
 					}
 					else 
 					{
@@ -81,7 +83,18 @@ else
 			}
 		}
 		
+		$post->post_name = sanitize_title($post->post_title);
+		
 		wp_update_post($post);
+		
+		/* Save Language */
+		global $sitepress;
+		if(is_object($sitepress))
+		{
+			$sitepress->set_element_language_details($post_ID, 'post_'.get_post_type($post_ID), null , $language_code, null);
+		}
+		
+		/* Save Attached Content */
 		
 		if (!function_exists('wp_generate_attachment_metadata')){
 			require_once(ABSPATH . "wp-admin" . '/includes/image.php');
@@ -104,21 +117,60 @@ else
 			//and if you want to set that image as Post  then use:
 			if($key == 'thumbnail')
 			{
-				update_post_meta($post_ID,'_thumbnail_id',$attach_id['thumbnail']);
+				if( ! update_post_meta($post_ID,'_thumbnail_id',$attach_id['thumbnail']))
+				{
+					$message[] = __('error on set post thumbnail', 'minka');
+					$notice = true;
+				}
 			}
 			elseif($key == 'thumbnail2')
 			{
-				update_post_meta($post_ID,'thumbnail2',$attach_id['thumbnail2']);
+				if( ! update_post_meta($post_ID,'thumbnail2', wp_get_attachment_url($attach_id['thumbnail2'])) )
+				{
+					$message[] = __('error on set post header image', 'minka');
+					$notice = true;
+				}
 			}
 		}
 		
+		/* Save Categories */
+		
+		$args = array(
+			'public'   => true,
+		);
+		$output = 'names'; // or objects
+		$operator = 'and'; // 'and' or 'or'
+		$taxonomies = get_taxonomies( $args, $output, $operator );
+		
+		foreach ($taxonomies as $taxonomy)
+		{
+			if(array_key_exists('taxonomy_'.$taxonomy, $_POST))
+			{
+				$result = wp_set_post_terms($post_ID, $_POST['taxonomy_'.$taxonomy], $taxonomy);
+				if( is_object($result) && get_class($result) == 'WP_Error' )
+				{
+					$message[] = __('error on set post taxonomy'.': '.$taxonomy, 'minka');
+					$notice = true;
+				}
+			}
+		}
+		
+		/* Debug /
 		echo '<pre>';
 		var_dump($_POST);
 		echo '<br/>';
 		var_dump($post);
 		echo '<br/>';
 		var_dump($attach_id);
-		echo '</pre>';
+		echo '</pre>';*/
+		
+		
+		if($notice == false)
+		{?>
+			<div class="new-solution-sucess"><?php _e('A new solution was successfully created and waiting approval, thanks'); ?>
+			</div><?php
+			return ;
+		}
 	}
 	
 	$form_action = 'editpost';
@@ -150,9 +202,13 @@ else
 	<input type="hidden" id="post_type" name="post_type" value="<?php echo esc_attr( $post_type ) ?>" />
 	<input type="hidden" id="original_post_status" name="original_post_status" value="<?php echo esc_attr( $post->post_status) ?>" />
 	<input type="hidden" id="referredby" name="referredby" value="<?php echo esc_url(stripslashes(wp_get_referer())); ?>" />
-	<?php if ( ! empty( $active_post_lock ) ) { ?>
-	<input type="hidden" id="active_post_lock" value="<?php echo esc_attr( implode( ':', $active_post_lock ) ); ?>" />
-	<?php
+	<?php if ( ! empty( $active_post_lock ) )
+	{?>
+		<input type="hidden" id="active_post_lock" value="<?php echo esc_attr( implode( ':', $active_post_lock ) ); ?>" /><?php
+	}
+	if(function_exists('icl_get_current_language'))
+	{?>
+		<input type="hidden" id="icl_post_language" name="icl_post_language" value="<?php echo stripslashes(icl_get_current_language()); ?>" /><?php
 	}
 	if ( 'draft' != get_post_status( $post ) )
 		wp_original_referer_field(true, 'previous');
@@ -197,7 +253,7 @@ else
 							<?php echo $tip; ?>
 						</div>
 					</label>
-					<?php wp_editor((array_key_exists($id, $_POST) ? $purifier->purify($_POST[$id]) : ''), $id); ?>
+					<?php wp_editor((array_key_exists($id, $_POST) ? stripslashes($purifier->purify($_POST[$id])) : ''), $id); ?>
 					<div class="solution-item-error-message"></div>
 					<div class="solution-item-required-message">
 						<?php echo $required_message; ?>
@@ -210,12 +266,12 @@ else
 	}
 	?>
 	<div class="images">
-		<input type="file" name="thumbnail" id="thumbnail">
-		<input type="file" name="thumbnail2" id="thumbnail2">
+		<input type="file" name="thumbnail" id="thumbnail" value="<?php echo array_key_exists('thumbnail', $_REQUEST) ? esc_url($_REQUEST['thumbnail']) : ''; ?>" >
+		<input type="file" name="thumbnail2" id="thumbnail2" value="<?php echo array_key_exists('thumbnail2', $_REQUEST) ? esc_url($_REQUEST['thumbnail2']) : ''; ?>" >
 	</div>
 	<div class="category-group">
 	<?php 
-	Minka::taxonomy_checklist();
+	Solutions::taxonomy_checklist();
 	?>
 	</div>
 	

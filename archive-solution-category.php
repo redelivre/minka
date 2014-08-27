@@ -16,19 +16,22 @@
 			</div>
 			<div class="solution-category-archive-category-list">
 				<div id="category-<?php echo $term != false ? $term->slug : 'all'; ?>" class="solution-category-archive-category-list-view">
-					<div class="solution-category-archive-category-header">
-						<?php
-						if(get_query_var('cat') != '' && !array_key_exists( 'search', $_REQUEST))
-						{
-							echo __("Result for category", 'minka'); ?>&nbsp;<span class=""><?php echo $term->name; ?></span><?php 
-						}
-						elseif(array_key_exists( 'search', $_REQUEST))
-						{
-							echo __("Result for", 'minka'); ?>&nbsp;<span class=""><?php echo $_REQUEST['search']; ?></span><?php
-						}
+					<?php
+					if(get_query_var('cat') != '' && !array_key_exists( 'search', $_REQUEST))
+					{?>
+						<div class="solution-category-archive-category-header"><?php	
+							echo __("Result for category", 'minka'); ?>&nbsp;<span class=""><?php echo $term->name; ?></span>
+						</div>
+						<div class="clear"></div><?php 
+					}
+					elseif(array_key_exists( 'search', $_REQUEST))
+					{?>
+						<div class="solution-category-archive-category-header"><?php
+							echo __("Result for", 'minka'); ?>&nbsp;<span class=""><?php echo $_REQUEST['search']; ?></span>
+						</div>
+						<div class="clear"></div><?php
+					}
 					?>
-					</div>
-					<div class="clear"></div>
 					<div id="category-<?php echo $term != false ? $term->slug : 'all'; ?>-list" style="display: block;" class="category-solution-category-archive-list-itens">
 						<?php
 						Minka::getSolutionsList($term);

@@ -83,7 +83,7 @@ class Minka_WP_Widget_Categories extends WP_Widget_Categories
 			$title = apply_filters('widget_title', empty( $instance['title'] ) ? __( 'Categories' ) : $instance['title'], $instance, $this->id_base);
 			if ( $title )
 				echo $before_title . $title . $after_title;
-			Minka::taxonomy_checklist();
+			Solutions::taxonomy_checklist();
 			/*?>
 			<div class="minka-widget-categories-button"><?php _e('search', 'minka'); ?></div> 
 			<?php*/
