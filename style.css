@@ -2469,7 +2469,7 @@ object {
 	.header-register-link { clear: none; }
 	.home-category-list { width: 100%;}
 	.home-cat-post-box:last-child {display: none;}
-	.header-navigation-menu .main-navigation li { font-size: 1.063em;}
+	.header-navigation-menu .main-navigation li { font-size: 1.063em;padding: 0 0.75em;}
 	.header-navigation-menu {width: 76%;}
 	.search-form .search-field {width: 94%;}
 }
