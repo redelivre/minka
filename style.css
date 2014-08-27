@@ -2469,15 +2469,22 @@ object {
 	.header-register-link { clear: none; }
 	.home-category-list { width: 100%;}
 	.home-cat-post-box:last-child {display: none;}
+	.header-navigation-menu .main-navigation li { font-size: 1.063em;}
+	.header-navigation-menu {width: 76%;}
+	.search-form .search-field {width: 94%;}
 }
 
 @media screen and (max-width: 1281px) {	
 	.highlights .bd { margin-top: 0;}
+	.solution-single-sidebar { width: 100%; }
 }
 
-@media screen and (max-width: 1136px) {
+@media screen and (max-width: 1144px) {
 	.highlights .entry-image-box{ display: none; }
 	.highlights .bd { width: 100%; }
+	.header-navigation-menu .main-navigation li { font-size: 0.938em;}
+	.header-navigation-menu {width: 50%;}
+	
 }
 
 @media screen and (max-width: 600px) {
