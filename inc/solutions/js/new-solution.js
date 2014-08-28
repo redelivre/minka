@@ -5,7 +5,7 @@ function displayPreview(files, id) {
    var sizeKB = file.size / 1024;
    img.onload = function() {
       jQuery('.images-'+id).append(img);
-      alert("Size: " + sizeKB + "KB\nWidth: " + img.width + "\nHeight: " + img.height);
+      //alert("Size: " + sizeKB + "KB\nWidth: " + img.width + "\nHeight: " + img.height);
    }
    img.src = _URL.createObjectURL(file);
 }
