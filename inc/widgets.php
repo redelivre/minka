@@ -243,8 +243,8 @@ class Widget_Profile extends WP_Widget
 					<?php echo get_avatar($current_user->ID, 80); ?>
 					<div class="profile-widget-user-data">
 						<div class="profile-widget-user-name"><?php echo $current_user->display_name; ?></div><?php
-						$city = get_the_author_meta('city');
-						$country = get_the_author_meta('country');
+						$city = get_user_meta(get_current_user_id(), 'city', true);
+						$country = get_user_meta(get_current_user_id(), 'country', true);
 						if($city !== false)
 						{?>
 							<div class="profile-widget-user-location"><?php echo $city.($country !== false ? '/'.$country : ''); ?></div><?php
