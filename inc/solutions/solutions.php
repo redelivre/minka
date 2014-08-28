@@ -211,6 +211,8 @@ class Solutions
 		{
 			//wp_enqueue_script('jquery-ui-datepicker-ptbr', WP_CONTENT_URL.'/themes/minka/solutions/js/jquery.ui.datepicker-pt-BR.js', array('jquery-ui-datepicker'));
 			//wp_enqueue_script('date-scripts',WP_CONTENT_URL.'/themes/minka/solutions/js/date_scripts.js', array( 'jquery-ui-datepicker-ptbr'));
+			wp_enqueue_script('new-solution', get_template_directory_uri().'/inc/solutions/js/new-solution.js', array( 'jquery'));
+			
 			get_header();
 			$file_path = get_stylesheet_directory() . '/new-solution.php';
 			if(file_exists($file_path))
@@ -250,7 +252,7 @@ class Solutions
 			$post_excerpt = esc_html( stripslashes( $_REQUEST['excerpt'] ));
 	
 		if ( $create_in_db ) {
-			$post_id = wp_insert_post( array( 'post_title' => __( 'Auto Draft' ), 'post_type' => $post_type, 'post_status' => 'draft' ) );
+			$post_id = wp_insert_post( array( 'post_title' => __( 'Auto Draft' ), 'post_type' => $post_type, 'post_status' => 'pending' ) );
 			$post = get_post( $post_id );
 			if ( current_theme_supports( 'post-formats' ) && post_type_supports( $post->post_type, 'post-formats' ) && get_option( 'default_post_format' ) )
 				set_post_format( $post, get_option( 'default_post_format' ) );

@@ -59,7 +59,7 @@ else
 		{
 			if( (array_key_exists('required', $field) && $field['required']) && (! array_key_exists($field['slug'], $_POST) || empty($_POST[$field['slug']]) ))
 			{
-				$message[] = __('required field: ').$field['title'].__('is empty');
+				$message[] = __('required field').': '.$field['title'].' '.__('is empty');
 				$notice = true;
 			}
 			else 
@@ -165,7 +165,7 @@ else
 		echo '</pre>';*/
 		
 		
-		if($notice == false)
+		if($notice == false && count($message) == 0)
 		{?>
 			<div class="new-solution-sucess"><?php _e('A new solution was successfully created and waiting approval, thanks'); ?>
 			</div><?php
@@ -188,9 +188,9 @@ else
 		echo ' <a href="' . esc_url( $post_new_file ) . '" class="add-new-h2">' . esc_html( $post_type_object->labels->add_new ) . '</a>';
 	?></h2>
 	<?php if ( $notice ) : ?>
-	<div id="notice" class="error"><p><?php echo $notice ?></p></div>
+	<div id="notice" class="error"><p><?php echo implode( '<br/>'.$message ); ?></p></div>
 	<?php endif; ?>
-	<?php if ( $message ) : ?>
+	<?php if ( !$notice && count($message) > 0 ) : ?>
 	<div id="message" class="updated"><p><?php echo $message; ?></p></div>
 	<?php endif; ?>
 	<form name="post" action="" method="post" id="post"<?php do_action('post_edit_form_tag', $post); ?> enctype="multipart/form-data" >
@@ -229,10 +229,13 @@ else
 			default:	
 				?>
 				<div class="solution-item">
-					<label for="<?php echo $id ?>" class="solution-item-label">
-						<div class="solution-item-title"><?php echo $label; ?>
-							<span class="solution-item-required-asterisk">*</span>
-						</div>
+					<label for="<?php echo $id ?>" class="solution-item-label"><?php
+						if(array_key_exists( 'required', $field ) && $field['required'])
+						{?>
+							<div class="solution-item-title"><?php echo $label; ?>
+								<span class="solution-item-required-asterisk">*</span>
+							</div><?php
+						}?>
 						<div class="solution-item-tip-text"><?php echo $tip; ?>
 						</div>
 					</label>
@@ -268,11 +271,29 @@ else
 			break;
 			
 		}
-	}
+	}//TODO Make image a field
 	?>
 	<div class="images">
-		<input type="file" name="thumbnail" id="thumbnail" value="<?php echo array_key_exists('thumbnail', $_REQUEST) ? esc_url($_REQUEST['thumbnail']) : ''; ?>" >
-		<input type="file" name="thumbnail2" id="thumbnail2" value="<?php echo array_key_exists('thumbnail2', $_REQUEST) ? esc_url($_REQUEST['thumbnail2']) : ''; ?>" >
+		<div class="images-thumbnail">  
+			<label for="thumbnail" class="solution-item-label">
+				<div class="solution-item-title"><?php _e('Highlight Image', 'minka'); ?>
+				</div>
+				<div class="solution-item-tip-text">
+					<?php _e('Image showed on listing, like on home or catalog!'); ?>
+				</div>
+			</label>
+			<input type="file" name="thumbnail" id="thumbnail" value="<?php echo array_key_exists('thumbnail', $_REQUEST) ? esc_url($_REQUEST['thumbnail']) : ''; ?>" onchange="displayPreview(this.files, 'thumbnail');" >
+		</div>
+		<div class="images-thumbnail2">
+			<label for="thumbnail2" class="solution-item-label">
+				<div class="solution-item-title"><?php _e('Header Image', 'minka'); ?>
+				</div>
+				<div class="solution-item-tip-text">
+					<?php _e('Image showed on Header!'); ?>
+				</div>
+			</label>
+			<input type="file" name="thumbnail2" id="thumbnail2" value="<?php echo array_key_exists('thumbnail2', $_REQUEST) ? esc_url($_REQUEST['thumbnail2']) : ''; ?>" onchange="displayPreview(this.files, 'thumbnail2');" >
+		</div>
 	</div>
 	<div class="category-group">
 	<?php 
