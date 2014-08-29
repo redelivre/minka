@@ -2559,10 +2559,10 @@ object {
 	.home-category-list-view .home-category-image, .home-category-list-view .home-category-header-text {float: none;}
     .home-category-image { margin: 0 auto;}
     .home-category-header-text { text-align: center;}
-    .home-cat-post-box {float: none; margin: 0 auto 20px;}
+    .home-cat-post-box {display: none;}
     .home-cat-post-box:last-child { margin-right: auto;}
     .category-home-list-archive-link-text { display: none;}
-    .home-category-list .category-home-list-archive-link { background-color: transparent; margin-bottom: 20px;}
+    .home-category-list .category-home-list-archive-link { margin-bottom: 20px;}
     .category-home-list-archive-link {width: 100%; margin:0;}
     .category-home-list-archive-link-button { float: none; margin: 0 auto;}
     .home-sidebar {clear: both; margin: 0 auto; float: none;    }  
@@ -2574,7 +2574,7 @@ object {
 	.home-category-list-view .home-category-header-text { margin-left: 0;}
 	.category-home-list-archive-link-text {display: none;}
 	.category-home-list-archive-link-text { display: block; font-size: 12px; font-weight: bold; width: 85%;}
-	.category-home-list-archive-link { width: 90%;}
+	.category-home-list-archive-link { width: 100%;}
 	.category-home-list-archive-link { white-space: normal; } 
 	/*menu-superior*/
 	.minka_social_bol {display: none;}
@@ -2588,7 +2588,7 @@ object {
 	.textwidget { text-align: center;}
 	.home-category-list { width: 100%;}
 	.home-sidebar { display: none;}
-	.home-cat-post-box:last-child {display: block;} 
+	.home-cat-post-box:last-child {display: none;} 
 }
 
 @media screen and (max-width: 480px) {
