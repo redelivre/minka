@@ -2533,7 +2533,7 @@ object {
 
 @media screen and (max-width: 1281px) {	
 	.highlights .bd { margin-top: 0;}
-	.solution-single-sidebar { width: 100%; }
+	.solution-single-sidebar {font-size: 0.938em;}
 }
 
 @media screen and (max-width: 1144px) {
