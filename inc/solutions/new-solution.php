@@ -94,45 +94,6 @@ else
 			$sitepress->set_element_language_details($post_ID, 'post_'.get_post_type($post_ID), null , $language_code, null);
 		}
 		
-		/* Save Attached Content */
-		
-		if (!function_exists('wp_generate_attachment_metadata')){
-			require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-			require_once(ABSPATH . "wp-admin" . '/includes/file.php');
-			require_once(ABSPATH . "wp-admin" . '/includes/media.php');
-		}
-		
-		$attach_id = array();
-		
-		if ($_FILES) {
-			foreach ($_FILES as $file => $array) {
-				if ($_FILES[$file]['error'] !== UPLOAD_ERR_OK) {
-					return "upload error : " . $_FILES[$file]['error'];
-				}
-				$attach_id[$file] = media_handle_upload( $file, $post_ID );
-			}
-		}
-		foreach ($attach_id as $key => $value)
-		{
-			//and if you want to set that image as Post  then use:
-			if($key == 'thumbnail')
-			{
-				if( ! update_post_meta($post_ID,'_thumbnail_id',$attach_id['thumbnail']))
-				{
-					$message[] = __('error on set post thumbnail', 'minka');
-					$notice = true;
-				}
-			}
-			elseif($key == 'thumbnail2')
-			{
-				if( ! update_post_meta($post_ID,'thumbnail2', wp_get_attachment_url($attach_id['thumbnail2'])) )
-				{
-					$message[] = __('error on set post header image', 'minka');
-					$notice = true;
-				}
-			}
-		}
-		
 		/* Save Categories */
 		
 		$args = array(
@@ -149,7 +110,68 @@ else
 				$result = wp_set_post_terms($post_ID, $_POST['taxonomy_'.$taxonomy], $taxonomy);
 				if( is_object($result) && get_class($result) == 'WP_Error' )
 				{
-					$message[] = __('error on set post taxonomy'.': '.$taxonomy, 'minka');
+					$message[] = __('error on set post taxonomy', 'minka').': '.$taxonomy;
+					$notice = true;
+				}
+			}
+		}
+		
+		/* Save Attached Content */
+		
+		if (!function_exists('wp_generate_attachment_metadata')){
+			require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+			require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+			require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+		}
+		
+		$attach_id = array();
+		
+		$has_thumbnail = true;
+		$has_thumbnail2 = true;
+		
+		if ($_FILES) {
+			foreach ($_FILES as $file => $array) {
+				if ($_FILES[$file]['error'] !== UPLOAD_ERR_OK && $notice)
+				{
+					switch($file)
+					{
+						case 'thumbnail':
+							$message[] = __('error on set post thumbnail image', 'minka');
+							$has_thumbnail = false;
+							break;
+						case 'thumbnail2':
+							$message[] = __('error on set post header image', 'minka');
+							$has_thumbnail2 = false;
+							break;
+						default:
+							$message[] = __('error on set post images', 'minka');
+							break;
+					}
+						
+					$notice = true;
+				}
+				else 
+				{
+					$attach_id[$file] = media_handle_upload( $file, $post_ID );
+				}
+			}
+		}
+		foreach ($attach_id as $key => $value)
+		{
+			//and if you want to set that image as Post  then use:
+			if($key == 'thumbnail' && $has_thumbnail)
+			{
+				if( ! update_post_meta($post_ID,'_thumbnail_id',$attach_id['thumbnail']))
+				{
+					$message[] = __('error on set post thumbnail', 'minka');
+					$notice = true;
+				}
+			}
+			elseif($key == 'thumbnail2' && $has_thumbnail2)
+			{
+				if( ! update_post_meta($post_ID,'thumbnail2', wp_get_attachment_url($attach_id['thumbnail2'])) )
+				{
+					$message[] = __('error on set post header image', 'minka');
 					$notice = true;
 				}
 			}
@@ -177,7 +199,6 @@ else
 	$nonce_action = 'update-post_' . $post_ID;
 	$form_extra .= "<input type='hidden' id='post_ID' name='post_ID' value='" . esc_attr($post_ID) . "' />";
 	
-	
 	?>
 	
 	<div class="wrap">
@@ -188,10 +209,10 @@ else
 		echo ' <a href="' . esc_url( $post_new_file ) . '" class="add-new-h2">' . esc_html( $post_type_object->labels->add_new ) . '</a>';
 	?></h2>
 	<?php if ( $notice ) : ?>
-	<div id="notice" class="error"><p><?php echo implode( '<br/>'.$message ); ?></p></div>
+	<div id="notice" class="error"><p><?php echo implode( '<br/>', $message ); ?></p></div>
 	<?php endif; ?>
 	<?php if ( !$notice && count($message) > 0 ) : ?>
-	<div id="message" class="updated"><p><?php echo $message; ?></p></div>
+	<div id="message" class="updated"><p><?php echo implode( '<br/>', $message ); ?></p></div>
 	<?php endif; ?>
 	<form name="post" action="" method="post" id="post"<?php do_action('post_edit_form_tag', $post); ?> enctype="multipart/form-data" >
 	<?php wp_nonce_field($nonce_action); ?>
