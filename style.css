@@ -1804,6 +1804,23 @@ object {
     text-decoration: none;
 }
 
+.button-cadastro {
+    background: none repeat scroll 0 0 #ff8300;
+    border-radius: 20px;
+    color: #fff !important;
+    display: block;
+    font-weight: bold;
+    margin: 0 auto 20px;
+    padding: 5px;
+    text-align: center;
+    width: 65%;
+}
+
+.button-cadastro:hover {
+    background: none repeat scroll 0 0 #e9c42b;
+ 
+}
+
 /*--------------------------------------------------------------
 17 Post Archive
 --------------------------------------------------------------*/
