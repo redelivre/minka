@@ -33,12 +33,13 @@
 	
 	$cat_list = "";
 	
-	$cat_list_array_tmp = get_categories($args);
+	$cat_list_array_tmp = wp_get_post_terms(get_the_ID(), 'category', $args);
 	$cat_list_array = array();
-	foreach ($cat_list_array_tmp as $cat_list_item)
+	for( $i = 0 ; $i < count($cat_list_array_tmp) && $i < 3; $i++ )
 	{
-		$cat_list_array[] = $cat_list_item->name;
+		$cat_list_array[] = $cat_list_array_tmp[$i]->name;
 	}
+	
 	switch (count($cat_list_array))
 	{
 		case 2:

@@ -1671,7 +1671,7 @@ object {
 	display: block;
 }
 
-.home-cat-post-cat span {
+.home-cat-post-cat {
 	-o-text-overflow: ellipsis;   /* Opera */
     text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
     overflow:hidden;
