@@ -229,13 +229,13 @@ else
 			default:	
 				?>
 				<div class="solution-item">
-					<label for="<?php echo $id ?>" class="solution-item-label"><?php
-						if(array_key_exists( 'required', $field ) && $field['required'])
-						{?>
-							<div class="solution-item-title"><?php echo $label; ?>
-								<span class="solution-item-required-asterisk">*</span>
-							</div><?php
-						}?>
+					<label for="<?php echo $id ?>" class="solution-item-label">
+							<div class="solution-item-title"><?php echo $label;
+								if(array_key_exists( 'required', $field ) && $field['required'])
+								{?>
+									<span class="solution-item-required-asterisk">*</span><?php
+								}?>
+							</div>
 						<div class="solution-item-tip-text"><?php echo $tip; ?>
 						</div>
 					</label>
