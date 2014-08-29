@@ -2029,6 +2029,35 @@ object {
     margin: 40px 0;
 }
 
+.images img {
+    float: left;
+    margin: 20px 0 40px;
+}
+
+.solution-item-title {
+    clear: both;
+    color: #414684;
+    font-weight: bold;
+}
+
+.images-thumbnail > input, .images-thumbnail2 > input {
+    clear: both;
+    display: block;
+}
+
+.images-thumbnail, .images-thumbnail2 {
+    border-top: 2px dotted #e9c42b;
+    display: block;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    float: left;
+    width: 100%;
+}
+
+#publish:hover {
+    background: none repeat scroll 0 0 #e9c42b;
+}
+
 /*--------------------------------------------------------------
 23 Solution List
 --------------------------------------------------------------*/
