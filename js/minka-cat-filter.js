@@ -1,6 +1,6 @@
 function minka_cat_search_checkbox_click()
 {
-	var checkValues = jQuery('input[name=category_category\\[\\]]:checked').map(function()
+	var checkValues = jQuery('input[name=taxonomy_category\\[\\]]:checked').map(function()
     {
         return jQuery(this).val();
     }).get();
@@ -19,7 +19,7 @@ function minka_cat_search_checkbox_click()
 }
 
 jQuery(document).ready(function () {
-	jQuery('input[name=category_category\\[\\]]').click(function(){
+	jQuery('input[name=taxonomy_category\\[\\]]').click(function(){
 		minka_cat_search_checkbox_click();
 	});
 });
