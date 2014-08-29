@@ -438,7 +438,7 @@ class Minka{
 				'orderby'          => 'post_date',
 				'order'            => 'DESC',
 				'post_type'		   => 'solution',
-				'status'		   => 'published',
+				'post_status'	   => 'publish',
 				/*'tax_query' => array(
 				 array(
 				 		'taxonomy' => 'category',
