@@ -1333,15 +1333,12 @@ object {
     padding-top: 1.2em;
 }
 
-.footer-entry-top {
-    width: 56%;
-}
-
 .footer-top-item {
 	display: inline;
 	padding: 0.700em;
 	float: left;
     height: 100%;
+    width: 16%;
 }
 
 .footer-bootom {
@@ -2554,6 +2551,7 @@ object {
 	.header-navigation-menu {width: 50%;}
 	.solution-category-archive-category-list{width: 50%;}
 	.solution-single-sidebar {width: 46%;}
+	.footer-top-item { width: 30%;}
 	
 }
 
@@ -2603,6 +2601,7 @@ object {
 	.home-entry .home-cat-post-box:last-child {display: none;} 
 	.home-entry .home-cat-post-box {display: none;}
 	.solution-single-sidebar { width: 100%;}
+	.footer-top-item { width: 100%;}
 }
 
 @media screen and (max-width: 480px) {
