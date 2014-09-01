@@ -2075,6 +2075,17 @@ object {
     background: none repeat scroll 0 0 #e9c42b;
 }
 
+.error {
+    background: none repeat scroll 0 0 #e9c42b;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.error p{
+	font-weight: bold;
+}
+
 /*--------------------------------------------------------------
 23 Solution List
 --------------------------------------------------------------*/
