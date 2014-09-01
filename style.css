@@ -1834,6 +1834,28 @@ object {
 20 Solution Archive
 --------------------------------------------------------------*/
 
+.solution-category-archive-nofounded {
+    background: none repeat scroll 0 0 #d7d7d7;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.solution-category-archive-nofounded > h2 {
+    margin-bottom: 10px;
+}
+
+.solution-category-archive-nofounded > a {
+    background: none repeat scroll 0 0 #ff8300;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px;
+    text-decoration: none;
+}
+.solution-category-archive-nofounded > a:hover {
+	background: #e9c42b;
+}
+
 /*--------------------------------------------------------------
 21 Single Solution
 --------------------------------------------------------------*/
@@ -2602,6 +2624,10 @@ object {
 	.home-entry .home-cat-post-box {display: none;}
 	.solution-single-sidebar { width: 100%;}
 	.footer-top-item { width: 100%;}
+	.solution-category-archive-category-list{width: 100%;}
+	.solution-category-archive-category-list{margin-left: 0;}
+	.solution-category-archive-nofounded {margin-top: 20px; text-align: center;}
+	.search-form .search-field {margin-bottom: 20px;}
 }
 
 @media screen and (max-width: 480px) {
