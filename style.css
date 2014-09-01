@@ -2151,11 +2151,13 @@ object {
 .page-template-archives-php .blog-archive-post-list {
 	float:left;
 	width: 65%;
+	margin-top: 10px;
 }
 
 .archives-sidebar {
 	float:left;
 	width: 35%;
+	margin-top: 30px;
 }
 
 .page-template-archives-php .blog-archive-post-box {
@@ -2262,12 +2264,12 @@ object {
 }
 
 .single .archives-sidebar {
-    margin-right: 5em;
+    margin-right: 4em;
     width: 31%;
 }
 
 .blog-single-post .post {
-    background-color: #d7d7d7;
+    background-color: #e1e1e1;
 }
 
 .blog-single-post .entry-title {
@@ -2540,7 +2542,7 @@ object {
 
 @media screen and (max-width: 1549px) {
 	.home-category-list {width: 49%;}
-	.home-cat-post-box:last-child { display: none; margin-right: 0;}
+	.home .home-cat-post-box:last-child { display: none; margin-right: 0;}
 }
 
 @media screen and (max-width: 1334px) {
@@ -2553,7 +2555,7 @@ object {
 	.header-register-link { clear: none; }
 	.home-category-list { width: 64%;}
 	.home-cat-post-box  { width: 47%;}
-	.home-cat-post-box:last-child {display: none;}
+	.home .home-cat-post-box:last-child {display: none;}
 	.header-navigation-menu .main-navigation li { font-size: 1.063em;padding: 0 0.75em;}
 	.header-navigation-menu {width: 76%;}
 	.search-form .search-field {width: 94%;}
@@ -2564,6 +2566,7 @@ object {
 @media screen and (max-width: 1281px) {	
 	.highlights .bd { margin-top: 0;}
 	.solution-single-sidebar {font-size: 0.938em;}
+	.blog-single-post { width: 61%;}
 }
 
 @media screen and (max-width: 1144px) {
@@ -2608,7 +2611,6 @@ object {
 	.category-home-list-archive-link-text { display: block; font-size: 12px; font-weight: bold; width: 85%;}
 	.category-home-list-archive-link { width: 100%;}
 	.category-home-list-archive-link { white-space: normal; } 
-	/*menu-superior*/
 	.minka_social_bol {display: none;}
 	.header-social-list { clear: both; display: block; margin-top: 10px; padding: 20px 0 0 25px; border-top: 2px dotted #e9c42b; height: 100px; border-bottom: 2px dotted #e9c42b;}
 	.header-login-form { float: none; width: 100%;}
@@ -2628,6 +2630,8 @@ object {
 	.solution-category-archive-category-list{margin-left: 0;}
 	.solution-category-archive-nofounded {margin-top: 20px; text-align: center;}
 	.search-form .search-field {margin-bottom: 20px;}
+	.blog-single-post { width: 100%;}
+	.blog-single-entry .archives-sidebar{ display: none;}
 }
 
 @media screen and (max-width: 480px) {
