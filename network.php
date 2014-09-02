@@ -23,7 +23,7 @@ $highlight = array();?>
 			</div>
 			<div class="network-entry">
 				<div class="network-map" >
-					<div class="map clear"><?php Minka::the_map(); ?></div>
+					<div class="map clear"><?php Minka::the_user_map(); ?></div>
 				</div>
 				<div class="network-content" >
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a accumsan augue.
