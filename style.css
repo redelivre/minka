@@ -1094,7 +1094,7 @@ object {
 }
 .header-login-form {
 	float: right;
-	width: 55%;
+	width: 56%;
 }
 
 .header-login-form .login-form,
@@ -1192,7 +1192,7 @@ object {
 }
 
 .header-login-form .login-remember input{
-	display:none;
+	
 }
 
 .header-login-welcome {

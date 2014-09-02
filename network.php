@@ -23,10 +23,12 @@ $highlight = array();?>
 			</div>
 			<div class="network-entry">
 				<div class="network-map" >
-					<div class="map clear"><?php Minka::the_map(); ?></div>
+					<div class="map clear"><?php Minka::the_user_map(); ?></div>
 				</div>
 				<div class="network-content" >
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a accumsan augue.
+					<div class="network-content-text" >
+						<?php _e('Who and where are the protagonists of the collaborative economy', 'minka'); ?>
+					</div>
 					<div class="new-solution-link" onclick="window.location='/new-solution';return false;">
 						<div class="new-solution-link-bol"></div>
 						<div class="new-solution-link-text"><?php _e("To join the map", "minka") ?></div>
