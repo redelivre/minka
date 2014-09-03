@@ -769,7 +769,9 @@ class Minka{
 		<div class="network-template-meta-field">
 			<label for="map-top" class="solution-item-label">
 				<div class="network-template-meta-field-title">
-					<?php _e('Text Before Map', 'minka'); ?>
+					<h2>
+						<?php _e('Text Before Map', 'minka'); ?>
+					</h2>
 				</div>
 			</label>
 			<?php wp_editor($content, 'map-top',  array( 

@@ -89,4 +89,12 @@
 		} );
 	} );
 	
+	wp.customize( 'minka_home_video_enabled', function( value ) {
+		value.bind( function( newval ) {
+			$('.home-stick').toggle();
+			$('.home-search-form').toggle();
+			$('.header-search-form').toggle();
+		} );
+	} );
+	
 } )( jQuery );

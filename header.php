@@ -78,7 +78,7 @@
 						<?php wp_nav_menu( array( 'menu' => 'main', 'theme_location' => 'primary', 'container_class' => 'minka-header-menu' ) ); ?>
 					</nav><!-- .site-navigation .main-navigation -->
 					<div class="clear"></div>
-					<div class="header-search-form">
+					<div class="header-search-form" style="display:<?php echo is_home() && get_theme_mod('minka_home_video_enabled', true) ? 'none' : 'block'; ?>">
 						<?php get_search_form() ?>
 					</div>
 				</div>

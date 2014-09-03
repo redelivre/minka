@@ -116,6 +116,19 @@ function minka_customize_register( $wp_customize )
 			'section'    => 'minka_content',
 	) );
 	
+	$wp_customize->add_setting( 'minka_home_video_enabled', array(
+			'default'     => true,
+			'capability'    => 'edit_theme_options',
+			'transport'=>'postMessage'
+	) );
+	
+	$wp_customize->add_control( 'minka_home_video_enabled', array(
+			'label'      => __( 'Display Home Video', 'minka' ),
+			'section'    => 'minka_content',
+			'type'		 => 'checkbox',
+			'std'		 => 1
+	) );
+	
 	$wp_customize->add_setting( 'minka_home_video_url', array(
 			'default'     => __("http://youtu.be/TDwB0Z9s5nE", 'minka'),
 			'capability'    => 'edit_theme_options',

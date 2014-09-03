@@ -1277,10 +1277,6 @@ object {
 	color: #ff8300;
 }
 
-.home .header-search-form {
-	display: none;
-}
-
 /*--------------------------------------------------------------
 16 Footer
 --------------------------------------------------------------*/
@@ -1394,15 +1390,10 @@ object {
 /*--------------------------------------------------------------
 16 Home
 --------------------------------------------------------------*/
-.home-entry {
-	
-}
-
 .home-stick {
 	height: 773px;
 	background-position: center center;
     background-repeat: no-repeat;
-    display: none;
 }
 
 .home-stick-entry {
