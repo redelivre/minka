@@ -22,11 +22,12 @@ class Minka{
 		add_action('wp_ajax_nopriv_minka_search_solutions', array($this, 'getSolutionsList_callback'));
 		add_action('wp_ajax_minka_search_solutions', array($this, 'getSolutionsList_callback'));
 		add_filter('comment_form_defaults', array($this, 'comment_form_defaults'));
-		add_action( 'show_user_profile', array($this, 'show_user_profile') );
-		add_action( 'edit_user_profile', array($this, 'show_user_profile') );
+		add_action( 'show_user_profile', array($this, 'show_user_profile'), 9 );
+		add_action( 'edit_user_profile', array($this, 'show_user_profile'), 9 );
 		add_action( 'personal_options_update', array($this, 'edit_user_profile_update') );
 		add_action( 'edit_user_profile_update', array($this, 'edit_user_profile_update') );
 		add_filter('mapasdevista_default_user_location', array($this, 'mapasdevista_default_user_location'), 10, 2 );
+		add_filter('mapasdevista_load_style', array($this, 'mapasdevista_load_style') );
 	}
 
 	/**
@@ -94,6 +95,11 @@ class Minka{
 		// slideshow.css
 		wp_register_style( 'minka-slideshow', get_template_directory_uri() . '/css/slideshow.css', array(), '1' );
 		wp_enqueue_style( 'minka-slideshow' );
+		
+		// map.css
+		wp_register_style( 'minka-map', get_template_directory_uri() . '/css/map.css', array(), '1' );
+		wp_enqueue_style( 'minka-map' );
+		
 	}
 
 	/**
@@ -682,6 +688,13 @@ class Minka{
 					<span class="description"><?php _e('Please enter your Country.', 'minka');?></span>
 				</td>
 			</tr>
+			<tr>
+				<th><label for="organization"><?php _e('Organization', 'minka'); ?></label></th>
+				<td>
+					<input type="text" name="organization" id="organization" value="<?php echo esc_attr( get_the_author_meta( 'organization', $user->ID ) ); ?>" class="regular-text" /><br />
+					<span class="description"><?php _e('Please enter your Organization.', 'minka');?></span>
+				</td>
+			</tr>
 		</table><?php
 	}
 	
@@ -699,6 +712,10 @@ class Minka{
 		{
 			update_user_meta( $user_id, 'country', wp_strip_all_tags($_POST['country']) );
 		}
+		if(array_key_exists('organization', $_POST))
+		{
+			update_user_meta( $user_id, 'organization', wp_strip_all_tags($_POST['organization']) );
+		}
 	}
 	
 	function mapasdevista_default_user_location($location, $user)
@@ -715,7 +732,12 @@ class Minka{
 			}
 		}
 		return $location;
-	} 
+	}
+	
+	function mapasdevista_load_style($load)
+	{
+		return false;
+	}
 }
 
 global $minka;
