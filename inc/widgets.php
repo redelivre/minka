@@ -299,10 +299,14 @@ class Widget_Register_Statistics extends WP_Widget
 	
 		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : '';
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+		
+		$users = new WP_User_Query(array('blog_id' => get_current_blog_id()));
 
-		global $wpdb;
-		$members = intval($wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->users" ));
-		$countries = intval($wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->usermeta where meta_key = 'country' AND meta_value IS NOT NULL AND meta_value <> ''" ));
+		$members = intval($users->total_users);
+		
+		$users = new WP_User_Query(array('meta_key' => 'country'));
+		
+		$countries = intval($users->total_users);
 		
 		echo $before_widget;
 		if ( $title ) echo $before_title . $title . $after_title;?>
