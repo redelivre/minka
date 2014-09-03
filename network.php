@@ -26,8 +26,16 @@ $highlight = array();?>
 					<div class="map clear"><?php Minka::the_user_map(); ?></div>
 				</div>
 				<div class="network-content" >
-					<div class="network-content-text" >
-						<?php _e('Who and where are the protagonists of the collaborative economy', 'minka'); ?>
+					<div class="network-content-text" ><?php
+						 $meta = get_post_meta(get_the_ID(), '.map-top', true);
+						 if($meta == '')
+						 {
+						 	_e('Who and where are the protagonists of the collaborative economy', 'minka');
+						 }
+						 else 
+						 {
+						 	echo $meta;
+						 }?>
 					</div>
 					<div class="new-solution-link" onclick="window.location='/new-solution';return false;">
 						<div class="new-solution-link-bol"></div>

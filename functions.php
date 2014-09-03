@@ -13,21 +13,24 @@ class Minka{
 	 */
 	public function __construct()
 	{
-		add_action('after_setup_theme', array($this, 'setup'));
-		add_action('wp_enqueue_scripts', array($this, 'css'));
-		add_action('wp_enqueue_scripts', array($this, 'javascript'));
-		add_filter('nav_menu_css_class', array($this, 'nav_menu_css_class'));
-		add_action('widgets_init', array($this, 'register_sidebars'));
-		add_action('init', array($this, 'init'));
-		add_action('wp_ajax_nopriv_minka_search_solutions', array($this, 'getSolutionsList_callback'));
-		add_action('wp_ajax_minka_search_solutions', array($this, 'getSolutionsList_callback'));
-		add_filter('comment_form_defaults', array($this, 'comment_form_defaults'));
+		add_action( 'after_setup_theme', array($this, 'setup'));
+		add_action( 'wp_enqueue_scripts', array($this, 'css'));
+		add_action( 'wp_enqueue_scripts', array($this, 'javascript'));
+		add_filter( 'nav_menu_css_class', array($this, 'nav_menu_css_class'));
+		add_action( 'widgets_init', array($this, 'register_sidebars'));
+		add_action( 'init', array($this, 'init'));
+		add_action( 'wp_ajax_nopriv_minka_search_solutions', array($this, 'getSolutionsList_callback'));
+		add_action( 'wp_ajax_minka_search_solutions', array($this, 'getSolutionsList_callback'));
+		add_filter( 'comment_form_defaults', array($this, 'comment_form_defaults'));
 		add_action( 'show_user_profile', array($this, 'show_user_profile'), 9 );
 		add_action( 'edit_user_profile', array($this, 'show_user_profile'), 9 );
 		add_action( 'personal_options_update', array($this, 'edit_user_profile_update') );
 		add_action( 'edit_user_profile_update', array($this, 'edit_user_profile_update') );
-		add_filter('mapasdevista_default_user_location', array($this, 'mapasdevista_default_user_location'), 10, 2 );
-		add_filter('mapasdevista_load_style', array($this, 'mapasdevista_load_style') );
+		add_filter( 'mapasdevista_default_user_location', array($this, 'mapasdevista_default_user_location'), 10, 2 );
+		add_filter( 'mapasdevista_load_style', array($this, 'mapasdevista_load_style') );
+		add_action( 'add_meta_boxes', array($this, 'add_meta_boxes'), 10, 2 );
+		add_action( 'admin_enqueue_scripts', array($this, 'admin_enqueue_scripts') );
+		add_action( 'save_post', array( $this, 'save_post' ) );
 	}
 
 	/**
@@ -738,6 +741,67 @@ class Minka{
 	{
 		return false;
 	}
+	
+	function add_meta_boxes( $post_type, $post )
+	{
+		add_meta_box("network_template_meta", __("Network template content", 'minka'), array($this, 'network_template_meta'), 'page');
+	}
+	
+	function network_template_meta()
+	{
+		global $post;
+		
+		$content = __('Who and where are the protagonists of the collaborative economy', 'minka');
+		 
+		if( array_key_exists('map-top', $_POST) )
+		{
+			$content = stripslashes($_POST['map-top']);
+		}
+		else
+		{
+			$meta = get_post_meta($post->ID, '.map-top', true);
+			if($meta != "")
+			{
+				$content = $meta;
+			}
+		}
+		?>
+		<div class="network-template-meta-field">
+			<label for="map-top" class="solution-item-label">
+				<div class="network-template-meta-field-title">
+					<?php _e('Text Before Map', 'minka'); ?>
+				</div>
+			</label>
+			<?php wp_editor($content, 'map-top',  array( 
+		       'tinymce' => array( 
+		            'content_css' => get_stylesheet_directory_uri() . '/inc/solutions/css/editor-styles.css' 
+		    		)
+				)
+			); ?>
+		</div><?php
+	}
+	
+	function save_post($post_id)
+	{
+		if(array_key_exists('map-top', $_POST))
+		{
+			update_post_meta($post_id, '.map-top', $_POST['map-top']); //TODO more sec
+		}
+	}
+	
+	function admin_enqueue_scripts( $hook )
+	{
+		if( 'post.php' == $hook )
+		{
+			wp_enqueue_script(
+				'network_template_meta',
+				get_template_directory_uri() . '/js/network_template_meta.js',
+				array('jquery')
+			);
+		}
+	}
+	
+	
 }
 
 global $minka;
