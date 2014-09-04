@@ -1910,10 +1910,11 @@ object {
 }
 
 .solution-thumbnail-box {
-	float:left;
+	background-color: #f3f3f3;
 	position: relative;
 	width: 100%;
 	max-height: 20em;
+	margin-top: 2em;
 }
 
 .single-solution .solution-thumbnail-box:before {
@@ -1941,6 +1942,9 @@ object {
     border-left: 2px solid #eaeaea;
     border-right: 2px solid #eaeaea;
     padding: 1.5em;
+    position: relative;
+    width: 100%;
+    float: left;
 }
 
 .solution-single-content h2 {
@@ -1981,6 +1985,10 @@ object {
 .solution-single-post-url > a {
     display: block;
     width: 20%;
+}
+
+.solution-single-post-rate-result, .solution-single-post-exp-result {
+	float:left;
 }
 
 

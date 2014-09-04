@@ -3,9 +3,23 @@
 	list-style: none !important}
 .rating .l {float: left; height: 22px; width: 12px; background: url("images/star.png") 0 0}
 .rating .r {float: right; height: 22px; width: 11px; background: url("images/star2.png") -12px 0}
-.rating .half .l {background-color: #333}
-.rating .half .r {background-color: #ccc}
+.rating .half .l {float: left; height: 22px; width: 12px; background: url("images/rover.png") 0 0}
+.rating .half .r {float: right; height: 22px; width: 11px; background: url("images/star2.png") -12px 0}
 .rating .whole .l {float: left; height: 22px; width: 12px; background: url("images/rover.png") 0 0}
 .rating .whole .r {float: right; height: 22px; width: 11px; background: url("images/rover2.png") -12px 0}
 .rating .rover .l {float: left; height: 22px; width: 12px; background: url("images/rover.png") 0 0}
 .rating .rover .r {float: right; height: 22px; width: 11px; background: url("images/rover2.png") -12px 0}
+
+.solution-single-post-exp-result-rating .rating .l {height: 27px; width: 3px;background-image: url("images/rate2left.png") }
+.solution-single-post-exp-result-rating .rating .r {height: 27px; width: 3px;background-image: url("images/rate2right.png") }
+.solution-single-post-exp-result-rating .rating .half .l {height: 27px; width: 3px;background-image: url("images/rateleft.png") }
+.solution-single-post-exp-result-rating .rating .half .r {height: 27px; width: 3px;background-image: url("images/rate2right.png") }
+.solution-single-post-exp-result-rating .rating .whole .l {height: 27px; width: 3px;background-image: url("images/rateleft.png") }
+.solution-single-post-exp-result-rating .rating .whole .r {height: 27px; width: 3px;background-image: url("images/rateright.png") }
+.solution-single-post-exp-result-rating .rating .rover .l {height: 27px; width: 3px;background-image: url("images/rateleft.png") }
+.solution-single-post-exp-result-rating .rating .rover .r {height: 27px; width: 3px;background-image: url("images/rateright.png") }
+.solution-single-post-exp-result-rating .rating li {width: 6px; height: 27px;margin-left: 0.25em;}
+
+.solution-single-post-exp-result {
+    margin-left: 4em;
+}

@@ -69,6 +69,22 @@
 					<div class="solution-single-post-url">
 						<a href="<?php echo get_post_meta(get_the_ID(), 'solution-url', true); ?>" target="_blank" ><?php _e('view web site', 'minka')?></a>
 					</div>
+					<div class="solution-single-post-rate-result">
+						<div class="solution-single-post-rate-result-label">
+							<?php _e( 'Ease of use', 'minka' ); ?>
+						</div>
+						<div class="solution-single-post-rate-result-rating">
+							<?php the_rating(); ?>
+						</div>
+					</div>
+					<div class="solution-single-post-exp-result">
+						<div class="solution-single-post-exp-result-label">
+							<?php _e( 'Experience', 'minka' ); ?>
+						</div>
+						<div class="solution-single-post-exp-result-rating">
+							<?php the_experience(); ?>
+						</div>
+					</div>
 				</div>
 					<h3><?php _e('Share your experience', 'minka');?></h3>
 				<div class="solution-single-post-exp needs-rating">

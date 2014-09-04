@@ -34,17 +34,42 @@ class rate
 		return is_user_logged_in() || !empty($_COOKIE['comment_author_' . COOKIEHASH]);
 	}
 	
-	static function calculate($id = 0, $is_comment = false) {
+	static function calculate($id = 0, $is_comment = false, $is_exp = false) {
 		global $wpdb;
 		$url = get_permalink();
 		$coerced_id = (int) $id > 0 ? $id : get_the_id();
 		$previous_id = 0;
 		
-		if ($is_comment) {
+		if ($is_comment)
+		{
 			$c = $GLOBALS['comment'];	
 			$rating = (int) $c->comment_karma;
 			$previous_id = (int) $c->comment_ID;
-		} else {
+		}
+		elseif($is_exp)
+		{
+			$rating_array = $wpdb->get_results(
+				$wpdb->prepare("
+						SELECT SUM(meta_value) as value, count(*) as total 
+							FROM $wpdb->comments as c
+							inner join $wpdb->commentmeta as m on c.comment_id = m.comment_id
+							WHERE c.comment_post_ID = %d AND
+								m.meta_key = 'rate-experience' AND
+								c.comment_approved = %d AND
+								m.meta_value in (1, -1, -2)",
+					$coerced_id, 1));
+			if(count($rating_array) > 0)
+			{
+				$rating = ($rating_array[0]->value * 5) / $rating_array[0]->total;
+			}
+			else
+			{
+				$rating = 2.5;
+			}
+			//var_dump($rating_array);die();
+		}
+		else
+		{
 			$rating = $wpdb->get_var(
 				$wpdb->prepare("SELECT AVG(comment_karma) FROM $wpdb->comments WHERE ". 
 					"comment_post_ID = %d AND comment_karma > %d AND comment_approved = %d", 
@@ -117,7 +142,7 @@ class rate
 		return '
 				<span class="rate-experience rate-positive"><label class="rate-experience-label"><input type="radio" class="rate-experience-input" name="rate-experience" value="1">'.__('positive', 'minka').'</label></span>
 				<span class="rate-experience rate-negative"><label class="rate-experience-label"><input type="radio" class="rate-experience-input" name="rate-experience" value="-1">'.__('negative', 'minka').'</label></span>
-				<span class="rate-experience rate-do-not-use"><label class="rate-experience-label"><input type="radio" class="rate-experience-input" name="rate-experience" value="-5">'.__('do not use', 'minka').'</label></span>
+				<span class="rate-experience rate-do-not-use"><label class="rate-experience-label"><input type="radio" class="rate-experience-input" name="rate-experience" value="-2">'.__('do not use', 'minka').'</label></span>
 			';
 	}
 	
@@ -252,6 +277,10 @@ function the_rate_formExperience()
 
 function the_rating($id = 0) {
 	echo rate::calculate($id);
+}
+
+function the_experience($id = 0) {
+	echo rate::calculate($id, false, true);
 }
 
 function the_comment_rating() {

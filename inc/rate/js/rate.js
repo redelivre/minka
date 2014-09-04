@@ -75,7 +75,7 @@
 			url    : 'http://' + window.location.host + '/wp-admin/admin-ajax.php',
 			data   : {
 				'action': 'rate_item',
-				'exp': jQuery('input[name="rate-experience"]').val(),
+				'exp': jQuery('input[name="rate-experience"]:checked').val(),
 				'comment_post_ID' : jQuery('#comment_post_ID').val(),
 				'comment_ID' : jQuery('#rate_comment_ID').val(),
 				'rate_comment_nonce' : jQuery('#rate_comment_nonce').val()
