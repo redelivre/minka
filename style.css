@@ -2200,6 +2200,10 @@ object {
     font-size: 0.9em;
     font-weight: bold;
     line-height: 134%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;   /* Opera */
+    height: 74px;
 }
 
 .page-template-archives-php .blog-archive-post-title {
