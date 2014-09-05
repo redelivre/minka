@@ -25,6 +25,12 @@ if ( ! is_user_logged_in() )
 else 
 {
 
+	$attach_id = array();
+	$attach = array();
+	
+	$has_thumbnail = false;
+	$has_thumbnail2 = false;
+	
 	$title = $post_type_object->labels->add_new_item;
 	
 	$editing = true;
@@ -124,8 +130,6 @@ else
 			require_once(ABSPATH . "wp-admin" . '/includes/media.php');
 		}
 		
-		$attach_id = array();
-		
 		$has_thumbnail = true;
 		$has_thumbnail2 = true;
 		
@@ -153,6 +157,7 @@ else
 				else 
 				{
 					$attach_id[$file] = media_handle_upload( $file, $post_ID );
+					$attach[$file] = wp_get_attachment_url($attach_id[$file]);
 				}
 			}
 		}
@@ -169,7 +174,7 @@ else
 			}
 			elseif($key == 'thumbnail2' && $has_thumbnail2)
 			{
-				if( ! update_post_meta($post_ID,'thumbnail2', wp_get_attachment_url($attach_id['thumbnail2'])) )
+				if( ! update_post_meta($post_ID,'thumbnail2', $attach['thumbnail2'] ) )
 				{
 					$message[] = __('error on set post header image', 'minka');
 					$notice = true;
@@ -303,7 +308,11 @@ else
 					<?php _e('Image showed on listing, like on home or catalog!'); ?>
 				</div>
 			</label>
-			<input type="file" name="thumbnail" id="thumbnail" value="<?php echo array_key_exists('thumbnail', $_REQUEST) ? esc_url($_REQUEST['thumbnail']) : ''; ?>" onchange="displayPreview(this.files, 'thumbnail');" >
+			<input type="file" name="thumbnail" id="thumbnail" value="<?php ?>" onchange="displayPreview(this.files, 'thumbnail');" ><?php
+			if($has_thumbnail && array_key_exists('thumbnail', $attach))
+			{?>
+				<img src="<?php echo $attach['thumbnail']; ?>"><?php
+			}?>
 		</div>
 		<div class="images-thumbnail2">
 			<label for="thumbnail2" class="solution-item-label">
@@ -313,7 +322,11 @@ else
 					<?php _e('Image showed on Header!'); ?>
 				</div>
 			</label>
-			<input type="file" name="thumbnail2" id="thumbnail2" value="<?php echo array_key_exists('thumbnail2', $_REQUEST) ? esc_url($_REQUEST['thumbnail2']) : ''; ?>" onchange="displayPreview(this.files, 'thumbnail2');" >
+			<input type="file" name="thumbnail2" id="thumbnail2" value="<?php echo array_key_exists('thumbnail2', $_REQUEST) ? esc_url($_REQUEST['thumbnail2']) : ''; ?>" onchange="displayPreview(this.files, 'thumbnail2');" ><?php
+			if($has_thumbnail2 && array_key_exists('thumbnail2', $attach))
+			{?>
+				<img src="<?php echo $attach['thumbnail2']; ?>"><?php
+			}?>
 		</div>
 	</div>
 	<div class="category-group">
