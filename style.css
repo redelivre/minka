@@ -685,6 +685,8 @@ a:active {
     font-weight: bold;
     margin-top: 20px;
     text-align: center;
+    padding-bottom: 1em;
+    padding-top: 1em;
 }
 
 .comment-metadata time {
@@ -698,6 +700,21 @@ a:active {
 
 /* Rate - Experience*/
 
+.solution-single-post-rate {
+    background-color: #ff8300;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    color: #6e448f;
+    float: left;
+    padding: 1.5em 1.5em 0.25em;
+    width: 100%;
+    font-weight: bold;
+}
+
+.solution-single-post-exp-result-rating {
+    margin-left: 1em;
+}
+
 .solution-single-post-exp.needs-rating {
     background: none repeat scroll 0 0 #6e448f;
     color: #e9c42b;
@@ -705,7 +722,36 @@ a:active {
     padding: 10px;
 }
 
-.solution-single-post-list > h3 {
+.solution-single-post-form-rate, .solution-single-post-form-exp {
+    margin: 0 auto;
+    width: 40%;
+}
+
+.solution-single-post-experience-title {
+    float: left;
+}
+
+.solution-single-post-exp-form-entry {
+    display: block;
+    float: left;
+    margin-top: 1em;
+    width: 100%;
+}
+
+.solution-single-post-form-exp {
+    margin-bottom: 0.5em;
+    margin-top: 2em;
+}
+
+.rate-experience.rate-positive {
+    margin-left: 1em;
+}
+
+.rate-experience-label {
+    color: #fff;
+}
+
+.solution-single-post-exp-form-entry > h3 {
     color: #ff8300;
     font-size: 20px;
     font-weight: bold;
@@ -716,7 +762,6 @@ a:active {
 .solution-single-post-rate-title {
     float: left;
     margin-right: 10px;
-    padding-top: 6px;
 }
 
 .comment-form-bol {
@@ -1937,8 +1982,6 @@ object {
 .single-solution .solution-single-content {
 	background-color: #f3f3f3;
     border-bottom: 2px solid #eaeaea;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
     border-left: 2px solid #eaeaea;
     border-right: 2px solid #eaeaea;
     padding: 1.5em;

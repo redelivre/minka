@@ -69,27 +69,41 @@
 					<div class="solution-single-post-url">
 						<a href="<?php echo get_post_meta(get_the_ID(), 'solution-url', true); ?>" target="_blank" ><?php _e('view web site', 'minka')?></a>
 					</div>
-					<div class="solution-single-post-rate-result">
-						<div class="solution-single-post-rate-result-label">
-							<?php _e( 'Ease of use', 'minka' ); ?>
-						</div>
-						<div class="solution-single-post-rate-result-rating">
-							<?php the_rating(); ?>
-						</div>
-					</div>
-					<div class="solution-single-post-exp-result">
-						<div class="solution-single-post-exp-result-label">
-							<?php _e( 'Experience', 'minka' ); ?>
-						</div>
-						<div class="solution-single-post-exp-result-rating">
-							<?php the_experience(); ?>
-						</div>
-					</div>
 				</div>
+				<div class="solution-single-post-rate">
+						<div class="solution-single-post-rate-result">
+							<div class="solution-single-post-rate-result-label">
+								<?php _e( 'Ease of use', 'minka' ); ?>
+							</div>
+							<div class="solution-single-post-rate-result-rating">
+								<?php the_rating(); ?>
+							</div>
+						</div>
+						<div class="solution-single-post-exp-result">
+							<div class="solution-single-post-exp-result-label">
+								<?php _e( 'Experience', 'minka' ); ?>
+							</div>
+							<div class="solution-single-post-exp-result-rating">
+								<?php the_experience(); ?>
+							</div>
+						</div>
+				</div>
+				<div class="solution-single-post-exp-form-entry">
 					<h3><?php _e('Share your experience', 'minka');?></h3>
-				<div class="solution-single-post-exp needs-rating">
-					<h2 class="solution-single-post-rate-title"><?php _e("Usability", "minka"); ?></h2><?php the_rate_form(); ?>
-					<h2 class="solution-single-post-experience-title"><?php _e("Experience", "minka"); ?></h2><?php the_rate_formExperience(); ?>
+					<div class="solution-single-post-exp needs-rating">
+						<div class="solution-single-post-form-rate">
+							<h2 class="solution-single-post-rate-title">
+								<?php _e("Usability", "minka"); ?>
+							</h2>
+							<?php the_rate_form(); ?>
+						</div>
+						<div class="solution-single-post-form-exp">
+							<h2 class="solution-single-post-experience-title">
+								<?php _e("Experience", "minka"); ?>
+							</h2>
+							<?php the_rate_formExperience(); ?>
+						</div>
+					</div>
 				</div>
 				<div class="solution-single-post-comments">
 				<?php
