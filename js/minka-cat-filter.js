@@ -5,17 +5,32 @@ function minka_cat_search_checkbox_click()
         return jQuery(this).val();
     }).get();
 	
-	jQuery.ajax({
-		type   : 'post',
-		url    : 'http://' + window.location.host + '/wp-admin/admin-ajax.php',
-		data   : {
-			action: 'minka_search_solutions',
-			data: checkValues
-		},
-		success: function(response) {
-			jQuery('.category-solution-category-archive-list-itens').replaceWith(response);
+	if(jQuery('.category-solution-category-archive-list-itens').length)
+	{
+		jQuery.ajax({
+			type   : 'post',
+			url    : 'http://' + window.location.host + '/wp-admin/admin-ajax.php',
+			data   : {
+				action: 'minka_search_solutions',
+				data: checkValues
+			},
+			success: function(response) {
+				jQuery('.category-solution-category-archive-list-itens').replaceWith(response);
+			}
+		});
+	}
+	else
+	{
+		checkValuesStr = '';
+		
+		for (index = 0; index < checkValues.length; index++)
+		{
+			checkValuesStr += 'taxonomy_category\[\]=' + checkValues[index] + '&';
 		}
-	});
+		
+		window.location.assign(' http://' + window.location.host + '/solution?' + checkValuesStr);
+	    return false;
+	}
 }
 
 jQuery(document).ready(function () {

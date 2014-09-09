@@ -1151,7 +1151,7 @@ object {
 .login-text
 {
 	float: left;
-	margin: 1em 1em 0 0;
+	margin: 1em 0.5em 0 0;
 	vertical-align: middle;
 }
 
@@ -2580,7 +2580,73 @@ object {
 
 .network-page-box-text p:last-child {
 	margin-bottom: 0;
-} 
+}
+
+/*--------------------------------------------------------------
+	27 authors.php Authors archive template
+--------------------------------------------------------------*/
+
+.templeta-authors-entry {
+	margin: 0 auto;
+	width: 86%;
+}
+
+.authors-list {
+    float: left;
+    width: 70%;
+}
+
+.templeta-authors-entry .network-sidebar {
+    float: left;
+    margin-left: 2em;
+    width: 27%;
+}
+
+.author-box {
+    background: none repeat scroll 0 0 yellow;
+    margin-bottom: 2em;
+    padding: 1em;
+    width: 100%;
+    float: left;
+    color: gray;
+}
+
+.author-image-bol img {
+    border-radius: 50px;
+    float: left;
+}
+
+.author-infos {
+    float: left;
+    margin-left: 1em;
+}
+
+.author-nicename {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.author-content {
+    float: left;
+    margin-top: 3em;
+    width: 100%;
+}
+
+.author-solutions {
+    float: left;
+    width: 100%;
+}
+
+.author-solutions-link {
+    background-color: orange;
+    border-radius: 30px;
+    color: #fff;
+    float: right;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 0.25em 4em;
+    text-decoration: none;
+}
 
 /*--------------------------------------------------------------
  Media queries

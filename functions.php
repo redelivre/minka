@@ -439,6 +439,56 @@ class Minka{
 			$page->post_type = 'page'; // have to be a page
 			update_post_meta($page->ID, '_wp_page_template', 'archives.php');
 		}
+		else
+		{
+			// Create post object
+			$my_post = array(
+					'post_title'    => 'Blog Archive',
+					'post_content'  => '',
+					'post_status'   => 'publish',
+					'post_author'   => 1,
+					'post_type'		=> 'page',
+					'post_name'		=> 'blog'
+			);
+				
+			// Insert the post into the database
+			wp_insert_post( $my_post );
+			update_post_meta($page->ID, '_wp_page_template', 'archives.php');
+		}
+		
+		//TODO move this to theme setup
+		$the_slug = 'authors';
+		
+		$args=array(
+				'name' => $the_slug,
+				'post_type' => 'any',
+				'post_status' => 'publish',
+				'numberposts' => 1
+		);
+		$pages = get_posts($args);
+		if( $pages ) // there is a /authors
+		{
+			$page = $pages[0];
+			$page->post_type = 'page'; // have to be a page
+			update_post_meta($page->ID, '_wp_page_template', 'authors.php');
+		}
+		else 
+		{
+			// Create post object
+			$my_post = array(
+					'post_title'    => 'Authors Archive',
+					'post_content'  => '',
+					'post_status'   => 'publish',
+					'post_author'   => 1,
+					'post_type'		=> 'page',
+					'post_name'		=> 'authors'
+			);
+			
+			// Insert the post into the database
+			wp_insert_post( $my_post );
+			update_post_meta($page->ID, '_wp_page_template', 'authors.php');
+		}
+		
 	}
 	
 	public static function getSolutionsList($term = null)

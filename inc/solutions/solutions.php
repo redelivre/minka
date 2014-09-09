@@ -446,7 +446,7 @@ class Solutions
 		}
 		if ($parent > 0)
 		{?>
-				<ul class='children'><?php
+			<ul class='children'><?php
 		}
 		$index = 1;
 		foreach ($terms as $term)
