@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Minka Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-23 21:08-0300\n"
+"POT-Creation-Date: 2014-09-09 13:22-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jacson Passold <jacson@ethymos.com.br>\n"
 "Language-Team: \n"
@@ -22,85 +22,89 @@ msgstr ""
 
 #: ../home_category_list.php:41
 msgid "View All"
-msgstr "Ver Todo"
+msgstr "Ver todos"
+
+#: ../searchform.php:6
+msgid "Search"
+msgstr "Búsqueda"
 
 #: ../footer.php:17 ../inc/customizer.php:98
 msgid "Redes Amigas de MINKA"
-msgstr "Redes Amigas de MINKA"
+msgstr "Redes amigas de MINKA"
 
 #: ../footer.php:32 ../inc/customizer.php:109
 msgid ""
 "Minka - Banco de las redes. Todos los derechos reservados, copyright 2014"
 msgstr ""
-"Minka - Banco de Las Redes. Derechos reservados Todos los, copyright 2014"
+"Minka - Banco de Las Redes. Todos los derechos reservados, copyright 2014."
 
-#: ../archive.php:27
+#: ../archive.php:35
 #, php-format
 msgid "Author: %s"
 msgstr "Autor: %s"
 
-#: ../archive.php:30
+#: ../archive.php:38
 #, php-format
 msgid "Day: %s"
 msgstr "Día: %s"
 
-#: ../archive.php:33
+#: ../archive.php:41
 #, php-format
 msgid "Month: %s"
 msgstr "Mes: %s"
 
-#: ../archive.php:33
+#: ../archive.php:41
 msgctxt "monthly archives date format"
 msgid "F Y"
-msgstr "F Y (ej: Abril 2014)"
+msgstr "M A"
 
-#: ../archive.php:36
+#: ../archive.php:44
 #, php-format
 msgid "Year: %s"
 msgstr "Año: %s"
 
-#: ../archive.php:36
+#: ../archive.php:44
 msgctxt "yearly archives date format"
 msgid "Y"
-msgstr "Y (ej: 2014)"
+msgstr "A"
 
-#: ../archive.php:39
+#: ../archive.php:47
 msgid "Asides"
 msgstr "Apartados"
 
-#: ../archive.php:42
+#: ../archive.php:50
 msgid "Galleries"
 msgstr "Galerías"
 
-#: ../archive.php:45
+#: ../archive.php:53
 msgid "Images"
-msgstr "Im&aacute;genes"
+msgstr "Imágenes"
 
-#: ../archive.php:48
+#: ../archive.php:56
 msgid "Videos"
-msgstr "Vídeos"
+msgstr "Videos"
 
-#: ../archive.php:51
+#: ../archive.php:59
 msgid "Quotes"
 msgstr "Citas"
 
-#: ../archive.php:54
+#: ../archive.php:62
 msgid "Links"
 msgstr "Enlaces"
 
-#: ../archive.php:57
+#: ../archive.php:65
 msgid "Statuses"
 msgstr "Estados"
 
-#: ../archive.php:60
+#: ../archive.php:68
 msgid "Audios"
 msgstr "Audios"
 
-#: ../archive.php:63
+#: ../archive.php:71
 msgid "Chats"
 msgstr "Chats"
 
-#: ../archive.php:66
+#: ../archive.php:74
 msgid "Archives"
 msgstr "Archivos"
 
@@ -108,97 +112,243 @@ msgstr "Archivos"
 msgid "Skip to content"
 msgstr "Ir a la página"
 
-#: ../header.php:43
+#: ../header.php:28
+msgid "click and drag the buttom to change language"
+msgstr "Haga clic y arrastre el boton para cambiar el idioma"
+
+#: ../header.php:45
 msgid "Login"
 msgstr "Acceder"
 
-#: ../header.php:50
+#: ../header.php:52
 msgid "Bem Vindo"
-msgstr "Bem vindeano"
+msgstr "Bienvenido"
 
-#: ../single-solution.php:30
+#: ../archives.php:56
+#, php-format
+msgid ""
+"To display your featured posts here go to the <a href=\"%s\">Post Edit Page</"
+"a> and check the \"Feature\" box. You can select how many posts you want, "
+"but use it wisely."
+msgstr ""
+"Para visualizar tus mensajes destacados aquí van a la <a href = \" %s \"> "
+"Mensaje Editar página </a> y marque la casilla \" Feature \". Usted puede "
+"seleccionar la cantidad de mensajes que quieras, pero utilizarlo sabiamente."
+
+#: ../single-solution.php:33
 msgid "View the Catalog"
 msgstr "Ver el Catálogo"
 
-#: ../single-solution.php:37
+#: ../single-solution.php:46
 msgid "Region"
 msgstr "Región"
 
-#: ../single-solution.php:41
+#: ../single-solution.php:50 ../inc/solutions/solutions.php:133
 msgid "Description"
 msgstr "Descripción"
 
-#: ../single-solution.php:45
+#: ../single-solution.php:54
 msgid "Who can use"
-msgstr "¿Quién puede utilizar"
+msgstr "¿Quién puede utilizar?"
 
-#: ../single-solution.php:49
+#: ../single-solution.php:58
 msgid "Useful tips and facts"
-msgstr "Consejos útiles y hechos"
+msgstr "Consejos útiles "
 
-#: ../single-solution.php:53
+#: ../single-solution.php:62
 msgid "Appreciation"
 msgstr "Apreciación"
 
-#: ../single-solution.php:57
+#: ../single-solution.php:66
 msgid "Tags"
 msgstr "Etiquetas"
 
-#: ../single-solution.php:61
+#: ../single-solution.php:70
 msgid "view web site"
 msgstr "ver sitio web"
 
-#: ../single-solution.php:65
-msgid "Share your experience"
-msgstr "Contanos tu experiencia"
-
-#: ../single-solution.php:66
-msgid "Usability"
+#: ../single-solution.php:76
+msgid "Ease of use"
 msgstr "Facilidad de uso"
 
-#: ../single-solution.php:67
+#: ../single-solution.php:84 ../single-solution.php:102
 msgid "Experience"
 msgstr " Experiencia"
 
-#: ../functions.php:57
+#: ../single-solution.php:92
+msgid "Share your experience"
+msgstr "Contanos tu experiencia"
+
+#: ../single-solution.php:96
+msgid "Usability"
+msgstr "Usabilidad"
+
+#: ../archive-solution-category.php:23
+msgid "Result for category"
+msgstr "Los resultados por categoría"
+
+#: ../archive-solution-category.php:30
+msgid "Result for"
+msgstr "Resultados para"
+
+#: ../functions.php:66
 msgid "Primary Menu"
 msgstr "Menú Principal"
 
-#: ../functions.php:167
+#: ../functions.php:196
 msgid "Share on Google+"
 msgstr "Compartir en Google+"
 
-#: ../functions.php:168
+#: ../functions.php:197
 msgid "Share on Youtube"
 msgstr "Compartir en Youtube"
 
-#: ../functions.php:169
+#: ../functions.php:198
 msgid "Share on Twitter"
 msgstr "Compartir en Twitter"
 
-#: ../functions.php:170
+#: ../functions.php:199
 msgid "Share on Facebook"
 msgstr "Compartir en Facebook"
 
-#: ../functions.php:185
+#: ../functions.php:214
 msgid "Home Sidebar"
-msgstr "Inicio de barra lateral"
+msgstr "Barra lateral de inicio"
 
-#: ../functions.php:194
+#: ../functions.php:223
 msgid "Footer Widget Area Top"
-msgstr "Pie de página Widget zona Top"
+msgstr "Widget Topo en pie del página "
 
-#: ../functions.php:203
+#: ../functions.php:232
 msgid "Footer Widget Area Bottom"
-msgstr "Pie de página Widget Area Bottom"
+msgstr "Bajo Widget en pie del página"
 
-#: ../functions.php:228
+#: ../functions.php:241
+#, fuzzy
+msgid "Solution Sidebar"
+msgstr "Barra lateral de la Solución"
+
+#: ../functions.php:254
+#, fuzzy
+msgid "Blog Sidebar"
+msgstr "Barra lateral del Blog"
+
+#: ../functions.php:267
+#, fuzzy
+msgid "Network Template Sidebar"
+msgstr "Inicio de la barra lateral"
+
+#: ../functions.php:282
 msgid "Iniciar"
 msgstr "Iniciar"
 
-#: ../home.php:15
+#: ../functions.php:392
+#, fuzzy
+msgid "Page Categories"
+msgstr "Página de las Categorías"
+
+#: ../functions.php:393
+msgid "Page Category"
+msgstr "Página de la Categoría"
+
+#: ../functions.php:394
+msgid "Search for Page Category"
+msgstr "Buscar por las Categorías de las Páginas"
+
+#: ../functions.php:395
+msgid "All Page Categories"
+msgstr "toda página categorías"
+
+#: ../functions.php:396
+msgid "Page Category parent"
+msgstr "Categoría padre"
+
+#: ../functions.php:397
+msgid "Page Category parent:"
+msgstr "Categoría padre"
+
+#: ../functions.php:398
+msgid "Edit Page Caterory"
+msgstr "Editar Categoría"
+
+#: ../functions.php:399
+msgid "Update Page Caterory"
+msgstr "Actualizar Categoría"
+
+#: ../functions.php:400
+msgid "Add new Page Caterory"
+msgstr "Añadir nueva Categoría"
+
+#: ../functions.php:401 ../inc/solutions/solutions.php:68
+msgid "Add new"
+msgstr "Añadir nuevo"
+
+#: ../functions.php:402
+msgid "New Page Caterory"
+msgstr "Nueva Categoría de página"
+
+#: ../functions.php:403
+msgid "View Page Caterory"
+msgstr "Ver Categoría de página"
+
+#: ../functions.php:404
+msgid "no Page Caterory founded"
+msgstr "Categoría no encontrada"
+
+#: ../functions.php:405
+msgid "no Page Caterory founded in trash"
+msgstr "Categoría no encontrada en la basura"
+
+#: ../functions.php:406 ../functions.php:411
+msgid "Page Caterories"
+msgstr "Categorías de página"
+
+#: ../functions.php:727
+msgid "Extra profile information"
+msgstr "Información extra del perfil"
+
+#: ../functions.php:731
+msgid "City"
+msgstr "Ciudad"
+
+#: ../functions.php:734
+msgid "Please enter your City."
+msgstr "Introduzca su Ciudad."
+
+#: ../functions.php:738
+#, fuzzy
+msgid "Country"
+msgstr "País"
+
+#: ../functions.php:741
+msgid "Please enter your Country."
+msgstr "Introduzca su País."
+
+#: ../functions.php:745
+msgid "Organization"
+msgstr "Organización"
+
+#: ../functions.php:748
+#, fuzzy
+msgid "Please enter your Organization."
+msgstr "Introduzca su Ciudad."
+
+#: ../functions.php:797
+#, fuzzy
+msgid "Network template content"
+msgstr "Inicio de la barra lateral"
+
+#: ../functions.php:804 ../network.php:33
+msgid "Who and where are the protagonists of the collaborative economy"
+msgstr "¿Quién y dónde están los protagonistas de la economía colaborativa?"
+
+#: ../functions.php:823
+msgid "Text Before Map"
+msgstr "Texto antes el mapa"
+
+#: ../home.php:17
 msgid "Invalid Media URL"
-msgstr "Medio no válido URL"
+msgstr "URL del medio no válido "
 
 #: ../404.php:15
 msgid "Oops! That page can&rsquo;t be found."
@@ -225,12 +375,12 @@ msgstr "Intenta buscar en los archivos mensuales. %1$s"
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Seguir leyendo <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../content.php:22 ../content-page.php:18 ../content-single.php:20
+#: ../content.php:22 ../content-page.php:29 ../content-single.php:31
 msgid "Pages:"
 msgstr "Páginas:"
 
 #: ../content.php:32 ../content.php:42 ../content-search.php:30
-#: ../content-search.php:40 ../content-single.php:29 ../content-single.php:32
+#: ../content-search.php:40 ../content-single.php:40 ../content-single.php:43
 msgid ", "
 msgstr ", "
 
@@ -242,7 +392,7 @@ msgstr "Publicado en %1$s"
 #: ../content.php:46 ../content-search.php:44
 #, php-format
 msgid "Tagged %1$s"
-msgstr "Etiquetas %1$s"
+msgstr "Etiquetado %1$s"
 
 #: ../content.php:52 ../content-search.php:50
 msgid "Leave a comment"
@@ -254,10 +404,10 @@ msgstr "1 Comentario"
 
 #: ../content.php:52 ../content-search.php:50
 msgid "% Comments"
-msgstr "% comentarios"
+msgstr "% Comentarios"
 
-#: ../content.php:55 ../content-page.php:24 ../content-search.php:53
-#: ../content-single.php:60
+#: ../content.php:55 ../content-page.php:35 ../content-search.php:53
+#: ../content-single.php:71
 msgid "Edit"
 msgstr "Editar"
 
@@ -266,27 +416,27 @@ msgstr "Editar"
 msgid "Search Results for: %s"
 msgstr "Resultados de la búsqueda para: %s"
 
-#: ../comments.php:28
+#: ../comments.php:29
 #, php-format
 msgctxt "comments title"
 msgid "One thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] "Un comentario en &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s comentarios en &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s comentario en &ldquo;%2$s&rdquo;"
 
-#: ../comments.php:35 ../comments.php:52
+#: ../comments.php:36 ../comments.php:53
 msgid "Comment navigation"
 msgstr "Navegación de comentarios"
 
-#: ../comments.php:36 ../comments.php:53
-msgid "&larr; Older Comments"
-msgstr "&larr; Comentarios más antiguos"
-
 #: ../comments.php:37 ../comments.php:54
-msgid "Newer Comments &rarr;"
-msgstr "Comentarios recientes &rarr;"
+msgid "&larr; Older Comments"
+msgstr "Comentarios más antiguos"
 
-#: ../comments.php:64
+#: ../comments.php:38 ../comments.php:55
+msgid "Newer Comments &rarr;"
+msgstr "Comentarios recientes  "
+
+#: ../comments.php:65
 msgid "Comments are closed."
 msgstr "Los comentarios están cerrados."
 
@@ -314,10 +464,14 @@ msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
-"Parece que no podemos encontrar lo que estás buscando. Puede que el buscador "
+"Parece que no podemos encontrar lo que estás buscando. Tal vez el buscador "
 "pueda ayudar."
 
-#: ../content-single.php:37
+#: ../network.php:42
+msgid "To join the map"
+msgstr "Para participar en el mapa"
+
+#: ../content-single.php:48
 #, php-format
 msgid ""
 "This entry was tagged %2$s. Bookmark the <a href=\"%3$s\" rel=\"bookmark"
@@ -326,12 +480,12 @@ msgstr ""
 "Esta entrada fue etiquetada como %2$s . Guarda el <a href = \" %3$s \"rel = "
 "\" bookmark \"> enlace </ a>."
 
-#: ../content-single.php:39
+#: ../content-single.php:50
 #, php-format
 msgid "Bookmark the <a href=\"%3$s\" rel=\"bookmark\">permalink</a>."
 msgstr "Guarda el <a href = \" %3$s \"rel = \" bookmark \"> enlace </ a>."
 
-#: ../content-single.php:45
+#: ../content-single.php:56
 #, php-format
 msgid ""
 "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" "
@@ -340,7 +494,7 @@ msgstr ""
 "Esta entrada fue publicada en %1$s y etiquetada %2$s . Guarda el <a href = "
 "\" %3$s \"rel = \" bookmark \"> enlace </ a>."
 
-#: ../content-single.php:47
+#: ../content-single.php:58
 #, php-format
 msgid ""
 "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" rel=\"bookmark"
@@ -351,59 +505,86 @@ msgstr ""
 
 #: ../inc/customizer.php:22
 msgid "Cor de fundo do cabeçalho"
-msgstr "Cor de fundo do cabeçalho"
+msgstr "Color de fondo de la cabecera"
 
 #: ../inc/customizer.php:26
 msgid "Cor de fundo do rodapé"
-msgstr "Cor de fundo do Rodapé"
+msgstr "Color de fondo del pie de página"
 
 #: ../inc/customizer.php:30
 msgid "Cor de fundo da coluna 2"
-msgstr "Cor de fundo da coluna 2"
+msgstr "Color de fondo de la columna 2"
 
 #: ../inc/customizer.php:34
 msgid "Cor da fonte do conteúdo"
-msgstr "Cor da Fonte do conteúdo"
+msgstr "Color de la fuente del contenido"
 
 #: ../inc/customizer.php:38
 msgid "Cor da fonte do cabeçalho"
-msgstr "Cor da Fonte do cabeçalho"
+msgstr "Color de la fuente de la cabecera"
 
 #: ../inc/customizer.php:42
 msgid "Cor da fonte dos títulos"
-msgstr "Cor da fonte dos Títulos"
+msgstr "Color de la fuente de los títulos"
 
 #: ../inc/customizer.php:46
 msgid "Cor da fonte do conteúdo da coluna 2 (sobre o formulário)"
-msgstr "Cor da Fonte do conteúdo da coluna 2 (sobre o Formulário)"
+msgstr "Color de la fuente del contenido de la columna 2 (en el formulario)"
 
 #: ../inc/customizer.php:55
 msgid "Logo"
-msgstr "Logotipo"
+msgstr "Logo"
 
-#: ../inc/customizer.php:66 ../inc/customizer.php:121
-msgid "Cabeçalho"
-msgstr "Cabeçalho"
+#: ../inc/customizer.php:66
+msgid "Header Logo"
+msgstr "Logo de la cabecera"
 
 #: ../inc/customizer.php:82
 msgid "Conteúdo"
-msgstr "Conteúdo"
+msgstr "Contenido"
 
 #: ../inc/customizer.php:104
 msgid "Footer Title"
-msgstr "Pie de página Título"
+msgstr "Título del Pie de página"
 
 #: ../inc/customizer.php:115
 msgid "Footer Text"
 msgstr "Texto del Pie de página"
 
-#: ../inc/customizer.php:130
+#: ../inc/customizer.php:126
+#, fuzzy
+msgid "Display Home Video"
+msgstr "Mostrar imagen de la entrada?"
+
+#: ../inc/customizer.php:133
+msgid "http://youtu.be/TDwB0Z9s5nE"
+msgstr "http://youtu.be/TDwB0Z9s5nE"
+
+#: ../inc/customizer.php:139
+msgid "Home Video URL (copy only the video url)"
+msgstr "URL del vídeo de inicio (solo copia la URL del video)"
+
+#: ../inc/customizer.php:149
 msgid "Imagem de fundo do destaque"
-msgstr "Imagem de fundo do destaque"
+msgstr "Imagen de fondo del destaque"
+
+#: ../inc/customizer.php:181
+msgid "Category "
+msgstr "categoría"
+
+#: ../inc/customizer.php:190
+#, fuzzy
+msgid "Select Category "
+msgstr "Seleccione una categoría"
+
+#: ../inc/customizer.php:196
+#, fuzzy
+msgid "Background Color of Category "
+msgstr "Color de fondo de la categoría"
 
 #: ../inc/template-tags.php:21
 msgid "Posts navigation"
-msgstr "Mensajes de navegación"
+msgstr "Navegación de las entradas"
 
 #: ../inc/template-tags.php:25
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
@@ -420,18 +601,18 @@ msgstr "Navegación de las entradas"
 #: ../inc/template-tags.php:55
 msgctxt "Previous post link"
 msgid "<span class=\"meta-nav\">&larr;</span> %title"
-msgstr "<span class=\"meta-nav\"> ← </ span> %t í tulo"
+msgstr "<span class=\"meta-nav\"> ← </ span> %título"
 
 #: ../inc/template-tags.php:56
 msgctxt "Next post link"
 msgid "%title <span class=\"meta-nav\">&rarr;</span>"
-msgstr "%t í tulo <span class=\"meta-nav\"> → </ span>"
+msgstr "%título <span class=\"meta-nav\"> → </ span>"
 
 #: ../inc/template-tags.php:82
 #, php-format
 msgctxt "post date"
 msgid "Posted on %s"
-msgstr "Publicado el %s"
+msgstr "Publicado en %s"
 
 #: ../inc/template-tags.php:87
 #, php-format
@@ -444,45 +625,207 @@ msgstr "por%s"
 msgid "Page %s"
 msgstr "Página %s"
 
+#: ../inc/WP_Customize_Image_Reloaded_Control.php:66
+msgid "Default image"
+msgstr "Imagen inexistente"
+
+#: ../inc/LinkTranslationWidget.php:10
+msgid ""
+"This widget allows you to set different link categories to display based on "
+"a language setting."
+msgstr ""
+"Este widget le permite seleccionar diferentes categorías de enlaces a "
+"mostrar en base a una configuración de idioma."
+
+#: ../inc/LinkTranslationWidget.php:15
+#, fuzzy
+msgid "WPML Links"
+msgstr "WPML Enlaces"
+
+#: ../inc/LinkTranslationWidget.php:77
+#, fuzzy
+msgid "Select Link Category"
+msgstr "Seleccione la categoría del enlace"
+
+#: ../inc/LinkTranslationWidget.php:96
+msgid "Show Link Image"
+msgstr "Mostrar la imagen del enlac"
+
+#: ../inc/LinkTranslationWidget.php:98
+msgid "Show Link Name"
+msgstr "Mostrar el nombre del enlace"
+
+#: ../inc/LinkTranslationWidget.php:100
+#, fuzzy
+msgid "Show Link Description"
+msgstr "Mostrar descripción del enlace"
+
+#: ../inc/LinkTranslationWidget.php:102
+msgid "Show Link Rating"
+msgstr "Mostrar puntuación del enlace"
+
 #: ../inc/widgets.php:7
 msgid "Most recent Posts of a category."
 msgstr "Publicaciones más recientes de una categoría."
 
 #: ../inc/widgets.php:8
 msgid "Recent Posts of Category"
-msgstr "Mensajes recientes de la categoría"
+msgstr "Entradas recientes de la categoría"
 
-#: ../inc/widgets.php:21
+#: ../inc/widgets.php:20
 msgid "Select Category"
 msgstr "Seleccione una categoría"
 
-#: ../inc/rate/rate.php:118
+#: ../inc/widgets.php:66
+msgid "Display as checkbox"
+msgstr "Mostrar como casilla"
+
+#: ../inc/widgets.php:83
+#, fuzzy
+msgid "Categories"
+msgstr "Categorías"
+
+#: ../inc/widgets.php:102
+msgid "Your site&#8217;s most recent Posts."
+msgstr "Su sítio&#8217;s entradas más recientes."
+
+#: ../inc/widgets.php:103 ../inc/widgets.php:152
+#, fuzzy
+msgid "Recent Posts"
+msgstr "Entradas recientes"
+
+#: ../inc/widgets.php:124
+msgid "Display post image?"
+msgstr "Mostrar imagen de la entrada?"
+
+#: ../inc/widgets.php:207
+msgid "User logged in Profile."
+msgstr "Usuario registrado en Perfil."
+
+#: ../inc/widgets.php:208
+msgid "My Profile"
+msgstr "Mi perfil"
+
+#: ../inc/widgets.php:216 ../inc/widgets.php:284
+msgid "Title:"
+msgstr "Título:"
+
+#: ../inc/widgets.php:232
+msgid "Profile"
+msgstr "Perfil"
+
+#: ../inc/widgets.php:256
+msgid "Edit my Profile"
+msgstr "Editar mi perfil"
+
+#: ../inc/widgets.php:275
+msgid "List some register statistics."
+msgstr "Haga una lista de las estadísticas del registro."
+
+#: ../inc/widgets.php:276
+msgid "Register Statistics"
+msgstr "Registrar Estadísticas"
+
+#: ../inc/widgets.php:315
+msgid "network"
+msgstr "red"
+
+#: ../inc/widgets.php:316 ../inc/solutions/solutions.php:35
+#, fuzzy
+msgid "country"
+msgid_plural "countries"
+msgstr[0] "país"
+msgstr[1] "país"
+
+#: ../inc/widgets.php:317
+msgid "member"
+msgid_plural "members"
+msgstr[0] "miembro"
+msgstr[1] "miembro"
+
+#: ../inc/rate/rate.php:143
 msgid "positive"
 msgstr "Positivo"
 
-#: ../inc/rate/rate.php:119
+#: ../inc/rate/rate.php:144
 msgid "negative"
-msgstr "negativo"
+msgstr "Negativo"
 
-#: ../inc/rate/rate.php:120
+#: ../inc/rate/rate.php:145
 msgid "do not use"
-msgstr "no utilice"
+msgstr "No utilice"
 
-#: ../inc/rate/rate.php:162
+#: ../inc/rate/rate.php:187
 msgid "anonymous"
-msgstr "anónimo"
-
-#: ../inc/solutions/new-solution.php:10
-msgid "Invalid post type"
-msgstr "Tipo de mensaje no válido"
+msgstr "Anónimo"
 
 #: ../inc/solutions/new-solution.php:15
-msgid "Cheatin&#8217; uh?"
-msgstr "Haciendo trampas ¿eh?"
+msgid "Invalid post type"
+msgstr "Tipo de entrada no válida"
+
+#: ../inc/solutions/new-solution.php:23
+msgid ""
+"You do not have access to this page, please make login or change your login "
+"account"
+msgstr ""
+"No tiene acceso a esta página, por favor ingresa o cambia tu cuenta de "
+"inicio de sesión"
+
+#: ../inc/solutions/new-solution.php:68
+#, fuzzy
+msgid "required field"
+msgstr "campo obligatorio "
+
+#: ../inc/solutions/new-solution.php:68
+msgid "is empty"
+msgstr "esta vacío"
+
+#: ../inc/solutions/new-solution.php:119
+#, fuzzy
+msgid "error on set post taxonomy"
+msgstr "Error al crear taxonomía "
+
+#: ../inc/solutions/new-solution.php:143
+msgid "error on set post thumbnail image"
+msgstr "Error al crear miniatura de la entrada"
+
+#: ../inc/solutions/new-solution.php:147 ../inc/solutions/new-solution.php:179
+msgid "error on set post header image"
+msgstr "Error al crear imagen de cabecera"
+
+#: ../inc/solutions/new-solution.php:151
+msgid "error on set post images"
+msgstr "Error al crear imagens del entrada"
+
+#: ../inc/solutions/new-solution.php:171
+msgid "error on set post thumbnail"
+msgstr "Error al crear miniatura"
+
+#: ../inc/solutions/new-solution.php:197
+msgid "A new solution was successfully created and waiting approval, thanks"
+msgstr ""
+"Una nueva solución se ha creado con éxito, espera que sea aprobada, gracias."
+
+#: ../inc/solutions/new-solution.php:305
+msgid "Highlight Image"
+msgstr "Resalte imagen"
+
+#: ../inc/solutions/new-solution.php:308
+msgid "Image showed on listing, like on home or catalog!"
+msgstr "Imagen mostró el perfil, como en casa o catálogo!"
+
+#: ../inc/solutions/new-solution.php:319
+#, fuzzy
+msgid "Header Image"
+msgstr "Imagen de la cabecera de la solución"
+
+#: ../inc/solutions/new-solution.php:322
+msgid "Image showed on Header!"
+msgstr "Imagen mostró el encabezado!"
 
 #: ../inc/solutions/solutions.php:11
 msgid "URL"
-msgstr "URL áéíóú"
+msgstr "URL"
 
 #: ../inc/solutions/solutions.php:12
 msgid "web site address"
@@ -498,7 +841,7 @@ msgstr "para servir"
 
 #: ../inc/solutions/solutions.php:24
 msgid "to whom it is addressed"
-msgstr "a las que se dirige"
+msgstr "a quien se dirige"
 
 #: ../inc/solutions/solutions.php:25
 msgid "coverage"
@@ -510,15 +853,11 @@ msgstr "para compartir"
 
 #: ../inc/solutions/solutions.php:30
 msgid "sharing"
-msgstr "compartición"
+msgstr "compartir"
 
 #: ../inc/solutions/solutions.php:34
 msgid "available to countries"
-msgstr "disposición de los países"
-
-#: ../inc/solutions/solutions.php:35
-msgid "country"
-msgstr "país"
+msgstr "Disponible para:"
 
 #: ../inc/solutions/solutions.php:39
 msgid "Contact"
@@ -526,52 +865,78 @@ msgstr "Contacto "
 
 #: ../inc/solutions/solutions.php:40
 msgid "e-mail"
-msgstr "e-mail"
+msgstr "correo electrónico"
 
-#: ../inc/solutions/solutions.php:65 ../inc/solutions/solutions.php:76
-#: ../inc/solutions/solutions.php:82 ../inc/solutions/solutions.php:84
+#: ../inc/solutions/solutions.php:66 ../inc/solutions/solutions.php:77
+#: ../inc/solutions/solutions.php:83 ../inc/solutions/solutions.php:85
 msgid "Solutions"
 msgstr "Soluciones"
 
-#: ../inc/solutions/solutions.php:66
+#: ../inc/solutions/solutions.php:67
 msgid "Solution"
 msgstr "Solución"
 
-#: ../inc/solutions/solutions.php:67
-msgid "Add new"
-msgstr "Añadir nuevo"
-
-#: ../inc/solutions/solutions.php:68
+#: ../inc/solutions/solutions.php:69
 msgid "Add new solution"
 msgstr "Añadir nueva solución"
 
-#: ../inc/solutions/solutions.php:69
+#: ../inc/solutions/solutions.php:70
 msgid "Edit solution"
 msgstr "Editar solución"
 
-#: ../inc/solutions/solutions.php:70
+#: ../inc/solutions/solutions.php:71
 msgid "New Solution"
 msgstr "Nueva solución"
 
-#: ../inc/solutions/solutions.php:71
+#: ../inc/solutions/solutions.php:72
 msgid "View Solution"
 msgstr "Ver Solución"
 
-#: ../inc/solutions/solutions.php:72
+#: ../inc/solutions/solutions.php:73
 msgid "Search Solution"
 msgstr "Búsqueda de soluciones"
 
-#: ../inc/solutions/solutions.php:73
-msgid "Solution not found"
-msgstr "Solución no encontrado"
-
 #: ../inc/solutions/solutions.php:74
-msgid "Solution not found in the trash"
-msgstr "Solución No se encontró en la basura"
+msgid "Solution not found"
+msgstr "Solución no encontrada"
 
-#: ../inc/solutions/solutions.php:349
+#: ../inc/solutions/solutions.php:75
+msgid "Solution not found in the trash"
+msgstr "Solución no encontrada en la basura"
+
+#: ../inc/solutions/solutions.php:115
+#, fuzzy
+msgid "Solution Details"
+msgstr "Detalles de la solución"
+
+#: ../inc/solutions/solutions.php:116
+msgid "Solution Header Image"
+msgstr "Imagen de la cabecera de la solución"
+
+#: ../inc/solutions/solutions.php:126
+#, fuzzy
+msgid "Solution name"
+msgstr "Nombre de la Solución"
+
+#: ../inc/solutions/solutions.php:134
+msgid "Maximum 300 characters"
+msgstr "Máximo 300 caracteres"
+
+#: ../inc/solutions/solutions.php:188
+msgid "File Upload"
+msgstr "Carga de archivos"
+
+#: ../inc/solutions/solutions.php:190 ../inc/solutions/solutions.php:422
+msgid "Choose or Upload an Image"
+msgstr "Elija o Suba una imagen"
+
+#: ../inc/solutions/solutions.php:255
 msgid "Auto Draft"
-msgstr "Proyecto de Auto"
+msgstr "Proyecto automatico"
+
+#: ../inc/solutions/solutions.php:423
+msgid "Use this image"
+msgstr "Utilice esta imagen"
 
 #: ../inc/categories-images/categories-images.php:59
 #: ../inc/categories-images/categories-images.php:80
@@ -588,7 +953,7 @@ msgstr "Subir / Añadir imagen"
 #: ../inc/categories-images/categories-images.php:83
 #: ../inc/categories-images/categories-images.php:209
 msgid "Remove image"
-msgstr "Retire la imagen"
+msgstr "Quitar imagen"
 
 #: ../inc/categories-images/categories-images.php:244
 msgid "Thumbnail"
@@ -597,25 +962,31 @@ msgstr "Miniatura"
 #: ../inc/categories-images/categories-images.php:264
 #: ../inc/categories-images/categories-images.php:271
 msgid "Categories Images settings"
-msgstr "Competiciones Imágenes ajustes"
+msgstr "Ajuste de las imágenes por categoría"
 
 #: ../inc/categories-images/categories-images.php:264
 #: ../inc/categories-images/categories-images.php:302
 msgid "Categories Images"
-msgstr "Competiciones Imágenes"
+msgstr "Categoría de las Imágenes"
 
 #: ../inc/categories-images/categories-images.php:272
 msgid "Excluded Taxonomies"
-msgstr "Las taxonomías Excluidos"
+msgstr "Las taxonomías excluidas"
 
 #: ../inc/categories-images/categories-images.php:277
 msgid ""
 "Please select the taxonomies you want to exclude it from Categories Images "
 "plugin"
 msgstr ""
-"Por favor, seleccione las taxonomías que desea excluirlo de Competiciones "
-"Imágenes Plugin"
+"Por favor, seleccione las taxonomías que desea excluir del plugin de "
+"imágenes por categoría."
 
 #: ../inc/categories-images/categories-images.php:297
 msgid "You do not have sufficient permissions to access this page."
 msgstr "No tienes permisos suficientes para acceder a esta página."
+
+#~ msgid "Cabeçalho"
+#~ msgstr "Cabeçalho"
+
+#~ msgid "Cheatin&#8217; uh?"
+#~ msgstr "Haciendo trampas ¿eh?"
