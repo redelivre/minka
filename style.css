@@ -2603,7 +2603,7 @@ object {
 }
 
 .author-box {
-    background: none repeat scroll 0 0 yellow;
+    background: none repeat scroll 0 0 #e9c42b;
     margin-bottom: 2em;
     padding: 1em;
     width: 100%;
@@ -2614,6 +2614,7 @@ object {
 .author-image-bol img {
     border-radius: 50px;
     float: left;
+    border: 5px solid #414684;
 }
 
 .author-infos {
