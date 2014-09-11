@@ -18,6 +18,7 @@ function minka_cat_search_checkbox_click()
 				jQuery('.category-solution-category-archive-list-itens').replaceWith(response);
 			}
 		});
+		jQuery(".solution-category-archive-category-header").hide();
 	}
 	else
 	{
@@ -25,7 +26,7 @@ function minka_cat_search_checkbox_click()
 		
 		for (index = 0; index < checkValues.length; index++)
 		{
-			checkValuesStr += 'taxonomy_category\[\]=' + checkValues[index] + '&';
+			checkValuesStr += 'cat=' + checkValues[index] + '&';
 		}
 		
 		window.location.assign(' http://' + window.location.host + '/solution?' + checkValuesStr);
