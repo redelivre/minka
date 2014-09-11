@@ -50,44 +50,48 @@ $highlight = array();?>
 					
 					$cat_ori = get_term_by('slug', 'network', 'page_category');
 					
-					$cat_id = $cat_ori->term_id;
-					
-					if(function_exists('icl_object_id'))
+					if($cat_ori != false)
 					{
-						$cat_id = icl_object_id($cat_id, "page_category", true, ICL_LANGUAGE_CODE);
-					}
 					
-					$wp_query = new WP_Query(array(
-						'post_type' => array( 'page' ),
-						'posts_per_page' => -1,
-						'order' => 'DESC',
-						'orderby' => 'modified',
-						'tax_query' => array(
-							array(
-									'taxonomy' => 'page_category',
-									'field'    => 'id',
-									'terms'    => $cat_id,
-							),
-						),
-					));
-					
-					if(have_posts())
-					{
-						while (have_posts())
+						$cat_id = $cat_ori->term_id;
+						
+						if(function_exists('icl_object_id'))
 						{
-							the_post();?>
-							<div class="network-page-box" >
-								<span class="network-page-title" ><h2><?php echo the_title();?></h2></span>
-								<div class="network-page-box-content" >
-									<div class="network-page-image">
-										<div class="network-page-thumbnail" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)"></div>
+							$cat_id = icl_object_id($cat_id, "page_category", true, ICL_LANGUAGE_CODE);
+						}
+						
+						$wp_query = new WP_Query(array(
+							'post_type' => array( 'page' ),
+							'posts_per_page' => -1,
+							'order' => 'DESC',
+							'orderby' => 'modified',
+							'tax_query' => array(
+								array(
+										'taxonomy' => 'page_category',
+										'field'    => 'id',
+										'terms'    => $cat_id,
+								),
+							),
+						));
+						
+						if(have_posts())
+						{
+							while (have_posts())
+							{
+								the_post();?>
+								<div class="network-page-box" >
+									<span class="network-page-title" ><h2><?php echo the_title();?></h2></span>
+									<div class="network-page-box-content" >
+										<div class="network-page-image">
+											<div class="network-page-thumbnail" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)"></div>
+										</div>
+										<div class="network-page-box-text" ><?php the_content(); ?></div>
 									</div>
-									<div class="network-page-box-text" ><?php the_content(); ?></div>
-								</div>
-							</div><?php
-						}?>
-						<div class="clear"> </div>
-						<?php
+								</div><?php
+							}?>
+							<div class="clear"> </div>
+							<?php
+						}
 					} 
 				?></div>
 			</div>

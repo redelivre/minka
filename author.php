@@ -1,2 +1,2 @@
 <?php
-echo 'AAAAAAAAAAAAAaaaaaaaaaaaaaa';
+include(locate_template('authors.php'));

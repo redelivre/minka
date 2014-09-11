@@ -523,6 +523,11 @@ class Minka{
 			$args['s'] = wp_strip_all_tags($_REQUEST['search']);
 		}
 		
+		if(array_key_exists( 'author_search', $_REQUEST) && wp_strip_all_tags($_REQUEST['author_search']) != '')
+		{
+			$args['author_name'] = wp_strip_all_tags($_REQUEST['author_search']);
+		}
+		
 		if(!isset($minka))
 		{
 			global $minka; 
