@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+
+.post-type-solution #taxonomy-category .selectit > input {
+    display: none;
+}
+
+.post-type-solution #taxonomy-category .children .selectit > input {
+    display: inline;
+}
+

@@ -31,6 +31,12 @@ class Minka{
 		add_action( 'add_meta_boxes', array($this, 'add_meta_boxes'), 10, 2 );
 		add_action( 'admin_enqueue_scripts', array($this, 'admin_enqueue_scripts') );
 		add_action( 'save_post', array( $this, 'save_post' ) );
+		
+		global $pagenow;
+		if (! empty($pagenow) && ('post-new.php' === $pagenow || 'post.php' === $pagenow ))
+		{
+			add_action('admin_enqueue_scripts', array( $this, 'admin_post_css'));
+		}
 	}
 
 	/**
@@ -865,6 +871,14 @@ class Minka{
 		}
 	}
 	
+	/**
+	 * Controla os arquivos css da área administrativa para edição e criação de posts
+	 *
+	 */
+	public function admin_post_css()
+	{
+		wp_enqueue_style( 'minka-admin', get_template_directory_uri().'/css/admin-post.css');
+	}
 	
 }
 
