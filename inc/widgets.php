@@ -314,7 +314,7 @@ class Widget_Register_Statistics extends WP_Widget
 			<li>
 				<span class="widget-register-statistics-item widget-register-statistics-image"><img alt="<?php _e("network", 'minka'); ?>" src="<?php echo get_template_directory_uri().'/images/red.png'; ?>" ></span>
 				<span class="widget-register-statistics-item widget-register-statistics-countries"><?php echo $countries." "._n( 'country', 'countries', $countries, 'minka' ); ?></span>
-				<span class="widget-register-statistics-item widget-register-statistics-members"><?php echo $members." "._n( 'member', 'members', $members, 'minka' ); ?></span>
+				<span class="widget-register-statistics-item widget-register-statistics-members"><a href="/authors"><?php echo $members." "._n( 'member', 'members', $members, 'minka' ); ?></a></span>
 			</li>
 		</ul>
 		<?php

@@ -37,3 +37,17 @@
 	color: #b62c7a;
     padding-bottom: 3em;
 }
+
+.widget-register-statistics-members a {
+	color: #b62c7a;
+    padding-bottom: 3em;
+    text-decoration: none;
+}
+
+.widget-register-statistics-members a:visited {
+	color: #b62c7a;
+}
+
+.widget-register-statistics-members a:hover {
+	color: #ff8300;
+}
