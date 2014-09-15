@@ -1481,6 +1481,7 @@ object {
 
 .header-search-form .search-form .search-field {
 	float: right;
+	margin-top: 20px;
 }
 
 .header-search-form .search-form .search-submit {
