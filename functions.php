@@ -31,6 +31,8 @@ class Minka{
 		add_action( 'add_meta_boxes', array($this, 'add_meta_boxes'), 10, 2 );
 		add_action( 'admin_enqueue_scripts', array($this, 'admin_enqueue_scripts') );
 		add_action( 'save_post', array( $this, 'save_post' ) );
+		add_filter( 'wp_list_categories', array( $this, 'wp_list_categories' ), 10, 2 );
+		
 		
 		global $pagenow;
 		if (! empty($pagenow) && ('post-new.php' === $pagenow || 'post.php' === $pagenow ))
@@ -878,6 +880,15 @@ class Minka{
 	public function admin_post_css()
 	{
 		wp_enqueue_style( 'minka-admin', get_template_directory_uri().'/css/admin-post.css');
+	}
+	
+	public function wp_list_categories($output, $args)
+	{
+		if(is_home() || get_post_type() == 'solution')
+		{
+			$output = str_replace('" title=', 'post_type=solution" title=', $output);
+		}
+		return $output;
 	}
 	
 }
