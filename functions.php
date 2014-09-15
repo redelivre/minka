@@ -884,9 +884,9 @@ class Minka{
 	
 	public function wp_list_categories($output, $args)
 	{
-		if(is_home() || get_post_type() == 'solution')
+		if(is_home() || get_post_type() == 'solution' || is_404())
 		{
-			$output = str_replace('" title=', 'post_type=solution" title=', $output);
+			$output = str_replace('" title=', '?post_type=solution" title=', $output);
 		}
 		return $output;
 	}
