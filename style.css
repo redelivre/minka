@@ -1479,6 +1479,14 @@ object {
 	margin: 0;
 }
 
+.header-search-form .search-form .search-field {
+	float: right;
+}
+
+.header-search-form .search-form .search-submit {
+	display: none;
+}
+
 .search-form .search-submit {
 	background-image: url(images/busca-topo-internas.png);
     background-repeat: no-repeat;
