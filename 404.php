@@ -11,14 +11,10 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'minka' ); ?></h1>
-				</header><!-- .page-header -->
-
 				<div class="page-content">
+					<p><img alt="404" src="<?php echo get_template_directory_uri()."/images/404.png" ?>"><span class="error-404-text">404</span></p>
+					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'minka' ); ?></h1>
 					<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'minka' ); ?></p>
-
-					<?php get_search_form(); ?>
 
 					<?php the_widget( 'WP_Widget_Recent_Posts_Image' ); ?>
 

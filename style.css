@@ -2648,7 +2648,7 @@ object {
 }
 
 .author-solutions-link {
-    background-color: orange;
+    background-color: #ff8300;
     border-radius: 30px;
     color: #fff;
     float: right;
@@ -2665,6 +2665,30 @@ object {
 .jaiminho-submit {
     margin-bottom: 1em;
     margin-top: 1em;
+}
+
+/*--------------------------------------------------------------
+	29 404
+--------------------------------------------------------------*/
+
+.error-404 {
+    margin: 0 auto;
+    text-align: center;
+    width: 86%;
+}
+
+.error-404 .page-content img {
+    background-color: #e9c42b;
+    border-radius: 4em;
+    padding: 0.5em;
+    margin-top: 0.25em;
+}
+
+.error-404-text {
+    color: #414684;
+    font-size: 3em;
+    vertical-align: top;
+    font-weight: bold;
 }
 
 /*--------------------------------------------------------------
