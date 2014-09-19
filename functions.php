@@ -31,6 +31,14 @@ class Minka{
 		add_action( 'add_meta_boxes', array($this, 'add_meta_boxes'), 10, 2 );
 		add_action( 'admin_enqueue_scripts', array($this, 'admin_enqueue_scripts') );
 		add_action( 'save_post', array( $this, 'save_post' ) );
+		add_filter( 'wp_list_categories', array( $this, 'wp_list_categories' ), 10, 2 );
+		
+		
+		global $pagenow;
+		if (! empty($pagenow) && ('post-new.php' === $pagenow || 'post.php' === $pagenow ))
+		{
+			add_action('admin_enqueue_scripts', array( $this, 'admin_post_css'));
+		}
 	}
 
 	/**
@@ -191,11 +199,18 @@ class Minka{
 	
 	public static function socialList()
 	{
-		$post_permalink = get_permalink(); ?>
+		$post_permalink = get_home_url();
+		$title = get_bloginfo('name');
+		if(is_single())
+		{
+			$post_permalink = get_permalink();
+			$title = get_the_title();
+		}
+		?>
 			<div class="minka_social_bol minka_social_bol-right" ></div>
 			<a class="share-googleplus icon-googleplus" title="<?php _e( 'Share on Google+', 'minka' ); ?>" href="https://plus.google.com/share?url=<?php echo $post_permalink; ?>" rel="nofollow" target="_blank"></a>
-			<a class="share-youtube icon-youtube" title="<?php _e( 'Share on Youtube', 'minka' ); ?>" href="http://www.youtube.com=<?php echo $post_permalink; ?>&text=<?php the_title() ?>&url=<?php echo $post_permalink; ?>" rel="nofollow" target="_blank"></a>
-			<a class="share-twitter icon-twitter" title="<?php _e( 'Share on Twitter', 'minka' ); ?>" href="http://twitter.com/intent/tweet?original_referer=<?php echo $post_permalink; ?>&text=<?php echo get_the_title(); ?>&url=<?php echo $post_permalink; ?>" rel="nofollow" target="_blank"></a>		
+			<a class="share-youtube icon-youtube" title="<?php _e( 'Share on Youtube', 'minka' ); ?>" href="http://www.youtube.com=<?php echo $post_permalink; ?>&text=<?php echo $title; ?>&url=<?php echo $post_permalink; ?>" rel="nofollow" target="_blank"></a>
+			<a class="share-twitter icon-twitter" title="<?php _e( 'Share on Twitter', 'minka' ); ?>" href="http://twitter.com/intent/tweet?original_referer=<?php echo $post_permalink; ?>&text=<?php echo $title; ?>&url=<?php echo $post_permalink; ?>" rel="nofollow" target="_blank"></a>		
 			<a class="share-facebook icon-facebook" title="<?php _e( 'Share on Facebook', 'minka' ); ?>" href="https://www.facebook.com/sharer.php?u=<?php echo $post_permalink; ?>" rel="nofollow" target="_blank"></a>
 			<div class="minka_social_bol minka_social_bol-left" ></div>
 			
@@ -521,6 +536,11 @@ class Minka{
 		if(array_key_exists( 'search', $_REQUEST))
 		{
 			$args['s'] = wp_strip_all_tags($_REQUEST['search']);
+		}
+		
+		if(array_key_exists( 'author_search', $_REQUEST) && wp_strip_all_tags($_REQUEST['author_search']) != '')
+		{
+			$args['author_name'] = wp_strip_all_tags($_REQUEST['author_search']);
 		}
 		
 		if(!isset($minka))
@@ -853,6 +873,23 @@ class Minka{
 		}
 	}
 	
+	/**
+	 * Controla os arquivos css da área administrativa para edição e criação de posts
+	 *
+	 */
+	public function admin_post_css()
+	{
+		wp_enqueue_style( 'minka-admin', get_template_directory_uri().'/css/admin-post.css');
+	}
+	
+	public function wp_list_categories($output, $args)
+	{
+		if(is_home() || get_post_type() == 'solution' || is_404())
+		{
+			$output = str_replace('" title=', '?post_type=solution" title=', $output);
+		}
+		return $output;
+	}
 	
 }
 

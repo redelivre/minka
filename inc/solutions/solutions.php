@@ -459,13 +459,22 @@ class Solutions
 				$value = array_key_exists($taxonomy.'_'.$term->term_id.'_input', $_REQUEST) ? $_REQUEST[$taxonomy.'_'.$term->term_id.'_input'] : ''; 
 				$input = '<input type="text" class="taxonomy-'.$taxonomy.'-checkbox-text" name="'.$taxonomy.'_'.$term->term_id.'_input" id="taxonomy_'.$taxonomy.'_'.$term->slug.'_input" value="'.$value.'" />';
 			}
-			$checked = isset($_REQUEST) && array_key_exists("taxonomy_$taxonomy", $_REQUEST) && array_search($term->term_id, $_REQUEST["taxonomy_$taxonomy"]) !== false ? 'checked="checked"' : '';				
+			$checked = 
+				isset($_REQUEST) &&
+				array_key_exists("taxonomy_$taxonomy", $_REQUEST) &&
+				((is_array($_REQUEST["taxonomy_$taxonomy"]) && array_search($term->term_id, $_REQUEST["taxonomy_$taxonomy"]) !== false ) ||
+				(is_string($_REQUEST["taxonomy_$taxonomy"]) && $_REQUEST["taxonomy_$taxonomy"] == $term->term_id))
+			? 'checked="checked"' : '';
+			if($taxonomy == 'category' && get_query_var('cat')) // workaround for cat query var
+			{
+				$checked = get_query_var('cat') == $term->term_id ? 'checked="checked"' : '';
+			}
 			?>
 			<li class="<?php echo $taxonomy ?>-group-col <?php echo $parent == 0 ? $taxonomy.'-group-col-'.$index : ''; ?>"><?php
 				if($parent > 0 && $input == '')
 				{?>
 					<input type="checkbox" class="taxonomy-<?php echo $taxonomy ?>-checkbox" value="<?php echo $term->term_id; ?>" name="taxonomy_<?php echo $taxonomy; ?>[]" id="taxonomy_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>"
-					<?php echo $checked; ?> /><?php
+					<?php echo $checked; ?> autocomplete="off" /><?php
 				}?>
 				<label for="taxonomy_<?php echo $taxonomy; ?>_<?php echo $term->slug; ?>"><?php
 					echo $name;?>

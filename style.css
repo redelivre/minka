@@ -1479,6 +1479,15 @@ object {
 	margin: 0;
 }
 
+.header-search-form .search-form .search-field {
+	float: right;
+	margin-top: 20px;
+}
+
+.header-search-form .search-form .search-submit {
+	display: none;
+}
+
 .search-form .search-submit {
 	background-image: url(images/busca-topo-internas.png);
     background-repeat: no-repeat;
@@ -2639,7 +2648,7 @@ object {
 }
 
 .author-solutions-link {
-    background-color: orange;
+    background-color: #ff8300;
     border-radius: 30px;
     color: #fff;
     float: right;
@@ -2647,6 +2656,39 @@ object {
     font-weight: bold;
     padding: 0.25em 4em;
     text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+	28 Jaiminho
+--------------------------------------------------------------*/
+
+.jaiminho-submit {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+/*--------------------------------------------------------------
+	29 404
+--------------------------------------------------------------*/
+
+.error-404 {
+    margin: 0 auto;
+    text-align: center;
+    width: 86%;
+}
+
+.error-404 .page-content img {
+    background-color: #e9c42b;
+    border-radius: 4em;
+    padding: 0.5em;
+    margin-top: 0.25em;
+}
+
+.error-404-text {
+    color: #414684;
+    font-size: 3em;
+    vertical-align: top;
+    font-weight: bold;
 }
 
 /*--------------------------------------------------------------

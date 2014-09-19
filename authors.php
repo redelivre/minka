@@ -8,6 +8,12 @@ $usersArgs = array(
 		'order'           => 'ASC',
 );
 
+if(get_query_var('author_name'))
+{
+	$usersArgs['search'] = get_query_var('author_name');
+	$usersArgs['search_columns'] = array('nicename');
+}
+
 $users_query = new WP_User_Query($usersArgs);
 $users = $users_query->get_results();
 
@@ -50,7 +56,7 @@ get_header();
 						<?php echo get_user_meta($user->ID, 'description', true) ?>
 					</div>
 					<div class="author-solutions">
-						<a href="/solution<?php echo "?author_search=".$user->ID; ?>" class="author-solutions-link"><?php _e('View my solutions'); ?></a>
+						<a href="/solution<?php echo "?author_search=".$user->user_nicename; ?>" class="author-solutions-link"><?php _e('View my solutions'); ?></a>
 					</div>
 				</div>
 			<?php

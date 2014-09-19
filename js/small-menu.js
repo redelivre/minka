@@ -36,4 +36,7 @@ jQuery( document ).ready( function( $ ) {
 			}
 		}, 200 );
 	} );
+	
+	jQuery(".search-field").width(jQuery(".menu").width()); // size search field as menu size
+	
 } );
