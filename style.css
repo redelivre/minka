@@ -2392,7 +2392,7 @@ object {
 }
 
 .page-post {
-	width: 63%;
+	width: 86%;
 	float: left;
 }
 
@@ -2689,6 +2689,20 @@ object {
     font-size: 3em;
     vertical-align: top;
     font-weight: bold;
+}
+
+/*--------------------------------------------------------------
+	30 User Registry
+--------------------------------------------------------------*/
+
+.formulario-de-registro-padrao .campos {
+    margin: 0 auto;
+    width: 40%;
+}
+
+.formulario-de-registro-padrao .campos > p {
+    display: inline-block;
+    width: 100%;
 }
 
 /*--------------------------------------------------------------
