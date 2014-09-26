@@ -2896,6 +2896,8 @@ object {
 	.blog-single-post { width: 100%;}
 	.blog-single-entry .archives-sidebar{ display: none;}
 	.error-404 .widget { width: 100%}
+	.page-template-archives-php .blog-archive-post-list{ width: 100%;}
+	.archives-sidebar{ display: none;}
 }
 
 @media screen and (max-width: 480px) {
