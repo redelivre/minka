@@ -2691,6 +2691,53 @@ object {
     font-weight: bold;
 }
 
+.error-404 .widget {
+    float: left;
+    width: 25%;
+}
+
+.error-404 .widget_recent_entries li {
+    margin-bottom: 10px;
+}
+
+.widget.widget_recent_entries > ul {
+    list-style: none outside none;
+}
+
+.widget_categories li {
+    list-style: none outside none;
+}
+
+.widget_categories li a{
+	text-decoration: none;
+}
+
+.error-404 h2 {
+    color: #b62c7a;
+    font-weight: bold;
+    margin: 15px 5px;
+}
+
+.widget_categories .cat-item > a {
+    color: #414684;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.widget_categories .cat-item > a:hover{
+	color: #ff8300;
+}
+
+.tagcloud > a {
+    color: #414684;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.tagcloud > a:hover {
+    color: #ff8300;
+}
+
 /*--------------------------------------------------------------
 	29 Registro
 --------------------------------------------------------------*/
@@ -2790,6 +2837,7 @@ object {
 	.header-login-form .header-register-link { margin-left: 27%;}
 	.header-login-form .header-register-link {clear: none; margin-left: 0;}
 	.header-login-form{}
+	.error-404 .widget { width: 50%}
 }
 
 @media screen and (max-width: 800px) {
@@ -2847,6 +2895,7 @@ object {
 	.search-form .search-field {margin-bottom: 20px;}
 	.blog-single-post { width: 100%;}
 	.blog-single-entry .archives-sidebar{ display: none;}
+	.error-404 .widget { width: 100%}
 }
 
 @media screen and (max-width: 480px) {
