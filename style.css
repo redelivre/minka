@@ -2692,6 +2692,31 @@ object {
 }
 
 /*--------------------------------------------------------------
+	29 Registro
+--------------------------------------------------------------*/
+.container-registro{
+	max-width: 1160px;
+}
+
+.container-registro .titulo h1 {
+	text-align: center;
+}
+
+#registerform{
+	margin: 0 auto;
+}
+
+.container-registro .titulo{
+	background: none repeat scroll 0 0 #e9c42b;
+    border-radius: 30px;
+    margin: 0 10px 30px;
+}
+
+.container-registro .titulo h1{
+	font-weight: bold;
+	color: #6e448f;
+}
+/*--------------------------------------------------------------
  Media queries
 --------------------------------------------------------------*/
 
