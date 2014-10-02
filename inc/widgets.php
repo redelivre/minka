@@ -308,13 +308,24 @@ class Widget_Register_Statistics extends WP_Widget
 		
 		$countries = intval($users->total_users);
 		
+		$members_page = get_page_by_path('/authors');
+		
+		if(is_object($members_page)) $members_page = $members_page->ID;
+		
+		if(function_exists('icl_object_id'))
+		{
+			$members_page = icl_object_id($members_page, 'page', true, ICL_LANGUAGE_CODE);
+		}
+		
+		$members_link = get_permalink($members_page);
+		
 		echo $before_widget;
 		if ( $title ) echo $before_title . $title . $after_title;?>
 		<ul>
 			<li>
 				<span class="widget-register-statistics-item widget-register-statistics-image"><img alt="<?php _e("network", 'minka'); ?>" src="<?php echo get_template_directory_uri().'/images/red.png'; ?>" ></span>
 				<span class="widget-register-statistics-item widget-register-statistics-countries"><?php echo $countries." "._n( 'country', 'countries', $countries, 'minka' ); ?></span>
-				<span class="widget-register-statistics-item widget-register-statistics-members"><a href="/authors"><?php echo $members." "._n( 'member', 'members', $members, 'minka' ); ?></a></span>
+				<span class="widget-register-statistics-item widget-register-statistics-members"><a href="<?php echo $members_link; ?>"><?php echo $members." "._n( 'member', 'members', $members, 'minka' ); ?></a></span>
 			</li>
 		</ul>
 		<?php
