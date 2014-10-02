@@ -57,6 +57,46 @@ class Solutions
 	function init()
 	{
 		$this->Add_custom_Post();
+		
+		$permissoes = array(
+			'administrator' => array('Novo' => false, 'Caps' => array
+			(
+				'delete_solutions',
+				'delete_private_solutions',
+				'edit_solution',
+				'edit_solutions',
+				'edit_private_solutions',
+				'publish_solutions',
+				'read_solution',
+				'read_private_solutions',
+				'delete_published_solutions',
+				'edit_published_solutions',
+				'edit_published_solution',
+				'edit_others_solutions',
+				'edit_others_solution',
+				'delete_others_solutions',
+				'delete_others_solution'
+			)),
+			'contributor' => array('Novo' => false, 'Caps' => array
+			(
+				'read_solution',
+			)),
+			'subscriber' => array('Novo' => false, 'Caps' => array
+			(
+				'read_solution',
+			)),
+			'author' => array('Novo' => false, 'Caps' => array
+			(
+				'read_solution',
+			)),
+			'editor' => array('Novo' => false, 'Caps' => array
+			(
+				'read_solution',
+			)),
+		);
+		
+		$this->roles_install($permissoes);
+		
 	}
 	
 	function Add_custom_Post()
@@ -489,6 +529,40 @@ class Solutions
 		{?>
 			</ul><?php
 		}
+	}
+	
+	function roles_install($permissoes)
+	{
+	
+		// Criação das regras
+		foreach ($permissoes as $nome => $permisao)
+		{
+			if($permisao['Novo'] == true)
+			{
+				$Role = get_role($permisao['From']);
+					
+				if(!is_object($Role))
+				{
+					throw new Exception(sprintf(__('Permissão original (%s) não localizada','minka'),$permisao['From']));
+				}
+					
+				$cap = $Role->capabilities;
+				add_role($nome, $permisao["nome"], $cap);
+			}
+	
+			$Role = get_role($nome);
+			if(!is_object($Role))
+			{
+				throw new Exception(sprintf(__('Permissão %s não localizada','minka'),$nome));
+			}
+	
+			foreach ($permisao['Caps'] as $cap)
+			{
+					
+				$Role->add_cap($cap);
+			}
+		}
+	
 	}
 	
 }
