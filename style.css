@@ -2814,6 +2814,7 @@ object {
 	.category-home-list-archive-link {width: 75%;font-size: 1.2em;}
 	.category-home-list-archive-link-text {margin-top: 15px;}
 	.network-page-box-text {width: 70%;}
+	.home-cat-post-box-no-margin { margin-right: 20px; }
 }
 
 @media screen and (max-width: 1281px) {	
