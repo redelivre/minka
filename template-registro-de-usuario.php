@@ -35,10 +35,6 @@
 					<input type="password" id="custom-register-password-review" class="input" />
 				</p>
 				<p>
-					<label for="custom-register-password-review"><?php echo _x('Repita sua senha', 'registro-de-usuario', 'campanha-completa'); ?></label> <br />
-					<input type="password" id="custom-register-password-review" class="input" />
-				</p>
-				<p>
 					<label for="custom-register-email"><?php echo _x('Email', 'registro-de-usuario', 'campanha-completa'); ?></label> <br />
 					<input type="email" required="required" id="custom-register-email" name="custom-register-email" class="input" />
 				</p>
