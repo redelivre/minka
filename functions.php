@@ -141,7 +141,10 @@ class Minka{
 		}
 		wp_localize_script('minka-language-swapper', 'minka_language_swapper', $data);
 		
-		wp_enqueue_script('minka-cat-filter', get_template_directory_uri() . '/js/minka-cat-filter.js', array('jquery'));
+		if(get_query_var(Solutions::NEW_SOLUTION_PAGE) != true)
+		{
+			wp_enqueue_script('minka-cat-filter', get_template_directory_uri() . '/js/minka-cat-filter.js', array('jquery'));
+		}
 		
 		wp_enqueue_script('jquery-cycle2', get_template_directory_uri() . '/js/jquery.cycle2.min.js', array('jquery'));
 		wp_enqueue_script('jquery-cycle2-carousel', get_template_directory_uri() . '/js/jquery.cycle2.carousel.min.js', array('jquery-cycle2'));
@@ -802,6 +805,22 @@ class Minka{
 			{
 				$location = $location_tmp;
 				update_user_meta($user->ID, '_mpv_location', $location_tmp);
+			}
+		}
+		return $location;
+	}
+	
+	function mapasdevista_default_post_location($location, $post)
+	{
+		//$city = get_post_meta($user->ID, 'city', true);
+		$country = get_post_meta($user->ID, 'country', true);
+		
+		if(/*!empty($city) &&*/ !empty($country))
+		{
+			if($location_tmp = mapasdevista_get_coords(/*$city.", ".*/$country))
+			{
+				$location = $location_tmp;
+				update_post_meta($post->ID, '_mpv_location', $location_tmp);
 			}
 		}
 		return $location;
