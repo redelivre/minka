@@ -59,6 +59,6 @@
 <div class="home-cat-post-box <?php echo $cat_num; ?>" onclick="window.location='<?php the_permalink() ?>';return false;">
 	<span class="home-cat-post-cat" ><?php echo $cat_list; ?></span>
 	<span class="home-cat-post-title" ><h2><?php echo the_title();?></h2></span>
-	<span class="home-cat-post-thumbnail" ><?php echo the_post_thumbnail('post-thumbnail', array('onerror' => $imgError));?></span>
+	<span class="home-cat-post-thumbnail" ><span class="home-cat-post-thumbnail-img" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)" ></span></span>
 	<span class="home-cat-post-content" ><?php echo the_excerpt();?></span>
 </div>

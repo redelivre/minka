@@ -1754,11 +1754,30 @@ object {
     overflow:hidden;
 }
 
-
 .home-cat-post-thumbnail {
-    display: block;
-    text-align: center;
-    height: 250px;
+	height: 252px;
+    position:  relative;
+    float: left;
+    width: 100%;
+}
+
+.home-cat-post-thumbnail-img:before {
+	content: "";
+	display: block;
+	padding-top: 75%; 	/* ratio of 4:3*/
+}
+
+.home-cat-post-thumbnail-img {
+    height: 240px;
+    position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    opacity: 0.8;
 }
 .home-cat-post-thumbnail img {
 	max-height: 240px;
