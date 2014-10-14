@@ -6,7 +6,7 @@
 			<span class="home-category-description"><?php echo $term->description;?></span>
 		</div>
 	</div>
-	<div class="clear"></div>
+
 	<div class="category-home-list-archive-link" onclick="window.location='<?php echo get_category_link($term->term_id).'?post_type=solution'; ?>';return false;">
 		<span class="category-home-list-archive-link-button">&nbsp;</span>
 		<span class="category-home-list-archive-link-text" ><?php echo __('View All', 'minka'); ?></span>
