@@ -1776,6 +1776,7 @@ object {
 	right: 0;
 	background-repeat: no-repeat;
     background-position: center center;
+    background-size: contain;
     cursor: pointer;
     opacity: 0.8;
 }
