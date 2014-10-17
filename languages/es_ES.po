@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Minka Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-09 13:22-0300\n"
+"POT-Creation-Date: 2014-10-17 15:52-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jacson Passold <jacson@ethymos.com.br>\n"
 "Language-Team: \n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: .\n"
 
-#: ../home_category_list.php:41
+#: ../home_category_list.php:12
 msgid "View All"
 msgstr "Ver todos"
 
@@ -114,7 +114,7 @@ msgstr "Ir a la página"
 
 #: ../header.php:28
 msgid "click and drag the buttom to change language"
-msgstr "Haga clic y arrastre el boton para cambiar el idioma"
+msgstr "Haga clic y arrastre el botón para cambiar el idioma"
 
 #: ../header.php:45
 msgid "Login"
@@ -143,7 +143,7 @@ msgstr "Ver el Catálogo"
 msgid "Region"
 msgstr "Región"
 
-#: ../single-solution.php:50 ../inc/solutions/solutions.php:133
+#: ../single-solution.php:50 ../inc/solutions/solutions.php:173
 msgid "Description"
 msgstr "Descripción"
 
@@ -191,158 +191,158 @@ msgstr "Los resultados por categoría"
 msgid "Result for"
 msgstr "Resultados para"
 
-#: ../functions.php:66
+#: ../functions.php:74
 msgid "Primary Menu"
 msgstr "Menú Principal"
 
-#: ../functions.php:196
+#: ../functions.php:214
 msgid "Share on Google+"
 msgstr "Compartir en Google+"
 
-#: ../functions.php:197
+#: ../functions.php:215
 msgid "Share on Youtube"
 msgstr "Compartir en Youtube"
 
-#: ../functions.php:198
+#: ../functions.php:216
 msgid "Share on Twitter"
 msgstr "Compartir en Twitter"
 
-#: ../functions.php:199
+#: ../functions.php:217
 msgid "Share on Facebook"
 msgstr "Compartir en Facebook"
 
-#: ../functions.php:214
+#: ../functions.php:232
 msgid "Home Sidebar"
 msgstr "Barra lateral de inicio"
 
-#: ../functions.php:223
+#: ../functions.php:241
 msgid "Footer Widget Area Top"
 msgstr "Widget Topo en pie del página "
 
-#: ../functions.php:232
+#: ../functions.php:250
 msgid "Footer Widget Area Bottom"
 msgstr "Bajo Widget en pie del página"
 
-#: ../functions.php:241
+#: ../functions.php:259
 #, fuzzy
 msgid "Solution Sidebar"
 msgstr "Barra lateral de la Solución"
 
-#: ../functions.php:254
+#: ../functions.php:272
 #, fuzzy
 msgid "Blog Sidebar"
 msgstr "Barra lateral del Blog"
 
-#: ../functions.php:267
+#: ../functions.php:285
 #, fuzzy
 msgid "Network Template Sidebar"
 msgstr "Inicio de la barra lateral"
 
-#: ../functions.php:282
+#: ../functions.php:300
 msgid "Iniciar"
 msgstr "Iniciar"
 
-#: ../functions.php:392
+#: ../functions.php:410
 #, fuzzy
 msgid "Page Categories"
 msgstr "Página de las Categorías"
 
-#: ../functions.php:393
+#: ../functions.php:411
 msgid "Page Category"
 msgstr "Página de la Categoría"
 
-#: ../functions.php:394
+#: ../functions.php:412
 msgid "Search for Page Category"
 msgstr "Buscar por las Categorías de las Páginas"
 
-#: ../functions.php:395
+#: ../functions.php:413
 msgid "All Page Categories"
 msgstr "toda página categorías"
 
-#: ../functions.php:396
+#: ../functions.php:414
 msgid "Page Category parent"
 msgstr "Categoría padre"
 
-#: ../functions.php:397
+#: ../functions.php:415
 msgid "Page Category parent:"
 msgstr "Categoría padre"
 
-#: ../functions.php:398
+#: ../functions.php:416
 msgid "Edit Page Caterory"
 msgstr "Editar Categoría"
 
-#: ../functions.php:399
+#: ../functions.php:417
 msgid "Update Page Caterory"
 msgstr "Actualizar Categoría"
 
-#: ../functions.php:400
+#: ../functions.php:418
 msgid "Add new Page Caterory"
 msgstr "Añadir nueva Categoría"
 
-#: ../functions.php:401 ../inc/solutions/solutions.php:68
+#: ../functions.php:419 ../inc/solutions/solutions.php:108
 msgid "Add new"
 msgstr "Añadir nuevo"
 
-#: ../functions.php:402
+#: ../functions.php:420
 msgid "New Page Caterory"
 msgstr "Nueva Categoría de página"
 
-#: ../functions.php:403
+#: ../functions.php:421
 msgid "View Page Caterory"
 msgstr "Ver Categoría de página"
 
-#: ../functions.php:404
+#: ../functions.php:422
 msgid "no Page Caterory founded"
 msgstr "Categoría no encontrada"
 
-#: ../functions.php:405
+#: ../functions.php:423
 msgid "no Page Caterory founded in trash"
 msgstr "Categoría no encontrada en la basura"
 
-#: ../functions.php:406 ../functions.php:411
+#: ../functions.php:424 ../functions.php:429
 msgid "Page Caterories"
 msgstr "Categorías de página"
 
-#: ../functions.php:727
+#: ../functions.php:750
 msgid "Extra profile information"
 msgstr "Información extra del perfil"
 
-#: ../functions.php:731
+#: ../functions.php:754 ../template-registro-de-usuario.php:42
 msgid "City"
 msgstr "Ciudad"
 
-#: ../functions.php:734
+#: ../functions.php:757
 msgid "Please enter your City."
 msgstr "Introduzca su Ciudad."
 
-#: ../functions.php:738
+#: ../functions.php:761 ../template-registro-de-usuario.php:46
 #, fuzzy
 msgid "Country"
 msgstr "País"
 
-#: ../functions.php:741
+#: ../functions.php:764
 msgid "Please enter your Country."
 msgstr "Introduzca su País."
 
-#: ../functions.php:745
+#: ../functions.php:768
 msgid "Organization"
 msgstr "Organización"
 
-#: ../functions.php:748
+#: ../functions.php:771
 #, fuzzy
 msgid "Please enter your Organization."
 msgstr "Introduzca su Ciudad."
 
-#: ../functions.php:797
+#: ../functions.php:836
 #, fuzzy
 msgid "Network template content"
 msgstr "Inicio de la barra lateral"
 
-#: ../functions.php:804 ../network.php:33
+#: ../functions.php:843 ../network.php:33
 msgid "Who and where are the protagonists of the collaborative economy"
 msgstr "¿Quién y dónde están los protagonistas de la economía colaborativa?"
 
-#: ../functions.php:823
+#: ../functions.php:862
 msgid "Text Before Map"
 msgstr "Texto antes el mapa"
 
@@ -350,11 +350,11 @@ msgstr "Texto antes el mapa"
 msgid "Invalid Media URL"
 msgstr "URL del medio no válido "
 
-#: ../404.php:15
+#: ../404.php:16
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "¡Oops! No se puede encontrar esa página."
 
-#: ../404.php:19
+#: ../404.php:17
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
@@ -362,11 +362,11 @@ msgstr ""
 "Parece que aquí no hay nada. ¿Tal vez probando uno de los enlaces de abajo o "
 "una búsqueda?"
 
-#: ../404.php:27
+#: ../404.php:23
 msgid "Most Used Categories"
 msgstr "Categorías más utilizadas"
 
-#: ../404.php:44
+#: ../404.php:40
 #, php-format
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "Intenta buscar en los archivos mensuales. %1$s"
@@ -439,6 +439,54 @@ msgstr "Comentarios recientes  "
 #: ../comments.php:65
 msgid "Comments are closed."
 msgstr "Los comentarios están cerrados."
+
+#: ../authors.php:59
+#, fuzzy
+msgid "View my solutions"
+msgstr "Ver Solución"
+
+#: ../template-registro-de-usuario.php:13
+msgctxt "registro-de-usuario"
+msgid "Cadastre-se"
+msgstr "Registrarse"
+
+#: ../template-registro-de-usuario.php:19
+msgctxt "registro-de-usuario"
+msgid "Nome de usuário"
+msgstr "Nombre de usuario"
+
+#: ../template-registro-de-usuario.php:24
+msgctxt "registro-de-usuario"
+msgid "Nome completo"
+msgstr "nombre completo"
+
+#: ../template-registro-de-usuario.php:29
+msgctxt "registro-de-usuario"
+msgid "Senha"
+msgstr "Contraseña"
+
+#: ../template-registro-de-usuario.php:34
+msgctxt "registro-de-usuario"
+msgid "Repita sua senha"
+msgstr "Repita la contraseña"
+
+#: ../template-registro-de-usuario.php:38
+#, fuzzy
+msgctxt "registro-de-usuario"
+msgid "Email"
+msgstr "correo electrónico"
+
+#: ../template-registro-de-usuario.php:69
+msgctxt "registro-de-usuario"
+msgid ""
+"Você está logado neste momento, para efetuar um novo registro será preciso "
+"fazer"
+msgstr "En este momento está conectado para hacer un nuevo registro deberá"
+
+#: ../template-registro-de-usuario.php:69
+msgctxt "registro-de-usuario"
+msgid "logout"
+msgstr "cerrar la sesión"
 
 #: ../content-none.php:13
 msgid "Nothing Found"
@@ -726,18 +774,18 @@ msgstr "Haga una lista de las estadísticas del registro."
 msgid "Register Statistics"
 msgstr "Registrar Estadísticas"
 
-#: ../inc/widgets.php:315
+#: ../inc/widgets.php:326
 msgid "network"
 msgstr "red"
 
-#: ../inc/widgets.php:316 ../inc/solutions/solutions.php:35
+#: ../inc/widgets.php:327 ../inc/solutions/solutions.php:35
 #, fuzzy
 msgid "country"
 msgid_plural "countries"
 msgstr[0] "país"
 msgstr[1] "país"
 
-#: ../inc/widgets.php:317
+#: ../inc/widgets.php:328
 msgid "member"
 msgid_plural "members"
 msgstr[0] "miembro"
@@ -867,76 +915,86 @@ msgstr "Contacto "
 msgid "e-mail"
 msgstr "correo electrónico"
 
-#: ../inc/solutions/solutions.php:66 ../inc/solutions/solutions.php:77
-#: ../inc/solutions/solutions.php:83 ../inc/solutions/solutions.php:85
+#: ../inc/solutions/solutions.php:106 ../inc/solutions/solutions.php:117
+#: ../inc/solutions/solutions.php:123 ../inc/solutions/solutions.php:125
 msgid "Solutions"
 msgstr "Soluciones"
 
-#: ../inc/solutions/solutions.php:67
+#: ../inc/solutions/solutions.php:107
 msgid "Solution"
 msgstr "Solución"
 
-#: ../inc/solutions/solutions.php:69
+#: ../inc/solutions/solutions.php:109
 msgid "Add new solution"
 msgstr "Añadir nueva solución"
 
-#: ../inc/solutions/solutions.php:70
+#: ../inc/solutions/solutions.php:110
 msgid "Edit solution"
 msgstr "Editar solución"
 
-#: ../inc/solutions/solutions.php:71
+#: ../inc/solutions/solutions.php:111
 msgid "New Solution"
 msgstr "Nueva solución"
 
-#: ../inc/solutions/solutions.php:72
+#: ../inc/solutions/solutions.php:112
 msgid "View Solution"
 msgstr "Ver Solución"
 
-#: ../inc/solutions/solutions.php:73
+#: ../inc/solutions/solutions.php:113
 msgid "Search Solution"
 msgstr "Búsqueda de soluciones"
 
-#: ../inc/solutions/solutions.php:74
+#: ../inc/solutions/solutions.php:114
 msgid "Solution not found"
 msgstr "Solución no encontrada"
 
-#: ../inc/solutions/solutions.php:75
+#: ../inc/solutions/solutions.php:115
 msgid "Solution not found in the trash"
 msgstr "Solución no encontrada en la basura"
 
-#: ../inc/solutions/solutions.php:115
+#: ../inc/solutions/solutions.php:155
 #, fuzzy
 msgid "Solution Details"
 msgstr "Detalles de la solución"
 
-#: ../inc/solutions/solutions.php:116
+#: ../inc/solutions/solutions.php:156
 msgid "Solution Header Image"
 msgstr "Imagen de la cabecera de la solución"
 
-#: ../inc/solutions/solutions.php:126
+#: ../inc/solutions/solutions.php:166
 #, fuzzy
 msgid "Solution name"
 msgstr "Nombre de la Solución"
 
-#: ../inc/solutions/solutions.php:134
+#: ../inc/solutions/solutions.php:174
 msgid "Maximum 300 characters"
 msgstr "Máximo 300 caracteres"
 
-#: ../inc/solutions/solutions.php:188
+#: ../inc/solutions/solutions.php:228
 msgid "File Upload"
 msgstr "Carga de archivos"
 
-#: ../inc/solutions/solutions.php:190 ../inc/solutions/solutions.php:422
+#: ../inc/solutions/solutions.php:230 ../inc/solutions/solutions.php:462
 msgid "Choose or Upload an Image"
 msgstr "Elija o Suba una imagen"
 
-#: ../inc/solutions/solutions.php:255
+#: ../inc/solutions/solutions.php:295
 msgid "Auto Draft"
 msgstr "Proyecto automatico"
 
-#: ../inc/solutions/solutions.php:423
+#: ../inc/solutions/solutions.php:463
 msgid "Use this image"
 msgstr "Utilice esta imagen"
+
+#: ../inc/solutions/solutions.php:546
+#, php-format
+msgid "Permissão original (%s) não localizada"
+msgstr "Permiso original (%s) no encontrado"
+
+#: ../inc/solutions/solutions.php:556
+#, php-format
+msgid "Permissão %s não localizada"
+msgstr "Permiso %s no encontrado"
 
 #: ../inc/categories-images/categories-images.php:59
 #: ../inc/categories-images/categories-images.php:80
