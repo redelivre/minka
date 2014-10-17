@@ -1232,6 +1232,13 @@ object {
 	padding-right: 0.5em;
 }
 
+/* Only for Chrome and Safari */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.header-login-form .header-register-link a {
+		padding-right: 2em;
+	}
+}
+
 .header-login-form .header-register-link a:hover{
 	color: #e9c32c;
 }
