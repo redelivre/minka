@@ -58,7 +58,7 @@ class rate
 								c.comment_approved = %d AND
 								m.meta_value in (1, -1, -2)",
 					$coerced_id, 1));
-			if(count($rating_array) > 0)
+			if(count($rating_array) > 0 && $rating_array[0]->total > 0)
 			{
 				$rating = ($rating_array[0]->value * 5) / $rating_array[0]->total;
 			}
