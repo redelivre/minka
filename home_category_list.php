@@ -17,8 +17,8 @@
 		<?php
 		$args = array(
 				'posts_per_page'   => 3,
-				'orderby'          => 'post_date',
-				'order'            => 'DESC',
+				'orderby'          => 'rand',
+				//'order'            => 'DESC',
 				'cat'		   => $term->term_id,
 				'post_type'		   => 'solution',
 				/*'tax_query' => array(
