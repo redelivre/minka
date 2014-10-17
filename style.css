@@ -1279,7 +1279,6 @@ object {
 --------------------------------------------------------------*/
 
 .header-logo, .header-navigation-menu {
-	height: inherit;
 	display: block;
 	vertical-align: middle;
 	float: left;
