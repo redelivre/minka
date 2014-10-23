@@ -16,7 +16,7 @@
 	<div id="category-<?php echo $term->slug; ?>-list" style="display: block;" class="category-home-list-itens">
 		<?php
 		$args = array(
-				'posts_per_page'   => 3,
+				'posts_per_page'   => 4,
 				'orderby'          => 'rand',
 				//'order'            => 'DESC',
 				'cat'		   => $term->term_id,

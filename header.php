@@ -41,10 +41,10 @@
 					<?php
 					if(!is_user_logged_in())
 					{
-						?>
-						<span class="login-text"><?php _e('Login', 'minka'); ?></span>
-						<?php
 						echo Minka::getLoginForm();
+						?>
+							<span class="login-text"><?php _e('Login', 'minka'); ?></span>
+						<?php
 					}
 					else 
 					{

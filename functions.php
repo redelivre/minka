@@ -310,6 +310,29 @@ class Minka{
 		
 		$form = str_replace('</form>', $link, $form);
 		
+		$formClose = '</form>';
+		
+		$closeformtag = strpos($form, '>');
+		
+		$formOpen = substr($form, 0, $closeformtag + 1);
+		$formContent = substr($form, $closeformtag + 1, strpos($form, $formClose) - ($closeformtag + 1));
+		
+		$formContent_a = explode('<p', $formContent);
+		$formContent_a = array_reverse($formContent_a);
+		
+		$formContent_a2 = array();
+		foreach ($formContent_a as $htmltag)
+		{
+			if(strlen(trim($htmltag)) > 0)
+				$formContent_a2[] = '<p'.$htmltag;
+		}
+		
+		$formContent2 = implode('', $formContent_a2);
+		
+		$form = $formOpen.$formContent2.$formClose;
+		
+		//echo  '<pre>'.htmlspecialchars($form).'</pre>';die();
+		
 		return $form;
 	}
 	

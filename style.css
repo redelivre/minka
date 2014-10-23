@@ -137,8 +137,8 @@ select,
 textarea {
 	color: #404040;
 	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	font-size: 1.6rem;
+	font-size: 14px;
+	font-size: 1.4rem;
 	font-weight: 500;
 	line-height: 1.5;
 }
@@ -1133,13 +1133,13 @@ object {
 --------------------------------------------------------------*/
 .header-top-entry .login-text {
 	color: #fff;
-    font-size: 24px;
+    font-size: 1.25em;
     font-weight: bolder;
-    margin-top: 0.5em;
+    margin-top: 1em;
 }
 .header-login-form {
 	float: right;
-	width: 56%;
+	width: 58%;
 }
 
 .header-login-form .login-form,
@@ -1150,7 +1150,7 @@ object {
 .header-login-form .header-register-link,
 .login-text
 {
-	float: left;
+	float: right;
 	margin: 1em 0.5em 0 0;
 	vertical-align: middle;
 }
@@ -1200,7 +1200,13 @@ object {
 .header-login-form .login-username input,
 .header-login-form .login-password input
 {
-	width: 170px;
+	width: 100%;
+}
+
+.header-login-form p.login-username,
+.header-login-form p.login-password
+{
+	width: 20%;
 }
 
 .header-login-form .login-username label,
@@ -1214,14 +1220,17 @@ object {
 }
 
 .header-login-form .header-register-link {
-	float: left;
 	width: auto;
 	margin-right: 0.5em;
+	font-size: 0.85em;
+	padding-top: 1em;
 }
 
 .header-login-form .login-remember {
 	color: #ff8300;
 	font-weight: bolder;
+	font-size: 0.85em;
+	padding-top: 1em;
 }
 
 .header-login-form .header-register-link a {
@@ -1550,12 +1559,12 @@ object {
 }
 
 .home-category-list {
-	width: 65%;
+	width: 72%;
 	float: left;
 }
 
 .home-sidebar {
-	width: 32%;
+	width: 25%;
 	float: left;
 	background-color: #d7d7d7;
 	margin-left: 40px;
@@ -1707,8 +1716,7 @@ object {
 .home-cat-post-box {
     float: left;
     margin-right: 20px;
-    width: 31%;
-    min-width: 280px;
+    width: 23%;
     opacity: 0.6;
     cursor: pointer;
     box-shadow: 0 0 6px #ccc;
@@ -2812,7 +2820,6 @@ object {
 @media screen and (max-width: 1549px) {
 	.home-category-list {width: 49%;}
 	.home .home-cat-post-box:last-child { display: none; margin-right: 0;}
-	.header-login-form .header-register-link { clear: both; margin-left: 15%;}
 }
 
 @media screen and (max-width: 1336px) {
@@ -2829,11 +2836,10 @@ object {
 }	
 
 @media screen and (max-width: 1392px) {	
-	.header-register-link > a { display: block; margin: 0 0 16% 23%; }
-	.header-login-form { float: right; width: 49%;}
+	.header-login-form { float: right; width: 58%;}
 	.header-register-link { clear: none; }
-	.home-category-list { width: 64%;}
-	.home-cat-post-box  { width: 47%;}
+	.home-category-list { width: 71%;}
+	.home-cat-post-box  { width: 30%;}
 	.home .home-cat-post-box:last-child {display: none;}
 	.header-navigation-menu {width: 76%;}
 	.search-form .search-field {width: 94%;}

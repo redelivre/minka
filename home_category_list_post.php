@@ -26,7 +26,7 @@
 		$cat_num = 'home-category-num-'.(Minka::post_is_in_descendant_category($cats, get_post(), 'index') +1);
 	}
 	
-	if(isset($post_index) && $post_index > 0 && $post_index%3 == 0)
+	if(isset($post_index) && $post_index > 0 && $post_index%4 == 0)
 	{
 		$cat_num .= " home-cat-post-box-no-margin";
 	}
