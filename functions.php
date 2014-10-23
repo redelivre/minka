@@ -32,6 +32,7 @@ class Minka{
 		add_action( 'admin_enqueue_scripts', array($this, 'admin_enqueue_scripts') );
 		add_action( 'save_post', array( $this, 'save_post' ) );
 		add_filter( 'wp_list_categories', array( $this, 'wp_list_categories' ), 10, 2 );
+		add_action( 'wp_head', array( $this, 'favicon') );
 		
 		
 		global $pagenow;
@@ -931,6 +932,10 @@ class Minka{
 			$output = str_replace('" title=', '?post_type=solution" title=', $output);
 		}
 		return $output;
+	}
+	
+	function favicon() {
+		printf( "<link rel=\"shortcut icon\" href=\"%s\" />\n", get_theme_mod('minka_favicon') );
 	}
 	
 }

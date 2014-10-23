@@ -68,6 +68,19 @@ function minka_customize_register( $wp_customize )
 			'settings' 	=> 'minka_logo',
 			'context'	=> 'minka-custom-logo'
 	) ) );
+	
+	// Branding: favicon
+	$wp_customize->add_setting( 'minka_favicon', array(
+			//'default'     => ???,
+			'capability'    => 'edit_theme_options',
+	) );
+	
+	$wp_customize->add_control( new WP_Customize_Image_Reloaded_Control( $wp_customize, 'minka_favicon', array(
+			'label'   	=> __( 'Favicon', 'minka' ),
+			'section'	=> 'minka_logo',
+			'settings' 	=> 'minka_favicon',
+			'context'	=> 'minka-favicon'
+	) ) );
 
 	$id = get_option('page_on_front');
 	$page = get_post($id);
