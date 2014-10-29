@@ -1223,14 +1223,14 @@ object {
 	width: auto;
 	margin-right: 0.5em;
 	font-size: 0.85em;
-	padding-top: 1em;
+	padding-top: 0.6em;
 }
 
 .header-login-form .login-remember {
 	color: #ff8300;
 	font-weight: bolder;
 	font-size: 0.85em;
-	padding-top: 1em;
+	padding-top: 0.6em;
 }
 
 .header-login-form .header-register-link a {

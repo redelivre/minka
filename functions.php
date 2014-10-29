@@ -321,12 +321,19 @@ class Minka{
 		$formContent_a = explode('<p', $formContent);
 		$formContent_a = array_reverse($formContent_a);
 		
-		$formContent_a2 = array();
+		$formContent_a2 = array('<div class="header-login-form-line-1">');
+		$count = 0;
 		foreach ($formContent_a as $htmltag)
 		{
+			if($count == 3)
+			{
+				$formContent_a2[] = '</div><div class="header-login-form-line-2">';
+			}
 			if(strlen(trim($htmltag)) > 0)
 				$formContent_a2[] = '<p'.$htmltag;
+			$count++;
 		}
+		$formContent_a2[] = '<span class="login-text">'.__("Login", 'minka').'</span></div>';
 		
 		$formContent2 = implode('', $formContent_a2);
 		

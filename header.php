@@ -42,14 +42,11 @@
 					if(!is_user_logged_in())
 					{
 						echo Minka::getLoginForm();
-						?>
-							<span class="login-text"><?php _e('Login', 'minka'); ?></span>
-						<?php
 					}
 					else 
 					{
 					?>
-						<span class="header-login-welcome"><?php echo __('Bem Vindo', 'minka').' <strong>'.wp_get_current_user()->display_name.'</strong>';?></span>
+						<span class="header-login-welcome"><?php echo __('Welcome', 'minka').' <strong>'.wp_get_current_user()->display_name.'</strong>';?></span>
 					<?php
 					} 
 					?>
