@@ -149,7 +149,7 @@ msgstr "¿Quién puede utilizar?"
 
 #: ../single-solution.php:58
 msgid "Useful tips and facts"
-msgstr "Consejos útiles "
+msgstr "Contacto"
 
 #: ../single-solution.php:62
 msgid "Appreciation"
