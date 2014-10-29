@@ -868,7 +868,7 @@ msgstr "Dirección del sitio web"
 
 #: ../inc/solutions/solutions.php:18
 msgid "for serving?"
-msgstr "para que sirve?"
+msgstr "Para que sirve?"
 
 #: ../inc/solutions/solutions.php:19
 msgid "for serving"
@@ -876,7 +876,7 @@ msgstr "Para servir"
 
 #: ../inc/solutions/solutions.php:24
 msgid "to whom it is addressed"
-msgstr "a quien se dirige"
+msgstr "A quien se dirige"
 
 #: ../inc/solutions/solutions.php:25
 msgid "coverage"
@@ -884,7 +884,7 @@ msgstr "Cobertura"
 
 #: ../inc/solutions/solutions.php:29
 msgid "for sharing"
-msgstr "para compartir"
+msgstr "Para compartir"
 
 #: ../inc/solutions/solutions.php:30
 msgid "sharing"
