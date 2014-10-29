@@ -42,33 +42,56 @@
 					}?>
 				</div>
 				<div class="solution-single-content">
-					<div class="solution-single-post-region">
-						<h2><?php echo __('Region', 'minka'); ?></h2>
-						<p><?php echo get_post_meta(get_the_ID(), 'solution-country', true); ?></p>
-					</div>
+					<?php $country = get_post_meta(get_the_ID(), 'solution-country', true);
+					if(!empty($country))
+					{?>
+						<div class="solution-single-post-region">
+							<h2><?php echo __('Region', 'minka'); ?></h2>
+							<p><?php echo $country ?></p>
+						</div><?php
+					}?>
 					<div class="solution-single-post-content">
 						<h2><?php echo __('Description', 'minka'); ?></h2>
 						<p><?php echo get_the_content();?></p>
 					</div>
+					<?php $can_use = get_post_meta(get_the_ID(), 'solution-for', true);
+					if(!empty($can_use))
+					{?>
 					<div class="span solution-single-post-can-use">
 						<h2><?php echo __('Who can use', 'minka');?></h2>
-						<p><?php echo get_post_meta(get_the_ID(), 'solution-for', true); ?></p>
-					</div>
-					<div class="span solution-single-post-contact">
-						<h2><?php echo __('Useful tips and facts', 'minka');?></h2>
-						<p><?php echo get_post_meta(get_the_ID(), 'solution-contact', true); ?></p>
-					</div>
+						<p><?php echo $can_use; ?></p>
+					</div><?php 
+					}
+					$contact = get_post_meta(get_the_ID(), 'solution-contact', true);
+					if(!empty($contact))
+					{?>
+						<div class="span solution-single-post-contact">
+							<h2><?php echo __('Useful tips and facts', 'minka');?></h2>
+							<p><?php echo $contact; ?></p>
+						</div><?php 
+					}
+					$sharing = get_post_meta(get_the_ID(), 'solution-sharing', true);
+					if(!empty($sharing))
+					{?>
 					<div class="span solution-single-post-sharing">
 						<h2><?php echo __('Appreciation', 'minka');?></h2>
-						<p><?php echo get_post_meta(get_the_ID(), 'solution-sharing', true); ?></p>
-					</div>
+						<p><?php echo $sharing; ?></p>
+					</div><?php 
+					}
+					if(has_tag())
+					{?>
 					<div class="solution-single-post-tags">
 						<h2><?php echo __('Tags');?></h2>
 						<?php the_tags('', ', '); ?>
-					</div>
+					</div><?php 
+					}
+					$url = get_post_meta(get_the_ID(), 'solution-url', true);
+					if(!empty($url))
+					{?>
 					<div class="solution-single-post-url">
-						<a href="<?php echo get_post_meta(get_the_ID(), 'solution-url', true); ?>" target="_blank" ><?php _e('view web site', 'minka')?></a>
-					</div>
+						<a href="<?php echo $url; ?>" target="_blank" ><?php _e('view web site', 'minka')?></a>
+					</div><?php 
+					}?>
 				</div>
 				<div class="solution-single-post-rate">
 						<div class="solution-single-post-rate-result">
