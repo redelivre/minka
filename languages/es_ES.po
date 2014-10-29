@@ -868,7 +868,7 @@ msgstr "Dirección del sitio web"
 
 #: ../inc/solutions/solutions.php:18
 msgid "for serving?"
-msgstr "Para que sirve?"
+msgstr "Quién puede utilizar esta solución?"
 
 #: ../inc/solutions/solutions.php:19
 msgid "for serving"
