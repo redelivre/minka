@@ -305,7 +305,7 @@ else
 				<div class="solution-item-title"><?php _e('Highlight Image', 'minka'); ?>
 				</div>
 				<div class="solution-item-tip-text">
-					<?php _e('Image showed on listing, like on home or catalog!'); ?>
+					<?php _e('Image showed on listing, like on home or catalog!', 'minka'); ?>
 				</div>
 			</label>
 			<input type="file" name="thumbnail" id="thumbnail" value="<?php ?>" onchange="displayPreview(this.files, 'thumbnail');" ><?php
@@ -319,7 +319,7 @@ else
 				<div class="solution-item-title"><?php _e('Header Image', 'minka'); ?>
 				</div>
 				<div class="solution-item-tip-text">
-					<?php _e('Image showed on Header!'); ?>
+					<?php _e('Image showed on Header!', 'minka'); ?>
 				</div>
 			</label>
 			<input type="file" name="thumbnail2" id="thumbnail2" value="<?php echo array_key_exists('thumbnail2', $_REQUEST) ? esc_url($_REQUEST['thumbnail2']) : ''; ?>" onchange="displayPreview(this.files, 'thumbnail2');" ><?php
@@ -336,7 +336,7 @@ else
 	</div>
 	
 	<input id="original_publish" type="hidden" value="Publish" name="original_publish">
-	<input id="publish" class="button button-primary button-large" type="submit" accesskey="p" value="Publish" name="publish">
+	<input id="publish" class="button button-primary button-large" type="submit" accesskey="p" value="<?php _e('Publish Solution', 'minka'); ?>" name="publish">
 	</form>
 	</div>
 <?php 

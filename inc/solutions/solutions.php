@@ -32,7 +32,7 @@ class Solutions
 			'country' => array (
 					'slug' => 'solution-country',
 					'title' => __ ( 'available to countries', 'minka' ),
-					'tip' => __ ( 'country', 'minka' )
+					'tip' => _n( 'country', 'country', 1, 'minka' )
 			),
 			'contact' => array (
 					'slug' => 'solution-contact',

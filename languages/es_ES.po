@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Minka Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-17 15:52-0300\n"
+"POT-Creation-Date: 2014-10-29 11:32-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jacson Passold <jacson@ethymos.com.br>\n"
 "Language-Team: \n"
@@ -28,11 +28,11 @@ msgstr "Ver todos"
 msgid "Search"
 msgstr "Búsqueda"
 
-#: ../footer.php:17 ../inc/customizer.php:98
+#: ../footer.php:17 ../inc/customizer.php:111
 msgid "Redes Amigas de MINKA"
 msgstr "Redes amigas de MINKA"
 
-#: ../footer.php:32 ../inc/customizer.php:109
+#: ../footer.php:32 ../inc/customizer.php:122
 msgid ""
 "Minka - Banco de las redes. Todos los derechos reservados, copyright 2014"
 msgstr ""
@@ -116,11 +116,7 @@ msgstr "Ir a la página"
 msgid "click and drag the buttom to change language"
 msgstr "Haga clic y arrastre el botón para cambiar el idioma"
 
-#: ../header.php:45
-msgid "Login"
-msgstr "Acceder"
-
-#: ../header.php:52
+#: ../header.php:49
 msgid "Bem Vindo"
 msgstr "Bienvenido"
 
@@ -191,158 +187,155 @@ msgstr "Los resultados por categoría"
 msgid "Result for"
 msgstr "Resultados para"
 
-#: ../functions.php:74
+#: ../functions.php:75
 msgid "Primary Menu"
 msgstr "Menú Principal"
 
-#: ../functions.php:214
+#: ../functions.php:215
 msgid "Share on Google+"
 msgstr "Compartir en Google+"
 
-#: ../functions.php:215
+#: ../functions.php:216
 msgid "Share on Youtube"
 msgstr "Compartir en Youtube"
 
-#: ../functions.php:216
+#: ../functions.php:217
 msgid "Share on Twitter"
 msgstr "Compartir en Twitter"
 
-#: ../functions.php:217
+#: ../functions.php:218
 msgid "Share on Facebook"
 msgstr "Compartir en Facebook"
 
-#: ../functions.php:232
+#: ../functions.php:233
 msgid "Home Sidebar"
 msgstr "Barra lateral de inicio"
 
-#: ../functions.php:241
+#: ../functions.php:242
 msgid "Footer Widget Area Top"
 msgstr "Widget Topo en pie del página "
 
-#: ../functions.php:250
+#: ../functions.php:251
 msgid "Footer Widget Area Bottom"
 msgstr "Bajo Widget en pie del página"
 
-#: ../functions.php:259
-#, fuzzy
+#: ../functions.php:260
 msgid "Solution Sidebar"
 msgstr "Barra lateral de la Solución"
 
-#: ../functions.php:272
-#, fuzzy
+#: ../functions.php:273
 msgid "Blog Sidebar"
 msgstr "Barra lateral del Blog"
 
-#: ../functions.php:285
-#, fuzzy
+#: ../functions.php:286
 msgid "Network Template Sidebar"
 msgstr "Inicio de la barra lateral"
 
-#: ../functions.php:300
+#: ../functions.php:301
 msgid "Iniciar"
 msgstr "Iniciar"
 
-#: ../functions.php:410
-#, fuzzy
+#: ../functions.php:336
+msgid "Login"
+msgstr "Acceder"
+
+#: ../functions.php:441
 msgid "Page Categories"
 msgstr "Página de las Categorías"
 
-#: ../functions.php:411
+#: ../functions.php:442
 msgid "Page Category"
 msgstr "Página de la Categoría"
 
-#: ../functions.php:412
+#: ../functions.php:443
 msgid "Search for Page Category"
 msgstr "Buscar por las Categorías de las Páginas"
 
-#: ../functions.php:413
+#: ../functions.php:444
 msgid "All Page Categories"
 msgstr "toda página categorías"
 
-#: ../functions.php:414
+#: ../functions.php:445
 msgid "Page Category parent"
 msgstr "Categoría padre"
 
-#: ../functions.php:415
+#: ../functions.php:446
 msgid "Page Category parent:"
 msgstr "Categoría padre"
 
-#: ../functions.php:416
+#: ../functions.php:447
 msgid "Edit Page Caterory"
 msgstr "Editar Categoría"
 
-#: ../functions.php:417
+#: ../functions.php:448
 msgid "Update Page Caterory"
 msgstr "Actualizar Categoría"
 
-#: ../functions.php:418
+#: ../functions.php:449
 msgid "Add new Page Caterory"
 msgstr "Añadir nueva Categoría"
 
-#: ../functions.php:419 ../inc/solutions/solutions.php:108
+#: ../functions.php:450 ../inc/solutions/solutions.php:108
 msgid "Add new"
 msgstr "Añadir nuevo"
 
-#: ../functions.php:420
+#: ../functions.php:451
 msgid "New Page Caterory"
 msgstr "Nueva Categoría de página"
 
-#: ../functions.php:421
+#: ../functions.php:452
 msgid "View Page Caterory"
 msgstr "Ver Categoría de página"
 
-#: ../functions.php:422
+#: ../functions.php:453
 msgid "no Page Caterory founded"
 msgstr "Categoría no encontrada"
 
-#: ../functions.php:423
+#: ../functions.php:454
 msgid "no Page Caterory founded in trash"
 msgstr "Categoría no encontrada en la basura"
 
-#: ../functions.php:424 ../functions.php:429
+#: ../functions.php:455 ../functions.php:460
 msgid "Page Caterories"
 msgstr "Categorías de página"
 
-#: ../functions.php:750
+#: ../functions.php:781
 msgid "Extra profile information"
 msgstr "Información extra del perfil"
 
-#: ../functions.php:754 ../template-registro-de-usuario.php:42
+#: ../functions.php:785 ../template-registro-de-usuario.php:42
 msgid "City"
 msgstr "Ciudad"
 
-#: ../functions.php:757
+#: ../functions.php:788
 msgid "Please enter your City."
 msgstr "Introduzca su Ciudad."
 
-#: ../functions.php:761 ../template-registro-de-usuario.php:46
-#, fuzzy
+#: ../functions.php:792 ../template-registro-de-usuario.php:46
 msgid "Country"
 msgstr "País"
 
-#: ../functions.php:764
+#: ../functions.php:795
 msgid "Please enter your Country."
 msgstr "Introduzca su País."
 
-#: ../functions.php:768
+#: ../functions.php:799
 msgid "Organization"
 msgstr "Organización"
 
-#: ../functions.php:771
-#, fuzzy
+#: ../functions.php:802
 msgid "Please enter your Organization."
 msgstr "Introduzca su Ciudad."
 
-#: ../functions.php:836
-#, fuzzy
+#: ../functions.php:867
 msgid "Network template content"
 msgstr "Inicio de la barra lateral"
 
-#: ../functions.php:843 ../network.php:33
+#: ../functions.php:874 ../network.php:33
 msgid "Who and where are the protagonists of the collaborative economy"
 msgstr "¿Quién y dónde están los protagonistas de la economía colaborativa?"
 
-#: ../functions.php:862
+#: ../functions.php:893
 msgid "Text Before Map"
 msgstr "Texto antes el mapa"
 
@@ -441,7 +434,6 @@ msgid "Comments are closed."
 msgstr "Los comentarios están cerrados."
 
 #: ../authors.php:59
-#, fuzzy
 msgid "View my solutions"
 msgstr "Ver Solución"
 
@@ -471,7 +463,6 @@ msgid "Repita sua senha"
 msgstr "Repita la contraseña"
 
 #: ../template-registro-de-usuario.php:38
-#, fuzzy
 msgctxt "registro-de-usuario"
 msgid "Email"
 msgstr "correo electrónico"
@@ -587,46 +578,47 @@ msgstr "Logo"
 msgid "Header Logo"
 msgstr "Logo de la cabecera"
 
-#: ../inc/customizer.php:82
+#: ../inc/customizer.php:79
+msgid "Favicon"
+msgstr "Favicon"
+
+#: ../inc/customizer.php:95
 msgid "Conteúdo"
 msgstr "Contenido"
 
-#: ../inc/customizer.php:104
+#: ../inc/customizer.php:117
 msgid "Footer Title"
 msgstr "Título del Pie de página"
 
-#: ../inc/customizer.php:115
+#: ../inc/customizer.php:128
 msgid "Footer Text"
 msgstr "Texto del Pie de página"
 
-#: ../inc/customizer.php:126
-#, fuzzy
+#: ../inc/customizer.php:139
 msgid "Display Home Video"
 msgstr "Mostrar imagen de la entrada?"
 
-#: ../inc/customizer.php:133
+#: ../inc/customizer.php:146
 msgid "http://youtu.be/TDwB0Z9s5nE"
 msgstr "http://youtu.be/TDwB0Z9s5nE"
 
-#: ../inc/customizer.php:139
+#: ../inc/customizer.php:152
 msgid "Home Video URL (copy only the video url)"
 msgstr "URL del vídeo de inicio (solo copia la URL del video)"
 
-#: ../inc/customizer.php:149
+#: ../inc/customizer.php:162
 msgid "Imagem de fundo do destaque"
 msgstr "Imagen de fondo del destaque"
 
-#: ../inc/customizer.php:181
+#: ../inc/customizer.php:194
 msgid "Category "
 msgstr "categoría"
 
-#: ../inc/customizer.php:190
-#, fuzzy
+#: ../inc/customizer.php:203
 msgid "Select Category "
 msgstr "Seleccione una categoría"
 
-#: ../inc/customizer.php:196
-#, fuzzy
+#: ../inc/customizer.php:209
 msgid "Background Color of Category "
 msgstr "Color de fondo de la categoría"
 
@@ -686,12 +678,10 @@ msgstr ""
 "mostrar en base a una configuración de idioma."
 
 #: ../inc/LinkTranslationWidget.php:15
-#, fuzzy
 msgid "WPML Links"
 msgstr "WPML Enlaces"
 
 #: ../inc/LinkTranslationWidget.php:77
-#, fuzzy
 msgid "Select Link Category"
 msgstr "Seleccione la categoría del enlace"
 
@@ -704,7 +694,6 @@ msgid "Show Link Name"
 msgstr "Mostrar el nombre del enlace"
 
 #: ../inc/LinkTranslationWidget.php:100
-#, fuzzy
 msgid "Show Link Description"
 msgstr "Mostrar descripción del enlace"
 
@@ -729,7 +718,6 @@ msgid "Display as checkbox"
 msgstr "Mostrar como casilla"
 
 #: ../inc/widgets.php:83
-#, fuzzy
 msgid "Categories"
 msgstr "Categorías"
 
@@ -738,7 +726,6 @@ msgid "Your site&#8217;s most recent Posts."
 msgstr "Su sítio&#8217;s entradas más recientes."
 
 #: ../inc/widgets.php:103 ../inc/widgets.php:152
-#, fuzzy
 msgid "Recent Posts"
 msgstr "Entradas recientes"
 
@@ -779,11 +766,10 @@ msgid "network"
 msgstr "red"
 
 #: ../inc/widgets.php:327 ../inc/solutions/solutions.php:35
-#, fuzzy
 msgid "country"
 msgid_plural "countries"
-msgstr[0] "país"
-msgstr[1] "país"
+msgstr[0] "País"
+msgstr[1] "País"
 
 #: ../inc/widgets.php:328
 msgid "member"
@@ -820,18 +806,16 @@ msgstr ""
 "inicio de sesión"
 
 #: ../inc/solutions/new-solution.php:68
-#, fuzzy
 msgid "required field"
-msgstr "campo obligatorio "
+msgstr "campo obligatorio"
 
 #: ../inc/solutions/new-solution.php:68
 msgid "is empty"
 msgstr "esta vacío"
 
 #: ../inc/solutions/new-solution.php:119
-#, fuzzy
 msgid "error on set post taxonomy"
-msgstr "Error al crear taxonomía "
+msgstr "Error al crear taxonomía"
 
 #: ../inc/solutions/new-solution.php:143
 msgid "error on set post thumbnail image"
@@ -863,13 +847,16 @@ msgid "Image showed on listing, like on home or catalog!"
 msgstr "Imagen mostró el perfil, como en casa o catálogo!"
 
 #: ../inc/solutions/new-solution.php:319
-#, fuzzy
 msgid "Header Image"
 msgstr "Imagen de la cabecera de la solución"
 
 #: ../inc/solutions/new-solution.php:322
 msgid "Image showed on Header!"
 msgstr "Imagen mostró el encabezado!"
+
+#: ../inc/solutions/new-solution.php:339
+msgid "Publish Solution"
+msgstr "Publicar Solución"
 
 #: ../inc/solutions/solutions.php:11
 msgid "URL"
@@ -885,7 +872,7 @@ msgstr "para que sirve?"
 
 #: ../inc/solutions/solutions.php:19
 msgid "for serving"
-msgstr "para servir"
+msgstr "Para servir"
 
 #: ../inc/solutions/solutions.php:24
 msgid "to whom it is addressed"
@@ -901,7 +888,7 @@ msgstr "para compartir"
 
 #: ../inc/solutions/solutions.php:30
 msgid "sharing"
-msgstr "compartir"
+msgstr "Compartir"
 
 #: ../inc/solutions/solutions.php:34
 msgid "available to countries"
@@ -913,7 +900,7 @@ msgstr "Contacto "
 
 #: ../inc/solutions/solutions.php:40
 msgid "e-mail"
-msgstr "correo electrónico"
+msgstr "Correo electrónico"
 
 #: ../inc/solutions/solutions.php:106 ../inc/solutions/solutions.php:117
 #: ../inc/solutions/solutions.php:123 ../inc/solutions/solutions.php:125
@@ -953,7 +940,6 @@ msgid "Solution not found in the trash"
 msgstr "Solución no encontrada en la basura"
 
 #: ../inc/solutions/solutions.php:155
-#, fuzzy
 msgid "Solution Details"
 msgstr "Detalles de la solución"
 
@@ -962,7 +948,6 @@ msgid "Solution Header Image"
 msgstr "Imagen de la cabecera de la solución"
 
 #: ../inc/solutions/solutions.php:166
-#, fuzzy
 msgid "Solution name"
 msgstr "Nombre de la Solución"
 
