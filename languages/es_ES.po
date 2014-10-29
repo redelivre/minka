@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Minka Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-29 11:32-0300\n"
+"POT-Creation-Date: 2014-10-29 11:41-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jacson Passold <jacson@ethymos.com.br>\n"
 "Language-Team: \n"
@@ -117,8 +117,8 @@ msgid "click and drag the buttom to change language"
 msgstr "Haga clic y arrastre el botón para cambiar el idioma"
 
 #: ../header.php:49
-msgid "Bem Vindo"
-msgstr "Bienvenido"
+msgid "Welcome"
+msgstr "Bienvenido/a"
 
 #: ../archives.php:56
 #, php-format
@@ -1027,6 +1027,9 @@ msgstr ""
 #: ../inc/categories-images/categories-images.php:297
 msgid "You do not have sufficient permissions to access this page."
 msgstr "No tienes permisos suficientes para acceder a esta página."
+
+#~ msgid "Bem Vindo"
+#~ msgstr "Bienvenido"
 
 #~ msgid "Cabeçalho"
 #~ msgstr "Cabeçalho"
