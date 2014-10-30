@@ -2044,6 +2044,10 @@ object {
     float: left;
 }
 
+.solution-single-post-content {
+    margin-bottom: 2.5em;
+}
+
 .single-solution .solution-single-content-col1, .single-solution .solution-single-content-col2 {
 	float: left;
 	display: block;
@@ -2054,7 +2058,8 @@ object {
 }
 
 .single-solution .solution-single-content-col2 {
-	width: 60%;	
+	margin-left: 1em;
+    width: 58%;	
 }
 
 .solution-single-content h2 {

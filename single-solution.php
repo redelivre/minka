@@ -86,7 +86,7 @@
 					<div class="solution-single-content-col2">
 						<div class="solution-single-post-content">
 							<h2><?php echo __('Description', 'minka'); ?></h2>
-							<p><?php echo get_the_content();?></p>
+							<p><?php the_content();?></p>
 						</div><?php
 						$url = get_post_meta(get_the_ID(), 'solution-url', true);
 						if(!empty($url))
