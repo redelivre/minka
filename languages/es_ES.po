@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Minka Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-29 11:41-0300\n"
+"POT-Creation-Date: 2014-10-30 15:12-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jacson Passold <jacson@ethymos.com.br>\n"
 "Language-Team: \n"
@@ -135,47 +135,47 @@ msgstr ""
 msgid "View the Catalog"
 msgstr "Ver el Catálogo"
 
-#: ../single-solution.php:46
+#: ../single-solution.php:50
 msgid "Region"
 msgstr "Región"
 
-#: ../single-solution.php:50 ../inc/solutions/solutions.php:173
-msgid "Description"
-msgstr "Descripción"
-
-#: ../single-solution.php:54
+#: ../single-solution.php:58
 msgid "Who can use"
 msgstr "¿Quién puede utilizar?"
 
-#: ../single-solution.php:58
+#: ../single-solution.php:66
 msgid "Useful tips and facts"
 msgstr "Contacto"
 
-#: ../single-solution.php:62
+#: ../single-solution.php:74
 msgid "Appreciation"
 msgstr "Apreciación"
 
-#: ../single-solution.php:66
+#: ../single-solution.php:81
 msgid "Tags"
 msgstr "Etiquetas"
 
-#: ../single-solution.php:70
+#: ../single-solution.php:88 ../inc/solutions/solutions.php:173
+msgid "Description"
+msgstr "Descripción"
+
+#: ../single-solution.php:99
 msgid "view web site"
 msgstr "ver sitio web"
 
-#: ../single-solution.php:76
+#: ../single-solution.php:109
 msgid "Ease of use"
 msgstr "Facilidad de uso"
 
-#: ../single-solution.php:84 ../single-solution.php:102
+#: ../single-solution.php:117 ../single-solution.php:136
 msgid "Experience"
 msgstr " Experiencia"
 
-#: ../single-solution.php:92
+#: ../single-solution.php:126
 msgid "Share your experience"
 msgstr "Contanos tu experiencia"
 
-#: ../single-solution.php:96
+#: ../single-solution.php:130
 msgid "Usability"
 msgstr "Usabilidad"
 
@@ -840,11 +840,13 @@ msgstr ""
 
 #: ../inc/solutions/new-solution.php:305
 msgid "Highlight Image"
-msgstr "Resalte imagen"
+msgstr "Imagen destacada"
 
 #: ../inc/solutions/new-solution.php:308
 msgid "Image showed on listing, like on home or catalog!"
-msgstr "Imagen mostró el perfil, como en casa o catálogo!"
+msgstr ""
+"Imagen mostrada en el mosaico de soluciones, como un logo o un ícono, "
+"preferentemente cuadrado!"
 
 #: ../inc/solutions/new-solution.php:319
 msgid "Header Image"
@@ -852,7 +854,7 @@ msgstr "Imagen de la cabecera de la solución"
 
 #: ../inc/solutions/new-solution.php:322
 msgid "Image showed on Header!"
-msgstr "Imagen mostró el encabezado!"
+msgstr "Imagen de portada"
 
 #: ../inc/solutions/new-solution.php:339
 msgid "Publish Solution"
