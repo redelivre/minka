@@ -783,6 +783,32 @@ a:active {
     width: 5em;
 }
 
+.comment-form-col1 {
+    display: block;
+    float: left;
+    width: 49%;
+}
+
+.comment-form-col2 {
+    display: block;
+    float: right;
+    width: 49%;
+}
+
+.form-allowed-tags, .form-allowed-tags abbr {
+    font-size: 0.85em;
+    text-align: justify;
+}
+
+.form-allowed-tags code {
+    font-size: 1em;
+    text-align: justify;
+}
+
+.form-submit > input {
+    float: right;
+}
+
 /*--------------------------------------------------------------
 11.0 Infinite scroll
 --------------------------------------------------------------*/
@@ -2127,6 +2153,11 @@ object {
 	float:left;
 }
 
+.solution-single-post-comments {
+    display: block;
+    float: left;
+    width: 100%;
+}
 
 /*--------------------------------------------------------------
 22 New solution
