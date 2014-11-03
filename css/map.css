@@ -204,7 +204,11 @@
 }
 
 .balloon a {
-	color: #805783;
+	color: #ff8300;
+}
+
+.balloon a:VISITED {
+	color: #ff8300;
 }
 
 .balloon-entry-default,
@@ -251,4 +255,19 @@
 
 #post_overlay #pontos_close_post_overlay:hover {
 	background-color: #501651;
+}
+
+.js-link-to-user {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.balloon #entry-default {
+	margin-top: 1em;
+}
+
+.mapasdevista-user-bubble-title {
+    font-weight: bold;
 }
