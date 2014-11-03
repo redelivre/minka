@@ -1753,9 +1753,13 @@ object {
     float: left;
     margin-right: 20px;
     width: 23%;
-    opacity: 0.6;
     cursor: pointer;
     box-shadow: 0 0 6px #ccc;
+    -webkit-transition: all 0.5s ease; /* Safari and Chrome */
+  	-moz-transition: all 0.5s ease; /* Firefox */
+  	-o-transition: all 0.5s ease; /* IE 9 */
+  	-ms-transition: all 0.5s ease; /* Opera */
+  	transition: all 0.5s ease;
 }
 
 .home-cat-post-box-no-margin {
@@ -1763,7 +1767,11 @@ object {
 }
 
 .home-cat-post-box:hover {
-	opacity: initial;	
+	-webkit-transform:scale(1.05); /* Safari and Chrome */
+    -moz-transform:scale(1.05); /* Firefox */
+    -ms-transform:scale(1.05); /* IE 9 */
+    -o-transform:scale(1.05); /* Opera */
+     transform:scale(1.05);	
 }	
 
 .home-cat-post-box:last-child {
@@ -2356,11 +2364,19 @@ object {
     background-position: center bottom;
     box-shadow: 0 0 6px #ccc;
     cursor: pointer;
-    opacity: 0.8;
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+  	-moz-transition: all 1s ease; /* Firefox */
+  	-o-transition: all 1s ease; /* IE 9 */
+  	-ms-transition: all 1s ease; /* Opera */
+  	transition: all 1s ease;
 }
 
 .page-template-archives-php .blog-archive-post-thumbnail:hover {
-	opacity: initial;
+	-webkit-transform:scale(1.05); /* Safari and Chrome */
+    -moz-transform:scale(1.05); /* Firefox */
+    -ms-transform:scale(1.05); /* IE 9 */
+    -o-transform:scale(1.05); /* Opera */
+     transform:scale(1.05);
 }
 
 .blog-archive-post-title > h2 {
