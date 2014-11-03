@@ -153,6 +153,8 @@ class Minka{
 		wp_enqueue_script('jquery-cycle2-center', get_template_directory_uri() . '/js/jquery.cycle2.center.min.js', array('jquery-cycle2'));
 		wp_enqueue_script('slider-scroller', get_template_directory_uri() . '/js/slider.scroller.js', array('jquery-cycle2'));
 		
+		wp_enqueue_script('login-form-hack', get_template_directory_uri() . '/js/login.form.hack.js', array('jquery'));
+		
 	}
 
 	public static function languageSelector()
