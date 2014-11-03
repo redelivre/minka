@@ -1793,7 +1793,7 @@ object {
 }
 
 .home-cat-post-content {
-	height: 76px;
+	height: 80px;
 	margin-bottom: 6px;
 	-o-text-overflow: ellipsis;   /* Opera */
     text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
