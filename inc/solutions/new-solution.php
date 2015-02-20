@@ -297,9 +297,13 @@ else
 			break;
 			
 		}
-	}//TODO Make image a field
+	}
+	/*require_once( ABSPATH . 'wp-admin/includes/taxonomy.php' );
+	require_once( ABSPATH . 'wp-admin/includes/meta-boxes.php' );
+	$box = array('title' => 'Teste');
+	post_tags_meta_box($post, $box);*/
 	?>
-	<div class="images">
+	<div class="images"> <?php //TODO Make image a field ?>
 		<div class="images-thumbnail">  
 			<label for="thumbnail" class="solution-item-label">
 				<div class="solution-item-title"><?php _e('Highlight Image', 'minka'); ?>
@@ -330,9 +334,9 @@ else
 		</div>
 	</div>
 	<div class="category-group">
-	<?php 
-	Solutions::taxonomy_checklist();
-	?>
+		<?php 
+		Solutions::taxonomy_checklist();
+		?>
 	</div>
 	
 	<input id="original_publish" type="hidden" value="Publish" name="original_publish">
