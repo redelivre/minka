@@ -1,8 +1,21 @@
 <?php get_header(); ?>
-<div class="solution-entry-content">
-	<div class="solution-single-sidebar">
-		<?php dynamic_sidebar('solution-sidebar'); ?>
-	</div>
+<div class="home-entry" style="background: #FFF">
+<div class="solution-entry-content container" style="background: #FFF">
+	<div class="solution-category-archive-content row">	
+        <div class="solution-search row center-block col-md-12">
+                <div class="col-md-5 col-lg-5 search">
+                    <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                	<a href="/solution/" class="btn btn-primary see-all">Catalogo Soluciones</a>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                	<a href="/new-solution/" class="btn btn-primary btn-new-solution">Publica Nueva solución</a>
+                </div>
+        </div>
+   </div>
+
+
 	<div class="solution-single-post-list">
 	<?php 
 		/** @var $wp_query WP_Query **/
@@ -17,7 +30,8 @@
 				?>
 				<div class="single solution-thumbnail-region">
 					<div class="solution-single-header">
-						<div class="solution-single-post-title">
+						<div class="title">
+                            <h2>
 						<?php
 							$cats_name = '';
 							foreach (Minka::getCategoryLastChild(get_post()) as $cat)
@@ -28,11 +42,9 @@
 							$cats_name = substr($cats_name, 0, -2);
 							echo get_the_title()." / ".$cats_name;
 						?>
+                            </h2>
 						</div>
-						<div class="solution-single-link-catalog" onclick="window.location='<?php echo get_post_type_archive_link( 'solution' ); ?>';return false;">
-							<?php _e('View the Catalog', 'minka') ?>
-						</div>
-					</div><br/><?php
+					</div><?php
 					if(intval($thumbnail_id) > 0)
 					{?>
 						<div class="solution-thumbnail-box">
@@ -92,17 +104,16 @@
 						if(!empty($url))
 						{?>
 							<div class="solution-single-post-url-entry">
-								<div class="solution-single-post-url-copy">
-									<?php echo $url; ?>
-								</div>
-								<div class="solution-single-post-url">
-									<a href="<?php echo $url; ?>" target="_blank" ><?php _e('view web site', 'minka')?></a>
+								<div class="">
+									<a class="solution-single-post-url-copy" href="<?php echo $url; ?>" target="_blank" >
+                                        <?php echo $url; ?>
+                                    </a>
 								</div>
 							</div><?php 
 						}?>
 					</div>
 				</div>
-				<div class="solution-single-post-rate">
+				<!--div class="solution-single-post-rate">
 					<div class="solution-single-post-rate-entry">
 						<div class="solution-single-post-rate-result">
 							<div class="solution-single-post-rate-result-label">
@@ -121,24 +132,25 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div-->
 				<div class="solution-single-post-exp-form-entry">
 					<h3><?php _e('Share your experience', 'minka');?></h3>
 					<div class="solution-single-post-exp needs-rating">
 						<div class="solution-single-post-form-rate">
 							<h2 class="solution-single-post-rate-title">
-								<?php _e("Usability", "minka"); ?>
+								Valora tu experiencia
 							</h2>
 							<?php the_rate_form(); ?>
 						</div>
-						<div class="solution-single-post-form-exp">
+						<!--div class="solution-single-post-form-exp">
 							<h2 class="solution-single-post-experience-title">
 								<?php _e("Experience", "minka"); ?>
 							</h2>
 							<?php the_rate_formExperience(); ?>
-						</div>
+						</div-->
 					</div>
 				</div>
+
 				<div class="solution-single-post-comments">
 				<?php
 					if ( comments_open() || '0' != get_comments_number() ) :
@@ -151,6 +163,7 @@
 		}
 	?>
 	</div>
+</div>
 </div>
 
 

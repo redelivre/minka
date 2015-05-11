@@ -66,10 +66,13 @@ if ( post_password_required() ) {
 	<?php endif; ?>
 
 	<?php
+    
 	
 	if(is_user_logged_in())
 	{
-		comment_form();
+		comment_form(array(
+			'comment_notes_after'  => ''
+        ));
 	}
 	else 
 	{
@@ -77,10 +80,11 @@ if ( post_password_required() ) {
 		$required_text = sprintf( ' ' . __('Required fields are marked %s'), '<span class="required">*</span>' );
 		
 		$newdefaults = array(
-			'comment_field' => '</div><div class="comment-form-col2"><p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
-			'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p><div class="comment-form-col1">',
-			'comment_notes_after'  => '<p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), ' <code>' . allowed_tags() . '</code>' ) . '</p></div>',
+			'comment_field' => '</div><div class="col-md-6 comment-form-col2old"><p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p></div>',
+			'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p><div class="row col-md-12"><div class="col-md-6 comment-form-col1old">',
+			'comment_notes_after'  => '</div>'
 		);
+
 		
 		comment_form($newdefaults);
 	}

@@ -7,7 +7,7 @@
 		});
 	</script>
 	
-	<div class="container-registro">
+	<div class="container-registro container">
 		
 		<div class="titulo">
 			<h1><?php echo _x('Cadastre-se', 'registro-de-usuario', 'redelivre'); ?></h1>

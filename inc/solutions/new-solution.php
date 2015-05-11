@@ -4,7 +4,7 @@ require_once dirname(__FILE__).'/HTMLPurifier.standalone.php';
 
 $solution = new Solutions();
 
-$publish = array_key_exists('publish', $_POST) && $_POST['publish'] == 'Publish';
+$publish = array_key_exists('publish', $_POST) && ($_POST['publish'] == 'Publish' || $_POST['publish'] == 'Publish Solution');
 
 $post_type = '';
 if ( !isset($_GET['post_type']) )
@@ -19,8 +19,30 @@ $post_type_object = get_post_type_object( $post_type );
 $language_code = array_key_exists('icl_post_language', $_POST) ? $_POST['icl_post_language'] : 'es';
 
 if ( ! is_user_logged_in() )
-{
-	echo '<h1 class="access">'.__('You do not have access to this page, please make login or change your login account', 'minka').'</h1>';
+{?>
+<div class="home-entry" >
+    <div class="row">
+        <div class="col-lg-12 sections-description">
+            <h2 class="text-center">Minka.me es una plataforma para promover y difundir la Economía Colaborativa</h2>
+        </div>
+    </div>
+</div>
+<div class="home-entry" style="background: #FFF">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="text-center"><?php echo __('You do not have access to this page, please make login or change your login account', 'minka'); ?></h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-lg-4 col-md-offset-4  col-lg-offset-4">
+		<div class="text-center block-center">
+			 <?php wp_login_form( ); ?> 
+		</div>
+        </div>
+    </div>
+</div>
+<?php
 }
 else 
 {
@@ -182,15 +204,17 @@ else
 			}
 		}
 		
-		/* Debug /
+        /*
+		var_dump($message);
 		echo '<pre>';
 		var_dump($_POST);
 		echo '<br/>';
 		var_dump($post);
 		echo '<br/>';
 		var_dump($attach_id);
-		echo '</pre>';*/
+		echo '</pre>';
 		
+        */
 		
 		if($notice == false && count($message) == 0)
 		{?>
@@ -204,9 +228,22 @@ else
 	$nonce_action = 'update-post_' . $post_ID;
 	$form_extra .= "<input type='hidden' id='post_ID' name='post_ID' value='" . esc_attr($post_ID) . "' />";
 	
+
+
 	?>
 	
-	<div class="wrap">
+<div class="home-entry" >
+    <div class="row">
+        <div class="col-lg-12 sections-description">
+            <h2 class="text-center">Minka.me es una plataforma para promover y difundir la Economía Colaborativa</h2>
+        </div>
+    </div>
+</div>
+<div class="home-entry" style="background: #FFF">
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
 	<?php //screen_icon(); ?>
 	<h2 class= "new-solution"><?php
 	echo esc_html( $title );
@@ -297,13 +334,9 @@ else
 			break;
 			
 		}
-	}
-	/*require_once( ABSPATH . 'wp-admin/includes/taxonomy.php' );
-	require_once( ABSPATH . 'wp-admin/includes/meta-boxes.php' );
-	$box = array('title' => 'Teste');
-	post_tags_meta_box($post, $box);*/
+	}//TODO Make image a field
 	?>
-	<div class="images"> <?php //TODO Make image a field ?>
+	<div class="images">
 		<div class="images-thumbnail">  
 			<label for="thumbnail" class="solution-item-label">
 				<div class="solution-item-title"><?php _e('Highlight Image', 'minka'); ?>
@@ -334,15 +367,18 @@ else
 		</div>
 	</div>
 	<div class="category-group">
-		<?php 
-		Solutions::taxonomy_checklist();
-		?>
+	<?php 
+	Solutions::taxonomy_checklist();
+	?>
 	</div>
 	
 	<input id="original_publish" type="hidden" value="Publish" name="original_publish">
 	<input id="publish" class="button button-primary button-large" type="submit" accesskey="p" value="<?php _e('Publish Solution', 'minka'); ?>" name="publish">
 	</form>
 	</div>
+</div>
+</div>
+</div>
 <?php 
 }
 

@@ -12,8 +12,11 @@
 
 get_header();?>
 
-<div  class="page-entry">
-	<div  class="page-post">
+<div class="home-entry" style="background: #FFF">
+<div class="container">
+	<div class="page-post row">
+		<div class="col-md-12">
+
 		<?php while ( have_posts() ) : the_post(); ?>
 	
 			<?php get_template_part( 'content', 'page' ); ?>
@@ -22,14 +25,20 @@ get_header();?>
 	
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template
+                /*
 				if ( comments_open() || '0' != get_comments_number() ) :
 					comments_template();
 				endif;
+                */
 			?>
 	
-		<?php endwhile; // end of the loop. ?>
+		<?php endwhile; // end of the loop. ?>		
+			
+		</div>
+
 	</div>
 
+</div>
 </div>
 
 <?php get_footer(); ?>

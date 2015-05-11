@@ -68,7 +68,7 @@ class Minka{
 		*
 		* @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 		*/
-		//add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'post-thumbnails' );
 	
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -213,12 +213,10 @@ class Minka{
 			$title = get_the_title();
 		}
 		?>
-			<div class="minka_social_bol minka_social_bol-right" ></div>
 			<a class="share-googleplus icon-googleplus" title="<?php _e( 'Share on Google+', 'minka' ); ?>" href="https://plus.google.com/share?url=<?php echo $post_permalink; ?>" rel="nofollow" target="_blank"></a>
 			<a class="share-youtube icon-youtube" title="<?php _e( 'Share on Youtube', 'minka' ); ?>" href="http://www.youtube.com=<?php echo $post_permalink; ?>&text=<?php echo $title; ?>&url=<?php echo $post_permalink; ?>" rel="nofollow" target="_blank"></a>
 			<a class="share-twitter icon-twitter" title="<?php _e( 'Share on Twitter', 'minka' ); ?>" href="http://twitter.com/intent/tweet?original_referer=<?php echo $post_permalink; ?>&text=<?php echo $title; ?>&url=<?php echo $post_permalink; ?>" rel="nofollow" target="_blank"></a>		
 			<a class="share-facebook icon-facebook" title="<?php _e( 'Share on Facebook', 'minka' ); ?>" href="https://www.facebook.com/sharer.php?u=<?php echo $post_permalink; ?>" rel="nofollow" target="_blank"></a>
-			<div class="minka_social_bol minka_social_bol-left" ></div>
 			
 		<?php
 	}
@@ -296,6 +294,21 @@ class Minka{
 		);
 		
 		register_sidebar( $args );
+
+		$args = array(
+				'name'          => __('Semana Template Sidebar', 'minka'),
+				'id'            => "semana-sidebar",
+				'description'   => '',
+				'class'         => '',
+				'before_widget' => '<li id="%1$s" style="list-style-type: none;"
+class="widget %2$s">',
+				'after_widget'  => "</li>\n",
+				'before_title'  => '',
+				'after_title'   => "",
+		);
+		
+		register_sidebar( $args );
+
 	}
 	
 	public function getLoginForm()
@@ -1008,3 +1021,124 @@ if(function_exists('icl_get_languages'))
 {
 	require_once get_template_directory() . '/inc/LinkTranslationWidget.php';
 }
+
+class Walker_CategoryPills extends Walker {
+
+    public $tree_type = 'category';
+
+    public $db_fields = array ('parent' => 'parent', 'id' => 'term_id');
+
+    public function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {
+        if($depth === 0) {
+            $pad = str_repeat('&nbsp;', $depth * 3);
+
+            $cat_name = apply_filters( 'list_cats', $category->name, $category );
+
+            $output .= "\t<li role=\"presentation\" value=\"".$category->term_id."\"";
+            if ( $category->term_id == $args['selected'] )
+                $output .= ' class="active"';
+            $output .= '>';
+            $output .= '<a href="#">'.$cat_name.'</a>';
+            if ( $args['show_count'] )
+                $output .= '&nbsp;&nbsp;('. number_format_i18n( $category->count ) .')';
+            $output .= "</li>\n";
+        }
+    }
+}
+
+function isotope_categories() {
+		$args = array(
+		  'orderby' => 'name',
+		  'parent' => 0,
+		  'exclude' => '1',
+		);
+        $categories = get_categories($args);
+
+		$tablist = '<ul id="solution-nav" class="nav nav-tabs" role="tablist">';
+		$tabcontent = '<div class="tab-content">';
+		$count = 0;
+			foreach ($categories as $category) {
+                if($category->cat_name != 'semana') {
+                    if(FALSE && $count == 0) {$active = 'active';} else { $active = '';}
+                    $tablist .= '<li class="'.$active.'"><a href="#'.$category->slug.'" aria-controls="'.$category->slug.'" role="tab" data-toggle="tab" class="parent-filter" data-filter='.$category->slug.'>'.$category->cat_name.'</a></li>';
+                    $tabcontent .= '<div role="tabpanel" class="tab-pane filters '.$active.'" id="'.$category->slug.'"><p>';
+                    $subcategories = get_categories('child_of='.$category->cat_ID); 
+                     foreach ($subcategories as $subcategory) {
+                        $tabcontent .= "<button class='btn btn-default'  data-filter='.".$subcategory->slug."'>".$subcategory->cat_name."</button> ";   
+                    }
+                    $tabcontent .= '<p></div>';		
+                    $count++;		
+                }
+			}
+		$tablist .= '</ul>';
+		$tabcontent .= '<div role="tabpanel" class="tab-pane filters" id="clear_categories>"</div></div>';			
+				
+
+        $html = $tablist.$tabcontent;
+
+        echo $html;
+}
+
+function text_slider($page_id) {
+    //ToDo: translation utility
+    $slider_text = '';
+    switch ($page_id) {
+        case 1:
+            $slider_text = "El primer banco de las redes para américa latina";
+            break;
+        case 149:
+            $slider_text = "Creamos servicios y herramientas para impulsar la economía colaborativa en todo el mundo";
+            break;
+        case 381:
+            $slider_text = "Explora el Catálogo de la economía colaborativa y descubre soluciones para potenciar tu proyecto";
+            break;
+        case 131:
+            $slider_text = "Entre todos, para todos el primer observatorio del movimiento colaborativo";
+            break;
+        case 64:
+            $slider_text = "Aprende sobre economía colaborativa!";
+            break;
+        case 80:
+            $slider_text = "Sistema de información sobre plataformas colaborativas";
+            break;
+        case 155:
+            $slider_text = "Una comunidad 100% colaborativa";
+            break;
+        default:
+            $slider_text = "Explora el Catálogo de la economía colaborativa y descubre soluciones para potenciar tu proyecto";
+    }
+    return $slider_text;
+
+}
+
+function get_slider($page_id) {
+	$slide = '1_home';
+    switch ($page_id) {
+        case 1:
+            $slide = '1_home';
+            break;
+        case 149:
+            $slide = '4_servicios';
+            break;
+        case 381:
+            $slide = '3_catalogo';
+            break;
+        case 131:
+            $slide = '2_blog';
+            break;
+        case 64:
+            $slide = '2_blog';
+            break;
+        case 80:
+            $slide = '5_contacto';
+            break;
+        case 155:
+            $slide = '6_red';
+            break;
+        default:
+            $slide = '1_home';
+    }
+    return $slide;
+
+}
+

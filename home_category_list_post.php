@@ -54,11 +54,25 @@
 	}
 	
 	$cat_list = '<span>'.implode('</span><br/><span>', $cat_list_array).'</span><br/>';
+	
+
+	$term_list = wp_get_post_terms(get_the_ID(), 'category', array("fields" =>"slugs"));
+	$term_slugs = implode(' ', $term_list);
 ?>
 
-<div class="home-cat-post-box <?php echo $cat_num; ?>" onclick="window.location='<?php the_permalink() ?>';return false;">
-	<span class="home-cat-post-cat" ><?php echo $cat_list; ?></span>
-	<span class="home-cat-post-title" ><h2><?php echo the_title();?></h2></span>
-	<span class="home-cat-post-thumbnail" ><span class="home-cat-post-thumbnail-img" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)" ></span></span>
-	<span class="home-cat-post-content" ><?php echo the_excerpt();?></span>
-</div>
+<!--div class="solution-wrapper"-->
+    <div class="item2 thumbnail all home-cat-post-box <?php echo $term_slugs; ?> <?php echo $cat_num; ?> col-md-3 col-sm-12" onclick="window.location='<?php the_permalink() ?>';return false;">
+        <!--<span class="home-cat-post-cat" ><?php echo $cat_list; ?></span>-->
+        <span class="home-cat-post-thumbnail" ><span class="home-cat-post-thumbnail-img" style="background-image: url(<?php 
+
+    if ( has_post_thumbnail(get_the_ID()) ) {
+        echo wp_get_attachment_url( get_post_thumbnail_id() ); 
+    } else {
+        echo get_template_directory_uri() . '/images/thumbnail_default.png';
+    }
+
+    ?>)" ></span></span>
+        <span class="home-cat-post-title" ><h2><?php echo the_title();?></h2></span>
+        <span class="home-cat-post-content" ><?php echo the_excerpt();?></span>
+    </div>
+<!--/div-->

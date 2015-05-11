@@ -1,120 +1,121 @@
 <?php
-/*
-Template Name: Archives
-*/
 get_header(); 
-$highlight = array();?>
+$highlight = array();
+?>
 
-<div  class="blog-archive-entry"><?php
-	//if ( !$current_page = get_query_var('paged') )
-	{
-		//if( get_theme_mod('minka_display_slider') == 1 )
-		{
-			wp_reset_query();
-			$feature = new WP_Query( array( 'posts_per_page' => 5, 'ignore_sticky_posts' => 1, 'meta_key' => '_home', 'meta_value' => 1 ) );
-			if ( $feature->have_posts() ) : ?>
-
-			<div class="cycle-slideshow highlights" >
-						<ul class="slides">
-			        	<div class="cycle-prev"></div>
-   					 	<div class="cycle-next"></div>
-				        <?php while ( $feature->have_posts() ) : $feature->the_post();
-				        	$highlight[] = get_the_ID();
-				        ?>
-					        <li class="cycles-slide">
-						        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						        	<div class="media slide cf">
-						    			<?php if ( has_post_thumbnail() ) : ?>
-							    			<div class="entry-image-box">
-							    				<div class="entry-image" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id()); ?>)">
-							    				</div>
-							    			</div>
-						    			<?php endif; ?>
-						        		<div class="bd">
-						        			<div class="entry-meta">
-							        			<?php $category = get_the_category(); ?>
-												<a href="<?php echo get_category_link( $category[0]->term_id ); ?>"><?php echo $category[0]->cat_name; ?></a>
-											</div>
-						        			<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php echo substr(the_title($before = '', $after = '', FALSE), 0, 60).'...'; ?></a></h2>
-						        			<div class="entry-summary">
-							        			<?php the_excerpt(); ?>
-						        			</div>
-						        		</div>
-						        	</div><!-- /slide -->
-						        </article><!-- /article -->
-					        </li>
-			        	<?php endwhile; ?>
-							<div class="cycle-pager"></div>
-			        	</ul><!-- .swiper-wrapper -->
-			</div><!-- .swiper-container -->
+<div class="home-entry" style="background: #FFF">
+<div class="blog-archive-entry container  ">
+	<div class="row">
+		<div class="col-lg-12">
 			<?php
-			wp_reset_postdata();
-			
-			else : ?>
-				<?php if ( current_user_can( 'edit_theme_options' ) ): ?>
-					<div class="empty-feature">
-		                <p><?php printf( __( 'To display your featured posts here go to the <a href="%s">Post Edit Page</a> and check the "Feature" box. You can select how many posts you want, but use it wisely.', 'guarani' ), admin_url('edit.php') ); ?></p>
-					</div>
-				<?php
-				endif;
-			endif; // have_posts()
-		}?>
-	 	<div class="clear"> </div><?php
-	}?>
-	<div class="blog-archive-post-list-entry">
-		<div class="blog-archive-post-list"><?php
-			wp_reset_query();
-			$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+		 	$count = 1;
+			$featured = new WP_Query( array( 'posts_per_page' => 5, 'ignore_sticky_posts' => 1, 'meta_key' => '_home', 'meta_value' => 1 ) );
+			if ( $featured->have_posts() ) : 
+			?>
+			<div id="carousel-featured" class="carousel slide" data-ride="carousel">				
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-featured" data-slide-to="0" class=""></li>
+					<li data-target="#carousel-featured" data-slide-to="1"></li>
+					<li data-target="#carousel-featured" data-slide-to="2"></li>
+					<li data-target="#carousel-featured" data-slide-to="3"></li>
+					<li data-target="#carousel-featured" data-slide-to="4"></li>
+				</ol>
+				<div class="carousel-inner" role="listbox">
+				 		<?php
+						while ( $featured->have_posts() ) : $featured->the_post();
+						$highlight[] = get_the_ID();
+						?>
+						    <div class="item <?php if($count == 1){ echo "active"; } ?>">
+						    	<div class="row">
+						    		<?php if ( has_post_thumbnail() ) : ?>
+								    	<div class="col-sm-3 text-center">
+						                  <img class="img-responsive" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id()); ?>" style="">
+						                </div>
+						                <div class="col-sm-9">
+						            <?php else: ?>
+						            	<div class="col-sm-12">
+					            	<?php endif; ?>
+					            		<div class="entry-meta">
+						        			<?php $category = get_the_category(); ?>
+											<a href="<?php echo get_category_link( $category[0]->term_id ); ?>"><?php echo $category[0]->cat_name; ?></a>
+										</div>
+					        			<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php echo substr(the_title($before = '', $after = '', FALSE), 0, 60).'...'; ?></a></h2>
+					        			<div class="entry-summary">
+						        			<?php the_excerpt(); ?>
+					        			</div>
+					                </div>
+						      </div>
+						    </div>
+						<?php 
+						$count++;
+						endwhile;
+						wp_reset_postdata();
+					?>
+				</div>						
+			</div>
+		<?php endif; ?>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col-lg-12">                
+            <?php
+            wp_reset_postdata();
+            $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 			global $wp_query;
-			
-			$wp_query = new WP_Query(array(
+            $args = array(
 				'post_type' => array( 'post' ),
 				'posts_per_page' => 4,
 				'paged' => $paged,
 				'order' => 'DESC',
 				'orderby' => 'modified',
 				'post__not_in' => $highlight
-			));
-			
-			if(have_posts())
+            );
+            $the_query = new WP_Query($args);
+            if(have_posts())
 			{
-				while (have_posts())
-				{
-					the_post();?>
-					<div class="blog-archive-post-box" onclick="window.location = '<?php the_permalink(); ?>'">
-						<div class="blog-archive-post-thumbnail" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>)">
-							<span class="blog-archive-post-title" ><h2><?php echo the_title();?></h2></span>
+	            while ($the_query->have_posts()) {
+	                $the_query->the_post();
+					$image = wp_get_attachment_url( get_post_thumbnail_id() ); 
+					if($image == '') { $image = "http://placehold.it/482x325"; }
+					?>
+					<div class="proxy-post col-md-4" onclick="window.location='<?php the_permalink() ?>';return false;">
+						<div class="featured-article thumbnail">
+							<div class="caption">
+								<span class="date"><?php echo the_date(); ?></span>
+								<h4><?php echo the_title();?></h4>
+							</div>
+							<img src="<?php echo $image ?>" alt="" class="thumb" height="235">		
 						</div>
-					</div><?php
-				}?>
-				<div class="clear"> </div>
-				<div class="blog-archive-post-paginate">
-				<?php 
-					$big = 999999999; // need an unlikely integer
-					
-					echo paginate_links( array(
-							'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-							'format' => '?paged=%#%',
-							'current' => max( 1, get_query_var('paged') ),
-							'total' => $wp_query->max_num_pages
-					) );
-				?>
-				</div>
-				<?php
-			} 
-		?></div>
-		<div class="archives-sidebar">
-			<?php dynamic_sidebar('blog-sidebar'); ?>
+					</div>
+					<?php
+	            }
+        	}
+            wp_reset_postdata();
+            ?>                     
+        </div>	
+        <div class="blog-archive-post-paginate">
+		<?php 
+		$big = 999999999; // need an unlikely integer
+		$term = false;
+		echo paginate_links( array(
+			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+			'format' => '?paged=%#%',
+			'current' => max( 1, get_query_var('paged') ),
+			'total' => $wp_query->max_num_pages
+		) );
+		?>
+		</div>		
+	</div>
+	<div class="row">
+		<div class="blog-archive-tags col-lg-8 col-md-8  text-center"><?php
+			if ( function_exists('wp_tag_cloud') )
+			{?>
+				<div class="blog-archive-tags-entry">
+					<?php wp_tag_cloud('smallest=10&largest=14'); ?>
+				</div><?php
+			}?>
 		</div>
 	</div>
-	<div class="clear"> </div>
-	<div class="blog-archive-tags"><?php
-		if ( function_exists('wp_tag_cloud') )
-		{?>
-			<div class="blog-archive-tags-entry">
-				<?php wp_tag_cloud('smallest=16&largest=28'); ?>
-			</div><?php
-		}?>
-	</div>
-</div><!-- entry -->
+</div>
+</div>
 <?php get_footer(); ?>
