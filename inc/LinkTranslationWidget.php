@@ -12,7 +12,7 @@ class LinkTranslationWidget extends WP_Widget
 		/* Widget control settings. */
 
 		/* Create the widget. */
-		$this->WP_Widget( 'LinkTranslationWidget', __('WPML Links'), $widget_ops );
+		$this->__construct( 'LinkTranslationWidget', __('WPML Links'), $widget_ops );
 
 	}
 
